@@ -203,7 +203,7 @@ document.addEventListener('DOMContentLoaded', () => {
       },
       {
         title: "Project Example",
-        description: "A description of another project example.",
+        description: "A description of another project example with Felix.",
         image: "https://tecdn.b-cdn.net/img/new/fluid/city/115.webp"
       },
       // Add more card data as needed
