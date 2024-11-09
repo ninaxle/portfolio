@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #fcfcfc;
+  }
+
+  html {
+    font-family: "Darker Grotesque", sans-serif;
+    font-weight: 500;
+    color: #282544;
+  }
+
+  h1 {
+    @apply text-4xl md:text-5xl;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl md:leading-10 leading-8 tracking-wide;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl md:leading-10 leading-6 tracking-wide	;
+  }
+
+  h4 {
+    @apply text-2xl md:text-2xl md:leading-7 leading-6 ;
+  }
+
+  h5 {
+    @apply text-6xl md:text-8xl;
+  }
+
+
+  p {
+    @apply text-xl md:text-xl leading-5 md:leading-6;
+  }
+
+  .normal-section {
+    @apply px-4 md:px-8 flex flex-col md:flex-row space-y-3;
+  }
+  @layer utilities {
+    /* Custom infinite scrolling animation */
+    @keyframes scroll-left {
+      0% {
+        transform: translateX(0); /* Start from the initial position */
+      }
+      100% {
+        transform: translateX(-100%); /* Scroll to the left */
+      }
+    }
+  
+    /* Apply the scroll-left animation */
+    .animate-scroll {
+      animation: scroll-left 15s linear infinite; /* Adjust speed by changing the duration */
+    }
+  }
+  
+  
+  }
+
