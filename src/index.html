@@ -5,84 +5,90 @@
     <link rel="stylesheet" href="global.styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=Syne:wght@400..800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300..900&family=Syne:wght@400..800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="main.js"></script>
     <title>Nina's Foilo</title>
   </head>
 
 <body>
-  <header id="navbar"></header>
-  <section class="flex flex-col md:flex-row w=full justify-between items-end">
-    <div class="flex flex-col px-4 md:px-8 py-6 md:py-11 md:pt-6 gap-9">
-      <h5 class="font-normal">Hey, I'm Nina</h5>
-      <h2>I'm a data-driven digital designer with 3 years of industry experience</h2>
-    </div>
-    <div class="awards-section w-full md:border-l border-grey"></div>
-    </section>
-
-    <section class="carousel-container relative w-full py-2 pb-3 text-teal-100 bg-[#28a56f] overflow-hidden">
-      <div class="carousel flex items-center gap-4 animate-scroll whitespace-nowrap">
-        <h1>EXOMIS+DEVELOPMENT</h1>
-        <span><h1>3!@#%</h1></span>
-        <h1>YORK UNIVERSITY</h1>
-        <span><h1>4$#@!</h1></span>
-        <h1>WINGED CANVAS</h1>
-        <span><h1>?2&%</h1></span>
-        <h1>GOODSELF</h1>
-        <span><h1>*@&^#</h1></span>
-        <!-- Repeat the content to create the illusion of infinite scroll -->
-        <h1>EXOMIS+DEVELOPMENT</h1>
-        <span><h1>3!@#%</h1></span>
-        <h1>YORK UNIVERSITY</h1>
-        <span><h1>4$#@!</h1></span>
-        <h1>WINGED CANVAS</h1>
-        <span><h1>?2&%</h1></span>
-        <h1>GOODSELF</h1>
-        <span><h1>*@&^#</h1></span>
+  <header id="navbar">
+    <div id="navbar-placeholder" class="bg-white">
+      <div class="border-b border-grey">
+        <nav class="py-6 px-4 md:px-8 flex justify-between items-end mx-auto">
+          <!-- Logo container -->
+          <a class="text-2xl flex items-end" href="/">
+            <h2 class="whitespace-nowrap">NINA LE</h2>
+          </a> <!-- Adjust height and color as needed -->
+        </nav>
       </div>
-    </section>
-     
-      
-      <div class="py-8 h1 pt-18 pb-12 flex flex-col md:flex-row md:pr-12 gap-12">
-          <div class="w-full md:w-44 rounded-full rounded-tl-none h-12 md:h-16 flex items-center justify-center md:sticky top-0 bg-blob grow-0">
-              <h2 class=" text-white text-center">UXUI</h2>
+    </div>
+  </header>
+  
+  <section class="px-4 md:px-16">
+    <div class="flex flex-col md:pt-24 flex-1 pr-4 pb-0">
+        <h5 class="font-extralight text-[120px] md:text-[236px]">Hey, I'm Nina</h5>
+    </div>
+    <div class="flex flex-col md:flex-row w-full justify-between pb-16">
+      <div class="flex flex-col flex-1 md:py-11 gap-8">
+        <h2 class="text-[24px] md:text-[36px]">I'm a data-driven digital designer with 3 years of industry experience.</h2>
+        <h3 class="text-[18px] md:text-[24px]">*and a dessert fanatic</h3>
+      </div>
+      <div class="flex justify-end items-center pr-4">
+        <!-- Adjusted image and color as needed -->
+        <div class="cursor">
+          <span class="cursor-text">About Me</span>
+        </div>
+        <div class="cursor-follower"></div>
+        <img src="/assets/musi.png" class="hover-image" alt="Music Icon">
+      </div>
+    </div>
+
+
+  </section>
+  
+   
+      <div class="py-8 h1 pb-12 flex flex-col md:flex-row md:pr-16 gap-12">
+          <div class="w-full md:w-36 rounded-full rounded-tl-none h-12 md:h-16 flex items-center justify-center md:sticky top-0 bg-blob grow-0">
+              <h2 class=" text-white text-center pb-1">UXUI</h2>
           </div>   
           <div class="grid grid-cols-none md:grid-cols-2 flex-1 cards-section"> 
           </div>
       </div>
       
       <div class="py-8 flex flex-col md:flex-row border-b border-grey md:pr-12 gap-12">
-          <div class="w-full md:w-44 rounded-full rounded-tl-none h-12 md:h-16 flex items-center justify-center md:sticky top-0 bg-green grow-0">
+          <div class="w-full md:w-36 rounded-full pb-1 rounded-tl-none h-12 md:h-16 flex items-center justify-center md:sticky top-0 bg-gree grow-0">
               <h2 class=" text-white text-center">DESIGN</h2>
           </div>   
           <div class="grid grid-cols-1 md:grid-cols-2 flex-1 cards-section2"> 
           </div>
       </div>
       
-      <section class="flex flex-col md:flex-row py-6 md:py-20 gap-6">
+      <section class="flex flex-col md:flex-row py-6 md:py-20 gap-6 flex-1">
         <div class="flex flex-col gap-9 px-4 md:px-12">
-            <h1>Feel Free To Connect!</h1>
+            <h1>Let's start a conversation!</h1>
             <h4>See something that caught your eye? Get in touch, I'd love to discuss and explore new challenges and opportunities!</h4>
         </div>
         <div class="w-full">
-            <div class="border-b border-grey p-4 pr-3 md:pr-12 flex items-center justify-between">
+            <div class="border-b border-grey p-4 pr-3 md:pr-12 flex items-center justify-between hover:text-blue-400 hover:font-semibold cursor-pointer">
                 <h4>About</h4>
-                <span class="material-symbols-outlined text-xl"><h2 class="font-thin cursor-pointer">trending_flat</h2></span>
+                <span class="material-symbols-outlined text-xl"><h2 class="font-thin">trending_flat</h2></span>
             </div>
             <div class="border-b border-grey p-4 pr-3 md:pr-12 flex items-center justify-between">
                 <h4>Resume</h4>
-                <span class="material-symbols-outlined text-xl"><h2 class="font-thin cursor-pointer">trending_flat</h2></span>
+                <span class="material-symbols-outlined text-xl"><h2 class="font-thin">trending_flat</h2></span>
             </div>
             <div class="border-b border-grey p-4 pr-3 md:pr-12 flex items-center justify-between">
                 <h4>Archive</h4>
-                <span class="material-symbols-outlined text-xl"><h2 class="font-thin cursor-pointer">trending_flat</h2></span>
+                <span class="material-symbols-outlined text-xl"><h2 class="font-thin">trending_flat</h2></span>
             </div>
         </div>
       </section>
       <footer id="footer"></footer>
+      <script type="module" src="main.js"></script>
+      <script type="module" src="module.js"></script>
+      <script src="cursor.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
+
   </body>
 </html>
