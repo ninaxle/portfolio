@@ -48,9 +48,6 @@
 
   }
   
-/* Cursor and follower base styles */
-/* Cursor and follower base styles */
-/* Base cursor style */
 body {
   cursor: none; /* Hide the default cursor */
 }
@@ -58,7 +55,7 @@ body {
 .cursor {
   position: absolute;
   pointer-events: none;
-  background-color: red;  /* Change to your preferred color */
+  background-color: rgb(218, 35, 11);  /* Change to your preferred color */
   width: 16px;  /* Normal size */
   height: 16px;
   border-radius: 50%;  /* Circular shape */
@@ -108,4 +105,19 @@ body {
   display: block;          /* Show text when hovering */
   font-size: 5px;         /* Adjust size of the text inside the cursor */
 }
+
+   /* Custom infinite scrolling animation */
+   @keyframes scroll-left {
+    0% {
+      transform: translateX(0); /* Start from the initial position */
+    }
+    100% {
+      transform: translateX(-100%); /* Scroll to the left */
+    }
+  }
+
+  .animate-scroll {
+    animation: scroll-left 15s linear infinite; 
+  }
+
 }

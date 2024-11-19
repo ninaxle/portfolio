@@ -18,8 +18,8 @@ function createCards(sectionSelector, cardsData) {
     cardDiv.className = 'px-4 py-6 flex flex-col space-y-4 flex-1';
 
     cardDiv.innerHTML = `
-      <div class="bg-beige h-80 w-full rounded-2xl relative overflow-hidden">
-        <img src="${card.image}" alt="${card.title}" loading="lazy" class="w-full h-full object-cover transition duration-300 ease-in-out hover:scale-110">
+      <div class="border-black border h-80 w-full rounded-2xl relative overflow-hidden">
+        <img src="${card.image}" alt="${card.title}" loading="lazy" class="w-full h-full object-cover transition duration-300 ease-in-out hover:scale-110 hover:bg-lime-100">
       </div>
       <h4 class="font-custom text-h4">${card.title}</h4>
       <p class="font-custom text-p">${card.description}</p>
@@ -63,9 +63,9 @@ const brandCardsData = [
     image: "https://tecdn.b-cdn.net/img/new/fluid/city/113.webp"
   },
   {
-    title: "ACCESSICHAT",
+    title: "Ms Carry One",
     description: "2024 RGD Honourable Mention in Augmented Creativity | an AI-powered platform incorporating Augmentative and Alternative Communication (AAC) tools.",
-    image: "https://tecdn.b-cdn.net/img/new/fluid/city/114.webp"
+    image: "/assets/one.png"
   },
   {
     title: "Project Example",

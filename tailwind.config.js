@@ -22,9 +22,10 @@ export default {
         grey: '#282544',
         black: '#020D03',
         egg: '#E7E0E6',
-        blob: '#0E66FE',
-        green: "#2EBF16",
+        blob: '#0B83FE',
+        gree: "#3AAD3C",
         beige: '#F8F6F6',
+        grey2: '#6B6B6B',
       }
     },
   },
