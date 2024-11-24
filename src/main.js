@@ -1,10 +1,5 @@
-
-
-
-
-
 // Unified card creation function
-function createCards(sectionSelector, cardsData) {
+function createCards(sectionSelector, cardsData, isBrandSection = false) {
   const cardsSection = document.querySelector(sectionSelector);
   if (!cardsSection) {
     console.error(`Cards section not found: ${sectionSelector}`);
@@ -13,17 +8,36 @@ function createCards(sectionSelector, cardsData) {
 
   const fragment = document.createDocumentFragment();
 
-  cardsData.forEach(card => {
+  cardsData.forEach((card, index) => {
     const cardDiv = document.createElement('div');
     cardDiv.className = 'px-4 py-6 flex flex-col space-y-4 flex-1';
 
+    // image class based on the card title
+    const imageClass = (card.title === 'HERE:AFTER' || card.title === 'MS. CARRY ONE' || card.title === 'DEAR DIARY'  || card.title === 'GOODSELF DESIGN SYSTEM (IN PROGRESS)') 
+      ? 'object-cover' // some
+      : 'object-contain'; // most cards
+
+    // same background color for all cards in the Brand section
     cardDiv.innerHTML = `
-      <div class="border-black border h-80 w-full rounded-2xl relative overflow-hidden">
-        <img src="${card.image}" alt="${card.title}" loading="lazy" class="w-full h-full object-cover transition duration-300 ease-in-out hover:scale-110 hover:bg-lime-100">
+      <div class="h-80 w-full rounded-2xl relative overflow-hidden bg-[#faf7f7]">
+        <img src="${card.image}" alt="${card.title}" loading="lazy" 
+          class="w-full h-full ${imageClass} transition duration-300 ease-in-out hover:scale-110" 
+          id="card-image-${index}">
       </div>
       <h4 class="font-custom text-h4">${card.title}</h4>
       <p class="font-custom text-p">${card.description}</p>
     `;
+
+    // Changed the image on hover for "Little Red Riding Hood"
+    if (card.title === "DEAR DIARY") {
+      const imgElement = cardDiv.querySelector(`#card-image-${index}`);
+      imgElement.addEventListener('mouseenter', () => {
+        imgElement.src = "/assets/red2.png"; // Changed to red2 image on hover
+      });
+      imgElement.addEventListener('mouseleave', () => {
+        imgElement.src = "/assets/red.png"; // Revert back on mouse leave
+      });
+    }
 
     fragment.appendChild(cardDiv);
   });
@@ -35,55 +49,70 @@ function createCards(sectionSelector, cardsData) {
 const uxuiCardsData = [
   {
     title: "HERE:AFTER",
-    description: "2023 RGD WINNER | a mental health journaling application for students. My role involved UXR and crafting the journaling task flow.",
+    description: "<em>AWARD—2023 RGD WINNER.</em> A journaling application which categorizes entries by mood. My role involved user interviews, usability tests and prototyping.",
     image: "/assets/here.png"
   },
   {
-    title: "ACCESSICHAT",
-    description: "2024 RGD Honourable Mention in Augmented Creativity | an AI-powered platform incorporating Augmentative and Alternative Communication (AAC) tools.",
-    image: "/assets/accesi.png"
+    title: "EXOMIS+DEV IN-HOUSE UXUI (COMING SOON)",
+    description: "An about page optimized for mobile and web, which highlights the brand's story, mission, values and services.",
+    image: "/assets/exomis.png"
   },
   {
-    title: "Project Example",
-    description: "A description of another project example.",
-    image: "https://tecdn.b-cdn.net/img/new/fluid/city/115.webp"
+    title: "ACCESSICHAT AAC & AI SOLUTION",
+    description: "<em>AWARD—2024 RGD Honourable Mention in Augmented Creativity.</em> An AI-powered AAC app designed to assist people with disabilities in daily communication.",
+    image: "/assets/accessi.png"
   },
   {
-    title: "Project Example",
-    description: "A description of another project example.",
-    image: "https://tecdn.b-cdn.net/img/new/fluid/city/115.webp"
+    title: "GOODSELF DESIGN SYSTEM (IN PROGRESS)",
+    description: "Development of a new design system for a healthtech start-up, including new components, upgrades to typography and color contrast.",
+    image: "/assets/ds.png"
   },
 ];
 
 // Data for Brand cards
 const brandCardsData = [
   {
-    title: "HERE:AFTER",
-    description: "2023 RGD WINNER | a mental health journaling application for students. My role involved UXR and crafting the journaling task flow.",
-    image: "https://tecdn.b-cdn.net/img/new/fluid/city/113.webp"
+    title: "THE GENDER DEBATE",
+    description: "An interactive infographic exploring gender inequalities across key SDGs by mapping the distinct challenges faced by men and women.",
+    image: "/assets/gender.png"
   },
   {
-    title: "Ms Carry One",
-    description: "2024 RGD Honourable Mention in Augmented Creativity | an AI-powered platform incorporating Augmentative and Alternative Communication (AAC) tools.",
-    image: "/assets/one.png"
+    title: "MS. CARRY ONE",
+    description: "Logo marks for a women’s fashion brand, combining graceful typography with subtle design elements, evoking sophistication and adventure.",
+    image: "/assets/exomis2.png"
   },
   {
-    title: "Project Example",
-    description: "A description of another project example.",
-    image: "https://tecdn.b-cdn.net/img/new/fluid/city/115.webp"
+    title: "LOST IN TRANSLATION",
+    description: "A magazine applying experimental typography to reflect the intersection of classical and contemporary music-making, blending the aesthetics of traditional music notation and modern MIDI software.",
+    image: "/assets/sound.png"
   },
   {
-    title: "Project Example with Felix",
-    description: "A description of another project example with Felix.",
-    image: "https://tecdn.b-cdn.net/img/new/fluid/city/115.webp"
+    title: "HOW TO PLANT PLUM TREES",
+    description: "A data visualization on the different plum tree varieties, the best zones to grow them, and different scenarios on how to plant them.",
+    image: "/assets/tree.png"
+  },
+];
+
+// Data for Play cards (including Little Red Riding Hood)
+const playCardsData = [
+  {
+    title: "THE SPIRALIST",
+    description: "An experimental, mobile and web-responsive experience that evokes the dark fantasy motifs explored in Dr. Kevin Dann’s commentary on Pettigrew’s <em>Design in Nature</em> (1908).",
+    image: "/assets/spiralist.png"
+  },
+  {
+    title: "DEAR DIARY",
+    description: "An interactive scrolling website that reimagines <em>Little Red Riding Hood</em> through a feminist lens, using motion design to critique its origins as a cautionary story and reframe it as a narrative of resilience.",
+    image: "/assets/red.png"
   },
 ];
 
 // Main execution
 document.addEventListener('DOMContentLoaded', () => {
+  // UX/UI cards creation
   createCards('.cards-section', uxuiCardsData);
-  createCards('.cards-section2', brandCardsData);
+  // Brand cards creation with same background color for all
+  createCards('.cards-section2', brandCardsData, true);
+  // Play cards creation with hover effect for Little Red Riding Hood
+  createCards('.cards-section3', playCardsData, true);
 });
-
-
-
