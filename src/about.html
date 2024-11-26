@@ -9,53 +9,90 @@
         <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <title>Nina's Foilo</title>
-      </head>
+        <title>Nina's Folio</title>
+    </head>
 <body>
   <header id="navbar">
-        <div class="border-b border-grey">
-          <nav class="py-6 px-4 md:px-8 flex justify-between items-center mx-auto h-24">
-            </nav>
-        </div>
-</header>
-
-    <div class="cursor">
-      <div class="cursor-follower"></div></div>
-
+    <div class="border-b border-grey">
+      <nav class="py-6 px-4 md:px-8 flex justify-between items-center mx-auto h-24"></nav>
     </div>
-</div>
+  </header>
 
-  <section class="flex flex-col md:flex-row py-6 md:py-20 gap-6 flex-1">
-    <div class="flex flex-col gap-9 px-4 md:px-12">
-            <h1>Nice to meet you!</h1>
-            <h4>I’m Nina Le (She/Her), a third-year design student at York University, pursuing an Honours Bachelor of Design. This past summer, I interned as a Product Designer at Exomis Design + Development, and I’m currently a fall UI/UX Designer at Goodself.I focus on crafting intuitive and inclusive solutions that cater to diverse audiences, while aligning with cross-functional teams. Whether building user flows, prototyping, or conducting research, I aim to bring a thoughtful and engaging touch to my work, while keeping accessibility at the forefront. Let’s connect and create experiences that are both impactful and functional!</h4>
-        </div>
-        <div class="flex flex-col gap-9 px-4 md:pr-12">
-            <img src="/assets/profile.jpeg">
-        </div>
-      </section>
+  <div class="cursor"></div>
+  <div class="cursor-follower"></div>
 
+
+  <section class="flex flex-col md:flex-row py-8 px-4 md:px-8 gap-8">
+      
+    <!-- Right Image Section -->
+    <div class="flex justify-center items-center">
+      <img src="/assets/profile.jpeg" alt="Profile picture of Nina Le" class="rounded-2xl w-full max-w-md">
+    </div>
+    <!-- Left Content Section -->
+    <div class="flex flex-col gap-8">
+      <div>
+        <h1 class="pb-8">Nice to meet you!</h1>
+        <h4>
+          I’m Nina Le (She/Her), a third-year design student at York University and a UX/UI designer pursuing an Honours Bachelor of Design. 
+          I’m passionate about creating thoughtful, inclusive solutions that optimize feasibility, viability, and desirability for current or future features. 
+          Whether working on UX/UI or experimental projects, I love diving into research and collaborating with cross-functional teams to craft experiences that truly cater to the user.
+          <br><br>
+          My attention to detail—shaped by years in choir and traditional/digital illustration—fuels my approach to design. 
+          Combined with my industry experience, this foundation drives my focus on accessibility, precision, and creating work that feels both engaging and impactful.
+        </h4>
+      </div>
+      <button class="rounded-full px-16 py-2 border-2 border-grey hover:bg-gray-100 transition">
+        <h4>Open Resume</h4>
+      </button>
+    </div>
+
+  </section>
   
+  <section class="flex flex-col md:flex-row py-8 px-4 md:px-8 gap-8 border-t border-grey">
 
-      <section class="flex flex-col md:flex-row py-6 md:py-20 gap-6">
-        <div class="flex flex-col gap-9 px-4 md:px-12">
-        <div>
-            <h2>My Interests</h2>
-            <p>- Outside of work, catch me lavishing in girly fancy things like afternoon tea, music boxes, ballet, aquariums and lolita dresses.</p>
-            <p>- I am a mezzo soprano singer and I especially love singing to rock and alternative songs with heavy belts and strong choruses.</p>
-            <p>- I have an illustration background and was branded the art kid (Fun fact - Back in highschool, I was awarded art award for three consecutive years heheh)</p>
-            <p>- I have a strong interest in pursuing many hobbies in the future, including code and sculpting clay figurines!</p>
-        </div>
-    
-        </div>
-
-      </section>
-
-        
-        <footer id="footer"></footer>
-        <script type="module" src="module.js"></script>
-        <script type="module" src="cursor.js"></script>
-
-
+    <!-- Right Content Section -->
+    <div class="flex flex-col gap-8 p-3">
+      <div>
+        <p class="pb-6">My Design Values</p>
+        <p>Responsible Design</p>
+        <p>
+          Applying human-centered design principles to decision-making, ensuring solutions are ethical, 
+          inclusive, and considerate of their impact on all stakeholders. Prioritizing accessibility, equity, 
+          and sustainability while aligning with broader business goals.
+        </p>
+      </div>
+      <div>
+        <p>Fanciful Utility</p>
+        <p>
+          Crafting designs that balance delight and usability, integrating meaningful embellishments to enhance aesthetic usability 
+          without compromising the functionality or user flow—like creating a seamless rhythm that captivates and guides the user.
+        </p>
+      </div>
+      <div>
+        <p>Precision in Intuition</p>
+        <p>
+          Combining micro-interactions, hierarchy, and meticulous attention to detail to craft intuitive experiences that feel effortless yet intentional. 
+          Focusing on iterative design to ensure designs evolve based on research and user feedback while delivering exceptional consistency and usability.
+        </p>
+      </div>
+    </div>
+       <!-- Left Content Section -->
+       <div class="flex justify-center items-center pr-4">
+        <img src="/assets/dog.png" alt="Illustration of a dog" class="w-8 h-auto">
+      </div>
+  </section>
+  
+  <section class="flex flex-col py-8 px-4 md:px-8 gap-3 border-t border-grey">
+    <h3>My Interests</h3>
+    <p>
+      - Outside of work, catch me lavishing in girly fancy things like afternoon tea, music boxes, ballet, aquariums, and lolita dresses.<br>
+      - I am a mezzo-soprano singer, and I especially love singing to rock and alternative songs with heavy belts and strong choruses.<br>
+      - I have an interest in pursuing many hobbies in the future, including coding and sculpting clay figurines!
+    </p>
+  </section>
+  
+  <footer id="footer"></footer>
+  <script type="module" src="module.js"></script>
+  <script type="module" src="cursor.js"></script>
 </body>
 </html>

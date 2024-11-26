@@ -44,13 +44,18 @@
   .normal-section {
     @apply px-4 md:px-8 flex flex-col md:flex-row space-y-3;
   }
+
+
+  .width {
+    max-width: 900px;
+  }
+
+
   @layer utilities {
 
   }
   
-body {
-  cursor: none; /* Hide the default cursor */
-}
+
 /* Default cursor style */
 .cursor {
   position: absolute;
