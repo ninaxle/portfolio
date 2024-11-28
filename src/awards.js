@@ -1,59 +1,57 @@
 
 
 document.addEventListener('DOMContentLoaded', () => {
-    const awards = [
-        { date: "/24.06", code: "(01)", title: "Honourable Mention in Augmented Creativity" },
-        { date: "/24.05", code: "(02)", title: "3rd Place in UX Protothon (Gaming)" },
-        { date: "/23.10", code: "(03)", title: "1st Place Tie-Winner in UX Design Category" },
-        { date: "/22.02", code: "(04)", title: "2nd Place in Student DESN’athon at YorkU" },
-    ];
-  
-    // Find the container for the awards
-    const awardsSection = document.querySelector('.awards-section');
-  
-    // Check if the container exists before proceeding
-    if (awardsSection) {    
-      // Create elements for each award
-      awards.forEach((award, index) => {
-        // Main container for each award
-        const awardDiv = document.createElement('div');
-  
-        // If it's not the last award, add the border-bottom
-        awardDiv.className = index === awards.length - 1 
-          ? 'award p-4 pr-3 md:pr-12'  // No border for the last item
-          : 'award border-b border-grey pb-10 p-2 pr-3 md:pr-12'; // Add border for all others
-  
-        // Container for the date and code
-        const infoDiv = document.createElement('div');
-        infoDiv.className = 'info flex justify-between mb-2';
-  
-        const dateElement = document.createElement('p');
-        dateElement.className = 'text-p';
-        dateElement.textContent = award.date;
+  const awards = [
+    { date: "2024", code: "RGD Student Awards", title: "Honourable Mention in Augmented Creativity" },
+    { date: "2024", code: "DubsTech & Design Buddies Protothon", title: "3rd Place Winner in Gaming Track" },
+    { date: "2023", code: "RGD Student Awards", title: "1st Place Tie-Winner in Forbes UX Design" },
+    { date: "2022", code: "York University", title: "2nd Place Winner in Design for Student Enpowerment" },
+  ];
 
-        const codeElement = document.createElement('p');
-        codeElement.className = 'text-p hidden sm:block';  // Hide on mobile and show on larger screens
-        codeElement.textContent = award.code;
-  
-        // Add date and code to the info container
-        infoDiv.appendChild(codeElement);
-        infoDiv.appendChild(dateElement);
+  // Find the container for the awards
+  const awardsSection = document.querySelector('.awards-section');
 
-  
-        // Title for the award
-        const titleElement = document.createElement('p');
-        titleElement.className = 'text-p';
-        titleElement.textContent = award.title;
-  
-        // Add the info and title to the award container
-        awardDiv.appendChild(infoDiv);
-        awardDiv.appendChild(titleElement);
-  
-        // Add the award container to the main awards section
-        awardsSection.appendChild(awardDiv);
-      });
-    } else {
-      console.error('Awards section not found in the HTML.');
-    }
-  });
-  
+  // Check if the container exists before proceeding
+  if (awardsSection) {
+    // Create elements for each award
+    awards.forEach((award, index) => {
+      // Main container for each award
+      const awardDiv = document.createElement('div');
+
+      // If it's not the last award, add the border-bottom
+      awardDiv.className = index === awards.length - 1 
+        ? 'award pr-3 md:pr-12 flex items-center pt-6 justify-between'  // No border for the last item
+        : 'award border-b border-grey py-6 pr-3 md:pr-12 flex items-center justify-between'; // Add border for all others
+
+      // Container for the code and title
+      const detailsDiv = document.createElement('div');
+      detailsDiv.className = 'details flex flex-col flex-1';
+
+      const codeElement = document.createElement('p');
+      codeElement.className = 'text-p hidden sm:block';  // Hide on mobile and show on larger screens
+      codeElement.textContent = award.code;
+
+      const titleElement = document.createElement('h3');
+      titleElement.className = 'text-h3';
+      titleElement.textContent = award.title;
+
+      // Add code and title to the details container
+      detailsDiv.appendChild(codeElement);
+      detailsDiv.appendChild(titleElement);
+
+      // Year (Date) element - Aligned to the right
+      const dateElement = document.createElement('p');
+      dateElement.className = 'text-p text-right ml-4 min-w-[4rem]'; // Margin left for spacing
+      dateElement.textContent = award.date;
+
+      // Add the details and date to the award container
+      awardDiv.appendChild(detailsDiv);
+      awardDiv.appendChild(dateElement);
+
+      // Add the award container to the main awards section
+      awardsSection.appendChild(awardDiv);
+    });
+  } else {
+    console.error('Awards section not found in the HTML.');
+  }
+});

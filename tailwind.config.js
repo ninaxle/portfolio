@@ -1,11 +1,8 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
-    "./src/index.html",
-    
-    "./src/navbar.html",
-    "./src/footer.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
+    "./src/**/*.html",          // Targets all HTML files inside the src folder and its subdirectories
+    "./src/**/*.{js,ts,jsx,tsx}" // Targets all JS, TS, JSX, and TSX files for Tailwind class usage
   ],
 
   
