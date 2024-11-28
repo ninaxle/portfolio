@@ -13,7 +13,7 @@ function createCards(sectionSelector, cardsData, isBrandSection = false) {
     cardDiv.className = 'px-4 py-6 flex flex-col space-y-4 flex-1';
 
     // image class based on the card title
-    const imageClass = (card.title === 'HERE:AFTER' || card.title === 'MS. CARRY ONE' || card.title === 'DEAR DIARY'  || card.title === 'GOODSELF DESIGN SYSTEM (IN PROGRESS)') 
+    const imageClass = (card.title === 'MS. CARRY ONE' || card.title === 'DEAR DIARY'  || card.title === 'GOODSELF DESIGN SYSTEM (IN PROGRESS)') 
       ? 'object-cover' // some
       : 'object-contain'; // most cards
 

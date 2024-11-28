@@ -60,7 +60,7 @@
 .cursor {
   position: absolute;
   pointer-events: none;
-  background-color: rgb(243, 5, 89);  /* Change to your preferred color */
+  background-color: #f30559;  /* Change to your preferred color */
   width: 16px;  /* Normal size */
   height: 16px;
   border-radius: 50%;  /* Circular shape */

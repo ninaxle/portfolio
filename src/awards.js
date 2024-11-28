@@ -2,10 +2,9 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   const awards = [
-    { date: "2024", code: "RGD Student Awards", title: "Honourable Mention in Augmented Creativity" },
+    { date: "2023–2024", code: "RGD Student Awards x 2", title: "1st Place Tie-Winner in Forbes UX Design & Honourable Mention in Augmented Creativity" },
     { date: "2024", code: "DubsTech & Design Buddies Protothon", title: "3rd Place Winner in Gaming Track" },
-    { date: "2023", code: "RGD Student Awards", title: "1st Place Tie-Winner in Forbes UX Design" },
-    { date: "2022", code: "York University", title: "2nd Place Winner in Design for Student Enpowerment" },
+    { date: "2022", code: "DSA Winter DESN'athon @ York University", title: "2nd Place Winner in designing for Student Enpowerment" },
   ];
 
   // Find the container for the awards
@@ -20,19 +19,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // If it's not the last award, add the border-bottom
       awardDiv.className = index === awards.length - 1 
-        ? 'award pr-3 md:pr-12 flex items-center pt-6 justify-between'  // No border for the last item
-        : 'award border-b border-grey py-6 pr-3 md:pr-12 flex items-center justify-between'; // Add border for all others
+        ? 'award  flex items-center pt-6 justify-between'  // No border for the last item
+        : 'award border-b border-grey py-6  flex items-center justify-between'; // Add border for all others
 
       // Container for the code and title
       const detailsDiv = document.createElement('div');
       detailsDiv.className = 'details flex flex-col flex-1';
 
       const codeElement = document.createElement('p');
-      codeElement.className = 'text-p hidden sm:block';  // Hide on mobile and show on larger screens
+      codeElement.className = 'text-p';  // Hide on mobile and show on larger screens
       codeElement.textContent = award.code;
 
-      const titleElement = document.createElement('h3');
-      titleElement.className = 'text-h3';
+      const titleElement = document.createElement('h4');
+      titleElement.className = 'text-h4';
       titleElement.textContent = award.title;
 
       // Add code and title to the details container
