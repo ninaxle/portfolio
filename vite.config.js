@@ -7,5 +7,5 @@ export default defineConfig({
   server: {
     port: 5173, // Port you want the dev server to run on
   },
-  publicDir: "public",
+  publicDir: "assets",
 });
