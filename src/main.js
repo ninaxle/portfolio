@@ -8,9 +8,16 @@ function createCards(sectionSelector, cardsData, isBrandSection = false) {
 
   const fragment = document.createDocumentFragment();
 
+
   cardsData.forEach((card, index) => {
+    // Check if it's the UX/UI section and apply the 'down' class to cards with index >= 2
     const cardDiv = document.createElement('div');
-    cardDiv.className = 'px-4 py-6 flex flex-col space-y-4 flex-1';
+    cardDiv.className = (sectionSelector === '.cards-section' && index < 2)
+      ? 'px-4 py-6 flex flex-col space-y-4 flex-1' // No animation for the first two cards
+      : 'px-4 py-6 flex flex-col space-y-4 flex-1 md:down'; // Apply animation to the rest
+
+
+
 
     // image class based on the card title
     const imageClass = (card.title === 'MS. CARRY ONE' || card.title === 'DEAR DIARY'  || card.title === 'GOODSELF DESIGN SYSTEM (IN PROGRESS)') 
@@ -53,7 +60,7 @@ const uxuiCardsData = [
     image: "/assets/here.png"
   },
   {
-    title: "EXOMIS+DEV IN-HOUSE UXUI (COMING SOON)",
+    title: "EXOMIS+DEV IN-HOUSE UXUI",
     description: "An about page optimized for mobile and web, which highlights the brand's story, mission, values and services.",
     image: "/assets/exomis.png"
   },

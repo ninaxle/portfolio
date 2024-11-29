@@ -108,22 +108,42 @@
 
 .cursor.hovering .cursor-text {
   display: block;          /* Show text when hovering */
-  font-size: 5px;         /* Adjust size of the text inside the cursor */
+  font-size: 4px;         /* Adjust size of the text inside the cursor */
 }
 
-   /* Custom infinite scrolling animation */
-   @keyframes scroll-left {
-    0% {
-      transform: translateX(0); /* Start from the initial position */
-    }
-    100% {
-      transform: translateX(-100%); /* Scroll to the left */
-    }
+/* Custom infinite scrolling animation */
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0); /* Start from the initial position */
   }
+  100% {
+    transform: translateX(-100%); /* Scroll to the left */
+  }
+}
 
-  .animate-scroll {
-    animation: scroll-left 15s linear infinite; 
+/* Apply the scroll-left animation */
+.animate-scroll {
+  animation: scroll-left 15s linear infinite;
+  cursor: default; /* Removes the cursor from this section */
+}
+
+
+/* scrolling on website appear */
+@keyframes appear{
+  from{
+     opacity: 0;
+     scale: 0.5;
   }
+  to{
+     opacity: 1;
+     scale: 1;
+  }
+}
+.down{
+  animation: appear linear;
+  animation-timeline: view();
+  animation-range: entry 0% cover 40%;
+}
 
   
 }
