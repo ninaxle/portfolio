@@ -16,6 +16,10 @@ Promise.all([
   const hamburgerIcon = document.querySelector('img[alt="Menu"]');
   const navLinks = document.querySelector('.nav-links');
 
+  if (!hamburgerIcon && !navLinks) {
+    return;
+  }
+
   // Function to check if the screen width is small and show only the hamburger
   function handleScreenResize() {
     const isMobile = window.innerWidth <= 768; // Change to your breakpoint
