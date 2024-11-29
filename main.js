@@ -39,10 +39,10 @@ function createCards(sectionSelector, cardsData, isBrandSection = false) {
     if (card.title === "DEAR DIARY") {
       const imgElement = cardDiv.querySelector(`#card-image-${index}`);
       imgElement.addEventListener('mouseenter', () => {
-        imgElement.src = "/assets/red2.png"; // Changed to red2 image on hover
+        imgElement.src = "red2.png"; // Changed to red2 image on hover
       });
       imgElement.addEventListener('mouseleave', () => {
-        imgElement.src = "/assets/red.png"; // Revert back on mouse leave
+        imgElement.src = "red.png"; // Revert back on mouse leave
       });
     }
 
@@ -57,22 +57,22 @@ const uxuiCardsData = [
   {
     title: "HERE:AFTER",
     description: "<em>AWARD—2023 RGD WINNER.</em> A journaling application which categorizes entries by mood. My role involved user interviews, usability tests and prototyping.",
-    image: "/assets/here.png"
+    image: "here.png"
   },
   {
     title: "EXOMIS+DEV IN-HOUSE UXUI",
     description: "An about page optimized for mobile and web, which highlights the brand's story, mission, values and services.",
-    image: "/assets/exomis.png"
+    image: "exomis.png"
   },
   {
     title: "ACCESSICHAT AAC & AI SOLUTION",
     description: "<em>AWARD—2024 RGD Honourable Mention in Augmented Creativity.</em> An AI-powered AAC app designed to assist people with disabilities in daily communication.",
-    image: "/assets/accessi.png"
+    image: "accessi.png"
   },
   {
     title: "GOODSELF DESIGN SYSTEM (IN PROGRESS)",
     description: "Development of a new design system for a healthtech start-up, including new components, upgrades to typography and color contrast.",
-    image: "/assets/ds.png"
+    image: "ds.png"
   },
 ];
 
@@ -81,22 +81,22 @@ const brandCardsData = [
   {
     title: "THE GENDER DEBATE",
     description: "An interactive infographic exploring gender inequalities across key SDGs by mapping the distinct challenges faced by men and women.",
-    image: "/assets/gender.png"
+    image: "gender.png"
   },
   {
     title: "MS. CARRY ONE",
     description: "Logo marks for a women’s fashion brand, combining graceful typography with subtle design elements, evoking sophistication and adventure.",
-    image: "/assets/exomis2.png"
+    image: "exomis2.png"
   },
   {
     title: "LOST IN TRANSLATION",
     description: "A magazine applying experimental typography to reflect the intersection of classical and contemporary music-making, blending the aesthetics of traditional music notation and modern MIDI software.",
-    image: "/assets/sound.png"
+    image: "sound.png"
   },
   {
     title: "HOW TO PLANT PLUM TREES",
     description: "A data visualization on the different plum tree varieties, the best zones to grow them, and different scenarios on how to plant them.",
-    image: "/assets/tree.png"
+    image: "tree.png"
   },
 ];
 
@@ -105,12 +105,12 @@ const playCardsData = [
   {
     title: "THE SPIRALIST",
     description: "An experimental, mobile and web-responsive experience that evokes the dark fantasy motifs explored in Dr. Kevin Dann’s commentary on Pettigrew’s <em>Design in Nature</em> (1908).",
-    image: "/assets/spiralist.png"
+    image: "spiralist.png"
   },
   {
     title: "DEAR DIARY",
     description: "An interactive scrolling website that reimagines <em>Little Red Riding Hood</em> through a feminist lens, using motion design to critique its origins as a cautionary story and reframe it as a narrative of resilience.",
-    image: "/assets/red.png"
+    image: "red.png"
   },
 ];
 

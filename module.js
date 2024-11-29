@@ -40,10 +40,10 @@ Promise.all([
   if (hamburgerIcon && navLinks) {
     hamburgerIcon.addEventListener('click', function () {
       // Check if the icon is currently 'close'
-      const isMenuOpen = hamburgerIcon.src.includes('/assets/ham.svg');
+      const isMenuOpen = hamburgerIcon.src.includes('ham.svg');
 
       // Toggle icons
-      hamburgerIcon.src = isMenuOpen ? '/assets/close.svg' : '/assets/ham.svg';
+      hamburgerIcon.src = isMenuOpen ? 'close.svg' : 'ham.svg';
 
       // Toggle visibility classes
       navLinks.style.top = isMenuOpen ? '72px' : '-100%';  // Show/hide menu based on icon
