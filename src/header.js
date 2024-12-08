@@ -15,12 +15,12 @@ headerTemplate.innerHTML =
     }
 
     header {
-      background-color: white;
-      position: fixed;
+      background-color: #fcfcfc;
+      position: fixed; /* Fixed by default */
       top: 0;
       width: 100%;
       z-index: 1000;
-      border-bottom: 1px solid #dcdcdc;
+      border-bottom: 1px solid #282544;
       transition: transform 0.3s ease; /* Smooth hide/show transition */
     }
 
@@ -44,7 +44,16 @@ headerTemplate.innerHTML =
       font-weight: 400;
     }
 
+    #hamburger-icon {
+      display: none;
+      cursor: pointer;
+    }
+
     @media (max-width: 768px) {
+      header {
+        position: static; /* Static for mobile */
+      }
+
       nav {
         padding: 16px;
       }
@@ -65,12 +74,17 @@ headerTemplate.innerHTML =
       .nav-links.open {
         display: flex;
       }
+
+      #hamburger-icon {
+        display: block;
+      }
     }
   </style>
 
   <header>
     <nav>
       <a href="/"><img src="name.svg" alt="Logo"></a>
+      <img src="ham.svg" id="hamburger-icon" alt="Menu">
       <ul class="nav-links">
         <li><a href="index.html">Projects</a></li>
         <li><a href="about.html">About</a></li>
@@ -85,31 +99,46 @@ class Header extends HTMLElement {
     const shadowRoot = this.attachShadow({ mode: "open" });
     shadowRoot.appendChild(headerTemplate.content.cloneNode(true));
 
-    this.lastScrollY = 0; 
     this.headerElement = shadowRoot.querySelector("header");
+    this.hamburgerIcon = shadowRoot.getElementById("hamburger-icon");
+    this.navLinks = shadowRoot.querySelector(".nav-links");
+    this.lastScrollY = 0;
 
+    this.setupListeners();
+  }
+
+  setupListeners() {
+    // Detect desktop viewport
     this.isDesktop = window.matchMedia("(min-width: 768px)").matches;
+    this.updateScrollBehavior();
 
-    if (this.isDesktop) {
-      window.addEventListener("scroll", this.handleScroll.bind(this));
-    }
-
+    // Listen for viewport size changes
     window.matchMedia("(min-width: 768px)").addEventListener("change", (e) => {
       this.isDesktop = e.matches;
-
-      if (this.isDesktop) {
-        window.addEventListener("scroll", this.handleScroll.bind(this));
-      } else {
-        window.removeEventListener("scroll", this.handleScroll.bind(this));
-        this.showHeader();
-      }
+      this.updateScrollBehavior();
     });
+
+    // Bind hamburger menu toggle
+    this.hamburgerIcon.addEventListener("click", this.toggleMenu.bind(this));
+  }
+
+  updateScrollBehavior() {
+    if (this.isDesktop) {
+      // Add scroll behavior for desktop
+      this.headerElement.style.position = "fixed"; // Explicitly set fixed for desktop
+      window.addEventListener("scroll", this.handleScroll.bind(this));
+      this.showHeader();
+    } else {
+      // Remove scroll behavior for mobile
+      this.headerElement.style.position = "static"; // Explicitly set static for mobile
+      window.removeEventListener("scroll", this.handleScroll.bind(this));
+      this.showHeader(); // Ensure header is visible on transition to mobile
+    }
   }
 
   handleScroll() {
     const currentScrollY = window.scrollY;
 
-    // Threshold to determine whether scrolling is 'significant'
     const scrollThreshold = 100;
 
     if (currentScrollY < scrollThreshold) {
@@ -126,6 +155,13 @@ class Header extends HTMLElement {
     }
 
     this.lastScrollY = currentScrollY;
+  }
+
+  toggleMenu() {
+    const isMenuOpen = this.navLinks.classList.contains("open");
+    this.navLinks.classList.toggle("open", !isMenuOpen);
+    document.body.classList.toggle("no-scroll", !isMenuOpen); // Prevent scrolling
+    this.hamburgerIcon.src = isMenuOpen ? "ham.svg" : "close.svg"; // Update icon
   }
 
   hideHeader() {
