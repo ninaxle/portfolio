@@ -13,8 +13,8 @@ function createCards(sectionSelector, cardsData, isBrandSection = false) {
     // Check if it's the UX/UI section and apply the 'down' class to cards with index >= 2
     const cardDiv = document.createElement('div');
     cardDiv.className = (sectionSelector === '.cards-section' && index < 2)
-      ? 'px-4 py-6 flex flex-col space-y-4 flex-1' // No animation for the first two cards
-      : 'px-4 py-6 flex flex-col space-y-4 flex-1 md:down'; // Apply animation to the rest
+      ? 'pb-8 px-2 flex flex-col space-y-4 flex-1' // No animation for the first two cards
+      : 'pb-8 px-2 flex flex-col space-y-4 flex-1 md:down'; // Apply animation to the rest
 
 
 
@@ -26,7 +26,7 @@ function createCards(sectionSelector, cardsData, isBrandSection = false) {
 
     // same background color for all cards in the Brand section
     cardDiv.innerHTML = `
-      <div class="h-80 w-full rounded-2xl relative overflow-hidden bg-[#faf7f7]">
+      <div class="h-80 w-full rounded-2xl relative overflow-hidden bg-[#f3f3f4]">
         <img src="${card.image}" alt="${card.title}" loading="lazy" 
           class="w-full h-full ${imageClass} transition duration-300 ease-in-out hover:scale-110" 
           id="card-image-${index}">

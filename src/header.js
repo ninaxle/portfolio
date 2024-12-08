@@ -28,12 +28,12 @@ headerTemplate.innerHTML =
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 32px 72px;
+      padding: 32px;
       height: 96px;
     }
 
     nav a img {
-      height: 60px;
+      height: 48px;
     }
 
     .nav-links {
@@ -62,13 +62,14 @@ headerTemplate.innerHTML =
         display: none;
         flex-direction: column;
         gap: 1.5rem;
-        background-color: white;
+        background-color: #fcfcfc;
         position: absolute;
         top: 100%;
         left: 0;
         right: 0;
-        padding: 16px;
-        border-bottom: 1px solid #dcdcdc;
+        padding: 32px;
+        border-top: 1px solid #282544;
+        border-bottom: 1px solid #282544;
       }
 
       .nav-links.open {
@@ -77,6 +78,8 @@ headerTemplate.innerHTML =
 
       #hamburger-icon {
         display: block;
+        height: 24px;
+
       }
     }
   </style>
