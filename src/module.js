@@ -6,7 +6,6 @@ function loadHTML(file, elementId) {
       document.getElementById(elementId).innerHTML = data;
     });
 }
-
 // Concurrently load navbar and footer
 Promise.all([
   loadHTML('navbar.html', 'navbar'),
