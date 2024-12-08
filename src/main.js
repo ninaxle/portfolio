@@ -31,8 +31,8 @@ function createCards(sectionSelector, cardsData, isBrandSection = false) {
           class="w-full h-full ${imageClass} transition duration-300 ease-in-out hover:scale-110" 
           id="card-image-${index}">
       </div>
-      <h4 class="font-custom text-h4">${card.title}</h4>
-      <p class="font-custom text-p">${card.description}</p>
+      <p>${card.title}</p>
+      <p>${card.description}</p>
     `;
 
     // Changed the image on hover for "Little Red Riding Hood"

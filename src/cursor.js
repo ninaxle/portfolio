@@ -50,11 +50,11 @@ hoverElements.forEach((element) => {
       cursorText.textContent = "Open Link"; // Set cursor text for image elements
     } else if (element.tagName === "IMG" && element.alt === "Music Icon") {
         cursorText.textContent = "About Me"; // Set cursor text for music icon
-    } else if (element.querySelector('h4') && element.querySelector('h4').textContent === "About") {
+    } else if (element.querySelector('h6') && element.querySelector('h6').textContent === "About") {
       cursorText.textContent = "About Me"; // Set cursor text for "About"
-    } else if (element.querySelector('h4') && element.querySelector('h4').textContent === "Resume") {
+    } else if (element.querySelector('h6') && element.querySelector('h6').textContent === "Resume") {
       cursorText.textContent = "Resume"; // Set cursor text for "Resume"
-    } else if (element.querySelector('h4') && element.querySelector('h4').textContent === "Archive") {
+    } else if (element.querySelector('h6') && element.querySelector('h6').textContent === "Archive") {
       cursorText.textContent = "Archive"; // Set cursor text for "Archive"
     } else {
       cursorText.textContent = "Open Link"; // Default text

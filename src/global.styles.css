@@ -25,7 +25,7 @@
   }
 
   h3 {
-    @apply text-2xl md:text-3xl md:leading-10 leading-6 tracking-wide	;
+    @apply text-2xl md:text-3xl md:leading-6 leading-4 tracking-wide	;
   }
 
   h4 {
@@ -37,17 +37,20 @@
   }
 
   h6 {
-    @apply text-5xl md:text-8xl;
+    @apply text-xl leading-6 tracking-wide;
   }
 
   p {
-    @apply text-2xl leading-7;
+    @apply text-lg leading-4;
   }
 
   .normal-section {
     @apply px-4 md:px-8 flex flex-col md:flex-row space-y-3;
   }
 
+  .smolwidth {
+    max-width: 600px;
+  }
 
   .width {
     max-width: 900px;
