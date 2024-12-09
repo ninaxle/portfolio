@@ -5,6 +5,8 @@
         <link rel="stylesheet" href="global.styles.css">
         <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300..900&family=Syne:wght@400..800&display=swap" rel="stylesheet">
+
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -16,16 +18,19 @@
 
 <header-component></header-component>
 
-  <div class="cursor"></div>
-  <div class="cursor-follower"></div>
 
-  <section class="flex flex-col md:flex-row py-8 px-4 md:px-16 gap-8 items-center pt-8 md:pt-32">
+<div class="cursor">
+  <span class="cursor-text"></span>
+</div>
+<div class="cursor-follower"></div>
+
+  <section class="flex flex-col md:flex-row py-8 md:py-20 px-4 md:px-16 gap-8 items-center pt-8 md:pt-40">
     <!-- Right Image Section -->
     <div class="flex-auto">
-      <img src="profile.jpg" alt="Profile picture of Nina Le" class="rounded-2xl h-full w-auto">
+      <img src="profile.jpg" alt="Profile picture of Nina Le" class="rounded-2xl max-w-[320px] h-auto object-contain">
     </div>
     <!-- Left Content Section -->
-    <div class="flex flex-col gap-16 md:w-full">
+    <div class="flex flex-col gap-8 md:w-full">
       <div>
         <h3 class="pb-8">Nice to meet you!</h3>
         <h6>
@@ -38,7 +43,7 @@
         </h6>
       </div>
       <a href="https://drive.google.com/file/d/15Vbiz09x6SVD2cTScr3ldKVGAPqeNlPY/view?usp=sharing" target="_blank">
-        <button class="w-full rounded-full px-16 pb-2 py-2 border-2 border-grey hover:bg-gray-100 transition m-full md:w-[700px]">
+        <button class="w-full rounded-full px-16 pb-2 py-2 border-2 border-grey hover:bg-teal-50 transition m-full md:w-[700px]">
           <h4>Open Resume</h4>
         </button>
       </a>
@@ -46,31 +51,61 @@
     </div>
   </section>
 
+
+<!-- Values Section -->
+<section class="py-8 md:py-12 md:px-16 flex flex-col px-4 gap-3 border-t border-grey">
+  <h3>My Design Values</h3>
+  
+  <!-- Main Flexbox for Text and Frog -->
+  <div class="flex flex-col md:flex-row gap-8 md:gap-16 items-start">
+
+    <!-- Text Content Section -->
+    <div class="flex flex-col gap-6 md:w-2/3">
+      
+      <!-- Value 1 -->
+      <div class="flex flex-col md:flex-row border-b border-gray-300 py-4 justify-between gap-4">
+        <div class="details flex flex-col flex-1">
+          <p>RESPONSIBLE DESIGN</p>
+          <h4>
+            Ethical design processes focused on human-centered needs and inclusive decision-making.
+          </h4>
+        </div>
+      </div>
+
+      <!-- Value 2 -->
+      <div class="flex flex-col md:flex-row border-b border-gray-300 py-4 justify-between gap-4">
+        <div class="details flex flex-col flex-1">
+          <p>PRECISION & USABILITY</p>
+          <h4>
+            Micro-interactions, attention to detail, and usability grounded in research and user testing.
+          </h4>
+        </div>
+      </div>
+
+      <!-- Value 3 -->
+      <div class="flex flex-col md:flex-row py-4 justify-between gap-4">
+        <div class="details flex flex-col flex-1">
+          <p>EQUITY & IMPACT</p>
+          <h4>
+            Creating designs that prioritize fairness, diversity, and inclusivity while delivering meaningful solutions that align with users' values and needs.
+          </h4>
+        </div>
+      </div>
+      
+    </div>
+
+    <!-- Frog Image Section - RIGHT SIDE -->
+    <div class="hidden md:flex justify-center items-center md:w-1/3">
+      <img src="frog.png" alt="Illustration of a frog" class="max-w-[300px] h-auto object-contain">
+    </div>
+    
+  </div>
+</section>
+
   
 
-  <section class="flex flex-col py-8 px-4 md:px-16 gap-3 border-t border-grey">
+  <section class="flex flex-col py-8 pb-16 px-4 md:px-16 gap-8 border-t border-grey">
     
-    <div class="grid grid-cols-2 gap-4 items-center md:flex md:gap-4">
-      <!-- Wrapper for the first image -->
-      <div class="flex-1">
-        <img src="bos.jpg" alt="Washi Tape" class="w-full h-28 md:h-72 object-cover rounded-2xl">
-      </div>
-    
-      <!-- Wrapper for the second image -->
-      <div class="flex-1">
-        <img src="dogs.jpg" alt="Washi Tape" class="w-full h-28 md:h-72 object-cover rounded-2xl">
-      </div>
-    
-      <!-- Wrapper for the third image -->
-      <div class="flex-1">
-        <img src="fishies.jpg" alt="Eye Hope" class="w-full h-28 md:h-72 object-cover rounded-2xl">
-      </div>
-    
-      <!-- Wrapper for the fourth image -->
-      <div class="flex-1">
-        <img src="tea.jpg" alt="tea" class="w-full h-28 md:h-72 object-cover rounded-2xl">
-      </div>
-    </div>
     
     <h3 class="pt-4">My Pursuits</h3>
       <h6 class="width">
@@ -78,42 +113,64 @@
         - I am a mezzo-soprano singer, and I especially love singing to rock and alternative songs with heavy belts and strong choruses ૮ ˶ᵔ ᵕ ᵔ˶ ა<br>
         - I have an interest in pursuing many hobbies! I recently started coding with HTML, CSS/Tailwind, and some Javascript - I also been sculpting mini clay figurines (I sculpted the froggies)
       </h6>
+      <div class="grid grid-cols-2 gap-4 items-center md:flex md:gap-4">
+        <!-- Wrapper for the first image -->
+        <div class="flex-1">
+          <img src="bos.jpg" alt="Washi Tape" class="w-full h-28 md:h-72 object-cover rounded-2xl">
+        </div>
+      
+        <!-- Wrapper for the second image -->
+        <div class="flex-1">
+          <img src="dogs.jpg" alt="Washi Tape" class="w-full h-28 md:h-72 object-cover rounded-2xl">
+        </div>
+      
+        <!-- Wrapper for the third image -->
+        <div class="flex-1">
+          <img src="fishies.jpg" alt="Eye Hope" class="w-full h-28 md:h-72 object-cover rounded-2xl">
+        </div>
+      
+        <!-- Wrapper for the fourth image -->
+        <div class="flex-1">
+          <img src="tea.jpg" alt="tea" class="w-full h-28 md:h-72 object-cover rounded-2xl">
+        </div>
+      </div>
     </section>
 
+
+    <section class="flex flex-col md:flex-row pt-8 md:pt-12 md:pb-6 border-t border-grey gap-6 flex-1 bg-[#ECF4FF]">
+      <div class="flex flex-col gap-9 px-4 md:px-16">
+          <h3>Let's Chat</h3>
+          <h4>See something that caught your eye? I’d be happy to collaborate and discuss new opportunities together</h4>
+      </div>
+      <div class="w-full">
+
+        <a href="https://drive.google.com/file/d/15Vbiz09x6SVD2cTScr3ldKVGAPqeNlPY/view?usp=sharing" target="_blank">
+          <div class="border-b border-grey p-4 pr-3 md:pr-12 flex items-center justify-between hover:text-blob duration-500 cursor-pointer hover-image">
+            <h6>Resume</h6>
+            <span class="material-symbols-outlined text-xl"><h2 class="font-thin">trending_flat</h2></span>
+          </div>
+        </a>
+
+        <a href="about.html">
+          <div class="border-b border-grey p-4 pr-3 md:pr-12 flex items-center justify-between hover:text-blob duration-500 cursor-pointer hover-image">
+            <h6>About</h6>
+            <span class="material-symbols-outlined text-xl"><h2 class="font-thin">trending_flat</h2></span>
+            <span class="cursor-text">About me</span>
+          </div>
+        </a>
+
+        <!-- Add the hover-image class to other elements as well -->
+
+        <a href="archive.html">
+          <div class="p-4 pr-3 md:pr-12 flex items-center justify-between hover:text-blob duration-500 cursor-pointer hover-image">
+            <h6>Archive</h6>
+            <span class="material-symbols-outlined text-xl"><h2 class="font-thin">trending_flat</h2></span>
+          </div>
+        </a>
+      </div>
+    </section>
   
-  <section class="flex flex-col md:flex-row px-4 md:px-16 gap-8 border-grey pb-12">
-
-    <!-- Right Content Section -->
-    <div class="flex flex-col gap-8 py-8 justify-center">
-      <div class>
-        <h3 class="pb-6">My Design Values</h3>
-        <h4>Responsible Design</h4>
-        <h6>
-          Applying human-centered design principles to decision-making. Ensuring solutions are ethical, 
-          inclusive, and considerate of their impact on all stakeholders.
-        </h6>
-      </div>
-      <div>
-        <h4>Play Where Needed</h4>
-        <h6>
-          Crafting designs that balance delight and usability. Aligning with trends without compromising the functionality or user flow.
-        </h6>
-      </div>
-      <div>
-        <h4>Precision and Infrastructure</h4>
-        <h6>
-          Combining micro-interactions, hierarchy, and attention to detail so experiences feel effortless yet intentional, while
-          focusing on your iterations to ensure designs are grounded from research and user feedback to deliver the best results. Prioritizing accessibility, equity, 
-          and sustainability while aligning with broader business goals.
-        </h6>
-      </div>
-    </div>
-       <!-- Left Content Section -->
-       <div class="flex justify-center items-center">
-        <img src="frog.png" alt="Illustration of a frog" class="w-full h-full object-contain ">
-      </div>
-  </section>
-
+    
   <footer-component></footer-component>
 
 

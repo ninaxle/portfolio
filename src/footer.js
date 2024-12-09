@@ -14,7 +14,8 @@ class FooterComponent extends HTMLElement {
           }
   
           footer {
-            padding: 0.5rem 1rem;
+            background-color: #ECF4FF;
+            padding: 24px 64px 24px 64px;
             border-top: 1px solid black;
             display: flex;
             justify-content: space-between;
@@ -23,7 +24,7 @@ class FooterComponent extends HTMLElement {
   
           .social-links {
             display: flex;
-            gap: 0.75rem;
+            gap: 1rem;
           }
   
           a,
@@ -31,10 +32,10 @@ class FooterComponent extends HTMLElement {
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 2.5rem;
-            height: 2.5rem;
+            width: 2.75rem;
+            height: 2.75rem;
             color: white;
-            font-size: 1.25rem;
+            font-size: 1.5rem;
             border-radius: 50%;
             transition: 0.2s ease-in-out;
             text-decoration: none;

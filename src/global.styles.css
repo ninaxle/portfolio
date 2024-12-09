@@ -49,6 +49,10 @@
     max-width: 548px;
   }
 
+  .midwidth {
+    max-width: 600px;
+  }
+
   .width {
     max-width: 900px;
   }
