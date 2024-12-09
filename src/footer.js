@@ -1,81 +1,88 @@
-
-const footerTemplate = document.createElement("template");
-
-footerTemplate.innerHTML = 
-  `<style>
-    @import url('./global.styles.css');
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+class FooterComponent extends HTMLElement {
+    constructor() {
+      super();
+  
+      const shadow = this.attachShadow({ mode: "open" });
+  
+      shadow.innerHTML = `
+        <link rel="stylesheet" href="./global.styles.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+        <style>
+          * {
+            font-family: "Darker Grotesque", sans-serif;
+          }
+  
+          footer {
+            padding: 0.5rem 1rem;
+            border-top: 1px solid black;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+          }
+  
+          .social-links {
+            display: flex;
+            gap: 0.75rem;
+          }
+  
+          a,
+          span {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 2.5rem;
+            height: 2.5rem;
+            color: white;
+            font-size: 1.25rem;
+            border-radius: 50%;
+            transition: 0.2s ease-in-out;
+            text-decoration: none;
+          }
+  
+          a.linkedin { background: #2563eb; }
+          a.instagram { background: #f30559; }
+          a.behance { background: #111827; }
+          span.email { background: #008080; }
+  
+          a:hover, span:hover { opacity: 0.7; }
+  
+          @media (max-width: 768px) {
+            footer {
+              flex-direction: column;
+              padding: 28px;
+              gap: 24px;
+            }
+  
+            .social-links {
+              justify-content: center;
+              margin-top: 0.5rem;
+              gap: 16px;
+            }
+          }
+        </style>
+  
+        <footer>
+          <h6>©2024, Designed and Coded by Nina Le</h6>
+          <div class="social-links">
+            <a class="linkedin" href="https://www.linkedin.com/in/ninale65/" target="_blank">
+              <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+            <a class="instagram" href="https://www.instagram.com/ninmedias/" target="_blank">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a class="behance" href="https://www.behance.net/ninale1" target="_blank">
+              <i class="fa-brands fa-behance"></i>
+            </a>
+            <span class="email">
+              <i class="fa-solid fa-envelope"></i>
+            </span>
+          </div>
+        </footer>
+      `;
     }
-
-    :host {
-      display: block;
-    }
-
-    header {
-      background-color: #fcfcfc;
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
-      border-bottom: 1px solid #282544;
-      transition: transform 0.3s ease; /* Smooth hide/show transition */
-    }
-
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 32px 72px;
-      height: 96px;
-    }
-
-    nav a img {
-      height: 60px;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 3.25rem;
-      list-style: none;
-      align-items: center;
-      font-weight: 400;
-    }
-
-    @media (max-width: 768px) {
-      nav {
-        padding: 16px;
-      }
-
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        gap: 1.5rem;
-        background-color: white;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        padding: 16px;
-        border-bottom: 1px solid #dcdcdc;
-      }
-
-      .nav-links.open {
-        display: flex;
-      }
-    }
-  </style>
-
-  <header>
-    <nav>
-      <a href="/"><img src="name.svg" alt="Logo"></a>
-      <ul class="nav-links">
-        <li><a href="index.html">Projects</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="archive.html">Archive</a></li>
-      </ul>
-    </nav>
-  </header>`;
+  }
+  
+  customElements.define("footer-component", FooterComponent);
+  
+  
