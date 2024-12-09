@@ -56,7 +56,13 @@ headerTemplate.innerHTML =
 
       nav {
         padding: 16px;
+        height: 60px;
       }
+
+      
+    nav a img {
+      height: 36px;
+    }
 
       .nav-links {
         display: none;

@@ -26,7 +26,7 @@ function createCards(sectionSelector, cardsData, isBrandSection = false) {
 
     // same background color for all cards in the Brand section
     cardDiv.innerHTML = `
-      <div class="h-80 w-full rounded-2xl relative overflow-hidden bg-[#f3f3f4]">
+      <div class="h-48 md:h-80 w-full rounded-2xl relative overflow-hidden bg-[#f3f3f4]">
         <img src="${card.image}" alt="${card.title}" loading="lazy" 
           class="w-full h-full ${imageClass} transition duration-300 ease-in-out hover:scale-110" 
           id="card-image-${index}">
