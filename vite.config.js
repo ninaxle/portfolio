@@ -11,6 +11,7 @@ export default defineConfig({
         main: resolve(__dirname, "src/index.html"),
         about: resolve(__dirname, "src/about.html"),
         archive: resolve(__dirname, "src/archive.html"),
+        hereafter: resolve(__dirname, "src/hereafter.html"),
         footer: resolve(__dirname, "src/footer.html"),
         navbar: resolve(__dirname, "src/navbar.html"),
         // Add all your additional pages here

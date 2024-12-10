@@ -14,7 +14,6 @@ class FooterComponent extends HTMLElement {
           }
   
           footer {
-            background-color: #ECF4FF;
             padding: 24px 64px 24px 64px;
             border-top: 1px solid black;
             display: flex;

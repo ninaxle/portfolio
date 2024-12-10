@@ -46,6 +46,22 @@ function createCards(sectionSelector, cardsData, isBrandSection = false) {
       });
     }
 
+
+
+    // Wrap card in a link if the `link` property exists
+    const cardContent = `
+      <div class="h-48 lg:h-80 w-full rounded-2xl relative overflow-hidden bg-[#f3f3f4]">
+        <img src="${card.image}" alt="${card.title}" loading="lazy" 
+          class="w-full h-full object-contain transition duration-300 ease-in-out hover:scale-110">
+      </div>
+      <p>${card.title}</p>
+      <p>${card.description}</p>
+    `;
+
+    cardDiv.innerHTML = card.link
+      ? `<a href="${card.link}" class="block">${cardContent}</a>` // Wrap in a link
+      : cardContent;
+
     fragment.appendChild(cardDiv);
   });
 
@@ -57,7 +73,8 @@ const uxuiCardsData = [
   {
     title: "HERE:AFTER",
     description: "<em>AWARD—2023 RGD WINNER.</em> A journaling application which categorizes entries by mood. My role involved user interviews, usability tests and prototyping.",
-    image: "here.png"
+    image: "here.png",
+    link: "hereafter.html",
   },
   {
     title: "EXOMIS+DEV IN-HOUSE UXUI",
