@@ -24,6 +24,7 @@ export default {
         beige: "#F8F6F6",
         grey2: "#6B6B6B",
         light: "#f3f3f4",
+        bock: "##111827",
       },
     },
   },
