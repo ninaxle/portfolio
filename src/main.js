@@ -8,23 +8,19 @@ function createCards(sectionSelector, cardsData, isBrandSection = false) {
 
   const fragment = document.createDocumentFragment();
 
-
   cardsData.forEach((card, index) => {
     // Check if it's the UX/UI section and apply the 'down' class to cards with index >= 2
     const cardDiv = document.createElement('div');
     cardDiv.className = (sectionSelector === '.cards-section' && index < 2)
-      ? 'pb-8 px-2 flex flex-col space-y-4 flex-1' // No animation for the first two cards
-      : 'pb-8 px-2 flex flex-col space-y-4 flex-1 md:down'; // Apply animation to the rest
+      ? 'px-4 py-6 flex flex-col space-y-4 flex-1' // No animation for the first two cards
+      : 'px-4 py-6 flex flex-col space-y-4 flex-1 md:down'; // Apply animation to the rest
 
+    // Image class based on the card title
+    const imageClass = (card.title === 'MS. CARRY ONE' || card.title === 'DEAR DIARY' || card.title === 'GOODSELF DESIGN SYSTEM (IN PROGRESS)') 
+      ? 'object-cover' // Ensure full coverage for some cards
+      : 'object-contain'; // Default class for others
 
-
-
-    // image class based on the card title
-    const imageClass = (card.title === 'MS. CARRY ONE' || card.title === 'DEAR DIARY'  || card.title === 'GOODSELF DESIGN SYSTEM (IN PROGRESS)') 
-      ? 'object-cover' // some
-      : 'object-contain'; // most cards
-
-    // same background color for all cards in the Brand section
+    // Set the inner HTML for the card
     cardDiv.innerHTML = `
       <div class="h-48 lg:h-80 w-full rounded-2xl relative overflow-hidden bg-[#f3f3f4]">
         <img src="${card.image}" alt="${card.title}" loading="lazy" 
@@ -35,32 +31,30 @@ function createCards(sectionSelector, cardsData, isBrandSection = false) {
       <p>${card.description}</p>
     `;
 
-    // Changed the image on hover for "Little Red Riding Hood"
+    // Handle hover effect for "Dear Diary"
     if (card.title === "DEAR DIARY") {
       const imgElement = cardDiv.querySelector(`#card-image-${index}`);
       imgElement.addEventListener('mouseenter', () => {
-        imgElement.src = "red2.png"; // Changed to red2 image on hover
+        imgElement.src = "red2.png"; // Change to red2 image on hover
       });
       imgElement.addEventListener('mouseleave', () => {
         imgElement.src = "red.png"; // Revert back on mouse leave
       });
     }
 
-
-
     // Wrap card in a link if the `link` property exists
-    const cardContent = `
-      <div class="h-48 lg:h-80 w-full rounded-2xl relative overflow-hidden bg-[#f3f3f4]">
-        <img src="${card.image}" alt="${card.title}" loading="lazy" 
-          class="w-full h-full object-contain transition duration-300 ease-in-out hover:scale-110">
-      </div>
-      <p>${card.title}</p>
-      <p>${card.description}</p>
-    `;
-
-    cardDiv.innerHTML = card.link
-      ? `<a href="${card.link}" class="block">${cardContent}</a>` // Wrap in a link
-      : cardContent;
+    if (card.link) {
+      const cardContent = `
+        <div class="h-48 lg:h-80 w-full rounded-2xl relative overflow-hidden bg-[#f3f3f4]">
+          <img src="${card.image}" alt="${card.title}" loading="lazy" 
+            class="w-full h-full object-contain transition duration-300 ease-in-out hover:scale-110">
+        </div>
+        <p>${card.title}</p>
+        <p>${card.description}</p>
+      `;
+      cardDiv.innerHTML = `<a href="${card.link}" class="space-y-4">${cardContent}</a>`;
+    }
+    
 
     fragment.appendChild(cardDiv);
   });
