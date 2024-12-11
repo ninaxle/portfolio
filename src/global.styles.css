@@ -32,7 +32,6 @@
     @apply text-xl md:text-2xl leading-6 md:leading-7;
   }
 
-
   h6 {
     @apply text-xl leading-5;
   }
