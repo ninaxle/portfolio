@@ -52,6 +52,8 @@ hoverElements.forEach((element) => {
         cursorText.textContent = "About Me"; // Set cursor text for music icon
     } else if (element.querySelector('h6') && element.querySelector('h6').textContent === "About") {
       cursorText.textContent = "About Me"; // Set cursor text for "About"
+    } else if (element.querySelector('h6') && element.querySelector('h6').textContent === "Projects") {
+      cursorText.textContent = "Projects"; // Set cursor text for "About"
     } else if (element.querySelector('h6') && element.querySelector('h6').textContent === "Resume") {
       cursorText.textContent = "Resume"; // Set cursor text for "Resume"
     } else if (element.querySelector('h6') && element.querySelector('h6').textContent === "Archive") {
