@@ -2,93 +2,106 @@ const headerTemplate = document.createElement("template");
 
 headerTemplate.innerHTML = 
   `<style>
-    @import url('./global.styles.css');
+  @import url('./global.styles.css');
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
-    :host {
-      display: block;
-    }
+  :host {
+    display: block;
+  }
 
+  header {
+    background-color: #fcfcfc;
+    position: fixed; /* Default for desktop */
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    border-bottom: 1px solid #282544;
+    transition: transform 0.3s ease;
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 32px;
+    height: 96px;
+  }
+
+  nav a img {
+    height: 48px; /* Keep logo size as original */
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 3.25rem;
+    list-style: none;
+    align-items: center;
+    font-weight: 400;
+  }
+
+  #hamburger-icon {
+    display: none;
+    cursor: pointer;
+  }
+
+  /* For desktops 1440px and above (increase only horizontal padding) */
+  @media (min-width: 1440px) {
     header {
-      background-color: #fcfcfc;
-      position: fixed; /* Fixed by default */
+      padding-right: 32px; 
+      padding-left: 16px;
+
+    }
+    nav a img {
+      height: 48px; /* Keep logo size as original */
+    }
+  }
+
+  /* For mobile devices 768px and below */
+  @media (max-width: 768px) {
+    header {
+      position: fixed; /* Keep it fixed even on mobile */
       top: 0;
-      width: 100%;
-      z-index: 1000;
-      border-bottom: 1px solid #282544;
-      transition: transform 0.3s ease; /* Smooth hide/show transition */
     }
 
     nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 32px;
-      height: 96px;
+      padding: 16px;
+      height: 60px;
     }
 
-    nav a img {
-      height: 48px;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 3.25rem;
-      list-style: none;
-      align-items: center;
-      font-weight: 400;
-    }
-
-    #hamburger-icon {
-      display: none;
-      cursor: pointer;
-    }
-
-    @media (max-width: 768px) {
-      header {
-        position: static; /* Static for mobile */
-      }
-
-      nav {
-        padding: 16px;
-        height: 60px;
-      }
-
-      
     nav a img {
       height: 36px;
     }
 
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        gap: 1.5rem;
-        background-color: #fcfcfc;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        padding: 32px;
-        border-top: 1px solid #282544;
-        border-bottom: 1px solid #282544;
-      }
-
-      .nav-links.open {
-        display: flex;
-      }
-
-      #hamburger-icon {
-        display: block;
-        height: 24px;
-
-      }
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      gap: 1.5rem;
+      background-color: #fcfcfc;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      padding: 32px;
+      border-top: 1px solid #282544;
+      border-bottom: 1px solid #282544;
     }
-  </style>
+
+    .nav-links.open {
+      display: flex;
+    }
+
+    #hamburger-icon {
+      display: block;
+      height: 24px;
+    }
+  }
+</style>
+
 
   <header>
     <nav>
