@@ -151,5 +151,18 @@
   animation-timeline: view();
   animation-range: entry 0% cover 40%;
 }
+
+.custom-list-item {
+  position: relative;
+  padding-left: 20px; /* Add space for the custom dash */
+  margin-bottom: 8px; /* Optional: Add spacing between lines */
+}
+
+.custom-list-item::before {
+  content: "-";
+  position: absolute;
+  left: 0; /* Align the dash to the start */
+}
+
   
 }
