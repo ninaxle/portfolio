@@ -68,6 +68,26 @@ class ScrollComponent extends HTMLElement {
               'GRAD' 0;
             font-size: 60px; /* Icon size */
           }
+            
+  @media (max-width: 768px) {
+    #scroll {
+      width: 60px;
+      height: 60px;
+      right: 32px;
+      bottom: 32px;
+    }
+
+    .material-symbols-outlined {
+      font-size: 30px; /* Smaller icon size */
+    }
+  }
+
+
+
+
+
+
+          
         </style>
         
         <!-- Content inside the shadow DOM -->
