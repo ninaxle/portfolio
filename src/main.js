@@ -78,7 +78,9 @@ const uxuiCardsData = [
   {
     title: "ACCESSICHAT AAC & AI SOLUTION",
     description: "<em>AWARD—2024 RGD Honourable Mention in Augmented Creativity.</em> An AI-powered AAC app designed to assist people with disabilities in daily communication.",
-    image: "accessi.png"
+    image: "accessi.png",
+    link: "accessichat.html",
+
   },
   {
     title: "GOODSELF DESIGN SYSTEM (IN PROGRESS)",
