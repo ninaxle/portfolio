@@ -117,6 +117,12 @@
   display: block;          /* Show text when hovering */
   font-size: 4px;         /* Adjust size of the text inside the cursor */
 }
+@media (hover: none) and (pointer: coarse) {
+  .cursor,
+  .cursor-follower {
+    display: none; /* Hide the custom cursor */
+  }
+}
 
 /* Custom infinite scrolling animation */
 @keyframes scroll-left {

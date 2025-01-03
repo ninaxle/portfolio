@@ -59,7 +59,7 @@ hoverElements.forEach((element) => {
     } else if (element.querySelector('h6') && element.querySelector('h6').textContent === "Archive") {
       cursorText.textContent = "Archive"; // Set cursor text for "Archive"
     } else {
-      cursorText.textContent = "Open Link"; // Default text
+      cursorText.textContent = "View"; // Default text
     }
   });
 
