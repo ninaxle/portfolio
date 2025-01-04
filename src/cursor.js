@@ -33,6 +33,7 @@ function animateCursor() {
   follower.style.top = `${followY - follower.offsetHeight / 2}px`;
 
   requestAnimationFrame(animateCursor);
+  // Select all elements with the hover-image class (including links and images)
 }
 
 // Start the animation loop
@@ -45,15 +46,14 @@ hoverElements.forEach((element) => {
     follower.classList.add('hovering');
     cursorText.style.display = 'block'; // Show the text
 
-    // Check if it's an image or specific text link and change the cursor text accordingly
     if (element.querySelector('img')) {
       cursorText.textContent = "Open Link"; // Set cursor text for image elements
     } else if (element.tagName === "IMG" && element.alt === "Music Icon") {
-        cursorText.textContent = "About Me"; // Set cursor text for music icon
+      cursorText.textContent = "About Me"; // Set cursor text for music icon
     } else if (element.querySelector('h6') && element.querySelector('h6').textContent === "About") {
       cursorText.textContent = "About Me"; // Set cursor text for "About"
     } else if (element.querySelector('h6') && element.querySelector('h6').textContent === "Projects") {
-      cursorText.textContent = "Projects"; // Set cursor text for "About"
+      cursorText.textContent = "Projects"; // Set cursor text for "Projects"
     } else if (element.querySelector('h6') && element.querySelector('h6').textContent === "Resume") {
       cursorText.textContent = "Resume"; // Set cursor text for "Resume"
     } else if (element.querySelector('h6') && element.querySelector('h6').textContent === "Archive") {
@@ -68,4 +68,6 @@ hoverElements.forEach((element) => {
     follower.classList.remove('hovering');
     cursorText.style.display = 'none'; // Hide the text
   });
+
+  
 });

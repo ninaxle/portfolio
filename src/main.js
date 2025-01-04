@@ -1,5 +1,4 @@
 
-
 // Unified card creation function
 function createCards(sectionSelector, cardsData, isBrandSection = false) {
   const cardsSection = document.querySelector(sectionSelector);
@@ -25,13 +24,13 @@ function createCards(sectionSelector, cardsData, isBrandSection = false) {
     // Set the inner HTML for the card
     const hoverClass = card.title.includes("IN PROGRESS") 
       ? '' // No hover effect for titles with "IN PROGRESS"
-      : 'transition duration-300 ease-in-out hover:scale-110 hover-image'; // Apply hover effect for other titles
+      : 'transition duration-300 ease-in-out hover:scale-110'; // Apply hover effect for other titles
 
     // Apply the hover class dynamically
-    cardDiv.innerHTML = `
+    cardDiv.innerHTML = /*html*/`
       <div class="h-48 lg:h-80 w-full rounded-2xl relative overflow-hidden bg-[#f3f3f4] hover-image">
         <img src="${card.image}" alt="${card.title}" loading="lazy" 
-          class="w-full h-full ${imageClass} ${hoverClass}" 
+          class="w-full h-full ${imageClass} ${hoverClass} hover-image" 
           id="card-image-${index}">
       </div>
 
@@ -137,10 +136,10 @@ const playCardsData = [
 
 // Main execution
 document.addEventListener('DOMContentLoaded', () => {
-  // UX/UI cards creation
+  // Your existing card creation code
   createCards('.cards-section', uxuiCardsData);
-  // Brand cards creation with same background color for all
   createCards('.cards-section2', brandCardsData, true);
-  // Play cards creation with hover effect for Little Red Riding Hood
   createCards('.cards-section3', playCardsData, true);
+
+  
 });

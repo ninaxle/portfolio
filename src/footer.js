@@ -43,7 +43,7 @@ class FooterComponent extends HTMLElement {
           a.linkedin { background: #2563eb; }
           a.instagram { background: #f30559; }
           a.behance { background: #111827; }
-          span.email { background: #008080; }
+          a.email { background: #008080; }
   
           a:hover, span:hover { opacity: 0.7; }
   
@@ -74,9 +74,9 @@ class FooterComponent extends HTMLElement {
             <a class="behance" href="https://www.behance.net/ninale1" target="_blank">
               <i class="fa-brands fa-behance"></i>
             </a>
-            <span class="email">
+            <a class="email" href="mailto:ninalle.65@gmail.com">
               <i class="fa-solid fa-envelope"></i>
-            </span>
+            </a>
           </div>
         </footer>
       `;
