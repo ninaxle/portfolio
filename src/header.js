@@ -7,6 +7,7 @@ headerTemplate.innerHTML =
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    text-decoration: none;
   }
 
   :host {
@@ -42,13 +43,16 @@ headerTemplate.innerHTML =
     list-style: none;
     align-items: center;
     font-weight: 500;
+  
   }
 
-  .nav-links a {
-  text-decoration: none;
+  li {
   font-size: 20px;
-  color:#282544;
 }
+
+a {
+    color:#282544;
+    }
 
 
   #hamburger-icon {
