@@ -2,7 +2,6 @@ const headerTemplate = document.createElement("template");
 
 headerTemplate.innerHTML = 
   `<style>
-  @import url('./global.styles.css');
 
   * {
     margin: 0;
@@ -22,6 +21,7 @@ headerTemplate.innerHTML =
     z-index: 1000;
     border-bottom: 1px solid #282544;
     transition: transform 0.3s ease;
+    
   }
 
   nav {
@@ -41,8 +41,15 @@ headerTemplate.innerHTML =
     gap: 3.25rem;
     list-style: none;
     align-items: center;
-    font-weight: 400;
+    font-weight: 500;
   }
+
+  .nav-links a {
+  text-decoration: none;
+  font-size: 20px;
+  color:#282544;
+}
+
 
   #hamburger-icon {
     display: none;

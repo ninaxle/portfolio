@@ -5,7 +5,6 @@ class FooterComponent extends HTMLElement {
       const shadow = this.attachShadow({ mode: "open" });
   
       shadow.innerHTML = `
-        <link rel="stylesheet" href="./global.styles.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   
         <style>
@@ -20,11 +19,19 @@ class FooterComponent extends HTMLElement {
             justify-content: space-between;
             align-items: center;
           }
+
+          header {
+            font-size: 20px;
+            color:#282544;
+            font-weight: 500;
+
+            }
   
           .social-links {
             display: flex;
             gap: 1rem;
           }
+
   
           a,
           span {
@@ -63,7 +70,7 @@ class FooterComponent extends HTMLElement {
         </style>
   
         <footer>
-          <h6>©2024, Designed and Coded by Nina Le</h6>
+          <header>©2024, Designed and Coded by Nina Le</header>
           <div class="social-links">
             <a class="linkedin" href="https://www.linkedin.com/in/ninale65/" target="_blank">
               <i class="fa-brands fa-linkedin-in"></i>
