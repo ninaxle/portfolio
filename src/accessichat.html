@@ -21,14 +21,19 @@
     <span class="cursor-text"></span>
   </div>
   <div class="cursor-follower"></div>
-  <script src="back-button.js"></script>
+  <script type="module" src="back-button.js"></script>
 
 <!-- Content Section -->
 <main>
   
-    <div class="py-60 pt-4 md:pt-32 bg-[#f0f0f1] flex-col gap-8 px-4 md:px-10 bg-[url('accesi-hero.png')] bg-cover bg-top">
+  <div class="relative py-60 pt-4 md:pt-32 flex flex-col gap-8 px-4 md:px-10">
+    <img src="accesi-hero.png" alt="Hero image" class="absolute top-0 left-0 w-full h-full object-cover object-top">
+    <div class="relative z-10">
       <back-button link="index.html"></back-button>
     </div>
+  </div>
+  
+
 
 
   </main>
@@ -198,7 +203,7 @@
 
   <section class="image-display-section w-full md:px-12 lg:px-24  border-grey border-b">
     <div class="image-container">
-      <img src="accessichat-empathy-map.jpg" class="md:border border-grey md:border-t-0 w-full" alt="All Features">
+      <img src="accessichat-empathy-map.png" class="md:border border-grey md:border-t-0 w-full" alt="All Features">
       <div class="md:border-grey border-x sm:px-4">
         <h6 class="py-3 px-4 sm:px-0">Fig 4. Our Empathy Maps based on 3 Users</h6>
       </div>
