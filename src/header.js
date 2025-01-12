@@ -16,13 +16,12 @@ headerTemplate.innerHTML =
 
   header {
     background-color: #fcfcfc;
-    position: fixed; /* Default for desktop */
+    position: fixed; /* Keep header fixed on top of the page */
     top: 0;
     width: 100%;
-    z-index: 1000;
+    z-index: 50; /* Higher z-index so it's above the content */
     border-bottom: 1px solid #282544;
     transition: transform 0.3s ease;
-    
   }
 
   nav {
@@ -43,17 +42,15 @@ headerTemplate.innerHTML =
     list-style: none;
     align-items: center;
     font-weight: 500;
-  
   }
 
   li {
-  font-size: 20px;
-}
+    font-size: 20px;
+  }
 
-a {
-    color:#282544;
-    }
-
+  a {
+    color: #282544;
+  }
 
   #hamburger-icon {
     display: none;
@@ -65,8 +62,8 @@ a {
     header {
       padding-right: 32px; 
       padding-left: 16px;
-
     }
+
     nav a img {
       height: 48px; /* Keep logo size as original */
     }
@@ -77,11 +74,13 @@ a {
     header {
       position: fixed; /* Keep it fixed even on mobile */
       top: 0;
+      z-index: 100; /* Ensure header stays above the image */
     }
 
     nav {
       padding: 16px;
       height: 60px;
+      background-color: #FFFFFF;
     }
 
     nav a img {
@@ -126,6 +125,7 @@ a {
     </nav>
   </header>`;
 
+
 class Header extends HTMLElement {
   constructor() {
     super();
@@ -163,7 +163,7 @@ class Header extends HTMLElement {
       this.showHeader();
     } else {
       // Remove scroll behavior for mobile
-      this.headerElement.style.position = "static"; // Explicitly set static for mobile
+      this.headerElement.style.position = "fixed"; // Keep fixed for mobile
       window.removeEventListener("scroll", this.handleScroll.bind(this));
       this.showHeader(); // Ensure header is visible on transition to mobile
     }
@@ -171,7 +171,6 @@ class Header extends HTMLElement {
 
   handleScroll() {
     const currentScrollY = window.scrollY;
-
     const scrollThreshold = 100;
 
     if (currentScrollY < scrollThreshold) {

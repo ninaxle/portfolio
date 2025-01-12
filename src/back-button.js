@@ -41,6 +41,8 @@ class BackButton extends HTMLElement {
           transition: all 0.3s ease; /* transition-all duration-300 */
           transform-origin: top left; /* transform-origin: top left */
           border: none; /* Remove any border or stroke */
+          position: relative;
+          z-index: 10;
         }
 
         /* Responsive size for larger screens (md) */
