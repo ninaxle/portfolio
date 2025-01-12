@@ -13,8 +13,8 @@ function createCards(sectionSelector, cardsData, isBrandSection = false) {
     // Create card div
     const cardDiv = document.createElement('div');
     cardDiv.className = (sectionSelector === '.cards-section' && index < 2)
-      ? 'px-4 py-6 flex flex-col space-y-4 flex-1' // No animation for the first two cards
-      : 'px-4 py-6 flex flex-col space-y-4 flex-1 md:down'; // Apply animation to the rest
+      ? 'py-6 flex flex-col space-y-4 flex-1' // No animation for the first two cards
+      : 'py-6 flex flex-col space-y-4 flex-1 md:down'; // Apply animation to the rest
 
     // Image class based on the card title
     const imageClass = (card.title === 'MS. CARRY ONE (IN PROGRESS)' || card.title === 'DEAR DIARY (IN PROGRESS)' || card.title === 'GOODSELF DESIGN SYSTEM (IN PROGRESS)') 
