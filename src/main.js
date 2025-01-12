@@ -89,6 +89,7 @@ function createCards(sectionSelector, cardsData, isBrandSection = false) {
 
       <h4>${card.title}</h4>
       <div>${tagHTML}</div>
+      
 
       
     `;
@@ -155,18 +156,24 @@ const uxuiCardsData = [
 const brandCardsData = [
   {
     title: "The Gender Debate",
+    tags: "IN PROGRESS | INTERACTIVE | DIGITAL DESIGN | DATA VISUALIZATION",
     image: "gender.png"
+
   },
   {
     title: "Ms. Carry One",
+    tags: "IN PROGRESS | LOGO DESIGN | ILLUSTRATION | BRANDING",
     image: "exomis2.png"
   },
   {
     title: "Lost in Translation",
+    tags: "IN PROGRESS | TYPOGRAPHY | PRINT",
+
     image: "sound.png"
   },
   {
     title: "How to Plant Plum Trees",
+    tags: "IN PROGRESS | ILLUSTRATION | DATA VISUALIZATION",
     image: "tree.png"
   },
 ];
@@ -181,6 +188,7 @@ const playCardsData = [
   },
   {
     title: "Dear Diary",
+
     tags: "IN PROGRESS | STORYBOARDING | ILLUSTRATION | DESKTOP",
     image: "red.png"
 
