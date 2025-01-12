@@ -47,10 +47,10 @@ class FooterComponent extends HTMLElement {
             text-decoration: none;
           }
   
-          a.linkedin { background: #2563eb; }
+          a.linkedin { background: #4866CC; }
           a.instagram { background: #f30559; }
           a.behance { background: #111827; }
-          a.email { background: #008080; }
+          a.email { background: #13A368; }
   
           a:hover, span:hover { opacity: 0.7; }
   
