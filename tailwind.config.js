@@ -26,6 +26,7 @@ export default {
         light: "#f3f3f4",
         bock: "#111827",
         pig: "#f30559",
+        lightblue: "#E0E7FF",
       },
     },
   },

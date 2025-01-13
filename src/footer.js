@@ -18,6 +18,7 @@ class FooterComponent extends HTMLElement {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            background-color: #FBF1F9;
           }
 
           header {
@@ -38,8 +39,8 @@ class FooterComponent extends HTMLElement {
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 2.75rem;
-            height: 2.75rem;
+            width: 3rem;
+            height: 3rem;
             color: white;
             font-size: 1.5rem;
             border-radius: 50%;
@@ -50,7 +51,7 @@ class FooterComponent extends HTMLElement {
           a.linkedin { background: #4866CC; }
           a.instagram { background: #f30559; }
           a.behance { background: #111827; }
-          a.email { background: #13A368; }
+          a.email { background: #6B7280; }
   
           a:hover, span:hover { opacity: 0.7; }
   

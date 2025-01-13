@@ -62,7 +62,7 @@ function createCards(sectionSelector, cardsData, isBrandSection = false) {
               } else if (tag.toLowerCase().includes('winner')) {
                 tagClasses = "bg-gree text-white px-3 py-1 rounded-xl text-base mr-1 mb-1"; 
               } else if (tag.toUpperCase().includes('PROGRESS')) {
-                tagClasses = "bg-indigo-100  px-3 py-1 rounded-xl text-base mr-1 mb-1"; 
+                tagClasses = "bg-lightblue px-3 py-1 rounded-xl text-base mr-1 mb-1"; 
               } else if (tag.toLowerCase().includes('mention')) {
                 tagClasses = "bg-gree text-white px-3 py-1 rounded-xl text-base mr-1 mb-1"; 
               }
