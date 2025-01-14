@@ -15,7 +15,6 @@
   <script src="header.js" type="module"></script>
   <header-component></header-component>
   <script src="scroll-to-top.js" type="module"></script>
-  <scroll-component></scroll-component>
   <!-- Dynamic Cursor -->
   <div class="cursor">
     <span class="cursor-text"></span>
@@ -26,9 +25,9 @@
 <!-- Content Section -->
 <main>
   
-  <div class="relative py-60 pt-24 md:pt-32 flex flex-col gap-8 px-4 md:px-10 overflow-hidden">
+  <div class="relative py-60 lg:pb-72 pt-20 md:pt-32 flex flex-col gap-8 px-4 md:px-10 overflow-hidden">
     <!-- Image with adjusted positioning -->
-    <img src="accesi-hero.png" alt="Hero image" class="absolute top-10 left-0 w-full h-full object-cover object-top">
+    <img src="accesi-hero.png" alt="Hero image" class="absolute top-12 lg:top-4 left-0 w-full h-full object-cover object-top">
     
     <div class="relative z-10">
       <back-button link="index.html"></back-button>
@@ -628,7 +627,7 @@
 
   </main>
 
-  
+  <scroll-component></scroll-component>
   <!-- Import footer -->
   <script src="footer.js" type="module"></script>
   <script src="https://unpkg.com/flowbite@1.4.0/dist/flowbite.js"></script>

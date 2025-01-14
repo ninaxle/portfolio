@@ -19,7 +19,7 @@ class ScrollComponent extends HTMLElement {
           #scroll {
             position: fixed;
             right: 44px;
-            bottom: 84px;
+            bottom: 108px;
             width: 100px;
             height: 100px;
             border-radius: 50%; /* Circle shape */
