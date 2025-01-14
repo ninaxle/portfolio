@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="ladybug.png">
   <link rel="stylesheet" href="global.styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300..900&family=Syne:wght@400..800&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
@@ -13,7 +14,6 @@
 <body>
   <!-- Import the header component -->
   <script src="header.js" type="module"></script>
-  <header-component></header-component>
   <script src="scroll-to-top.js" type="module"></script>
   <scroll-component></scroll-component>
   <!-- Dynamic Cursor -->
@@ -24,22 +24,25 @@
   <script type="module" src="back-button.js"></script>
 
 <!-- Content Section -->
-<main>
-  
-  <div class="relative py-60 pt-4 md:pt-32 flex flex-col gap-8 px-4 md:px-10">
-    <img src="hereafter-hero.png" alt="Hero image" class="absolute top-0 left-0 w-full h-full object-cover">
+
+  <!-- Header Component -->
+  <header-component></header-component>
+  <div class="relative z-0 py-60 lg:pb-60 pt-20 md:pt-32 flex flex-col gap-8 px-4 md:px-10 overflow-hidden">
+    <!-- Hero image with absolute positioning, behind the content -->
+    <img src="hereafter-hero.png" alt="Hero image" class="absolute z-0 top-6 left-0 w-full h-full object-cover">
+    
+    <!-- Content section, placed above the hero image using z-10 -->
     <div class="relative z-10">
       <back-button link="index.html"></back-button>
     </div>
   </div>
   
 
-  </main>
-  
+
       
       
 
-  <section class="flex flex-col pt-8 md:pt-12 sm:px-10 pb-8 md:pb-12 gap-10 px-4 border-grey border-b">
+  <section class="flex flex-col pt-8 md:py-20 sm:px-10 pb-8 gap-20 px-4 border-grey border-b">
     <div class="flex flex-col lg:px-16 gap-10 lg:w-[80%]">
       <div class="flex flex-col gap-8 pt-1">
         <h2>Here:after — UX Award-Winner</h2>
@@ -66,7 +69,7 @@
       </div>
       <div>
         <a href="https://www.figma.com/proto/QhcqwAACz6sgnow3txen1O/here%3Aafter?page-id=753%3A6059&node-id=754-6064&p=f&viewport=256%2C372%2C0.06&t=cJokFdqDjqyB7OPI-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=754%3A6064&show-proto-sidebar=1" target="_blank" class="flex flex-col lg:px-16 hover-image">
-          <button class="rounded-xl md:rounded-2xl px-4 pb-3 py-1 border-2 border-grey hover:bg-gray-950 hover:text-white hover:border-gray-950 transition flex justify-center items-baseline gap-4">
+          <button class="rounded-xl md:rounded-2xl px-4 pb-6 py-5 border-2 border-grey hover:bg-gray-950 hover:text-white hover:border-gray-950 transition flex justify-center items-baseline gap-4">
             <p>
               <i class="fa-brands fa-figma"></i>
             </p>

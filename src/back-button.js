@@ -41,6 +41,8 @@ class BackButton extends HTMLElement {
           transition: all 0.3s ease; /* transition-all duration-300 */
           transform-origin: top left; /* transform-origin: top left */
           border: none; /* Remove any border or stroke */
+          position: relative;
+          z-index: 10;
         }
 
         /* Responsive size for larger screens (md) */
@@ -54,9 +56,9 @@ class BackButton extends HTMLElement {
           }
           /* Animation for larger screens */
           .back-button:hover {
-            background-color: #0B83FE; /* Hover background color set to #0B83FE */
-            color: #ffffff; /* Text color changes to white on hover */
-            transform: scale(1.5) rotate(12deg); /* hover:scale-150 hover:rotate-12 */
+            background-color: #4866CC; 
+            color: #ffffff; 
+            transform: scale(1.5) rotate(12deg); 
           }
         }
 
@@ -64,8 +66,8 @@ class BackButton extends HTMLElement {
         @media (max-width: 767px) {
           .back-button:hover {
             transform: none; /* Disable animation on mobile */
-            background-color: #ffffff; /* Keep white background on hover for mobile */
-            color: #000000; /* Keep original text color */
+            background-color: #ffffff; 
+            color: #000000; 
           }
         }
 

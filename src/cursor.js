@@ -47,7 +47,7 @@ hoverElements.forEach((element) => {
     cursorText.style.display = 'block'; // Show the text
 
     if (element.querySelector('img')) {
-      cursorText.textContent = "Open Link"; // Set cursor text for image elements
+      cursorText.textContent = "Case Study"; // Set cursor text for image elements
     } else if (element.tagName === "IMG" && element.alt === "Music Icon") {
       cursorText.textContent = "About Me"; // Set cursor text for music icon
     } else if (element.querySelector('h6') && element.querySelector('h6').textContent === "About") {
