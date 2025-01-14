@@ -98,7 +98,7 @@ function createCards(sectionSelector, cardsData, isBrandSection = false) {
     // Wrap card in a link if the `link` property exists
     if (card.link) {
       const cardContent = `
-        <div class="h-72 lg:h-80 w-full rounded-2xl hover:rounded-[48px] relative overflow-hidden bg-light hover-image hover:border-grey hover:border">
+        <div class="h-72 lg:h-80 w-full rounded-2xl relative overflow-hidden bg-light hover-image hover:border-grey hover:border">
           <div class="relative h-full group">
             <img src="${card.image}" alt="${card.title}" loading="lazy" 
               class="w-full h-full object-contain transition duration-300 ease-in-out hover:scale-110">
