@@ -81,7 +81,7 @@ function createCards(sectionSelector, cardsData, isBrandSection = false) {
   
     // Apply the hover class dynamically
     cardDiv.innerHTML = /*html*/`
-      <div class="h-72 lg:h-80 w-full rounded-2xl relative overflow-hidden bg-[#f3f3f4]">
+      <div class="h-72 lg:h-80 2xl:h-[500px] w-full rounded-2xl relative overflow-hidden bg-[#f3f3f4]">
         <img src="${card.image}" alt="${card.title}" loading="lazy" 
           class="w-full h-full ${imageClass} ${hoverClass}" 
           id="card-image-${index}">
@@ -98,7 +98,7 @@ function createCards(sectionSelector, cardsData, isBrandSection = false) {
     // Wrap card in a link if the `link` property exists
     if (card.link) {
       const cardContent = `
-        <div class="h-72 lg:h-80 w-full rounded-2xl relative overflow-hidden bg-light hover-image hover:border-grey hover:border">
+        <div class="h-72 lg:h-80 2xl:h-[500px] w-full rounded-2xl relative overflow-hidden bg-light hover-image hover:border-grey hover:border">
           <div class="relative h-full group">
             <img src="${card.image}" alt="${card.title}" loading="lazy" 
               class="w-full h-full object-contain transition duration-300 ease-in-out hover:scale-110">

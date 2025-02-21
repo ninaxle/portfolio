@@ -28,7 +28,7 @@ headerTemplate.innerHTML =
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 32px;
+    padding: 60px;
     height: 96px;
   }
 
