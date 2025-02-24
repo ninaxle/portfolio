@@ -4,7 +4,7 @@ materialIcons.rel = "stylesheet";
 materialIcons.href = "https://fonts.googleapis.com/icon?family=Material+Icons";
 document.head.appendChild(materialIcons);
 
-// main.js
+
 
 // Dynamically load another JavaScript file (additional.js)
 const script = document.createElement('script');
@@ -78,27 +78,85 @@ function createCards(sectionSelector, cardsData, isBrandSection = false) {
         `;
       }
       
+
+
+
+      
+
+      // animation
+
+      const style = document.createElement('style');
+      style.textContent = `
+        .pretty {
+  position: relative;
+  z-index: 0;
+}
+
+@property --angle {
+syntax: "<angle>";
+initial-value: 0deg;
+inherits: false;
+
+}
+
+
+.pretty::after, .pretty::before {
+--angle: 0deg;
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-image: conic-gradient(from var(--angle), #F30559, #F9FFA0, #1AFFC2, #4866CC, #ff0095);
+  border-radius: 18px;
+  opacity: 0;
+  z-index: -1;
+  animation: 3s spin linear infinite;
+}
+
+.pretty:hover::before {
+  opacity: 30%;
+  filter: blur(0.5rem);
+}
+
+.pretty:hover::after {
+  opacity: 1;
+}
+
+
+@keyframes spin {
+ from {
+ --angle: 0deg;
+ 
+ }
+ to {
+ --angle: 360deg;
+ }
+  }
+}
+      `;
+      document.head.appendChild(style);
+      
   
     // Apply the hover class dynamically
     cardDiv.innerHTML = /*html*/`
-      <div class="h-72 lg:h-80 2xl:h-[500px] w-full rounded-2xl relative overflow-hidden bg-[#f3f3f4]">
+    <div class="h-72 lg:h-80 2xl:h-[500px] w-full rounded-2xl relative overflow-hidden bg-[#f3f3f4]">
+      <div class="inner-content h-full w-full rounded-2xl overflow-hidden">
         <img src="${card.image}" alt="${card.title}" loading="lazy" 
           class="w-full h-full ${imageClass} ${hoverClass}" 
           id="card-image-${index}">
       </div>
-
-      <h4>${card.title}</h4>
-      <div>${tagHTML}</div>
-      
-
-      
-    `;
+    </div>
+    <h4>${card.title}</h4>
+    <div>${tagHTML}</div>
+  `;
+  
 
 
     // Wrap card in a link if the `link` property exists
     if (card.link) {
       const cardContent = `
-        <div class="h-72 lg:h-80 2xl:h-[500px] w-full rounded-2xl relative overflow-hidden bg-light hover-image hover:border-grey hover:border">
+        <div class="flex justify-center items-center pretty p-[3px]">
+        <div class="h-72 lg:h-80 2xl:h-[500px] w-full rounded-2xl relative overflow-hidden bg-light hover-image">
           <div class="relative h-full group">
             <img src="${card.image}" alt="${card.title}" loading="lazy" 
               class="w-full h-full object-contain transition duration-300 ease-in-out hover:scale-110">
@@ -109,6 +167,10 @@ function createCards(sectionSelector, cardsData, isBrandSection = false) {
             </div>
           </div>
         </div>
+        
+        </div>
+      
+    
               <h4>${card.title}</h4>
       <div>${tagHTML}</div>
 
