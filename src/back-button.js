@@ -62,6 +62,18 @@ class BackButton extends HTMLElement {
           }
         }
 
+
+        
+        /* Responsive size for larger screens (md) */
+        @media (min-width: 1536px) {
+          .back-button {
+            width: 7rem;
+            height: 5rem;
+          }
+          header {
+            font-size: 36px; 
+          }
+
         /* Disable animation for small screens (mobile) */
         @media (max-width: 767px) {
           .back-button:hover {
@@ -71,6 +83,7 @@ class BackButton extends HTMLElement {
           }
         }
 
+      
         h3 {
           text-align: center; /* text-center */
           margin: 0;

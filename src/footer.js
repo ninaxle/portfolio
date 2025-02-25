@@ -21,7 +21,7 @@ class FooterComponent extends HTMLElement {
         }
 
         header {
-          font-size: 20px;
+          font-size: 22px;
           color:#282544;
           font-weight: 500;
         }
@@ -56,7 +56,7 @@ class FooterComponent extends HTMLElement {
           background: linear-gradient(135deg, #111827, #111827); /* Original Behance color */
         }
         a.email {
-          background: linear-gradient(135deg, #499274, #499274); /* Original Email color */
+          background: linear-gradient(135deg, #0D9960, #0D9960); /* Original Email color */
         }
 
         a:hover, span:hover { opacity: 0.7; }

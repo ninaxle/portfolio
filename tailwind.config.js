@@ -20,7 +20,7 @@ export default {
         black: "#020D03",
         egg: "#E7E0E6",
         blob: "#4866CC",
-        gree: "#13A368",
+        gree: "#0D9960",
         beige: "#F8F6F6",
         grey2: "#6B6B6B",
         light: "#f3f3f4",

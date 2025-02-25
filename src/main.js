@@ -58,13 +58,13 @@ function createCards(sectionSelector, cardsData, isBrandSection = false) {
               let tagClasses = "bg-light px-3 py-1 rounded-xl text-base mr-1 mb-1";
               
               if (tag.toLowerCase().includes('rgd')) {
-                tagClasses = "bg-gree text-white px-3 py-1 rounded-xl text-base mr-1 mb-1"; // Change for 'rgd'
+                tagClasses = "bg-violet-100 px-3 py-1 rounded-xl text-base mr-1 mb-1"; // Change for 'rgd'
               } else if (tag.toLowerCase().includes('winner')) {
-                tagClasses = "bg-gree text-white px-3 py-1 rounded-xl text-base mr-1 mb-1"; 
+                tagClasses = "bg-violet-100 px-3 py-1 rounded-xl text-base mr-1 mb-1"; 
               } else if (tag.toUpperCase().includes('PROGRESS')) {
                 tagClasses = "bg-lightblue px-3 py-1 rounded-xl text-base mr-1 mb-1"; 
               } else if (tag.toLowerCase().includes('mention')) {
-                tagClasses = "bg-gree text-white px-3 py-1 rounded-xl text-base mr-1 mb-1"; 
+                tagClasses = "bg-violet-100 px-3 py-1 rounded-xl text-base mr-1 mb-1"; 
               }
               
       
@@ -106,16 +106,11 @@ inherits: false;
   position: absolute;
   height: 100%;
   width: 100%;
-  background-image: conic-gradient(from var(--angle), #F30559, #F9FFA0, #1AFFC2, #4866CC, #ff0095);
+  background-image: conic-gradient(from var(--angle), #F9619E, #FEDD88, #1AFFC2, #6CBEF2, #EB77F6);
   border-radius: 18px;
   opacity: 0;
   z-index: -1;
   animation: 3s spin linear infinite;
-}
-
-.pretty:hover::before {
-  opacity: 30%;
-  filter: blur(0.5rem);
 }
 
 .pretty:hover::after {
@@ -155,7 +150,7 @@ inherits: false;
     // Wrap card in a link if the `link` property exists
     if (card.link) {
       const cardContent = `
-        <div class="flex justify-center items-center pretty p-[3px]">
+        <div class="flex justify-center items-center rounded-[18px]  bg-light pretty p-[4px]">
         <div class="h-72 lg:h-80 2xl:h-[500px] w-full rounded-2xl relative overflow-hidden bg-light hover-image">
           <div class="relative h-full group">
             <img src="${card.image}" alt="${card.title}" loading="lazy" 
@@ -192,14 +187,14 @@ const uxuiCardsData = [
     title: "Here:after",
     image: "here.png",
     link: "hereafter.html",
-    tags: " UX WINNER | RGD CANADA // 2023 | UX RESEARCH | MOBILE",
+    tags: " UX WINNER | RGD CANADA '23 | UX RESEARCH | MOBILE",
 
   },
   {
     title: "Accessichat",
     image: "accessi.png",
     link: "accessichat.html",
-    tags: "AI HONOURABLE MENTION | RGD CANADA // 2024 | HACKATHON | MOBILE",
+    tags: "AI HONOURABLE MENTION | RGD CANADA '24 | HACKATHON | MOBILE",
 
   },
   {
