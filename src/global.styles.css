@@ -10,7 +10,7 @@
   html {
     font-family: "Darker Grotesque", sans-serif;
     font-weight: 500;
-    color: #282544;
+    color: #352b38;
   }
 
   title {
@@ -67,13 +67,14 @@
 .cursor {
   position: absolute;
   pointer-events: none;
-  background-color: #f30559;  /* Change to your preferred color */
+  background-color: #F9DDDC;  /* Change to your preferred color */
   width: 16px;  /* Normal size */
   height: 16px;
   border-radius: 50%;  /* Circular shape */
   z-index: 1000;
   transform: translate(-50%, -50%);  /* Center the cursor */
   transition: transform 0.2s ease-out;  /* Smooth transition for scaling */
+  
 }
 
 /* Follower cursor style */
@@ -81,6 +82,7 @@
   position: absolute;
   pointer-events: none;
   background-color: rgba(255, 255, 255, 0.3);  /* Light transparent color */
+
   width: 32px;  /* Default size */
   height: 32px;
   border-radius: 50%;
@@ -107,7 +109,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: white;            /* Adjust color as needed */
+  color: rgb(233, 41, 137);            /* Adjust color as needed */
   pointer-events: none;    /* Avoid interfering with cursor events */
   line-height: 4px;        /* Adjust line height to ensure proper spacing */
   text-align: center;      /* Align the text to the center horizontally */

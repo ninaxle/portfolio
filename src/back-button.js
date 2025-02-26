@@ -56,8 +56,8 @@ class BackButton extends HTMLElement {
           }
           /* Animation for larger screens */
           .back-button:hover {
-            background-color: #4866CC; 
-            color: #ffffff; 
+            background-color: #F9DDDC; 
+            color: rgb(233, 41, 137); 
             transform: scale(1.5) rotate(12deg); 
           }
         }

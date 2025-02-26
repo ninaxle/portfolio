@@ -55,16 +55,16 @@ function createCards(sectionSelector, cardsData, isBrandSection = false) {
           <div class="flex flex-wrap gap-1">
             ${tagsArray.map(tag => {
               // Check if the tag is 'rgd' or 'canada' and apply different styles
-              let tagClasses = "bg-light px-3 py-1 rounded-xl text-base mr-1 mb-1";
+              let tagClasses = "border px-3 py-1 rounded-xl text-base mr-1 mb-1";
               
               if (tag.toLowerCase().includes('rgd')) {
-                tagClasses = "bg-violet-100 px-3 py-1 rounded-xl text-base mr-1 mb-1"; // Change for 'rgd'
+                tagClasses = "bg-violet-50 text-blob px-3 py-1 rounded-xl text-base mr-1 mb-1"; // Change for 'rgd'
               } else if (tag.toLowerCase().includes('winner')) {
-                tagClasses = "bg-violet-100 px-3 py-1 rounded-xl text-base mr-1 mb-1"; 
+                tagClasses = "bg-violet-50 text-blob px-3 py-1 rounded-xl text-base mr-1 mb-1"; 
               } else if (tag.toUpperCase().includes('PROGRESS')) {
-                tagClasses = "bg-lightblue px-3 py-1 rounded-xl text-base mr-1 mb-1"; 
+                tagClasses = "bg-light px-3 py-1 rounded-xl text-base mr-1 mb-1"; 
               } else if (tag.toLowerCase().includes('mention')) {
-                tagClasses = "bg-violet-100 px-3 py-1 rounded-xl text-base mr-1 mb-1"; 
+                tagClasses = "bg-violet-50 text-blob px-3 py-1 rounded-xl text-base mr-1 mb-1"; 
               }
               
       
@@ -106,11 +106,16 @@ inherits: false;
   position: absolute;
   height: 100%;
   width: 100%;
-  background-image: conic-gradient(from var(--angle), #F9619E, #FEDD88, #1AFFC2, #6CBEF2, #EB77F6);
+background-image: conic-gradient(from var(--angle), #fb8bb9 10%, #7fd8c8 30%, #a89cf0 50%, #d69ee6 70%, #fea8a9 90%);
   border-radius: 18px;
   opacity: 0;
   z-index: -1;
   animation: 3s spin linear infinite;
+}
+
+.pretty:hover::before {
+  opacity: 36%;
+  	filter: blur(0.75rem)
 }
 
 .pretty:hover::after {
@@ -150,16 +155,12 @@ inherits: false;
     // Wrap card in a link if the `link` property exists
     if (card.link) {
       const cardContent = `
-        <div class="flex justify-center items-center rounded-[18px]  bg-light pretty p-[4px]">
-        <div class="h-72 lg:h-80 2xl:h-[500px] w-full rounded-2xl relative overflow-hidden bg-light hover-image">
+        <div class="flex justify-center items-center rounded-[18px] pretty p-[2px]">
+        <div class="h-72 lg:h-80 2xl:h-[500px] w-full rounded-2xl relative overflow-hidden bg-light">
           <div class="relative h-full group">
             <img src="${card.image}" alt="${card.title}" loading="lazy" 
               class="w-full h-full object-contain transition duration-300 ease-in-out hover:scale-110">
-            
-            <!-- Circle with Material Arrow (on hover) inside the card's content -->
-            <div class="absolute bottom-4 right-4 w-16 h-16 bg-gray-950 rounded-full flex items-center justify-center opacity-0 transition-opacity group-hover:opacity-100">
-              <span class="material-icons text-white font-light">arrow_outward</span>
-            </div>
+           
           </div>
         </div>
         

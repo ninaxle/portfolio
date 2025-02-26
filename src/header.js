@@ -20,7 +20,7 @@ headerTemplate.innerHTML =
     top: 0;
     width: 100%;
     z-index: 50; /* Higher z-index so it's above the content */
-    border-bottom: 1px solid #282544;
+    border-bottom: 1px solid #C5C5C5;
     transition: transform 0.3s ease;
   }
 

@@ -14,7 +14,7 @@ class FooterComponent extends HTMLElement {
 
         footer {
           padding: 48px 64px 48px 64px;
-          border-top: 1px solid black;
+          border-top: 1px solid #C5C5C5;
           display: flex;
           justify-content: space-between;
           align-items: center;
@@ -44,20 +44,21 @@ class FooterComponent extends HTMLElement {
           transition: 0.2s ease-in-out;
           text-decoration: none;
         }
+/* Even richer, vibrant gradients */
+a.linkedin {
+  background: #4B52A2; /* Deep, bold LinkedIn purple */
+}
+a.instagram {
+  background: #FF096B; /* Vibrant, intense Instagram pink */
+}
+a.behance {
+  background: #211722; /* Richer, more intense Behance purple */
+}
+a.email {
+  background: #0D9960; /* Bold, vibrant teal */
+}
 
-        /* Original colors with gradients */
-        a.linkedin {
-          background: linear-gradient(135deg, #4866CC, #4866CC); /* Original LinkedIn color */
-        }
-        a.instagram {
-          background: linear-gradient(135deg, #f30559, #f30559); /* Original Instagram color */
-        }
-        a.behance {
-          background: linear-gradient(135deg, #111827, #111827); /* Original Behance color */
-        }
-        a.email {
-          background: linear-gradient(135deg, #0D9960, #0D9960); /* Original Email color */
-        }
+
 
         a:hover, span:hover { opacity: 0.7; }
 

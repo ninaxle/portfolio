@@ -23,7 +23,7 @@ class ScrollComponent extends HTMLElement {
             width: 100px;
             height: 100px;
             border-radius: 50%; /* Circle shape */
-            background-color: #1F1F1F;
+            background-color: #211722;
             color: white;
             display: flex;
             justify-content: center;
