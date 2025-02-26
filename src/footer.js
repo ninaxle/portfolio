@@ -13,7 +13,7 @@ class FooterComponent extends HTMLElement {
         }
 
         footer {
-          padding: 48px 64px 48px 64px;
+          padding: 48px 64px;
           border-top: 1px solid #C5C5C5;
           display: flex;
           justify-content: space-between;
@@ -22,7 +22,7 @@ class FooterComponent extends HTMLElement {
 
         header {
           font-size: 22px;
-          color:#282544;
+          color: #282544;
           font-weight: 500;
         }
 
@@ -31,54 +31,55 @@ class FooterComponent extends HTMLElement {
           gap: 1rem;
         }
 
-        a,
-        span {
+        a {
           display: flex;
           justify-content: center;
           align-items: center;
           width: 3rem;
           height: 3rem;
-          color: white;
           font-size: 1.5rem;
           border-radius: 16px;
-          transition: 0.2s ease-in-out;
           text-decoration: none;
-        }
-/* Even richer, vibrant gradients */
-a.linkedin {
-  background: #4B52A2; /* Deep, bold LinkedIn purple */
-}
-a.instagram {
-  background: #FF096B; /* Vibrant, intense Instagram pink */
-}
-a.behance {
-  background: #211722; /* Richer, more intense Behance purple */
-}
-a.email {
-  background: #0D9960; /* Bold, vibrant teal */
-}
-
-
-
-        a:hover, span:hover { opacity: 0.7; }
-
- @media (min-width: 1100px) {
-
-        .social-links {
-          gap: 2rem;
+          transition: background 0.2s ease-in-out, box-shadow 0.3s ease-in-out;
+          color: white;
         }
 
-        a,
-        span {
-          width: 7.5rem;
-         
+        /* Button Colors */
+        a.linkedin {
+          background: #4B52A2;
+        }
+        a.instagram {
+          background: rgb(233, 41, 137);
+        }
+        a.behance {
+          background: #211722;
+        }
+        a.email {
+          background: #008080;
         }
 
+        /* Hover Glow Effect (More Radius, Less Opacity) */
+        a.linkedin:hover {
+          box-shadow: 0 0 15px rgba(75, 82, 162, 0.3), 0 0 30px rgba(75, 82, 162, 0.2);
+        }
+        a.instagram:hover {
+          box-shadow: 0 0 15px rgba(233, 41, 137, 0.3), 0 0 30px rgba(233, 41, 137, 0.2);
+        }
+        a.behance:hover {
+          box-shadow: 0 0 15px rgba(33, 23, 34, 0.3), 0 0 30px rgba(33, 23, 34, 0.2);
+        }
+        a.email:hover {
+          box-shadow: 0 0 15px rgba(0, 128, 128, 0.3), 0 0 30px rgba(0, 128, 128, 0.2);
+        }
 
-  }
-
-
-
+        @media (min-width: 1100px) {
+          .social-links {
+            gap: 2rem;
+          }
+          a {
+            width: 7.5rem;
+          }
+        }
 
         @media (max-width: 768px) {
           footer {
@@ -86,27 +87,21 @@ a.email {
             padding: 28px;
             gap: 24px;
           }
-
           .social-links {
             justify-content: center;
             margin-top: 0.5rem;
             gap: 16px;
           }
-
-        a,
-        span {
-          width: 3rem;
-          height: 3rem;
-                    border-radius: 12px;
-
-        }
-
+          a {
+            width: 3rem;
+            height: 3rem;
+            border-radius: 12px;
+          }
         }
       </style>
 
       <footer>
         <header>©2024, Designed and Coded by Nina Le :)</header>
-
         <div class="social-links">
           <a class="linkedin" href="https://www.linkedin.com/in/ninale65/" target="_blank">
             <i class="fa-brands fa-linkedin-in"></i>
@@ -121,7 +116,6 @@ a.email {
             <i class="fa-solid fa-envelope"></i>
           </a>
         </div>
-
       </footer>
     `;
   }
