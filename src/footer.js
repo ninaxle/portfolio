@@ -38,7 +38,7 @@ class FooterComponent extends HTMLElement {
           width: 3rem;
           height: 3rem;
           font-size: 1.5rem;
-          border-radius: 16px;
+          border-radius: 12px;
           text-decoration: none;
           transition: background 0.2s ease-in-out, box-shadow 0.3s ease-in-out;
           color: white;
@@ -101,7 +101,7 @@ class FooterComponent extends HTMLElement {
       </style>
 
       <footer>
-        <header>©2024, Designed and Coded by Nina Le :)</header>
+        <header>© 2025, Designed and Coded by Nina Le :)</header>
         <div class="social-links">
           <a class="linkedin" href="https://www.linkedin.com/in/ninale65/" target="_blank">
             <i class="fa-brands fa-linkedin-in"></i>

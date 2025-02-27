@@ -19,8 +19,7 @@ headerTemplate.innerHTML = `
     top: 20px; /* Move to the top */
     left: 50%;
     transform: translateX(-50%);
-    width: 90%;
-    max-width: 1600px;
+    width: 95%;
     padding: 24px 28px;
     border-radius: 16px;
     border: 1px solid #d3d3d3;
@@ -56,13 +55,13 @@ headerTemplate.innerHTML = `
   }
 
   .contact-button {
-    background-color: #282544;
+    background-color: #211722;
     color: #fcfcfc;
     font-size: 20px;
     font-weight: 500;
     padding: 8px 16px;
     border: none;
-    border-radius: 6px;
+    border-radius: 12px;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
   }
