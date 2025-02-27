@@ -38,7 +38,6 @@ headerTemplate.innerHTML = `
   .logo {
     font-size: 28px;
     font-weight: 500;
-    color: #282544;
   }
 
   .nav-links {
@@ -49,7 +48,7 @@ headerTemplate.innerHTML = `
   }
 
   li {
-    font-size: 18px;
+    font-size: 20px;
   }
 
   a {
@@ -59,7 +58,7 @@ headerTemplate.innerHTML = `
   .contact-button {
     background-color: #282544;
     color: #fcfcfc;
-    font-size: 16px;
+    font-size: 20px;
     font-weight: 500;
     padding: 8px 16px;
     border: none;
@@ -81,7 +80,11 @@ headerTemplate.innerHTML = `
 
   @media (max-width: 768px) {
     header {
-      width: 95%;
+      width: 100%;
+      top: 0px; /* Move to the top */
+            border: none;
+      border-bottom: 1px solid #d3d3d3;
+
       padding: 16px 24px; /* Reduced padding for mobile */
     }
 
@@ -106,7 +109,9 @@ headerTemplate.innerHTML = `
       right: 0;
       padding: 16px;
       border-radius: 16px;
-      border: 1px solid #d3d3d3;
+            border: 1px solid #d3d3d3;
+
+
     }
 
     .nav-links.open {
