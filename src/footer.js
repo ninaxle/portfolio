@@ -40,7 +40,7 @@ class FooterComponent extends HTMLElement {
           font-size: 1.5rem;
           border-radius: 12px;
           text-decoration: none;
-          transition: background 0.2s ease-in-out, box-shadow 0.3s ease-in-out;
+          transition: background 0.3s ease-in-out; /* Smooth transition for background color */
           color: white;
         }
 
@@ -52,24 +52,24 @@ class FooterComponent extends HTMLElement {
           background: rgb(233, 41, 137);
         }
         a.behance {
-          background: #211722;
+          background: #2E1F27; /* Slightly lighter dark color for Behance */
         }
         a.email {
           background: #008080;
         }
 
-        /* Hover Glow Effect (More Radius, Less Opacity) */
+        /* Lighten Hover Effect */
         a.linkedin:hover {
-          box-shadow: 0 0 15px rgba(75, 82, 162, 0.3), 0 0 30px rgba(75, 82, 162, 0.2);
+          background: #6f76c8; /* Lighter shade for hover effect */
         }
         a.instagram:hover {
-          box-shadow: 0 0 15px rgba(233, 41, 137, 0.3), 0 0 30px rgba(233, 41, 137, 0.2);
+          background: rgb(255, 95, 158); /* Lighter shade for hover effect */
         }
         a.behance:hover {
-          box-shadow: 0 0 15px rgba(33, 23, 34, 0.3), 0 0 30px rgba(33, 23, 34, 0.2);
+          background: #5e3c49; /* Lighter shade for Behance on hover */
         }
         a.email:hover {
-          box-shadow: 0 0 15px rgba(0, 128, 128, 0.3), 0 0 30px rgba(0, 128, 128, 0.2);
+          background: #33b0b0; /* Lighter shade for hover effect */
         }
 
         @media (min-width: 1100px) {
@@ -79,6 +79,15 @@ class FooterComponent extends HTMLElement {
           a {
             width: 7.5rem;
           }
+        }
+
+
+         @media (min-width: 1536px) {
+         
+        header {
+          font-size: 28px;
+        }
+
         }
 
         @media (max-width: 768px) {
@@ -101,7 +110,7 @@ class FooterComponent extends HTMLElement {
       </style>
 
       <footer>
-        <header>© 2025, Designed and Coded by Nina Le :)</header>
+        <header>©2025. Designed and coded by me :)</header>
         <div class="social-links">
           <a class="linkedin" href="https://www.linkedin.com/in/ninale65/" target="_blank">
             <i class="fa-brands fa-linkedin-in"></i>

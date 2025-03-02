@@ -55,16 +55,16 @@ function createCards(sectionSelector, cardsData, isBrandSection = false) {
           <div class="flex flex-wrap gap-1">
             ${tagsArray.map(tag => {
               // Check if the tag is 'rgd' or 'canada' and apply different styles
-              let tagClasses = "border px-3 py-1 rounded-xl text-base mr-1 mb-1";
+              let tagClasses = "border px-3 py-1 rounded-xl text-base 2xl:text-xl mr-1 mb-1";
               
               if (tag.toLowerCase().includes('rgd')) {
-                tagClasses = "border border-gray-400 text-gray-600 px-3 py-1 rounded-xl text-base mr-1 mb-1"; // Change for 'rgd'
+                tagClasses = "border border-gray-400 text-gray-600 px-3 py-1 rounded-xl text-base 2xl:text-xl mr-1 mb-1"; // Change for 'rgd'
               } else if (tag.toLowerCase().includes('winner')) {
-                tagClasses = "border border-gray-400 text-gray-600 px-3 py-1 rounded-xl text-base mr-1 mb-1"; 
+                tagClasses = "border border-gray-400 text-gray-600 px-3 py-1 rounded-xl text-base 2xl:text-xl mr-1 mb-1"; 
               } else if (tag.toUpperCase().includes('PROGRESS')) {
-                tagClasses = "border border-gray-400 text-gray-600 px-3 py-1 rounded-xl text-base mr-1 mb-1"; 
+                tagClasses = "border border-gray-400 text-gray-600 px-3 py-1 rounded-xl text-base 2xl:text-xl mr-1 mb-1"; 
               } else if (tag.toLowerCase().includes('mention')) {
-                tagClasses = "border border-gray-400 text-gray-600 px-3 py-1 rounded-xl text-base mr-1 mb-1"; 
+                tagClasses = "border border-gray-400 text-gray-600 px-3 py-1 rounded-xl text-base 2xl:text-xl mr-1 mb-1"; 
               }
               
       

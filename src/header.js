@@ -19,7 +19,7 @@ headerTemplate.innerHTML = `
     top: 20px; /* Move to the top */
     left: 50%;
     transform: translateX(-50%);
-    width: 95%;
+    width: 94%;
     padding: 24px 28px;
     border-radius: 16px;
     border: 1px solid #d3d3d3;
@@ -34,14 +34,13 @@ headerTemplate.innerHTML = `
     gap: 4rem;
   }
 
-  .logo {
-    font-size: 28px;
-    font-weight: 500;
+  .logo img {
+    height: 32px; /* Adjust height as needed */
   }
 
   .nav-links {
     display: flex;
-    gap: 2rem;
+    gap: 2.5rem;
     list-style: none;
     font-weight: 500;
   }
@@ -67,7 +66,7 @@ headerTemplate.innerHTML = `
   }
 
   .contact-button:hover {
-    background-color: #3a375d;
+    background-color: #5e3c49;
     transform: scale(1.05);
   }
 
@@ -77,18 +76,49 @@ headerTemplate.innerHTML = `
     height: 24px;
   }
 
+
+
+ @media (min-width: 1536px) { 
+    .logo img {
+      height: 40px; /* Adjust height as needed */
+    }
+
+    li {
+      font-size: 24px;
+    }
+    
+  .nav-links {
+    display: flex;
+    gap: 2.75rem;
+    list-style: none;
+    font-weight: 500;
+  }
+
+  .contact-button {
+    font-size: 24px;
+    padding: 8px 20px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  }
+
   @media (max-width: 768px) {
     header {
       width: 100%;
-      top: 0px; /* Move to the top */
-            border: none;
+      top: 0px;
+      border: none;
       border-bottom: 1px solid #d3d3d3;
-
-      padding: 16px 24px; /* Reduced padding for mobile */
+      border-radius: 0;
+      border-bottom-left-radius: 16px;
+      border-bottom-right-radius: 16px;
+      padding: 16px 24px;
     }
 
-    .logo {
-      font-size: 22px; /* Smaller logo font size on mobile */
+    .logo img {
+      height: 30px; /* Smaller logo size on mobile */
     }
 
     nav {
@@ -99,18 +129,21 @@ headerTemplate.innerHTML = `
 
     .nav-links {
       flex-direction: column;
-      gap: 1rem;
+      gap: 1.25rem;
       display: none;
-      background: rgba(252, 252, 252, 1); /* Solid background */
+      background: rgba(252, 252, 252, 1);
       position: absolute;
       top: 100%;
       left: 0;
       right: 0;
       padding: 16px;
+      margin: 8px;
       border-radius: 16px;
-            border: 1px solid #d3d3d3;
-
-
+      border-top: none;
+      border: 1px solid #d3d3d3;
+      padding-bottom: 32px;
+      text-align: center;
+      align-items: center;
     }
 
     .nav-links.open {
@@ -125,13 +158,15 @@ headerTemplate.innerHTML = `
 
   <header>
     <nav>
-      <a href="index.html" class="logo">Nina Le</a> <!-- Made logo a link -->
+      <a href="index.html" class="logo">
+        <img src="logo88.png" alt="Logo">
+      </a>
       <img src="ham.svg" id="hamburger-icon" alt="Menu">
       <ul class="nav-links">
         <li><a href="index.html">Projects</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="archive.html">Archive</a></li>
-        <li><a href="contact.html" class="contact-button">Contact Me</a></li>
+        <li><a href="mailto:ninalle.65@gmail.com" class="contact-button">Contact Me</a></li>
       </ul>
     </nav>
   </header>

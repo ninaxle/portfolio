@@ -34,7 +34,7 @@ class BackButton extends HTMLElement {
           align-items: center; /* items-center */
           justify-content: center; /* justify-center */
           background-color: #ffffff; /* Default white background */
-          color: #000000; /* Text color remains black (original state) */
+          color: #5e5d5d; /* Text color remains black (original state) */
           font-family: 'Darker Grotesque', sans-serif; /* Match original font */
           box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.06); 
           cursor: pointer;
