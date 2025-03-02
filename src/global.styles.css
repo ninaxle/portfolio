@@ -44,7 +44,7 @@
     @apply px-4 md:px-8 flex flex-col md:flex-row space-y-3;
   }
 
-  .smolwidth .smolwidth {
+  .smolwidth {
     max-width: 548px;
   }
   
