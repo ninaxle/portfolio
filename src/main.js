@@ -4,7 +4,7 @@ materialIcons.rel = "stylesheet";
 materialIcons.href = "https://fonts.googleapis.com/icon?family=Material+Icons";
 document.head.appendChild(materialIcons);
 
-// main.js
+
 
 // Dynamically load another JavaScript file (additional.js)
 const script = document.createElement('script');
@@ -55,16 +55,16 @@ function createCards(sectionSelector, cardsData, isBrandSection = false) {
           <div class="flex flex-wrap gap-1">
             ${tagsArray.map(tag => {
               // Check if the tag is 'rgd' or 'canada' and apply different styles
-              let tagClasses = "bg-light px-3 py-1 rounded-xl text-base mr-1 mb-1";
+              let tagClasses = "border px-3 py-1 rounded-xl text-base 2xl:text-xl mr-1 mb-1";
               
               if (tag.toLowerCase().includes('rgd')) {
-                tagClasses = "bg-gree text-white px-3 py-1 rounded-xl text-base mr-1 mb-1"; // Change for 'rgd'
+                tagClasses = "border border-gray-400 text-gray-600 px-3 py-1 rounded-xl text-base 2xl:text-xl mr-1 mb-1"; // Change for 'rgd'
               } else if (tag.toLowerCase().includes('winner')) {
-                tagClasses = "bg-gree text-white px-3 py-1 rounded-xl text-base mr-1 mb-1"; 
+                tagClasses = "border border-gray-400 text-gray-600 px-3 py-1 rounded-xl text-base 2xl:text-xl mr-1 mb-1"; 
               } else if (tag.toUpperCase().includes('PROGRESS')) {
-                tagClasses = "bg-lightblue px-3 py-1 rounded-xl text-base mr-1 mb-1"; 
+                tagClasses = "border border-gray-400 text-gray-600 px-3 py-1 rounded-xl text-base 2xl:text-xl mr-1 mb-1"; 
               } else if (tag.toLowerCase().includes('mention')) {
-                tagClasses = "bg-gree text-white px-3 py-1 rounded-xl text-base mr-1 mb-1"; 
+                tagClasses = "border border-gray-400 text-gray-600 px-3 py-1 rounded-xl text-base 2xl:text-xl mr-1 mb-1"; 
               }
               
       
@@ -78,37 +78,95 @@ function createCards(sectionSelector, cardsData, isBrandSection = false) {
         `;
       }
       
+
+
+
+      
+
+      // animation
+
+      const style = document.createElement('style');
+      style.textContent = `
+        .pretty {
+  position: relative;
+  z-index: 0;
+}
+
+@property --angle {
+syntax: "<angle>";
+initial-value: 0deg;
+inherits: false;
+
+}
+
+
+.pretty::after, .pretty::before {
+--angle: 0deg;
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+background-image: conic-gradient(from var(--angle), #8a90e6 0%, #80b3b3 40%, #e96b8e 70%, #66b3b3 100%);
+  border-radius: 18px;
+  opacity: 0;
+  z-index: -1;
+  animation: 3s spin linear infinite;
+}
+
+.pretty:hover::before {
+  opacity: 36%;
+  	filter: blur(0.75rem)
+}
+
+.pretty:hover::after {
+  opacity: 1;
+}
+
+
+@keyframes spin {
+ from {
+ --angle: 0deg;
+ 
+ }
+ to {
+ --angle: 360deg;
+ }
+  }
+}
+      `;
+      document.head.appendChild(style);
+      
   
     // Apply the hover class dynamically
     cardDiv.innerHTML = /*html*/`
-      <div class="h-72 lg:h-80 w-full rounded-2xl relative overflow-hidden bg-[#f3f3f4]">
+    <div class="h-72 lg:h-80 2xl:h-[500px] w-full rounded-2xl relative overflow-hidden bg-[#f3f3f4]">
+      <div class="inner-content h-full w-full rounded-2xl overflow-hidden">
         <img src="${card.image}" alt="${card.title}" loading="lazy" 
           class="w-full h-full ${imageClass} ${hoverClass}" 
           id="card-image-${index}">
       </div>
-
-      <h4>${card.title}</h4>
-      <div>${tagHTML}</div>
-      
-
-      
-    `;
+    </div>
+    <h4>${card.title}</h4>
+    <div>${tagHTML}</div>
+  `;
+  
 
 
     // Wrap card in a link if the `link` property exists
     if (card.link) {
       const cardContent = `
-        <div class="h-72 lg:h-80 w-full rounded-2xl relative overflow-hidden bg-light hover-image hover:border-grey hover:border">
+        <div class="flex justify-center items-center rounded-[18px] pretty p-[3px]">
+        <div class="h-72 lg:h-80 2xl:h-[500px] w-full rounded-2xl relative overflow-hidden bg-light">
           <div class="relative h-full group">
             <img src="${card.image}" alt="${card.title}" loading="lazy" 
               class="w-full h-full object-contain transition duration-300 ease-in-out hover:scale-110">
-            
-            <!-- Circle with Material Arrow (on hover) inside the card's content -->
-            <div class="absolute bottom-4 right-4 w-16 h-16 bg-gray-950 rounded-full flex items-center justify-center opacity-0 transition-opacity group-hover:opacity-100">
-              <span class="material-icons text-white font-light">arrow_outward</span>
-            </div>
+           
           </div>
         </div>
+        
+        </div>
+      
+    
               <h4>${card.title}</h4>
       <div>${tagHTML}</div>
 
@@ -130,14 +188,14 @@ const uxuiCardsData = [
     title: "Here:after",
     image: "here.png",
     link: "hereafter.html",
-    tags: " UX WINNER | RGD CANADA // 2023 | UX RESEARCH | MOBILE",
+    tags: " UX WINNER | RGD CANADA '23 | UX RESEARCH | MOBILE",
 
   },
   {
     title: "Accessichat",
     image: "accessi.png",
     link: "accessichat.html",
-    tags: "AI HONOURABLE MENTION | RGD CANADA // 2024 | HACKATHON | MOBILE",
+    tags: "AI HONOURABLE MENTION | RGD CANADA '24 | HACKATHON | MOBILE",
 
   },
   {

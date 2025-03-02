@@ -13,16 +13,16 @@ class FooterComponent extends HTMLElement {
         }
 
         footer {
-          padding: 48px 64px 48px 64px;
-          border-top: 1px solid black;
+          padding: 48px 64px;
+          border-top: 1px solid #C5C5C5;
           display: flex;
           justify-content: space-between;
           align-items: center;
         }
 
         header {
-          font-size: 20px;
-          color:#282544;
+          font-size: 22px;
+          color: #282544;
           font-weight: 500;
         }
 
@@ -31,53 +31,64 @@ class FooterComponent extends HTMLElement {
           gap: 1rem;
         }
 
-        a,
-        span {
+        a {
           display: flex;
           justify-content: center;
           align-items: center;
           width: 3rem;
           height: 3rem;
-          color: white;
           font-size: 1.5rem;
-          border-radius: 16px;
-          transition: 0.2s ease-in-out;
+          border-radius: 12px;
           text-decoration: none;
+          transition: background 0.3s ease-in-out; /* Smooth transition for background color */
+          color: white;
         }
 
-        /* Original colors with gradients */
+        /* Button Colors */
         a.linkedin {
-          background: linear-gradient(135deg, #4866CC, #4866CC); /* Original LinkedIn color */
+          background: #4B52A2;
         }
         a.instagram {
-          background: linear-gradient(135deg, #f30559, #f30559); /* Original Instagram color */
+          background: rgb(233, 41, 137);
         }
         a.behance {
-          background: linear-gradient(135deg, #111827, #111827); /* Original Behance color */
+          background: #2E1F27; /* Slightly lighter dark color for Behance */
         }
         a.email {
-          background: linear-gradient(135deg, #499274, #499274); /* Original Email color */
+          background: #008080;
         }
 
-        a:hover, span:hover { opacity: 0.7; }
-
- @media (min-width: 1100px) {
-
-        .social-links {
-          gap: 2rem;
+        /* Lighten Hover Effect */
+        a.linkedin:hover {
+          background: #6f76c8; /* Lighter shade for hover effect */
+        }
+        a.instagram:hover {
+          background: rgb(255, 95, 158); /* Lighter shade for hover effect */
+        }
+        a.behance:hover {
+          background: #5e3c49; /* Lighter shade for Behance on hover */
+        }
+        a.email:hover {
+          background: #33b0b0; /* Lighter shade for hover effect */
         }
 
-        a,
-        span {
-          width: 7.5rem;
+        @media (min-width: 1100px) {
+          .social-links {
+            gap: 2rem;
+          }
+          a {
+            width: 7.5rem;
+          }
+        }
+
+
+         @media (min-width: 1536px) {
          
+        header {
+          font-size: 28px;
         }
 
-
-  }
-
-
-
+        }
 
         @media (max-width: 768px) {
           footer {
@@ -85,27 +96,21 @@ class FooterComponent extends HTMLElement {
             padding: 28px;
             gap: 24px;
           }
-
           .social-links {
             justify-content: center;
             margin-top: 0.5rem;
             gap: 16px;
           }
-
-        a,
-        span {
-          width: 3rem;
-          height: 3rem;
-                    border-radius: 12px;
-
-        }
-
+          a {
+            width: 3rem;
+            height: 3rem;
+            border-radius: 12px;
+          }
         }
       </style>
 
       <footer>
-        <header>©2024, Designed and Coded by Nina Le :)</header>
-
+        <header>©2025. Designed and coded by me :)</header>
         <div class="social-links">
           <a class="linkedin" href="https://www.linkedin.com/in/ninale65/" target="_blank">
             <i class="fa-brands fa-linkedin-in"></i>
@@ -120,7 +125,6 @@ class FooterComponent extends HTMLElement {
             <i class="fa-solid fa-envelope"></i>
           </a>
         </div>
-
       </footer>
     `;
   }

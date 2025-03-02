@@ -7,10 +7,11 @@
     background-color: #fcfcfc;
   }
 
+
   html {
     font-family: "Darker Grotesque", sans-serif;
     font-weight: 500;
-    color: #282544;
+    color: #352b38;
   }
 
   title {
@@ -21,23 +22,23 @@
   }
 
   h2 {
-    @apply text-3xl md:text-4xl md:leading-8 leading-6 tracking-wide;
+    @apply text-3xl md:text-4xl md:leading-8 leading-6 tracking-wide 2xl:text-[40px];
   }
 
   h3 {
-    @apply text-2xl md:text-3xl md:leading-8 leading-6 tracking-wide	;
+    @apply text-2xl md:text-3xl 2xl:text-4xl md:leading-8 leading-6 tracking-wide	;
   }
 
   h4 {
-    @apply text-xl md:text-2xl leading-6 md:leading-7;
+    @apply text-xl md:text-2xl leading-6 md:leading-7 2xl:text-3xl;
   }
 
   h6 {
-    @apply text-xl leading-5;
+    @apply text-xl leading-5 2xl:text-2xl;
   }
 
   p {
-    @apply text-lg leading-4;
+    @apply text-lg leading-4 2xl:text-xl;
   }
 
   .normal-section {
@@ -46,6 +47,12 @@
 
   .smolwidth {
     max-width: 548px;
+  }
+  
+  @media (min-width: 1536px) { 
+    .smolwidth {
+      max-width: 800px; 
+    }
   }
 
   .midwidth {
@@ -63,17 +70,20 @@
   }
   
 
+  
+
 /* Default cursor style */
 .cursor {
   position: absolute;
   pointer-events: none;
-  background-color: #f30559;  /* Change to your preferred color */
-  width: 16px;  /* Normal size */
-  height: 16px;
+  background-color: #F9DDDC;  /* Change to your preferred color */
+  width: 1rem;  /* Normal size */
+  height: 1rem;
   border-radius: 50%;  /* Circular shape */
   z-index: 1000;
   transform: translate(-50%, -50%);  /* Center the cursor */
   transition: transform 0.2s ease-out;  /* Smooth transition for scaling */
+  
 }
 
 /* Follower cursor style */
@@ -81,8 +91,9 @@
   position: absolute;
   pointer-events: none;
   background-color: rgba(255, 255, 255, 0.3);  /* Light transparent color */
-  width: 32px;  /* Default size */
-  height: 32px;
+
+  width: 2rem;  /* Default size */
+  height: 2rem;
   border-radius: 50%;
   opacity: 0;  /* Initially invisible */
   z-index: 999;
@@ -90,7 +101,6 @@
   transition: opacity 0.3s ease-out, transform 0.2s ease-out;
 }
 
-/* Enlarge the cursor and make the follower visible when hovering over the music icon */
 .cursor.hovering {
   transform: scale(6) translate(-50%, -50%);  /* Enlarge the cursor on hover */
 }
@@ -107,7 +117,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: white;            /* Adjust color as needed */
+  color: rgb(233, 41, 137);            /* Adjust color as needed */
   pointer-events: none;    /* Avoid interfering with cursor events */
   line-height: 4px;        /* Adjust line height to ensure proper spacing */
   text-align: center;      /* Align the text to the center horizontally */
@@ -123,6 +133,17 @@
     display: none; /* Hide the custom cursor */
   }
 }
+
+@media (min-width: 1536px) { /* 2XL screens */
+  .cursor.hovering {
+    transform: scale(8) translate(-50%, -50%); /* Increase size */
+  }
+
+  .cursor-follower.hovering {
+    transform: scale(3) translate(-50%, -50%); /* Bigger follower */
+  }
+}
+
 
 /* Custom infinite scrolling animation */
 @keyframes scroll-left {
@@ -169,6 +190,9 @@
   position: absolute;
   left: 0; /* Align the dash to the start */
 }
+
+
+/*border animations */
 
   
 }

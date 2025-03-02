@@ -34,7 +34,7 @@ class BackButton extends HTMLElement {
           align-items: center; /* items-center */
           justify-content: center; /* justify-center */
           background-color: #ffffff; /* Default white background */
-          color: #000000; /* Text color remains black (original state) */
+          color: #5e5d5d; /* Text color remains black (original state) */
           font-family: 'Darker Grotesque', sans-serif; /* Match original font */
           box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.06); 
           cursor: pointer;
@@ -56,11 +56,23 @@ class BackButton extends HTMLElement {
           }
           /* Animation for larger screens */
           .back-button:hover {
-            background-color: #4866CC; 
-            color: #ffffff; 
+            background-color: #F9DDDC; 
+            color: rgb(233, 41, 137); 
             transform: scale(1.5) rotate(12deg); 
           }
         }
+
+
+        
+        /* Responsive size for larger screens (md) */
+        @media (min-width: 1536px) {
+          .back-button {
+            width: 7rem;
+            height: 5rem;
+          }
+          header {
+            font-size: 36px; 
+          }
 
         /* Disable animation for small screens (mobile) */
         @media (max-width: 767px) {
@@ -71,6 +83,7 @@ class BackButton extends HTMLElement {
           }
         }
 
+      
         h3 {
           text-align: center; /* text-center */
           margin: 0;
