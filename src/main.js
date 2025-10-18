@@ -71,7 +71,7 @@ function createCards(sectionSelector, cardsData, isBrandSection = false) {
                     "border border-gray-400 text-gray-600 px-3 py-1 rounded-xl text-base 2xl:text-xl mr-1 mb-1";
                 }
 
-                return `
+                return /* html */ `
                 <span class="${tagClasses}">
                   ${tag}
                 </span>
@@ -83,50 +83,68 @@ function createCards(sectionSelector, cardsData, isBrandSection = false) {
     }
 
     const style = document.createElement("style");
-    style.textContent = /* html */ `
-      .pretty {
-        position: relative;
-        z-index: 0;
+    style.textContent = /* css */ `
+      .parent:hover .pretty::after { 
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        border-radius: 20px;
+        animation: 3s rotate linear infinite;
+        transition: background 0.3s ease-in-out;
+        background: conic-gradient(
+          from var(--angle),
+          #8a90e6 0%,
+          #80b3b3 25%,
+          #e96b8e 50%,
+          #66b3b3 75%,
+          #8a90e6 100%
+        ) border-box;
+      }
+
+      .parent:hover .pretty::before { 
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        border-radius: 20px;
+        animation: 3s rotate linear infinite;
+        transition: background 0.3s ease-in-out;
+        background: conic-gradient(
+          from var(--angle),
+          #8a90e6 0%,
+          #80b3b3 25%,
+          #e96b8e 50%,
+          #66b3b3 75%,
+          #8a90e6 100%
+        ) border-box;
+        filter: blur(0.75rem);
+      }
+
+      @keyframes rotate {
+        to {
+          --angle: 360deg;
+        }
       }
       
       @property --angle {
         syntax: "<angle>";
         initial-value: 0deg;
         inherits: false;
-      }
-      .pretty::after,
-      .pretty::before {
-        --angle: 0deg;
-        content: '';
-        position: absolute;
-        height: 100%;
-        width: 100%;
-        background-image: conic-gradient(
-          from var(--angle),
-          #8a90e6 0%,
-          #80b3b3 40%,
-          #e96b8e 70%,
-          #66b3b3 100%
-        );
-        border-radius: 18px;
-        opacity: 0;
-        z-index: -1;
-        animation: 3s spin linear infinite;
-      }
-      .pretty:hover::before {
-        opacity: 36%;
-        filter: blur(0.75rem);
-      }
-      .pretty:hover::after {
-        opacity: 1;
-      }
-      @keyframes spin {
-        from {
-          --angle: 0deg;
-        }
-        to {
-          --angle: 360deg;
-        }
       }
     `;
     document.head.appendChild(style);
@@ -146,22 +164,27 @@ function createCards(sectionSelector, cardsData, isBrandSection = false) {
 
     // Wrap card in a link if the `link` property exists
     if (card.link) {
-      const cardContent = `
-        <div class="flex justify-center items-center rounded-[18px] pretty p-[3px]">
-        <div class="h-72 lg:h-80 2xl:h-[500px] w-full rounded-2xl relative overflow-hidden bg-light">
-          <div class="relative h-full group">
-            <img src="${card.image}" alt="${card.title}" loading="lazy" 
-              class="w-full h-full object-contain transition duration-300 ease-in-out hover:scale-110">
-           
+      const cardContent = /* html */ `
+        <div class="relative parent">
+          <div class="pretty"></div>
+          <div class="flex justify-center items-center rounded-[18px] p-[3px]">
+            <div
+              class="h-72 lg:h-80 2xl:h-[500px] w-full rounded-2xl relative overflow-hidden bg-light"
+            >
+              <div class="relative h-full group">
+                <img
+                  src="${card.image}"
+                  alt="${card.title}"
+                  loading="lazy"
+                  class="w-full h-full object-contain transition duration-300 ease-in-out hover:scale-110"
+                />
+              </div>
+            </div>
           </div>
         </div>
-        
-        </div>
-      
-    
-              <h4>${card.title}</h4>
-      <div>${tagHTML}</div>
 
+        <h4>${card.title}</h4>
+        <div>${tagHTML}</div>
       `;
       cardDiv.innerHTML = `<a href="${card.link}" class="space-y-4">${cardContent}</a>`;
     }
