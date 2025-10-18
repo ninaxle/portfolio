@@ -13,18 +13,38 @@ headerTemplate.innerHTML = /* html */ `
       display: block;
     }
 
+    .container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      padding-top: 1rem;
+      z-index: 50;
+      width: 100%;
+    }
+
+    @media (min-width: 768px) {
+      .container {
+        padding-left: 2.5rem;
+        padding-right: 2.5rem;
+      }
+    }
+
+    @media (min-width: 1536px) {
+      .container {
+        padding-left: 4rem;
+        padding-right: 4rem;
+      }
+    }
+
     header {
       background: rgba(252, 252, 252, 1); /* Solid background */
-      position: fixed;
-      top: 20px; /* Move to the top */
-      left: 50%;
-      transform: translateX(-50%);
-      width: 94%;
+      width: 100%;
       padding: 24px 28px;
       border-radius: 16px;
       border: 1px solid #d3d3d3;
       transition: all 0.3s ease;
-      z-index: 50;
     }
 
     nav {
@@ -157,24 +177,26 @@ headerTemplate.innerHTML = /* html */ `
     }
   </style>
 
-  <header>
-    <nav>
-      <a href="index.html" class="logo">
-        <img src="logo88.png" alt="Logo" />
-      </a>
-      <img src="ham.svg" id="hamburger-icon" alt="Menu" />
-      <ul class="nav-links">
-        <li><a href="index.html">Projects</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="archive.html">Archive</a></li>
-        <li>
-          <a href="mailto:ninalle.65@gmail.com" class="contact-button">
-            Contact Me
-          </a>
-        </li>
-      </ul>
-    </nav>
-  </header>
+  <div class="container">
+    <header>
+      <nav>
+        <a href="index.html" class="logo">
+          <img src="logo88.png" alt="Logo" />
+        </a>
+        <img src="ham.svg" id="hamburger-icon" alt="Menu" />
+        <ul class="nav-links">
+          <li><a href="index.html">Projects</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="archive.html">Archive</a></li>
+          <li>
+            <a href="mailto:ninalle.65@gmail.com" class="contact-button">
+              Contact Me
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+  </div>
 `;
 
 class Header extends HTMLElement {
