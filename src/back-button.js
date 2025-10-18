@@ -3,7 +3,7 @@ class BackButton extends HTMLElement {
     super();
 
     // Create a shadow DOM
-    const shadow = this.attachShadow({ mode: 'open' });
+    const shadow = this.attachShadow({ mode: "open" });
 
     // Add HTML and CSS to the shadow DOM
     shadow.innerHTML = `
@@ -99,10 +99,10 @@ class BackButton extends HTMLElement {
 
   connectedCallback() {
     // Allow setting a custom link via the "link" attribute
-    const link = this.getAttribute('link') || 'index.html';
-    this.shadowRoot.querySelector('a').setAttribute('href', link);
+    const link = this.getAttribute("link") || "index.html";
+    this.shadowRoot.querySelector("a").setAttribute("href", link);
   }
 }
 
 // Define the custom element
-customElements.define('back-button', BackButton);
+customElements.define("back-button", BackButton);
