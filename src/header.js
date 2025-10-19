@@ -17,9 +17,9 @@ headerTemplate.innerHTML = /* html */ `
       position: fixed;
       top: 0;
       left: 0;
-      padding-left: 1rem;
-      padding-right: 1rem;
-      padding-top: 1rem;
+      padding-left: 0;
+      padding-right: 0;
+      padding-top: 0;
       z-index: 50;
       width: 100%;
     }
@@ -28,6 +28,7 @@ headerTemplate.innerHTML = /* html */ `
       .container {
         padding-left: 2.5rem;
         padding-right: 2.5rem;
+        padding-top: 1rem;
       }
     }
 
