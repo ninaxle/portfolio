@@ -70,7 +70,29 @@
   }
   
 
-  
+
+/*this is p5js code aaaa
+  html, body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden; 
+}
+Prevents scrollbars if canvas is full screen */
+/* Style the container, not the canvas directly */
+#canvas-container {
+  width: 100%;
+  position:absolute;
+  display: flex;       /* Centers the canvas inside the div */
+  justify-content: center;
+  margin-top: 50px;    /* Pushes it down from the top */
+  border: 2px solid white; /* Optional: lets you see the box edges */
+}
+
+/* Reset the canvas CSS to be simple */
+canvas {
+  display: block;
+  /* Remove absolute/fixed positioning here so it stays in the box */
+}
 
 /* Default cursor style */
 .cursor {

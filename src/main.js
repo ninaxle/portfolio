@@ -32,6 +32,21 @@ function createCards(sectionSelector, cardsData, isBrandSection = false) {
   const fragment = document.createDocumentFragment();
 
   cardsData.forEach((card, index) => {
+const isTallCard =
+  card.title === 'The Purrfect Supper' ||
+  //card.title === 'Here:after' ||
+  //card.title === 'Accessichat' ||
+  //card.title === 'Exomis Design + Development' ||
+  //card.title === 'Goodself Design System' ||
+
+
+
+  card.title === 'The Digital Music Box - Carousel Visualizer';
+
+const heightClass = isTallCard
+  ? 'h-72 lg:h-[420px] 2xl:h-[800px]'
+  : 'h-72 lg:h-80 2xl:h-[500px]';
+
     // Create card div
     const cardDiv = document.createElement('div');
     cardDiv.className = (sectionSelector === '.cards-section' && index < 2)
@@ -39,7 +54,13 @@ function createCards(sectionSelector, cardsData, isBrandSection = false) {
       : 'pb-6 flex flex-col space-y-4 flex-1 md:down'; // Apply animation to the rest
 
     // Image class based on the card title
-    const imageClass = (card.title === 'Ms. Carry One' || card.title === 'Dear Diary' || card.title === 'Goodself Design System') 
+    const imageClass = (//card.title === 'Ms. Carry One'||
+      card.title === 'Dear Diary' ||
+      card.title === 'Goodself Design System' ||
+      card.title === 'The Digital Music Box - Carousel Visualizer' ||
+      card.title === 'Meiva'||
+      card.title === 'The Purrfect Supper'
+    ) 
       ? 'object-cover' // full coverage for some cards
       : 'object-contain'; // Default class for others
 
@@ -54,6 +75,7 @@ function createCards(sectionSelector, cardsData, isBrandSection = false) {
         tagHTML = `
           <div class="flex flex-wrap gap-1">
             ${tagsArray.map(tag => {
+
               // Check if the tag is 'rgd' or 'canada' and apply different styles
               let tagClasses = "border px-3 py-1 rounded-xl text-base 2xl:text-xl mr-1 mb-1";
               
@@ -79,12 +101,14 @@ function createCards(sectionSelector, cardsData, isBrandSection = false) {
       }
       
 
-
-
-      
-
       // animation
 
+      const isIndexPage =
+  window.location.pathname === '/' ||
+  window.location.pathname.endsWith('index.html');
+
+if (isIndexPage) {
+  
       const style = document.createElement('style');
       style.textContent = `
         .pretty {
@@ -123,6 +147,7 @@ background-image: conic-gradient(from var(--angle), #8a90e6 0%, #80b3b3 40%, #e9
 }
 
 
+
 @keyframes spin {
  from {
  --angle: 0deg;
@@ -135,11 +160,14 @@ background-image: conic-gradient(from var(--angle), #8a90e6 0%, #80b3b3 40%, #e9
 }
       `;
       document.head.appendChild(style);
+}
+  
+
       
   
     // Apply the hover class dynamically
     cardDiv.innerHTML = /*html*/`
-    <div class="h-72 lg:h-80 2xl:h-[500px] w-full rounded-2xl relative overflow-hidden bg-[#f3f3f4]">
+    <div class="${heightClass} w-full rounded-2xl relative overflow-hidden bg-[#f3f3f4]">
       <div class="inner-content h-full w-full rounded-2xl overflow-hidden">
         <img src="${card.image}" alt="${card.title}" loading="lazy" 
           class="w-full h-full ${imageClass} ${hoverClass}" 
@@ -156,10 +184,10 @@ background-image: conic-gradient(from var(--angle), #8a90e6 0%, #80b3b3 40%, #e9
     if (card.link) {
       const cardContent = `
         <div class="flex justify-center items-center rounded-[18px] pretty p-[3px]">
-        <div class="h-72 lg:h-80 2xl:h-[500px] w-full rounded-2xl relative overflow-hidden bg-light">
+        <div class="${heightClass} w-full rounded-2xl relative overflow-hidden bg-light">
           <div class="relative h-full group">
             <img src="${card.image}" alt="${card.title}" loading="lazy" 
-              class="w-full h-full object-contain transition duration-300 ease-in-out hover:scale-110">
+              class="w-full h-full ${imageClass} transition duration-300 ease-in-out hover:scale-110">
            
           </div>
         </div>
@@ -198,10 +226,17 @@ const uxuiCardsData = [
     tags: "AI HONOURABLE MENTION | RGD CANADA '24 | HACKATHON | MOBILE",
 
   },
+  /*
   {
     title: "Exomis Design + Development",
     tags: "IN PROGRESS | RESPONSIVE DESIGN | UX RESEARCH | MOBILE & DESKTOP",
     image: "exomis.png"
+  },
+  */
+  {
+    title: "Cl:air",
+    tags: "IN PROGRESS | ROBOTIC | SPECULATIVE DESIGN",
+    image: "clair.png"
   },
   {
     title: "Goodself Design System",
@@ -218,11 +253,11 @@ const brandCardsData = [
     image: "gender.png"
 
   },
-  {
-    title: "Ms. Carry One",
+ /* {
+   title: "Ms. Carry One",
     tags: "IN PROGRESS | LOGO DESIGN | ILLUSTRATION | BRANDING",
     image: "exomis2.png"
-  },
+  }, */
   {
     title: "Lost in Translation",
     tags: "IN PROGRESS | TYPOGRAPHY | PRINT",
@@ -238,21 +273,43 @@ const brandCardsData = [
 
 // Data for Play cards (including Little Red Riding Hood)
 const playCardsData = [
-  {
-    title: "The Spiralist",
-    tags: "IN PROGRESS | TYPOGRAPHY | MOBILE & DESKTOP",
-    image: "spiralist.png"
-    
-  },
-  {
+    {
     title: "Dear Diary",
 
-    tags: "IN PROGRESS | STORYBOARDING | ILLUSTRATION | DESKTOP",
-    image: "red.png"
+    tags: "ILLUSTRATION | WEB DESIGN | DESKTOP",
+    link: "https://youtu.be/WAzITLPvqEU",
 
+    image: "dear diary.png"
+  },
+  {
+    title: "Meiva",
+    tags: "IN PROGRESS | MOBILE & DESKTOP",
+    image: "meiva.png"
+    
+  },
 
+];
+
+//code cards
+const codeCardsData = [
+
+  {
+    title: "The Purrfect Supper",
+    tags: "P5JS | CODE | MINI-GAME",
+    link: "https://editor.p5js.org/ninistar/full/UL27yTVgl",
+    image: "purrfect-super.png"
+    
+  },
+    {
+    title: "The Digital Music Box - Carousel Visualizer",
+    tags: "P5JS | CODE | MUSIC VISUALIZATION",
+    link: "https://editor.p5js.org/ninistar/full/bu9tv-CMp",
+    image: "ponies.png"
   },
 ];
+
+
+
 
 // Main execution
 document.addEventListener('DOMContentLoaded', () => {
@@ -260,6 +317,8 @@ document.addEventListener('DOMContentLoaded', () => {
   createCards('.cards-section', uxuiCardsData);
   createCards('.cards-section2', brandCardsData, true);
   createCards('.cards-section3', playCardsData, true);
+  createCards('.cards-section4', codeCardsData, true);
+
 
   
 });
