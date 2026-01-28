@@ -1,10 +1,7 @@
-
 const materialIcons = document.createElement("link");
 materialIcons.rel = "stylesheet";
 materialIcons.href = "https://fonts.googleapis.com/icon?family=Material+Icons";
 document.head.appendChild(materialIcons);
-
-
 
 // Dynamically load another JavaScript file (additional.js)
 const script = document.createElement('script');
@@ -18,9 +15,6 @@ script.onload = function () {
   console.log('cursor.js has been loaded!');
 };
 
-
-
-
 // Unified card creation function
 function createCards(sectionSelector, cardsData, isBrandSection = false) {
   const cardsSection = document.querySelector(sectionSelector);
@@ -32,20 +26,20 @@ function createCards(sectionSelector, cardsData, isBrandSection = false) {
   const fragment = document.createDocumentFragment();
 
   cardsData.forEach((card, index) => {
-const isTallCard =
-  card.title === 'The Purrfect Supper' ||
-  //card.title === 'Here:after' ||
-  //card.title === 'Accessichat' ||
-  //card.title === 'Exomis Design + Development' ||
-  //card.title === 'Goodself Design System' ||
+    const isTallCard =
+      card.title === 'The Purrfect Supper' ||
+      //card.title === 'Here:after' ||
+      //card.title === 'Accessichat' ||
+      //card.title === 'Exomis Design + Development' ||
+      //card.title === 'Goodself Design System' ||
 
 
 
-  card.title === 'The Digital Music Box - Carousel Visualizer';
+    card.title === 'The Digital Music Box - Carousel Visualizer';
 
-const heightClass = isTallCard
-  ? 'h-72 lg:h-[420px] 2xl:h-[800px]'
-  : 'h-72 lg:h-80 2xl:h-[500px]';
+    const heightClass = isTallCard
+      ? 'h-72 lg:h-[420px] 2xl:h-[800px]'
+      : 'h-72 lg:h-80 2xl:h-[500px]';
 
     // Create card div
     const cardDiv = document.createElement('div');
@@ -65,106 +59,107 @@ const heightClass = isTallCard
       : 'object-contain'; // Default class for others
 
     // Set the inner HTML for the card
-    const hoverClass = card.tags.includes("IN PROGRESS") 
+    const hoverClass = card.tags.includes("IN PROGRESS")
       ? '' 
       : 'transition duration-300 ease-in-out hover:scale-110'; // Apply hover effect for other titles
-      
-      let tagHTML = '';
-      if (card.tags) {
-        const tagsArray = card.tags.split(' | '); // Split tags by "|"
-        tagHTML = `
-          <div class="flex flex-wrap gap-1">
-            ${tagsArray.map(tag => {
 
-              // Check if the tag is 'rgd' or 'canada' and apply different styles
-              let tagClasses = "border px-3 py-1 rounded-xl text-base 2xl:text-xl mr-1 mb-1";
-              
-              if (tag.toLowerCase().includes('rgd')) {
-                tagClasses = "border border-gray-400 text-gray-600 px-3 py-1 rounded-xl text-base 2xl:text-xl mr-1 mb-1"; // Change for 'rgd'
-              } else if (tag.toLowerCase().includes('winner')) {
-                tagClasses = "border border-gray-400 text-gray-600 px-3 py-1 rounded-xl text-base 2xl:text-xl mr-1 mb-1"; 
-              } else if (tag.toUpperCase().includes('PROGRESS')) {
-                tagClasses = "border border-gray-400 text-gray-600 px-3 py-1 rounded-xl text-base 2xl:text-xl mr-1 mb-1"; 
-              } else if (tag.toLowerCase().includes('mention')) {
-                tagClasses = "border border-gray-400 text-gray-600 px-3 py-1 rounded-xl text-base 2xl:text-xl mr-1 mb-1"; 
-              }
-              
-      
-              return `
-                <span class="${tagClasses}">
-                  ${tag}
-                </span>
-              `;
-            }).join('')}
-          </div>
-        `;
+    let tagHTML = '';
+    if (card.tags) {
+      const tagsArray = card.tags.split(' | '); // Split tags by "|"
+      tagHTML = `
+        <div class="flex flex-wrap gap-1">
+          ${tagsArray.map(tag => {
+
+            // Check if the tag is 'rgd' or 'canada' and apply different styles
+            let tagClasses = "border px-3 py-1 rounded-xl text-base 2xl:text-xl mr-1 mb-1";
+
+            if (tag.toLowerCase().includes('rgd')) {
+              tagClasses = "border border-gray-400 text-gray-600 px-3 py-1 rounded-xl text-base 2xl:text-xl mr-1 mb-1"; // Change for 'rgd'
+            } else if (tag.toLowerCase().includes('winner')) {
+              tagClasses = "border border-gray-400 text-gray-600 px-3 py-1 rounded-xl text-base 2xl:text-xl mr-1 mb-1"; 
+            } else if (tag.toUpperCase().includes('PROGRESS')) {
+              tagClasses = "border border-gray-400 text-gray-600 px-3 py-1 rounded-xl text-base 2xl:text-xl mr-1 mb-1"; 
+            } else if (tag.toLowerCase().includes('mention')) {
+              tagClasses = "border border-gray-400 text-gray-600 px-3 py-1 rounded-xl text-base 2xl:text-xl mr-1 mb-1"; 
+            }
+
+            return `
+            <span class="${tagClasses}">
+              ${tag}
+            </span>
+          `;
+          }).join('')}
+        </div>
+      `;
+    }
+
+    const style = document.createElement("style");
+    style.textContent = /* css */ `
+      .parent:hover .pretty::after { 
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        border-radius: 20px;
+        animation: 3s rotate linear infinite;
+        transition: background 0.3s ease-in-out;
+        background: conic-gradient(
+          from var(--angle),
+          #8a90e6 0%,
+          #80b3b3 25%,
+          #e96b8e 50%,
+          #66b3b3 75%,
+          #8a90e6 100%
+        ) border-box;
+      }
+
+      .parent:hover .pretty::before { 
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        border-radius: 20px;
+        animation: 3s rotate linear infinite;
+        transition: background 0.3s ease-in-out;
+        background: conic-gradient(
+          from var(--angle),
+          #8a90e6 0%,
+          #80b3b3 25%,
+          #e96b8e 50%,
+          #66b3b3 75%,
+          #8a90e6 100%
+        ) border-box;
+        filter: blur(0.75rem);
+      }
+
+      @keyframes rotate {
+        to {
+          --angle: 360deg;
+        }
       }
       
+      @property --angle {
+        syntax: "<angle>";
+        initial-value: 0deg;
+        inherits: false;
+      }
+    `;
+    document.head.appendChild(style);
 
-      // animation
-
-      const isIndexPage =
-  window.location.pathname === '/' ||
-  window.location.pathname.endsWith('index.html');
-
-if (isIndexPage) {
-  
-      const style = document.createElement('style');
-      style.textContent = `
-        .pretty {
-  position: relative;
-  z-index: 0;
-}
-
-@property --angle {
-syntax: "<angle>";
-initial-value: 0deg;
-inherits: false;
-
-}
-
-
-.pretty::after, .pretty::before {
---angle: 0deg;
-  content: '';
-  position: absolute;
-  height: 100%;
-  width: 100%;
-background-image: conic-gradient(from var(--angle), #8a90e6 0%, #80b3b3 40%, #e96b8e 70%, #66b3b3 100%);
-  border-radius: 18px;
-  opacity: 0;
-  z-index: -1;
-  animation: 3s spin linear infinite;
-}
-
-.pretty:hover::before {
-  opacity: 36%;
-  	filter: blur(0.75rem)
-}
-
-.pretty:hover::after {
-  opacity: 1;
-}
-
-
-
-@keyframes spin {
- from {
- --angle: 0deg;
- 
- }
- to {
- --angle: 360deg;
- }
-  }
-}
-      `;
-      document.head.appendChild(style);
-}
-  
-
-      
-  
     // Apply the hover class dynamically
     cardDiv.innerHTML = /*html*/`
     <div class="${heightClass} w-full rounded-2xl relative overflow-hidden bg-[#f3f3f4]">
@@ -177,27 +172,30 @@ background-image: conic-gradient(from var(--angle), #8a90e6 0%, #80b3b3 40%, #e9
     <h4>${card.title}</h4>
     <div>${tagHTML}</div>
   `;
-  
-
 
     // Wrap card in a link if the `link` property exists
     if (card.link) {
-      const cardContent = `
-        <div class="flex justify-center items-center rounded-[18px] pretty p-[3px]">
-        <div class="${heightClass} w-full rounded-2xl relative overflow-hidden bg-light">
-          <div class="relative h-full group">
-            <img src="${card.image}" alt="${card.title}" loading="lazy" 
-              class="w-full h-full ${imageClass} transition duration-300 ease-in-out hover:scale-110">
-           
+      const cardContent = /* html */ `
+        <div class="relative parent">
+          <div class="pretty"></div>
+          <div class="flex justify-center items-center rounded-[18px] p-[3px]">
+            <div
+              class="${heightClass} w-full rounded-2xl relative overflow-hidden bg-light"
+            >
+              <div class="relative h-full group">
+                <img
+                  src="${card.image}"
+                  alt="${card.title}"
+                  loading="lazy"
+                  class="w-full h-full ${imageClass} transition duration-300 ease-in-out hover:scale-110"
+                />
+              </div>
+            </div>
           </div>
         </div>
-        
-        </div>
-      
-    
-              <h4>${card.title}</h4>
-      <div>${tagHTML}</div>
 
+        <h4>${card.title}</h4>
+        <div>${tagHTML}</div>
       `;
       cardDiv.innerHTML = `<a href="${card.link}" class="space-y-4">${cardContent}</a>`;
     }
@@ -217,31 +215,22 @@ const uxuiCardsData = [
     image: "here.png",
     link: "hereafter.html",
     tags: " UX WINNER | RGD CANADA '23 | UX RESEARCH | MOBILE",
-
   },
   {
     title: "Accessichat",
     image: "accessi.png",
     link: "accessichat.html",
     tags: "AI HONOURABLE MENTION | RGD CANADA '24 | HACKATHON | MOBILE",
-
   },
-  /*
   {
     title: "Exomis Design + Development",
     tags: "IN PROGRESS | RESPONSIVE DESIGN | UX RESEARCH | MOBILE & DESKTOP",
-    image: "exomis.png"
-  },
-  */
-  {
-    title: "Cl:air",
-    tags: "IN PROGRESS | ROBOTIC | SPECULATIVE DESIGN",
-    image: "clair.png"
+    image: "exomis.png",
   },
   {
     title: "Goodself Design System",
     tags: "IN PROGRESS | DESIGN SYSTEM | UI LIBRARIES | ACCESSIBILITY | MOBILE, DESKTOP & TABLET",
-    image: "ds.png"
+    image: "ds.png",
   },
 ];
 
@@ -250,30 +239,29 @@ const brandCardsData = [
   {
     title: "The Gender Debate",
     tags: "IN PROGRESS | INTERACTIVE | DIGITAL DESIGN | DATA VISUALIZATION",
-    image: "gender.png"
-
+    image: "gender.png",
   },
- /* {
-   title: "Ms. Carry One",
+  {
+    title: "Ms. Carry One",
     tags: "IN PROGRESS | LOGO DESIGN | ILLUSTRATION | BRANDING",
-    image: "exomis2.png"
-  }, */
+    image: "exomis2.png",
+  },
   {
     title: "Lost in Translation",
     tags: "IN PROGRESS | TYPOGRAPHY | PRINT",
 
-    image: "sound.png"
+    image: "sound.png",
   },
   {
     title: "How to Plant Plum Trees",
     tags: "IN PROGRESS | ILLUSTRATION | DATA VISUALIZATION",
-    image: "tree.png"
+    image: "tree.png",
   },
 ];
 
 // Data for Play cards (including Little Red Riding Hood)
 const playCardsData = [
-    {
+  {
     title: "Dear Diary",
 
     tags: "ILLUSTRATION | WEB DESIGN | DESKTOP",
@@ -300,16 +288,13 @@ const codeCardsData = [
     image: "purrfect-super.png"
     
   },
-    {
+  {
     title: "The Digital Music Box - Carousel Visualizer",
     tags: "P5JS | CODE | MUSIC VISUALIZATION",
     link: "https://editor.p5js.org/ninistar/full/bu9tv-CMp",
     image: "ponies.png"
   },
 ];
-
-
-
 
 // Main execution
 document.addEventListener('DOMContentLoaded', () => {
