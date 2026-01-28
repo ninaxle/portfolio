@@ -90,20 +90,21 @@ class ScrollComponent extends HTMLElement {
     `;
 
     // Add scroll-to-top functionality
-    const scrollButton = shadow.querySelector('#scroll');
-    scrollButton.addEventListener('click', () => {
+    const scrollButton = shadow.querySelector("#scroll");
+    scrollButton.addEventListener("click", () => {
       window.scrollTo({
         top: 0,
-        behavior: 'smooth'  // Smooth scroll
+        behavior: "smooth", // Smooth scroll
       });
     });
 
     // scroll position and toggle visibility
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 2000) { // If scrolled down 100px or more
-        scrollButton.classList.add('visible');
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 2000) {
+        // If scrolled down 100px or more
+        scrollButton.classList.add("visible");
       } else {
-        scrollButton.classList.remove('visible');
+        scrollButton.classList.remove("visible");
       }
     });
   }
