@@ -216,22 +216,31 @@ const uxuiCardsData = [
     link: "hereafter.html",
     tags: " UX WINNER | RGD CANADA '23 | UX RESEARCH | MOBILE",
   },
+
+    {
+    title: "The Digital Music Box - Carousel Visualizer",
+    tags: "P5JS | CODE | MUSIC VISUALIZATION",
+    link: "https://editor.p5js.org/ninistar/full/bu9tv-CMp",
+    image: "ponies.png"
+  },
+   {
+    title: "Goodself Design System",
+    tags: "IN PROGRESS | DESIGN SYSTEM | UI LIBRARIES | ACCESSIBILITY | MOBILE, DESKTOP & TABLET",
+    image: "ds.png",
+  },
+
+
+
   {
     title: "Accessichat",
     image: "accessi.png",
     link: "accessichat.html",
     tags: "AI HONOURABLE MENTION | RGD CANADA '24 | HACKATHON | MOBILE",
   },
-  {
-    title: "Exomis Design + Development",
-    tags: "IN PROGRESS | RESPONSIVE DESIGN | UX RESEARCH | MOBILE & DESKTOP",
-    image: "exomis.png",
-  },
-  {
-    title: "Goodself Design System",
-    tags: "IN PROGRESS | DESIGN SYSTEM | UI LIBRARIES | ACCESSIBILITY | MOBILE, DESKTOP & TABLET",
-    image: "ds.png",
-  },
+
+
+  
+ 
 ];
 
 // Data for Brand cards
@@ -280,8 +289,7 @@ const playCardsData = [
 
 //code cards
 const codeCardsData = [
-
-  {
+    {
     title: "The Purrfect Supper",
     tags: "P5JS | CODE | MINI-GAME",
     link: "https://editor.p5js.org/ninistar/full/UL27yTVgl",
@@ -289,10 +297,9 @@ const codeCardsData = [
     
   },
   {
-    title: "The Digital Music Box - Carousel Visualizer",
-    tags: "P5JS | CODE | MUSIC VISUALIZATION",
-    link: "https://editor.p5js.org/ninistar/full/bu9tv-CMp",
-    image: "ponies.png"
+    title: "Exomis Design + Development",
+    tags: "IN PROGRESS | RESPONSIVE DESIGN | UX RESEARCH | MOBILE & DESKTOP",
+    image: "exomis.png",
   },
 ];
 
