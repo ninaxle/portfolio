@@ -226,7 +226,7 @@ Prevents scrollbars if canvas is full screen */
   --grid-crosshair-y: 40px;
   /* Colors from config - full opacity */
   --crosshair-color: #272630;
-  --grid-line-color: #d3d3d3;
+  --grid-line-color: #ece5e5;
 }
 
 /* Grid lines container */
@@ -271,14 +271,14 @@ Prevents scrollbars if canvas is full screen */
 
 /* Horizontal line of + */
 .grid-crosshair::before {
-  width: 12px;
+  width: 24px;
   height: 1px;
 }
 
 /* Vertical line of + */
 .grid-crosshair::after {
   width: 1px;
-  height: 12px;
+  height: 24px;
 }
 
 /* Hero section - only 2 vertical lines framing center (1 column) */

@@ -25,7 +25,7 @@ pnpm preview
 ## Tech Stack
 
 - **Build Tool:** Vite with multi-page setup
-- **Styling:** Tailwind CSS v3 + custom CSS
+- **Styling:** Tailwind CSS v3 + custom CSS. Prefer tailwind CSS if you can
 - **PostCSS:** Autoprefixer for vendor prefixes
 - **JS:** ES6 modules, vanilla JavaScript
 - **Components:** Custom Web Components with Shadow DOM
