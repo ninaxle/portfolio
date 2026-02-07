@@ -23,8 +23,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/addons/p5.sound.min.js"></script>
   </head>
 
-
-
 <body>
   <script src="header.js" type="module"></script> <!-- where header.js is the name of our reusable component script -->
   <script src="footer.js" type="module"></script> <!-- where header.js is the name of our reusable component script -->
@@ -34,35 +32,42 @@
   <span class="cursor-text"></span>
 </div>
 <div class="cursor-follower"></div>
-<section class="px-4 md:px-16 2xl:px-20 pb-8 lg:pb-24 sm:0">
-  <div class="flex flex-col items-center md:flex-row w-full justify-center pt-24 md:pt-48 2xl:pt-64 gap-8">
-    <div class="flex flex-col items-center flex-1 gap-8 md:gap-10">
-        <a href="about.html" class="flex justify-center">
-            <video 
-                src="musi.mp4" 
-                class="mix-blend-multiply md:h-36 lg:h-40 xl:h-56 2xl:h-[252px] w-auto" 
-                autoplay loop muted playsinline>
-            </video>
-        </a>
 
-        <div class="max-w-3xl mx-auto space-y-6 ">
-            <h2 class="font-normal text-center">Hey I am Nina, a uxui designer.</h2>
-            <p class="smolwidth text-center text-grey">
-                /* As a vocalist who can also code, my strengths are on focusing on the technical and fine-tuning harmonous experiences */
-            </p>
-        </div>
-        
-    </div>
+<div class="geist-grid-wrapper">
+  
+  <section class="px-4 md:px-16 2xl:px-20 pb-8 lg:pb-24 hero-with-grid">
+    <div class="grid-lines"></div>
+    <div class="grid-crosshair left"></div>
+    <div class="grid-crosshair right"></div>
+    <div class="flex flex-col items-center md:flex-row w-full justify-center pt-24 md:pt-48 2xl:pt-64 gap-8">
+      <div class="flex flex-col items-center flex-1 gap-8 md:gap-10">
+          <a href="about.html" class="flex justify-center relative bg-white">
+              <video 
+                  src="musi.mp4" 
+                  class="mix-blend-multiply md:h-36 lg:h-40 xl:h-56 2xl:h-[252px] w-auto relative z-10" 
+                  autoplay loop muted playsinline>
+              </video>
+          </a>
 
-    </div>
-</section>
+          <div class="max-w-3xl mx-auto space-y-6 ">
+              <h2 class="font-normal text-center">Hey I am Nina, a uxui designer.</h2>
+              <p class="smolwidth text-center text-grey">
+                  /* As a vocalist who can also code, my strengths are on focusing on the technical and fine-tuning harmonous experiences */
+              </p>
+          </div>
+          
+      </div>
 
+      </div>
+  </section>
 
-
-  <section class=" md:pt-16 border-b border-grey">
-    <div class="flex flex-col lg:flex-row md:px-10 2xl:px-16 gap-y-8 px-4 gap-12 md:px-0">
+  <section class="md:pt-16 border-b border-grey projects-with-grid">
+    <div class="grid-lines"></div>
+    <div class="grid-crosshair left"></div>
+    <div class="grid-crosshair right"></div>
+    <div class="flex flex-col lg:flex-row px-4 md:px-16 2xl:px-20 gap-y-8 gap-12">
       <!--   <div class="pb-2 w-full lg:w-28 rounded-full rounded-tl-none h-12 md:h-16 2xl:h-20 2xl:w-32 flex items-center 
-          <h3 class="text-white text-center 2xl:text-[36px]">uxui</h3>
+          <h3 class="text-white t\\\\\\ext-center 2xl:text-[36px]">uxui</h3>
       </div> 
       justify-center lg:sticky lg:top-[120px] bg-blob grow-0 border"> Adjusted top here -->
 
@@ -71,6 +76,7 @@
       <div class="grid grid-cols-none md:grid-cols-2 flex-1 gap-4 2xl:gap-8 cards-section"></div>
     </div>
 </section>
+</div>
 
         <div class="justify-center bg-[black] w-[100%] pt-16 space-y-4">
             <h6 class="text-center text-white">DESIGNING HARMONY, ONE PIXEL AT A TIME</h6>

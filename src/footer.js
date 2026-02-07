@@ -109,7 +109,7 @@ class FooterComponent extends HTMLElement {
       </style>
 
       <footer>
-        <header>Coded and 'fine-tuned' by me :)</header>
+        <header>Fine-tuned and developed in JS and by me :)</header>
         <div class="social-links">
           <a class="linkedin" href="https://www.linkedin.com/in/ninale65/" target="_blank">
             <i class="fa-brands fa-linkedin-in"></i>
