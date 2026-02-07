@@ -13,7 +13,10 @@ class FooterComponent extends HTMLElement {
         }
 
         footer {
-          padding: 48px 64px;
+              background: #000000;
+
+         //padding: 48px 64px;
+          padding: 32px 64px;
           border-top: 1px solid #C5C5C5;
           display: flex;
           justify-content: space-between;
@@ -21,8 +24,8 @@ class FooterComponent extends HTMLElement {
         }
 
         header {
-          font-size: 22px;
-          color: #282544;
+          font-size: 20px;
+          color: #FFFFFF;
           font-weight: 500;
         }
 
@@ -46,16 +49,12 @@ class FooterComponent extends HTMLElement {
 
         /* Button Colors */
         a.linkedin {
-          background: #4B52A2;
         }
         a.instagram {
-          background: rgb(233, 41, 137);
         }
         a.behance {
-          background: #2E1F27; /* Slightly lighter dark color for Behance */
         }
         a.email {
-          background: #008080;
         }
 
         /* Lighten Hover Effect */
@@ -110,17 +109,14 @@ class FooterComponent extends HTMLElement {
       </style>
 
       <footer>
-        <header>©2025. Designed and coded by me :)</header>
+        <header>Coded and 'fine-tuned' by me :)</header>
         <div class="social-links">
           <a class="linkedin" href="https://www.linkedin.com/in/ninale65/" target="_blank">
             <i class="fa-brands fa-linkedin-in"></i>
           </a>
-          <a class="instagram" href="https://www.instagram.com/ninmedias/" target="_blank">
-            <i class="fa-brands fa-instagram"></i>
-          </a>
-          <a class="behance" href="https://www.behance.net/ninale1" target="_blank">
-            <i class="fa-brands fa-behance"></i>
-          </a>
+
+      
+
           <a class="email" href="mailto:ninalle.65@gmail.com">
             <i class="fa-solid fa-envelope"></i>
           </a>
@@ -131,3 +127,13 @@ class FooterComponent extends HTMLElement {
 }
 
 customElements.define("footer-component", FooterComponent);
+
+
+    
+          // <a class="instagram" href="https://www.instagram.com/ninmedias/" target="_blank">
+          //   <i class="fa-brands fa-instagram"></i>
+          // </a>
+          // <a class="behance" href="https://www.behance.net/ninale1" target="_blank">
+          //   <i class="fa-brands fa-behance"></i>
+          // </a>
+          

@@ -16,7 +16,7 @@ export default {
       },
       colors: {
         white: "#FCFBFC", // Replace this with your desired color code
-        grey: "#C5C5C5",
+        grey: "#8C8A98",
         black: "#211722",
         egg: "#E7E0E6",
         blob: "#4B52A2",

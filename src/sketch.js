@@ -1,314 +1,235 @@
-// // Daisy Bell - Midnight Moon Edition ☾ ⋆ ✧
-// Draggable Stars: Drag non-music symbols; they snap back elastically.
-// Click to Play: Clicking any ♪ or ♫ starts the song.
-// Guaranteed Twinkle: Symbol always changes to something new after play.
-
-// Initialize p5 sketch - handle both cases: DOM already loaded or not
 function initSketch() {
   const sketch = function(p) {
     let oscillator;
     let playing = false;
-    let currentNote = -1; 
-    let tempoMultiplier = 300; 
-    let draggedNoteIndex = -1; 
+    let currentNote = -1;
+    let tempoMultiplier = 300;
+    let draggedNoteIndex = -1;
+    let hasTriggered = false;
+    let animationTimer = 0;
+    let lastHoveredIndex = -1;
 
-    // FULL MELODY
-    let melody = [
-      // --- "Daisy, Daisy..." ---
-      { note: "D4", dur: 3 }, { note: "B4", dur: 3 }, 
-      { note: "G3", dur: 3 }, { note: "D3", dur: 3 }, 
-      
-      // --- "Give me your answer do" ---
-      { note: "E3", dur: 1 }, { note: "F#3", dur: 1 }, { note: "G3", dur: 1 }, 
-      { note: "E3", dur: 1.5 }, { note: "G3", dur: 1.5 }, { note: "D3", dur: 3 },
+    // ... (Keep melody and notePositions exactly as they were)
+    let melody = [ { note: "D4", dur: 3 }, { note: "B4", dur: 3 }, { note: "G3", dur: 3 }, { note: "D3", dur: 3 }, { note: "E3", dur: 1 }, { note: "F#3", dur: 1 }, { note: "G3", dur: 1 }, { note: "E3", dur: 1.5 }, { note: "G3", dur: 1.5 }, { note: "D3", dur: 3 }, { note: "A4", dur: 3 }, { note: "D4", dur: 3 }, { note: "B4", dur: 3 }, { note: "G3", dur: 3 }, { note: "E3", dur: 1 }, { note: "G3", dur: 1 }, { note: "G3", dur: 1 }, { note: "A4", dur: 2 }, { note: "B4", dur: 1 }, { note: "A4", dur: 3 }, { note: "B4", dur: 1 }, { note: "C4", dur: 1 }, { note: "B4", dur: 1 }, { note: "A4", dur: 1 }, { note: "D4", dur: 2 }, { note: "B4", dur: 1 }, { note: "A4", dur: 1 }, { note: "G3", dur: 3 }, { note: "A4", dur: 1 }, { note: "B4", dur: 2 }, { note: "G3", dur: 1 }, { note: "E3", dur: 2 }, { note: "G3", dur: 1 }, { note: "E3", dur: 1 }, { note: "D3", dur: 3 }, { note: "E3", dur: 1 }, { note: "G3", dur: 2 }, { note: "B4", dur: 1 }, { note: "A4", dur: 2 }, { note: "D3", dur: 1 }, { note: "G3", dur: 2 }, { note: "B4", dur: 1 }, { note: "A4", dur: 2 }, { note: "B4", dur: 1 }, { note: "C4", dur: 1 }, { note: "D4", dur: 1 }, { note: "B4", dur: 1 }, { note: "G3", dur: 2 }, { note: "A3", dur: 1 }, { note: "A3", dur: 1 }, { note: "G3", dur: 6 } ];
+    let notePositions = { "G4": -2, "F#4": -1, "F4": -1, "E4": 0, "D4": 1, "C4": 2, "B4": -4, "A4": -3, "B3": 3, "A3": 4, "G3": 5, "F#3": 6, "F3": 6, "E3": 7, "D3": 8 };
 
-      // --- "I'm half cra-zy~..." ---
-      { note: "A4", dur: 3 }, { note: "D4", dur: 3 },
-      { note: "B4", dur: 3 }, { note: "G3", dur: 3 },
-
-      // --- "All for the love of you" ---
-      { note: "E3", dur: 1 }, { note: "G3", dur: 1 }, { note: "G3", dur: 1 }, 
-      { note: "A4", dur: 2 }, { note: "B4", dur: 1 }, { note: "A4", dur: 3 },
-
-      // --- "It won't be a stylish marriage~" --- 
-      { note: "B4", dur: 1 }, { note: "C4", dur: 1 }, { note: "B4", dur: 1 },
-      { note: "A4", dur: 1 }, { note: "D4", dur: 2 },
-      { note: "B4", dur: 1 }, { note: "A4", dur: 1 }, { note: "G3", dur: 3 },
-
-      // --- "I can't afford a carriage~" ---
-      { note: "A4", dur: 1 }, { note: "B4", dur: 2 },
-      /*aff-ford*/ { note: "G3", dur: 1 }, { note: "E3", dur: 2 },
-      { note: "G3", dur: 1 }, //a
-      { note: /*carr-age*/ "E3", dur: 1 }, { note: "D3", dur: 3 },
-
-      // --- "But yoou'll~ look sweet, upon~ the seat" ---
-      { note: "E3", dur: 1 }, { note: "G3", dur: 2 },
-      { note: "B4", dur: 1 }, //look
-      { note: "A4", dur: 2 },
-      { note: "D3", dur: 1 }, { note: "G3", dur: 2 }, //up-on
-      { note: "B4", dur: 1 }, //the
-      { note: "A4", dur: 2 }, //seat
-
-      // --- "Of a bi-cy-cle /built for/ twoo~" ---
-      { note: "B4", dur: 1 }, { note: "C4", dur: 1 },
-      { note: "D4", dur: 1 }, { note: "B4", dur: 1 }, { note: "G3", dur: 2 },
-      { note: "A3", dur: 1 },   { note: "A3", dur: 1 },   { note: "G3", dur: 6 },
-    ];
-
-    let notePositions = {
-      "G4": -2, "F#4": -1, "F4": -1, "E4": 0, "D4": 1, "C4": 2, 
-      "B4": -4, "A4": -3, 
-      "B3": 3, "A3": 4, "G3": 5, "F#3": 6, "F3": 6, "E3": 7, "D3": 8 
-    };
-
-    let celestialSymbols = ["@", "♪","^", "☆", "♡", "<", "#", "*", "&","!", "+", "~", "=", "?", "%", "♫","o", "•", "."];
-    let celestialColors = [334, 344, 218, 184];
+    let celestialSymbols = ["■","@", "♪","^", "☆", "♡", "<", "#", "＊", "&","!", "+", "~", "=", "?", "%", "♫","o", "•", "."];
+    let celestialColors = [];
 
     p.setup = function() {
-      let container = document.getElementById('sketch-container');
-      if (!container) {
-        console.error('sketch-container not found in setup');
-        return;
-      }
+      let cnv = p.createCanvas(p.windowWidth, 600);
+        cnv.parent('sketch-container'); // ADD THIS LINE
 
-      let containerWidth = container.offsetWidth;
-      if (!containerWidth || containerWidth === 0) {
-        containerWidth = window.innerWidth;
-      }
-      if (!containerWidth || containerWidth === 0) {
-        containerWidth = 800; // Final fallback
-      }
-      
-      p.createCanvas(containerWidth, 700);
+      cnv.style('display', 'block');
+      cnv.style('max-width', '100%'); 
+      cnv.style('height', 'auto');
+
       p.textAlign(p.CENTER, p.CENTER);
-      p.textFont('Doto'); 
-      p.colorMode(p.HSB, 360, 100, 100); 
+      p.textFont('Doto');
+      p.colorMode(p.RGB, 255, 255, 255, 255);
+      celestialColors = [p.color('#FA36A3'), p.color('#6FB5B6'), p.color('#D92731')];
 
-      oscillator = new p5.Oscillator('square'); 
-      oscillator.amp(0); 
+      oscillator = new p5.Oscillator('square');
+      oscillator.amp(0);
 
-      for(let i = 0; i < melody.length; i++) {
-        melody[i].rX = p.random(-15, 15);       
-        melody[i].rY = p.random(-20, 20);       
-        melody[i].sizeVar = p.random(0.6, 1.2); 
-        melody[i].char = p.random(celestialSymbols);
-        melody[i].hue = p.random(celestialColors);
-        melody[i].jittOffset = p.random(100);
-        
-        // Physics properties
-        melody[i].offsetX = 0; 
-        melody[i].offsetY = 0; 
-        melody[i].screenX = 0; 
-        melody[i].screenY = 0; 
+      for (let n of melody) {
+        n.rX = p.random(-12, 12); n.rY = p.random(-15, 15);
+        n.sizeVar = p.random(0.7, 1.1); n.jittOffset = p.random(100);
+        n.offsetX = n.offsetY = 0; n.hue = p.random(celestialColors);
+        n.parallaxMult = p.random(0.02, 0.06); 
+        n.opacity = 0; n.dropOffset = -400; 
+        n.myPersonalTrinkle = p.random(10, 40); 
+        n.char = p.random(celestialSymbols);
       }
+      layoutNotes();
     };
 
-    p.draw = function() {
-      p.background('#211722'); 
-      drawSheetMusic(50, 100);
-  
-      // --- DYNAMIC CURSOR LOGIC ---
-      let hoveringOver = getHoveredNoteIndex();
+    function layoutNotes() {
+      let w = p.windowWidth;
+      let margin = w < 600 ? 20 : 60; 
+      let maxLineWidth = w - (margin * 2);
+      let rowHeight = 110;
+      let y = 80;
+
+      // Group notes into rows first to calculate centering
+      let rows = [[]];
+      let currentRow = 0;
+      let currentX = 0;
+
+      for (let n of melody) {
+        let noteW = 40 + n.dur * 5;
+        if (currentX + noteW > maxLineWidth) {
+          currentRow++;
+          rows[currentRow] = [];
+          currentX = 0;
+        }
+        rows[currentRow].push({ noteRef: n, width: noteW });
+        currentX += noteW;
+      }
+
+      // Position notes based on row totals
+      for (let i = 0; i < rows.length; i++) {
+        let totalRowWidth = rows[i].reduce((sum, item) => sum + item.width, 0);
+        // Start X is the center of the screen minus half the row width
+        let startX = (w - totalRowWidth) / 2;
+        
+        let runningX = startX;
+        for (let item of rows[i]) {
+          let n = item.noteRef;
+          // Offset runningX by half the note width because text is CENTER aligned
+          n.targetX = runningX + (item.width / 2);
+          n.targetY = y;
+          n.spawnDelay = (y * 0.2) + n.myPersonalTrinkle;
+          runningX += item.width;
+        }
+        y += rowHeight;
+      }
       
-      if (draggedNoteIndex !== -1) {
-        p.cursor('grabbing'); // Currently dragging
-      } else if (hoveringOver !== -1) {
-        let char = melody[hoveringOver].char;
-        if (char === "♪" || char === "♫") {
-          p.cursor('pointer'); // Play button cursor
-        } else {
-          p.cursor('grab'); // Draggable cursor
-        }
-      } else {
-        p.cursor(p.ARROW);
-      }
-    };
-
-    function drawSheetMusic(startX, startY) {
-      let x = startX + 100; 
-      let y = startY;
-      let rowHeight = 130; 
-      let rightMargin = p.width - 50; 
-      let lineHeight = 12; 
-
-      drawMoonClef(startX + 20, y);
-
-      for (let i = 0; i < melody.length; i++) {
-        let noteData = melody[i];
-        let noteWidth = 35 + (noteData.dur * 5); 
-
-        if (x + noteWidth > rightMargin) {
-          x = startX + 100;
-          y += rowHeight;
-          drawMoonClef(startX + 20, y);
-        }
-
-        let pos = notePositions[noteData.note] || 8; 
-        let noteY = y + (pos * (lineHeight / 2)); 
-        
-        let anchorX = x + noteData.rX;
-        let anchorY = noteY + noteData.rY;
-        
-    // Bobbing for music notes
-        let bob = 0;
-        // Enhanced bobbing for music notes
-        if (noteData.char === "♪" || noteData.char === "♫") {
-        bob = p.floor(p.sin((p.frameCount * 0.15) + noteData.jittOffset) * 3);
-        }
-
-        // Elastic snap back
-        if (draggedNoteIndex !== i) {
-            noteData.offsetX = p.lerp(noteData.offsetX, 0, 0.2);
-            noteData.offsetY = p.lerp(noteData.offsetY, 0, 0.2);
-        }
-
-        let finalX = anchorX + noteData.offsetX;
-        let finalY = anchorY + bob + noteData.offsetY;
-
-        noteData.screenX = finalX;
-        noteData.screenY = finalY;
-
-        p.push(); 
-        p.translate(finalX, finalY);
-
-       if (i === currentNote) {
-          let sparkleWiggle = p.sin(p.frameCount * 0.3) * 5;
-          p.fill(255);
-          p.textSize(20);
-          p.text("✧", 20, -20 + sparkleWiggle);
-          p.text("｡", -20, 20 - sparkleWiggle);
-          p.text("ﾟ", -25 + sparkleWiggle, -10);
-          p.text("+", 15, 20 + sparkleWiggle);
-          
-          p.fill(255); 
-          p.textSize(30 * noteData.sizeVar);
-        } else {
-          p.fill(noteData.hue, 40, 80); 
-          p.textSize(30 * noteData.sizeVar); 
-        }
-
-        p.text(noteData.char, 0, 0); 
-        p.pop(); 
-
-        x += noteWidth; 
-      }
+      p.resizeCanvas(w, y + 150);
     }
 
-    // --- INTERACTION HANDLERS ---
+    p.windowResized = () => layoutNotes();
 
-    // Helper to find what we are hovering over
+p.draw = function() {
+      p.background(0);
+      let scrollPos = window.scrollY;
+      window.isHoveringNote = false;
+
+      let canvasRect = p.canvas.getBoundingClientRect();
+      if (canvasRect.top < p.windowHeight - 20) hasTriggered = true;
+      if (hasTriggered) animationTimer += 4; 
+
+      for (let i = 0; i < melody.length; i++) {
+        let n = melody[i];
+
+        if (animationTimer > n.spawnDelay) {
+          n.dropOffset = p.lerp(n.dropOffset, 0, 0.1);
+          n.opacity = p.lerp(n.opacity, 255, 0.1);
+        }
+
+        let noteY = n.targetY + (notePositions[n.note] || 8) * 6;
+        let scrollEffect = scrollPos * n.parallaxMult;
+        let bob = ["♪","♫"].includes(n.char) ? p.sin(p.frameCount * 0.1 + n.jittOffset) * 4 : 0;
+
+        if (draggedNoteIndex !== i) {
+          n.offsetX = p.lerp(n.offsetX, 0, 0.2);
+          n.offsetY = p.lerp(n.offsetY, 0, 0.2);
+        }
+
+        let fx = n.targetX + n.rX + n.offsetX;
+        let fy = noteY + n.rY + bob + n.offsetY + n.dropOffset + scrollEffect;
+
+        n.screenX = fx;
+        n.screenY = fy;
+
+        p.push();
+        p.translate(fx, fy);
+        
+        let isActive = playing && i === currentNote;
+        let isMusicNote = ["♪", "♫"].includes(n.char);
+        
+        // --- NEW INTERACTION LOGIC ---
+        // Only hover if song is NOT playing
+        let isHovered = (p.dist(p.mouseX, p.mouseY, fx, fy) < 30) && !playing;
+        let c = (isActive || isMusicNote) ? n.hue : p.color(255);
+
+        if (isHovered && isMusicNote) {
+          // 1. Pixel Noise Ding (Triggers once per hover)
+          if (lastHoveredIndex !== i) {
+            oscillator.setType('triangle');
+            oscillator.freq(p.random(900, 1300));
+            oscillator.amp(0.2, 0); 
+            oscillator.start();
+            oscillator.amp(0, 0.05); // Short 50ms blip
+            lastHoveredIndex = i;
+          }
+
+          // 2. Visual Transformation
+          p.scale(1.4);
+          p.rotate(p.sin(p.frameCount * 0.1) * 0.2);
+          c = p.lerpColor(c, p.color(255), 0.4); // Lighten note
+
+          // 3. Play Song Label with Translucent Rectangle
+          p.push();
+          p.resetMatrix(); 
+          let msg = "play song";
+          p.textFont('monospace');
+          p.textSize(12);
+          let tw = p.textWidth(msg);
+          
+          p.noStroke();
+          p.fill(0, 180); // Translucent black
+          p.rectMode(p.CENTER);
+          p.rect(p.mouseX + 45, p.mouseY, tw + 12, 18, 4);
+
+          p.fill(255);
+          p.textAlign(p.CENTER, p.CENTER);
+          p.text(msg, p.mouseX + 45, p.mouseY);
+          p.pop();
+        } else if (lastHoveredIndex === i) {
+          lastHoveredIndex = -1; // Reset when mouse leaves
+        }
+        // --- END NEW INTERACTION LOGIC ---
+
+        p.fill(p.red(c), p.green(c), p.blue(c), n.opacity);
+        p.textSize(26 * n.sizeVar);
+        p.text(n.char, 0, 0);
+
+        if (isActive) {
+          p.fill(p.red(n.hue), p.green(n.hue), p.blue(n.hue), n.opacity);
+          p.textSize(16);
+          p.text("✧", 20, -20); p.text("｡", -20, 20);
+          p.text("ﾟ", -25, -10); p.text("+", 18, 18);
+        }
+        p.pop();
+      }
+      handleCursor();
+    };
+    // ... (Keep handleCursor, getHoveredNoteIndex, mousePressed, mouseDragged, etc. the same)
+    function handleCursor() {
+      let h = getHoveredNoteIndex();
+      if (draggedNoteIndex !== -1) p.cursor('grabbing');
+      else if (h !== -1) p.cursor(["♪","♫"].includes(melody[h].char) ? 'pointer' : 'grab');
+      else p.cursor(p.ARROW);
+    }
     function getHoveredNoteIndex() {
       for (let i = 0; i < melody.length; i++) {
-        let d = p.dist(p.mouseX, p.mouseY, melody[i].screenX, melody[i].screenY);
-        if (d < 20) return i;
+        if (p.dist(p.mouseX, p.mouseY, melody[i].screenX, melody[i].screenY) < 30) return i;
       }
       return -1;
     }
-
     p.mousePressed = function() {
-      let index = getHoveredNoteIndex();
-      
-      if (index !== -1) {
-        let char = melody[index].char;
-        
-        // IF MUSIC NOTE -> PLAY SONG
-        if (char === "♪" || char === "♫") {
-          startMusic();
-        } 
-        // IF OTHER SYMBOL -> START DRAGGING
-        else {
-          draggedNoteIndex = index;
-        }
+      if (p.getAudioContext().state !== 'running') p.getAudioContext().resume();
+      let i = getHoveredNoteIndex();
+      if (i !== -1) {
+        if (["♪","♫"].includes(melody[i].char)) startMusic();
+        else draggedNoteIndex = i;
       }
     };
-
     p.mouseDragged = function() {
       if (draggedNoteIndex !== -1) {
-        let note = melody[draggedNoteIndex];
-        note.offsetX += p.movedX;
-        note.offsetY += p.movedY;
+        melody[draggedNoteIndex].offsetX += p.movedX;
+        melody[draggedNoteIndex].offsetY += p.movedY;
       }
     };
-
-    p.mouseReleased = function() {
-      draggedNoteIndex = -1; 
-    };
-
-    // Function to draw "Trouble Chef" (Treble Clef) & 3/4 using Moons/Stars
-    function drawMoonClef(x, y) {
-      p.push();
-      p.translate(x, y);
-      
-      p.fill(0, 0, 90); 
-      p.textSize(16);
-      p.noStroke();
-      
-      p.text("☾", 0, -30);
-      p.text("│", 0, -15);
-      p.text("★", 0, 0); 
-      p.text("│", 0, 15);
-      p.text("☆", 0, 30);
-      
-      p.textSize(18);
-      p.text("★o", 30, -10); 
-      p.text("☾*", 30, 15);  
-      
-      p.pop();
-    }
-
-    function startMusic() {
-      if (playing) return;
-      p.userStartAudio(); 
-      playing = true;
-      oscillator.start(); 
-      playNote(0);
-    }
-
-    function playNote(index) {
-      if (index >= melody.length) {
-        oscillator.amp(0, 0.1); 
-        setTimeout(() => { oscillator.stop(); playing = false; currentNote = -1; }, 100);
+    p.mouseReleased = () => { draggedNoteIndex = -1; };
+    function startMusic() { if (playing) return; playing = true; oscillator.start(); playNote(0); }
+    function playNote(i) {
+      if (i >= melody.length) {
+        oscillator.amp(0, 0.2);
+        setTimeout(() => { oscillator.stop(); playing = false; currentNote = -1; }, 200);
         return;
       }
-      
-      currentNote = index;
-      let noteData = melody[index];
-      let durationMS = noteData.dur * tempoMultiplier;
-      
-      let freq = noteToFreq(noteData.note);
-      if (freq) oscillator.freq(freq);
-      oscillator.amp(0.3, 0.05); 
-      
-      setTimeout(() => { 
-        oscillator.amp(0, 0.05); 
-        
-        // Change symbol
-        let oldChar = melody[index].char;
-        let newChar = oldChar;
-        while (newChar === oldChar) {
-          newChar = p.random(celestialSymbols);
-        }
-        melody[index].char = newChar;
-        
-      }, durationMS - 50); 
-      
-      setTimeout(() => { playNote(index + 1); }, durationMS);
+      currentNote = i;
+      let n = melody[i];
+      oscillator.freq(noteToFreq(n.note));
+      oscillator.amp(0.3, 0.05);
+      setTimeout(() => { oscillator.amp(0, 0.05); n.char = p.random(celestialSymbols); }, n.dur * tempoMultiplier - 50);
+      setTimeout(() => playNote(i + 1), n.dur * tempoMultiplier);
     }
-
-    function noteToFreq(note) {
-      let notes = { 'D3': 146.83, 'E3': 164.81, 'F3': 174.61, 'F#3': 185.00, 'G3': 196.00, 'A3': 220.00, 'B3': 246.94, 'C4': 261.63, 'D4': 293.66, 'E4': 329.63, 'F4': 349.23, 'F#4': 369.99, 'G4': 392.00, 'A4': 440.00, 'B4': 493.88 };
-      return notes[note];
-    }
+    function noteToFreq(n) { return { D3:146.83,E3:164.81,F3:174.61,"F#3":185,G3:196,A3:220,B3:246.94,C4:261.63,D4:293.66,E4:329.63,F4:349.23,"F#4":369.99,G4:392,A4:440,B4:493.88 }[n]; }
   };
-
-  // Create p5 instance
   new p5(sketch);
 }
 
-// Check if DOM is already loaded
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initSketch);
-} else {
-  // DOM is already loaded, run immediately
-  initSketch();
-}
+initSketch();

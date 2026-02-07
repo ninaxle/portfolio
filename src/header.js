@@ -7,6 +7,9 @@ headerTemplate.innerHTML = /* html */ `
       padding: 0;
       box-sizing: border-box;
       text-decoration: none;
+      font-family: "Fragment Mono", monospace;
+      letter-spacing: -0.04em;
+      font-weight: 400;
     }
 
     :host {
@@ -17,80 +20,67 @@ headerTemplate.innerHTML = /* html */ `
       position: fixed;
       top: 0;
       left: 0;
-      padding-left: 0;
-      padding-right: 0;
-      padding-top: 0;
-      z-index: 50;
       width: 100%;
+      z-index: 50;
+      display: flex;
+      justify-content: center; 
+      pointer-events: none;
+      transition: opacity 0.4s ease, transform 0.4s ease;
     }
 
-    @media (min-width: 768px) {
-      .container {
-        padding-left: 2.5rem;
-        padding-right: 2.5rem;
-        padding-top: 1rem;
-      }
-    }
-
-    @media (min-width: 1536px) {
-      .container {
-        padding-left: 4rem;
-        padding-right: 4rem;
-      }
+    .container.hidden {
+      opacity: 0;
+      transform: translateY(-20px);
+      pointer-events: none;
     }
 
     header {
-      background: rgba(252, 252, 252, 1); /* Solid background */
-      width: 100%;
-      padding: 24px 28px;
-      border-radius: 16px;
+      background: rgba(252, 252, 252, 1);
+      width: auto; 
+      min-width: min-content;
+      margin-top: 1rem;
+      padding: 8px 20px; /* Reduced to balance with button padding */
+      border-radius: 20px;
       border: 1px solid #d3d3d3;
       transition: all 0.3s ease;
+      pointer-events: auto;
     }
 
     nav {
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
-      gap: 4rem;
-    }
-
-    .logo img {
-      height: 32px; /* Adjust height as needed */
     }
 
     .nav-links {
       display: flex;
-      gap: 2.5rem;
+      gap: 0.5rem; /* Tighter gap because buttons have internal padding now */
       list-style: none;
       font-weight: 500;
+      align-items: center;
     }
 
-    li {
-      font-size: 20px;
-    }
+    li { font-size: 14px; }
 
-    a {
-      color: #282544;
-    }
-
-    .contact-button {
-      background-color: #211722;
-      color: #fcfcfc;
-      font-size: 20px;
-      font-weight: 500;
+    /* Base style for all links to make them look like equal buttons */
+    .nav-links a {
+      color: #8C8A98;
       padding: 8px 16px;
-      border: none;
       border-radius: 12px;
-      cursor: pointer;
-      transition:
-        background-color 0.3s ease,
-        transform 0.2s ease;
+      transition: all 0.3s ease;
+      display: inline-block;
     }
 
-    .contact-button:hover {
-      background-color: #5e3c49;
-      transform: scale(1.05);
+    /* Hover state: Grey background for all */
+    .nav-links a:hover {
+      background-color: #f0f0f0; /* Light grey hover */
+      color: #000;
+    }
+
+    /* Active state: Black background, white text */
+    .nav-links a.active {
+      background-color: #000 !important;
+      color: #fff !important;
     }
 
     #hamburger-icon {
@@ -99,101 +89,43 @@ headerTemplate.innerHTML = /* html */ `
       height: 24px;
     }
 
-    @media (min-width: 1536px) {
-      .logo img {
-        height: 40px; /* Adjust height as needed */
-      }
-
-      li {
-        font-size: 24px;
-      }
-
-      .nav-links {
-        display: flex;
-        gap: 2.75rem;
-        list-style: none;
-        font-weight: 500;
-      }
-
-      .contact-button {
-        font-size: 24px;
-        padding: 8px 20px;
-        border: none;
-        border-radius: 12px;
-        cursor: pointer;
-        transition:
-          background-color 0.3s ease,
-          transform 0.2s ease;
-      }
-    }
-
     @media (max-width: 768px) {
+      .container { padding: 0 1rem; }
       header {
         width: 100%;
-        top: 0px;
-        border: none;
-        border-bottom: 1px solid #d3d3d3;
-        border-radius: 0;
-        border-bottom-left-radius: 16px;
-        border-bottom-right-radius: 16px;
-        padding: 16px 24px;
+        margin-top: 0.5rem;
+        border-radius: 16px;
       }
-
-      .logo img {
-        height: 30px; /* Smaller logo size on mobile */
-      }
-
-      nav {
-        flex-direction: row;
-        justify-content: space-between;
-        gap: 1rem;
-      }
-
+      nav { justify-content: space-between; }
+      #hamburger-icon { display: block; }
       .nav-links {
-        flex-direction: column;
-        gap: 1.25rem;
         display: none;
-        background: rgba(252, 252, 252, 1);
+        flex-direction: column;
         position: absolute;
         top: 100%;
         left: 0;
         right: 0;
+        background: rgba(252, 252, 252, 1);
         padding: 16px;
         margin: 8px;
         border-radius: 16px;
-        border-top: none;
         border: 1px solid #d3d3d3;
-        padding-bottom: 32px;
-        text-align: center;
-        align-items: center;
+        gap: 1rem;
       }
-
-      .nav-links.open {
-        display: flex;
-      }
-
-      #hamburger-icon {
-        display: block;
-      }
+      .nav-links.open { display: flex; }
+      .nav-links a { width: 100%; text-align: center; }
     }
   </style>
 
-  <div class="container">
+  <div class="container" id="header-container">
     <header>
       <nav>
-        <a href="index.html" class="logo">
-          <img src="logo88.png" alt="Logo" />
-        </a>
         <img src="ham.svg" id="hamburger-icon" alt="Menu" />
         <ul class="nav-links">
-          <li><a href="index.html">Projects</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="archive.html">Archive</a></li>
-          <li>
-            <a href="mailto:ninalle.65@gmail.com" class="contact-button">
-              Contact Me
-            </a>
-          </li>
+          <li><a href="index.html">HOME</a></li>
+          <li><a href="archive.html">PLAYGROUND</a></li>
+          <li><a href="about.html">ABOUT</a></li>
+          <li><a href="mailto:ninalle.65@gmail.com">RESUME</a></li>
         </ul>
       </nav>
     </header>
@@ -206,17 +138,60 @@ class Header extends HTMLElement {
     const shadowRoot = this.attachShadow({ mode: "open" });
     shadowRoot.appendChild(headerTemplate.content.cloneNode(true));
 
-    this.headerElement = shadowRoot.querySelector("header");
+    this.container = shadowRoot.getElementById("header-container");
     this.hamburgerIcon = shadowRoot.getElementById("hamburger-icon");
     this.navLinks = shadowRoot.querySelector(".nav-links");
 
     this.hamburgerIcon.addEventListener("click", this.toggleMenu.bind(this));
+    this.handleScroll = this.handleScroll.bind(this);
+  }
+
+  connectedCallback() {
+    window.addEventListener("scroll", this.handleScroll);
+    this.setActiveLink();
+  }
+
+  disconnectedCallback() {
+    window.removeEventListener("scroll", this.handleScroll);
+  }
+
+  setActiveLink() {
+    const currentPath = window.location.pathname;
+    const links = this.shadowRoot.querySelectorAll(".nav-links a");
+    
+    links.forEach(link => {
+      // Get the filename from the href (e.g., "index.html")
+      const linkPath = link.getAttribute("href");
+      
+      if (currentPath.includes(linkPath) && linkPath !== "") {
+        link.classList.add("active");
+      } else if (currentPath === "/" && linkPath === "index.html") {
+        // Edge case for root domain
+        link.classList.add("active");
+      }
+    });
+  }
+
+  handleScroll() {
+    if (window.innerWidth > 768) {
+      const scrollY = window.scrollY;
+      const totalHeight = document.documentElement.scrollHeight;
+      const windowHeight = window.innerHeight;
+      const threshold = 600;
+
+      if (scrollY + windowHeight > totalHeight - threshold) {
+        this.container.classList.add("hidden");
+      } else {
+        this.container.classList.remove("hidden");
+      }
+    } else {
+      this.container.classList.remove("hidden");
+    }
   }
 
   toggleMenu() {
     const isMenuOpen = this.navLinks.classList.contains("open");
     this.navLinks.classList.toggle("open", !isMenuOpen);
-    document.body.classList.toggle("no-scroll", !isMenuOpen);
     this.hamburgerIcon.src = isMenuOpen ? "ham.svg" : "close.svg";
   }
 }
