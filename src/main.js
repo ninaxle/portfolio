@@ -4,15 +4,15 @@ materialIcons.href = "https://fonts.googleapis.com/icon?family=Material+Icons";
 document.head.appendChild(materialIcons);
 
 // Dynamically load another JavaScript file (additional.js)
-const script = document.createElement('script');
-script.src = 'cursor.js';  // Path to the additional JS file
-script.type = 'text/javascript';
-script.async = true;  // Load asynchronously
+const script = document.createElement("script");
+script.src = "cursor.js"; // Path to the additional JS file
+script.type = "text/javascript";
+script.async = true; // Load asynchronously
 document.head.appendChild(script);
 
 // Optional: Add a callback after the script is loaded
 script.onload = function () {
-  console.log('cursor.js has been loaded!');
+  console.log("cursor.js has been loaded!");
 };
 
 // Unified card creation function
@@ -27,70 +27,44 @@ function createCards(sectionSelector, cardsData, isBrandSection = false) {
 
   cardsData.forEach((card, index) => {
     const isTallCard =
-      card.title === 'The Purrfect Supper' ||
+      card.title === "The Purrfect Supper" ||
       //card.title === 'Here:after' ||
       //card.title === 'Accessichat' ||
       //card.title === 'Exomis Design + Development' ||
       //card.title === 'Goodself Design System' ||
 
-
-
-    card.title === 'The Digital Music Box - Carousel Visualizer';
+      card.title === "The Digital Music Box - Carousel Visualizer";
 
     const heightClass = isTallCard
-      ? 'h-72 lg:h-[420px] 2xl:h-[800px]'
-      : 'h-72 lg:h-80 2xl:h-[500px]';
+      ? "h-72 lg:h-[420px] 2xl:h-[800px]"
+      : "h-72 lg:h-80 2xl:h-[500px]";
 
     // Create card div
-    const cardDiv = document.createElement('div');
-    cardDiv.className = (sectionSelector === '.cards-section' && index < 2)
-      ? 'pb-6 flex flex-col space-y-4 flex-1' // No animation for the first two cards
-      : 'pb-6 flex flex-col space-y-4 flex-1 md:down'; // Apply animation to the rest
+    const cardDiv = document.createElement("div");
+    cardDiv.className =
+      sectionSelector === ".cards-section" && index < 2
+        ? "pb-6 flex flex-col space-y-4 flex-1" // No animation for the first two cards
+        : "pb-6 flex flex-col space-y-4 flex-1 md:down"; // Apply animation to the rest
 
     // Image class based on the card title
-    const imageClass = (//card.title === 'Ms. Carry One'||
-      card.title === 'Dear Diary' ||
-      card.title === 'Goodself Design System' ||
-      card.title === 'The Digital Music Box - Carousel Visualizer' ||
-      card.title === 'Meiva'||
-      card.title === 'The Purrfect Supper'
-    ) 
-      ? 'object-cover' // full coverage for some cards
-      : 'object-contain'; // Default class for others
+    const imageClass =
+      //card.title === 'Ms. Carry One'||
+      card.title === "Dear Diary" ||
+      card.title === "Goodself Design System" ||
+      card.title === "The Digital Music Box - Carousel Visualizer" ||
+      card.title === "Meiva" ||
+      card.title === "The Purrfect Supper"
+        ? "object-cover" // full coverage for some cards
+        : "object-contain"; // Default class for others
 
     // Set the inner HTML for the card
-    const hoverClass = card.tags.includes("IN PROGRESS")
-      ? '' 
-      : 'transition duration-300 ease-in-out hover:scale-110'; // Apply hover effect for other titles
+    const hoverClass = "transition duration-300 ease-in-out hover:scale-110"; // Apply hover effect for all cards
 
-    let tagHTML = '';
+    let tagHTML = "";
     if (card.tags) {
-      const tagsArray = card.tags.split(' | '); // Split tags by "|"
-      tagHTML = `
-        <div class="flex flex-wrap gap-1">
-          ${tagsArray.map(tag => {
-
-            // Check if the tag is 'rgd' or 'canada' and apply different styles
-            let tagClasses = "border px-3 py-1 rounded-xl text-base 2xl:text-xl mr-1 mb-1";
-
-            if (tag.toLowerCase().includes('rgd')) {
-              tagClasses = "border border-gray-400 text-gray-600 px-3 py-1 rounded-xl text-base 2xl:text-xl mr-1 mb-1"; // Change for 'rgd'
-            } else if (tag.toLowerCase().includes('winner')) {
-              tagClasses = "border border-gray-400 text-gray-600 px-3 py-1 rounded-xl text-base 2xl:text-xl mr-1 mb-1"; 
-            } else if (tag.toUpperCase().includes('PROGRESS')) {
-              tagClasses = "border border-gray-400 text-gray-600 px-3 py-1 rounded-xl text-base 2xl:text-xl mr-1 mb-1"; 
-            } else if (tag.toLowerCase().includes('mention')) {
-              tagClasses = "border border-gray-400 text-gray-600 px-3 py-1 rounded-xl text-base 2xl:text-xl mr-1 mb-1"; 
-            }
-
-            return `
-            <span class="${tagClasses}">
-              ${tag}
-            </span>
-          `;
-          }).join('')}
-        </div>
-      `;
+      const tagsArray = card.tags.split(" | "); // Split tags by "|"
+      const bracketTags = tagsArray.map((tag) => `[${tag.trim()}]`).join(" ");
+      tagHTML = `<p class="text-gray-500">${bracketTags}</p>`;
     }
 
     const style = document.createElement("style");
@@ -161,26 +135,29 @@ function createCards(sectionSelector, cardsData, isBrandSection = false) {
     document.head.appendChild(style);
 
     // Apply the hover class dynamically
-    cardDiv.innerHTML = /*html*/`
-    <div class="${heightClass} w-full rounded-2xl relative overflow-hidden bg-[#f3f3f4]">
+    cardDiv.innerHTML = /*html*/ `
+    <div class="${heightClass} w-full rounded-2xl relative z-10 overflow-hidden bg-[#f3f3f4]">
       <div class="inner-content h-full w-full rounded-2xl overflow-hidden">
         <img src="${card.image}" alt="${card.title}" loading="lazy" 
           class="w-full h-full ${imageClass} ${hoverClass}" 
           id="card-image-${index}">
       </div>
     </div>
-    <h4>${card.title}</h4>
-    <div>${tagHTML}</div>
+    <div class="relative z-10">
+      <div>${tagHTML}</div>
+      <h4>${card.title}</h4>
+      ${card.description ? `<p class="text-gray-500">${card.description}</p>` : ""}
+    </div>
   `;
 
     // Wrap card in a link if the `link` property exists
     if (card.link) {
       const cardContent = /* html */ `
-        <div class="relative parent">
+        <div class="relative z-10 parent">
           <div class="pretty"></div>
           <div class="flex justify-center items-center rounded-[18px] p-[3px]">
             <div
-              class="${heightClass} w-full rounded-2xl relative overflow-hidden bg-light"
+              class="${heightClass} w-full rounded-2xl relative z-10 overflow-hidden bg-light"
             >
               <div class="relative h-full group">
                 <img
@@ -194,8 +171,11 @@ function createCards(sectionSelector, cardsData, isBrandSection = false) {
           </div>
         </div>
 
-        <h4>${card.title}</h4>
-        <div>${tagHTML}</div>
+        <div class="relative z-10">
+          <div>${tagHTML}</div>
+          <h4>${card.title}</h4>
+          ${card.description ? `<p class="text-gray-500">${card.description}</p>` : ""}
+        </div>
       `;
       cardDiv.innerHTML = `<a href="${card.link}" class="space-y-4">${cardContent}</a>`;
     }
@@ -214,57 +194,58 @@ const uxuiCardsData = [
     title: "Here:after",
     image: "here.png",
     link: "hereafter.html",
-    tags: " UX WINNER | RGD CANADA '23 | UX RESEARCH | MOBILE",
+    tags: "WINNER | RGD CANADA '23 | UX RESEARCH | MOBILE",
+    description: "End-of-life planning app for documenting final wishes",
   },
 
-    {
+  {
     title: "The Digital Music Box - Carousel Visualizer",
-    tags: "P5JS | CODE | MUSIC VISUALIZATION",
+    tags: "CODE | MUSIC VISUALIZATION",
     link: "https://editor.p5js.org/ninistar/full/bu9tv-CMp",
-    image: "ponies.png"
+    image: "ponies.png",
+    description: "Interactive music visualization using p5.js",
   },
-   {
+  {
     title: "Goodself Design System",
-    tags: "IN PROGRESS | DESIGN SYSTEM | UI LIBRARIES | ACCESSIBILITY | MOBILE, DESKTOP & TABLET",
+    tags: "DESIGN SYSTEM | UI LIBRARIES | ACCESSIBILITY | MOBILE, DESKTOP & TABLET",
     image: "ds.png",
+    description: "Accessible component library for multi-platform products",
   },
-
-
 
   {
     title: "Accessichat",
     image: "accessi.png",
     link: "accessichat.html",
-    tags: "AI HONOURABLE MENTION | RGD CANADA '24 | HACKATHON | MOBILE",
+    tags: "HONOURABLE MENTION | RGD CANADA '24 | HACKATHON | MOBILE",
+    description: "AI chat interface built with accessibility-first approach",
   },
-
-
-  
- 
 ];
 
 // Data for Brand cards
 const brandCardsData = [
   {
     title: "The Gender Debate",
-    tags: "IN PROGRESS | INTERACTIVE | DIGITAL DESIGN | DATA VISUALIZATION",
+    tags: "INTERACTIVE | DIGITAL DESIGN | DATA VISUALIZATION",
     image: "gender.png",
+    description: "Interactive data viz on gender discourse",
   },
   {
     title: "Ms. Carry One",
-    tags: "IN PROGRESS | LOGO DESIGN | ILLUSTRATION | BRANDING",
+    tags: "LOGO DESIGN | ILLUSTRATION | BRANDING",
     image: "exomis2.png",
+    description: "Full brand identity with custom illustrations",
   },
   {
     title: "Lost in Translation",
-    tags: "IN PROGRESS | TYPOGRAPHY | PRINT",
-
+    tags: "TYPOGRAPHY | PRINT",
     image: "sound.png",
+    description: "Typographic study of language barriers",
   },
   {
     title: "How to Plant Plum Trees",
-    tags: "IN PROGRESS | ILLUSTRATION | DATA VISUALIZATION",
+    tags: "ILLUSTRATION | DATA VISUALIZATION",
     image: "tree.png",
+    description: "Botanical guide with data storytelling",
   },
 ];
 
@@ -272,46 +253,41 @@ const brandCardsData = [
 const playCardsData = [
   {
     title: "Dear Diary",
-
     tags: "ILLUSTRATION | WEB DESIGN | DESKTOP",
     link: "https://youtu.be/WAzITLPvqEU",
-
-    image: "dear diary.png"
+    image: "dear diary.png",
+    description: "Illustrated web experience with personal narratives",
   },
   {
     title: "Meiva",
-    tags: "IN PROGRESS | MOBILE & DESKTOP",
-    image: "meiva.png"
-    
+    tags: "MOBILE & DESKTOP",
+    image: "meiva.png",
+    description: "Cross-platform app for mobile and desktop",
   },
-
 ];
 
 //code cards
 const codeCardsData = [
-    {
+  {
     title: "The Purrfect Supper",
-    tags: "P5JS | CODE | MINI-GAME",
+    tags: "CODE | MINI-GAME",
     link: "https://editor.p5js.org/ninistar/full/UL27yTVgl",
-    image: "purrfect-super.png"
-    
+    image: "purrfect-super.png",
+    description: "Playful mini-game built in p5.js",
   },
   {
     title: "Exomis Design + Development",
-    tags: "IN PROGRESS | RESPONSIVE DESIGN | UX RESEARCH | MOBILE & DESKTOP",
+    tags: "RESPONSIVE DESIGN | UX RESEARCH | MOBILE & DESKTOP",
     image: "exomis.png",
+    description: "Responsive website design with UX research",
   },
 ];
 
 // Main execution
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
   // Your existing card creation code
-  createCards('.cards-section', uxuiCardsData);
-  createCards('.cards-section2', brandCardsData, true);
-  createCards('.cards-section3', playCardsData, true);
-  createCards('.cards-section4', codeCardsData, true);
-
-
-  
+  createCards(".cards-section", uxuiCardsData);
+  createCards(".cards-section2", brandCardsData, true);
+  createCards(".cards-section3", playCardsData, true);
+  createCards(".cards-section4", codeCardsData, true);
 });
-
