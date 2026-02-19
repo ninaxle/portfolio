@@ -74,12 +74,12 @@ headerTemplate.innerHTML = /* html */ `
     /* Hover state: Grey background for all */
     .nav-links a:hover {
       background-color: #f0f0f0; /* Light grey hover */
-      color: #000;
+      color: #1B191B;
     }
 
     /* Active state: Black background, white text */
     .nav-links a.active {
-      background-color: #000 !important;
+      background-color: #1B191B !important;
       color: #fff !important;
     }
 

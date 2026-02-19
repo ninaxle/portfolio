@@ -91,7 +91,7 @@ function initSketch() {
     p.windowResized = () => layoutNotes();
 
 p.draw = function() {
-      p.background(0);
+      p.background('#1B191B');
       let scrollPos = window.scrollY;
       window.isHoveringNote = false;
 
@@ -158,7 +158,7 @@ p.draw = function() {
           let tw = p.textWidth(msg);
           
           p.noStroke();
-          p.fill(0, 180); // Translucent black
+          p.fill('0', 180); // Translucent black
           p.rectMode(p.CENTER);
           p.rect(p.mouseX + 45, p.mouseY, tw + 12, 18, 4);
 

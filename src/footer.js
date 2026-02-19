@@ -13,11 +13,11 @@ class FooterComponent extends HTMLElement {
         }
 
         footer {
-              background: #000000;
+              background: #1B191B;
 
          //padding: 48px 64px;
           padding: 32px 64px;
-          border-top: 1px solid #C5C5C5;
+          border-top: 1px solid #272630;
           display: flex;
           justify-content: space-between;
           align-items: center;
