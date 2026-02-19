@@ -39,15 +39,15 @@
     <div class="grid-lines"></div>
     <div class="grid-crosshair left"></div>
     <div class="grid-crosshair right"></div>
-    <div class="flex flex-col items-center md:flex-row w-full justify-center pt-24 md:pt-40 2xl:pt-34 gap-8">
+
+    <div class="flex flex-col items-center justify-center w-full relative pt-24 md:pt-40 2xl:pt-34 ">
+          <div id="ascii-music-container" class=" z-10 bg-white bg-blend-multiply"></div>
+      </div>
+
+
+
+    <div class="flex flex-col items-center md:flex-row w-full justify-center gap-8">
       <div class="flex flex-col items-center flex-1 gap-8 md:gap-4">
-          <a href="about.html" class="flex justify-center relative bg-white">
-              <video 
-                  src="musi.mp4" 
-                  class="mix-blend-multiply md:h-36 lg:h-40 xl:h-56 2xl:h-[252px] w-auto relative z-10" 
-                  autoplay loop muted playsinline>
-              </video>
-          </a>
 
           <div class="max-w-3xl mx-auto space-y-6 ">
               <h2 class="font-normal text-center">Hey I am Nina, a uxui designer.</h2>
@@ -55,7 +55,6 @@
                   /* As a vocalist who can also code, my strengths are on focusing on the technical and fine-tuning harmonous experiences */
               </p>
           </div>
-          
       </div>
 
       </div>
@@ -81,7 +80,7 @@
         <div class="justify-center bg-[#1B191B] w-[100%] pt-16 space-y-4">
             <h6 class="text-center text-white">DESIGNING HARMONY, ONE PIXEL AT A TIME</h6>
             <p class=" text-center text-grey">
-Play a song that holds a special place in my heart <span class="text-pig">„</span><span class="text-white">• ֊ •</span><span class="text-pig">„</span></h6>
+Play a song that holds a special place in my heart</h6>
             </p>
         </div>
 
@@ -109,6 +108,7 @@ Play a song that holds a special place in my heart <span class="text-pig">„</s
   }
 </script>
 <script src="sketch.js"></script>
+<script src="ascii-music.js" class="bg-blend-multiply"></script>
       <footer-component></footer-component>
 
   </body>

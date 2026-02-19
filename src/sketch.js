@@ -82,7 +82,6 @@ function initSketch() {
     };
 
     let celestialSymbols = [
-      "■",
       "@",
       "♪",
       "^",

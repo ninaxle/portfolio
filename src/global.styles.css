@@ -318,6 +318,10 @@ Prevents scrollbars if canvas is full screen */
   left: var(--grid-line-4);
 }
 
+#ascii-music-container canvas {
+  mix-blend-mode: multiply;
+}
+
 /* Projects section - 4 vertical lines (2 columns) */
 /* Lines 1 & 4 go full height, lines 2 & 3 start at crosshair y position */
 .projects-with-grid .grid-lines {
