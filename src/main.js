@@ -47,17 +47,17 @@ function createCards(sectionSelector, cardsData, isBrandSection = false) {
     return;
   }
 
-  const fragment = document.createDocumentFragment();
+  const col1 = document.createElement("div");
+  col1.className = "flex flex-col gap-12";
+  const col2 = document.createElement("div");
+  col2.className = "flex flex-col gap-12";
 
   cardsData.forEach((card, index) => {
     const heightClass = "h-auto";
 
     // Create card div
     const cardDiv = document.createElement("div");
-    cardDiv.className =
-      sectionSelector === ".cards-section" && index < 2
-        ? "pb-6 flex flex-col space-y-4 flex-1"
-        : "pb-6 flex flex-col space-y-4 flex-1 md:down";
+    cardDiv.className = "flex flex-col space-y-4";
 
     // Image class based on the card title
     const imageClass =
@@ -182,12 +182,17 @@ function createCards(sectionSelector, cardsData, isBrandSection = false) {
       cardDiv.innerHTML = `<a href="${card.link}" class="space-y-4">${cardContent}</a>`;
     }
 
-    // Append the card to the fragment
-    fragment.appendChild(cardDiv);
+    // Append card to alternating columns
+    if (index % 2 === 0) {
+      col1.appendChild(cardDiv);
+    } else {
+      col2.appendChild(cardDiv);
+    }
   });
 
-  // Append all cards to the section
-  cardsSection.appendChild(fragment);
+  // Append both columns to the section
+  cardsSection.appendChild(col1);
+  cardsSection.appendChild(col2);
 }
 
 // Data for UX/UI cards
