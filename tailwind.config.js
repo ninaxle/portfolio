@@ -15,7 +15,7 @@ export default {
         "custom-4xl": "2rem", // Define a custom font size of 3rem
       },
       colors: {
-        white: "#FCFBFC", // Replace this with your desired color code
+        white: "#FCFBFC",
         grey: "#8C8A98",
         black: "#1B191B",
         egg: "#E7E0E6",
@@ -25,8 +25,9 @@ export default {
         light: "#f3f3f4",
         bock: "#211722",
         pig: "rgb(233, 41, 137)",
-        peach:"#F9DDDC",
+        peach: "#F9DDDC",
         lightblue: "#E5ECF6",
+        grid: "#dedcdc",
       },
     },
   },

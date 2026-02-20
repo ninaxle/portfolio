@@ -226,7 +226,7 @@ Prevents scrollbars if canvas is full screen */
   --grid-crosshair-y: 40px;
   /* Colors from config - full opacity */
   --crosshair-color: #272630;
-  --grid-line-color: #ece5e5;
+  --grid-line-color: #dedcdc;
 }
 
 /* Grid lines container */

@@ -27,7 +27,7 @@ function createCards(sectionSelector, cardsData, isBrandSection = false) {
 
   cardsData.forEach((card, index) => {
     const isTallCard =
-      card.title === "The Purrfect Supper" ||
+      // card.title === "The Purrfect Supper" ||
       //card.title === 'Here:after' ||
       //card.title === 'Accessichat' ||
       //card.title === 'Exomis Design + Development' ||
@@ -240,6 +240,15 @@ const brandCardsData = [
 
 // Data for Play cards (including Little Red Riding Hood)
 const playCardsData = [
+
+    {
+    title: "The Purrfect Supper",
+    tags: "CODE | MINI-GAME",
+    link: "https://editor.p5js.org/ninistar/full/UL27yTVgl",
+    image: "purrfect-super.png",
+    description: "Playful mini-game built in p5.js",
+  },
+
   {
     title: "Dear Diary",
     tags: "ILLUSTRATION | WEB DESIGN | DESKTOP",
@@ -261,16 +270,16 @@ const playCardsData = [
   },
 ];
 
-//code cards
-const codeCardsData = [
-  {
-    title: "The Purrfect Supper",
-    tags: "CODE | MINI-GAME",
-    link: "https://editor.p5js.org/ninistar/full/UL27yTVgl",
-    image: "purrfect-super.png",
-    description: "Playful mini-game built in p5.js",
-  },
-];
+// //code cards
+// const codeCardsData = [
+//   {
+//     // title: "The Purrfect Supper",
+//     // tags: "CODE | MINI-GAME",
+//     // link: "https://editor.p5js.org/ninistar/full/UL27yTVgl",
+//     // image: "purrfect-super.png",
+//     // description: "Playful mini-game built in p5.js",
+//   },
+// ];
 
 // Main execution
 document.addEventListener("DOMContentLoaded", () => {
