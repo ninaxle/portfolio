@@ -15,6 +15,30 @@ script.onload = function () {
   console.log("cursor.js has been loaded!");
 };
 
+// Helper to build the media element (video or image)
+function getMediaHTML(card, imageClass, hoverClass) {
+  if (card.video) {
+    return `
+      <video
+        src="${card.video}"
+        class="w-full h-auto ${imageClass} transition duration-300 ease-in-out hover:scale-110"
+        autoplay
+        muted
+        loop
+        playsinline
+      ></video>
+    `;
+  }
+  return `
+    <img
+      src="${card.image}"
+      alt="${card.title}"
+      loading="lazy"
+      class="w-full h-auto ${imageClass} transition duration-300 ease-in-out hover:scale-110"
+    />
+  `;
+}
+
 // Unified card creation function
 function createCards(sectionSelector, cardsData, isBrandSection = false) {
   const cardsSection = document.querySelector(sectionSelector);
@@ -26,43 +50,30 @@ function createCards(sectionSelector, cardsData, isBrandSection = false) {
   const fragment = document.createDocumentFragment();
 
   cardsData.forEach((card, index) => {
-    const isTallCard =
-      // card.title === "The Purrfect Supper" ||
-      //card.title === 'Here:after' ||
-      //card.title === 'Accessichat' ||
-      //card.title === 'Exomis Design + Development' ||
-      //card.title === 'Goodself Design System' ||
-
-      card.title === "The Digital Music Box - Carousel Visualizer";
-
-    const heightClass = isTallCard
-      ? "h-72 lg:h-[420px] 2xl:h-[800px]"
-      : "h-72 lg:h-80 2xl:h-[500px]";
+    const heightClass = "h-auto";
 
     // Create card div
     const cardDiv = document.createElement("div");
     cardDiv.className =
       sectionSelector === ".cards-section" && index < 2
-        // ? "pb-6 flex flex-col space-y-4 flex-1" // No animation for the first two cards
-        // : "pb-6 flex flex-col space-y-4 flex-1 md:down"; // Apply animation to the rest
+        ? "pb-6 flex flex-col space-y-4 flex-1"
+        : "pb-6 flex flex-col space-y-4 flex-1 md:down";
 
     // Image class based on the card title
     const imageClass =
-      //card.title === 'Ms. Carry One'||
       card.title === "Dear Diary" ||
       card.title === "Goodself Design System" ||
       card.title === "The Digital Music Box - Carousel Visualizer" ||
       card.title === "Meiva" ||
       card.title === "The Purrfect Supper"
-        ? "object-cover" // full coverage for some cards
-        : "object-contain"; // Default class for others
+        ? "object-cover"
+        : "object-contain";
 
-    // Set the inner HTML for the card
-    const hoverClass = "transition duration-300 ease-in-out hover:scale-110"; // Apply hover effect for all cards
+    const hoverClass = "transition duration-300 ease-in-out hover:scale-110";
 
     let tagHTML = "";
     if (card.tags) {
-      const tagsArray = card.tags.split(" | "); // Split tags by "|"
+      const tagsArray = card.tags.split(" | ");
       const bracketTags = tagsArray.map((tag) => `[${tag.trim()}]`).join(" ");
       tagHTML = `<p class="text-gray-500">${bracketTags}</p>`;
     }
@@ -134,21 +145,19 @@ function createCards(sectionSelector, cardsData, isBrandSection = false) {
     `;
     document.head.appendChild(style);
 
-    // Apply the hover class dynamically
+    // Default (no link) card
     cardDiv.innerHTML = /*html*/ `
-    <div class="${heightClass} w-full rounded-2xl relative z-10 overflow-hidden bg-[#f3f3f4]">
-      <div class="inner-content h-full w-full rounded-2xl overflow-hidden">
-        <img src="${card.image}" alt="${card.title}" loading="lazy" 
-          class="w-full h-full ${imageClass} ${hoverClass}" 
-          id="card-image-${index}">
+      <div class="${heightClass} w-full rounded-2xl relative z-10 overflow-hidden bg-[#f3f3f4]">
+        <div class="inner-content w-full rounded-2xl overflow-hidden">
+          ${getMediaHTML(card, imageClass, hoverClass)}
+        </div>
       </div>
-    </div>
-    <div class="relative z-10">
-      <div>${tagHTML}</div>
-      <h4>${card.title}</h4>
-      ${card.description ? `<p class="text-gray-500">${card.description}</p>` : ""}
-    </div>
-  `;
+      <div class="relative z-10">
+        <div>${tagHTML}</div>
+        <h4>${card.title}</h4>
+        ${card.description ? `<p class="text-gray-500">${card.description}</p>` : ""}
+      </div>
+    `;
 
     // Wrap card in a link if the `link` property exists
     if (card.link) {
@@ -156,16 +165,9 @@ function createCards(sectionSelector, cardsData, isBrandSection = false) {
         <div class="relative z-10 parent">
           <div class="pretty"></div>
           <div class="flex justify-center items-center rounded-[18px] p-[3px]">
-            <div
-              class="${heightClass} w-full rounded-2xl relative z-10 overflow-hidden bg-light"
-            >
-              <div class="relative h-full group">
-                <img
-                  src="${card.image}"
-                  alt="${card.title}"
-                  loading="lazy"
-                  class="w-full h-full ${imageClass} transition duration-300 ease-in-out hover:scale-110"
-                />
+            <div class="${heightClass} w-full rounded-2xl relative z-10 overflow-hidden bg-light">
+              <div class="relative group">
+                ${getMediaHTML(card, imageClass, hoverClass)}
               </div>
             </div>
           </div>
@@ -197,12 +199,11 @@ const uxuiCardsData = [
     tags: "WINNER | RGD CANADA '23 | UX RESEARCH | MOBILE",
     description: "End-of-life planning app for documenting final wishes",
   },
-
   {
     title: "The Digital Music Box - Carousel Visualizer",
     tags: "CODE | MUSIC VISUALIZATION",
     link: "https://editor.p5js.org/ninistar/full/bu9tv-CMp",
-    image: "ponies.png",
+    video: "ponie.mov",
     description: "Interactive music visualization using p5.js",
   },
   {
@@ -211,7 +212,6 @@ const uxuiCardsData = [
     image: "ds.png",
     description: "Accessible component library for multi-platform products",
   },
-
   {
     title: "Accessichat",
     image: "accessi.png",
@@ -223,7 +223,6 @@ const uxuiCardsData = [
 
 // Data for Brand cards
 const brandCardsData = [
-
   {
     title: "Lost in Translation",
     tags: "TYPOGRAPHY | PRINT",
@@ -238,17 +237,15 @@ const brandCardsData = [
   },
 ];
 
-// Data for Play cards (including Little Red Riding Hood)
+// Data for Play cards
 const playCardsData = [
-
-    {
+  {
     title: "The Purrfect Supper",
     tags: "CODE | MINI-GAME",
     link: "https://editor.p5js.org/ninistar/full/UL27yTVgl",
     image: "purrfect-super.png",
     description: "Playful mini-game built in p5.js",
   },
-
   {
     title: "Dear Diary",
     tags: "ILLUSTRATION | WEB DESIGN | DESKTOP",
@@ -256,7 +253,7 @@ const playCardsData = [
     image: "dear diary.png",
     description: "Illustrated web experience with personal narratives",
   },
-    {
+  {
     title: "Exomis Design + Development",
     tags: "RESPONSIVE DESIGN | UX RESEARCH | MOBILE & DESKTOP",
     image: "exomis.png",
@@ -270,22 +267,9 @@ const playCardsData = [
   },
 ];
 
-// //code cards
-// const codeCardsData = [
-//   {
-//     // title: "The Purrfect Supper",
-//     // tags: "CODE | MINI-GAME",
-//     // link: "https://editor.p5js.org/ninistar/full/UL27yTVgl",
-//     // image: "purrfect-super.png",
-//     // description: "Playful mini-game built in p5.js",
-//   },
-// ];
-
 // Main execution
 document.addEventListener("DOMContentLoaded", () => {
-  // Your existing card creation code
   createCards(".cards-section", uxuiCardsData);
   createCards(".cards-section2", brandCardsData, true);
   createCards(".cards-section3", playCardsData, true);
-  createCards(".cards-section4", codeCardsData, true);
 });
