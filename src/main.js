@@ -197,7 +197,19 @@ function createCards(sectionSelector, cardsData, isBrandSection = false) {
 
 // Data for UX/UI cards
 const uxuiCardsData = [
+{
+    title: "Genesys Cloud",
+    tags: "INTERNSHIP",
+    image: "gen.png",
+    description: "Interactive music visualization using p5.js",
+  },
   {
+    title: "Goodself Design System",
+    tags: "DESIGN SYSTEM | UI LIBRARIES | ACCESSIBILITY | MOBILE, DESKTOP & TABLET",
+    image: "ds.png",
+    description: "Accessible component library for multi-platform products",
+  },
+    {
     title: "Here:after",
     image: "here.png",
     link: "hereafter.html",
@@ -208,15 +220,12 @@ const uxuiCardsData = [
     title: "The Digital Music Box - Carousel Visualizer",
     tags: "CODE | MUSIC VISUALIZATION",
     link: "https://editor.p5js.org/ninistar/full/bu9tv-CMp",
-    video: "ponie.mov",
+    video: "ponie2.mov",
     description: "Interactive music visualization using p5.js",
   },
-  {
-    title: "Goodself Design System",
-    tags: "DESIGN SYSTEM | UI LIBRARIES | ACCESSIBILITY | MOBILE, DESKTOP & TABLET",
-    image: "ds.png",
-    description: "Accessible component library for multi-platform products",
-  },
+
+
+
   {
     title: "Accessichat",
     image: "accessi.png",
@@ -224,6 +233,7 @@ const uxuiCardsData = [
     tags: "HONOURABLE MENTION | RGD CANADA '24 | HACKATHON | MOBILE",
     description: "AI chat interface built with accessibility-first approach",
   },
+     
 ];
 
 // Data for Brand cards
@@ -251,7 +261,7 @@ const playCardsData = [
     image: "purrfect-super.png",
     description: "Playful mini-game built in p5.js",
   },
-  {
+ {
     title: "Dear Diary",
     tags: "ILLUSTRATION | WEB DESIGN | DESKTOP",
     link: "https://youtu.be/WAzITLPvqEU",
