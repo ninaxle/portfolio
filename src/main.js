@@ -223,18 +223,7 @@ const uxuiCardsData = [
 
 // Data for Brand cards
 const brandCardsData = [
-  {
-    title: "The Gender Debate",
-    tags: "INTERACTIVE | DIGITAL DESIGN | DATA VISUALIZATION",
-    image: "gender.png",
-    description: "Interactive data viz on gender discourse",
-  },
-  {
-    title: "Ms. Carry One",
-    tags: "LOGO DESIGN | ILLUSTRATION | BRANDING",
-    image: "exomis2.png",
-    description: "Full brand identity with custom illustrations",
-  },
+
   {
     title: "Lost in Translation",
     tags: "TYPOGRAPHY | PRINT",
@@ -258,6 +247,12 @@ const playCardsData = [
     image: "dear diary.png",
     description: "Illustrated web experience with personal narratives",
   },
+    {
+    title: "Exomis Design + Development",
+    tags: "RESPONSIVE DESIGN | UX RESEARCH | MOBILE & DESKTOP",
+    image: "exomis.png",
+    description: "Responsive website design with UX research",
+  },
   {
     title: "Meiva",
     tags: "MOBILE & DESKTOP",
@@ -274,12 +269,6 @@ const codeCardsData = [
     link: "https://editor.p5js.org/ninistar/full/UL27yTVgl",
     image: "purrfect-super.png",
     description: "Playful mini-game built in p5.js",
-  },
-  {
-    title: "Exomis Design + Development",
-    tags: "RESPONSIVE DESIGN | UX RESEARCH | MOBILE & DESKTOP",
-    image: "exomis.png",
-    description: "Responsive website design with UX research",
   },
 ];
 

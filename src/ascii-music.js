@@ -30,18 +30,21 @@ function initAsciiMusic() {
     let imgLoaded = false;
 
     p.preload = function () {
-      img = p.loadImage("music.png", 
-        () => {
-          console.log("Image loaded successfully");
-          imgLoaded = true;
-        },
-        () => {
-          console.error("Failed to load image");
-        }
-      );
+img = p.loadImage("music.png", 
+    () => {
+      console.log("Image loaded successfully");
+      img.resize(img.width / 3.5, img.height / 3.5);
+      imgLoaded = true;
+    },
+    () => {
+      console.error("Failed to load image");
+    }
+  );
     };
 
     p.setup = function () {
+
+      
       let displayWidth = 800;
       let displayHeight = 400;
 
