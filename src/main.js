@@ -43,8 +43,8 @@ function createCards(sectionSelector, cardsData, isBrandSection = false) {
     const cardDiv = document.createElement("div");
     cardDiv.className =
       sectionSelector === ".cards-section" && index < 2
-        ? "pb-6 flex flex-col space-y-4 flex-1" // No animation for the first two cards
-        : "pb-6 flex flex-col space-y-4 flex-1 md:down"; // Apply animation to the rest
+        // ? "pb-6 flex flex-col space-y-4 flex-1" // No animation for the first two cards
+        // : "pb-6 flex flex-col space-y-4 flex-1 md:down"; // Apply animation to the rest
 
     // Image class based on the card title
     const imageClass =

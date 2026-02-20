@@ -22,7 +22,7 @@ function initAsciiMusic() {
       ".",
       "~",
     ];
-    let stepSize = 14;
+    let stepSize = 9;
     let t = 0;
     let asciiAmount = 1;
     let transitionDuration = 8;
@@ -55,7 +55,7 @@ function initAsciiMusic() {
     };
 
     p.draw = function () {
-      p.background(255);
+      p.background('#fcfcfc');
       
       if (!imgLoaded || !img) {
         p.fill(0);
