@@ -258,15 +258,8 @@ const playCardsData = [
     title: "The Purrfect Supper",
     tags: "CODE | MINI-GAME",
     link: "https://editor.p5js.org/ninistar/full/UL27yTVgl",
-    image: "purrfect-super.png",
+    video: "pur.mov",
     description: "Playful mini-game built in p5.js",
-  },
- {
-    title: "Dear Diary",
-    tags: "ILLUSTRATION | WEB DESIGN | DESKTOP",
-    link: "https://youtu.be/WAzITLPvqEU",
-    image: "dear diary.png",
-    description: "Illustrated web experience with personal narratives",
   },
   {
     title: "Exomis Design + Development",
@@ -279,6 +272,13 @@ const playCardsData = [
     tags: "MOBILE & DESKTOP",
     image: "meiva.png",
     description: "Cross-platform app for mobile and desktop",
+  },
+   {
+    title: "Dear Diary",
+    tags: "ILLUSTRATION | WEB DESIGN | DESKTOP",
+    link: "https://youtu.be/WAzITLPvqEU",
+    video: "red.mov",
+    description: "Illustrated web experience with personal narratives",
   },
 ];
 
