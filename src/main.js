@@ -244,7 +244,7 @@ const playCardsData = [
     title: "The Purrfect Supper",
     tags: "CODE | MINI-GAME",
     link: "https://editor.p5js.org/ninistar/full/UL27yTVgl",
-    video: "pur.mov",
+    video: "pur.mp4",
     description: "Playful mini-game built in p5.js",
   },
   {
@@ -263,7 +263,7 @@ const playCardsData = [
     title: "Dear Diary",
     tags: "ILLUSTRATION | WEB DESIGN | DESKTOP",
     link: "https://youtu.be/WAzITLPvqEU",
-    video: "red.mov",
+    video: "red.mp4",
     description: "Illustrated web experience with personal narratives",
   },
 ];
