@@ -257,14 +257,14 @@ const playCardsData = [
     title: "Meiva",
     tags: "MOBILE & DESKTOP",
     image: "meiva.png",
-    description: "A responsive vaccine website that makes booking vaccines easier",
+    description: "A responsive vaccine booking site designed to reduce friction",
   },
   {
     title: "Dear Diary",
     tags: "ILLUSTRATION | WEB DESIGN | DESKTOP",
     link: "https://youtu.be/WAzITLPvqEU",
     video: "red.mp4",
-    description: "Little Red Riding Hood reimagined as an interactive scroll experience",
+    description: "Little Red Riding Hood as an interactive scroll experience",
   },
 ];
 
