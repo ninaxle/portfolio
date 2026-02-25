@@ -18,7 +18,7 @@ headerTemplate.innerHTML = /* html */ `
       top: 0;
       left: 0;
       width: 100%;
-      z-index: 50;
+      z-index: 9999; 
     }
 
     /* ─── CONTAINER ─────────────────────────────────────────── */
@@ -195,7 +195,7 @@ headerTemplate.innerHTML = /* html */ `
       border: 1px solid #d3d3d3;
       border-radius: 12px;
       min-width: 180px;
-      z-index: 100;
+      z-index: 10000;
       padding: 8px 0;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
