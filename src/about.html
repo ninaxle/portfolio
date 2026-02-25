@@ -177,9 +177,6 @@
         font-size: 14px;
       }
     </style>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/addons/p5.sound.min.js"></script>
   </head>
 
   <body>
@@ -261,9 +258,7 @@
       </section>
 
       <!-- Recognition Section -->
-      <section
-        class="md:pt-32 projects-with-grid archive-projects pb-8 lg:pb-24"
-      >
+      <section class="md:pt-32 projects-with-grid archive-projects pb-8 lg:pb-24">
         <div class="grid-lines"></div>
         <div class="grid-crosshair left"></div>
         <div class="grid-crosshair right"></div>
@@ -311,19 +306,14 @@
               </div>
             </div>
 
-            <div
-              class="flex flex-col gap-4 md:gap-8 rounded-2xl z-10 relative md:px-4"
-            >
-              <div
-                class="flex justify-center items-center 2xl:p-8 rounded-2xl h-52 overflow-hidden border border-grid bg-white"
-              >
+            <div class="flex flex-col gap-4 md:gap-8 rounded-2xl z-10 relative md:px-4">
+              <div class="flex justify-center items-center 2xl:p-8 rounded-2xl h-52 overflow-hidden border border-grid bg-white">
                 <img src="dsa.png" class="w-2/6 h-auto" />
               </div>
               <div class="flex flex-col gap-2">
                 <p class="label text-gray-500">[DSA DESN'ATHON]</p>
                 <p>
-                  <span class="label text-gray-500">[4]</span> 2nd Place, Student
-                  Leadership
+                  <span class="label text-gray-500">[4]</span> 2nd Place, Student Leadership
                   <span class="label text-gray-500">[5]</span> 2nd Place, Sustainability Award
                 </p>
               </div>
@@ -350,41 +340,41 @@
           <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
             <div class="z-10 relative">
               <img src="tea.jpg" class="w-full h-auto rounded-lg" />
-              <p class="pt-4">↑ At afternoon tea; find the decoden phone case I made!</p>
+              <h6 class="pt-4">↑ At afternoon tea; find the decoden phone case I made!</h6>
             </div>
 
             <div class="z-10 relative">
               <img src="code.jpg" class="w-full h-auto rounded-lg" />
-              <p class="pt-4">
+              <h6 class="pt-4">
                 ↑ Coding! I have been coding with HTML, CSS/Tailwind, and some
                 Javascript. Currently looking into Python...
-              </p>
+              </h6>
             </div>
 
             <div class="z-10 relative">
               <img src="wip.jpg" class="w-full h-auto rounded-lg" />
-              <p class="pt-4">
+              <h6 class="pt-4">
                 ↑ Making all kinds of art. Pivoting a bit from illustration,
                 I've recently been sculpting mini clay figurines >:)
-              </p>
+              </h6>
             </div>
 
             <div class="z-10 relative">
               <img src="frogs.jpg" class="w-full h-auto rounded-lg" />
-              <p class="pt-4">
+              <h6 class="pt-4">
                 ↑ Showing off work I am proud of - including the final form of
                 my clay frogs
-              </p>
+              </h6>
             </div>
 
             <div class="z-10 relative">
               <img src="aqua.jpg" class="w-full h-auto rounded-lg" />
-              <p class="pt-4">↑ Admiring sea life at Ripley's Aquarium</p>
+              <h6 class="pt-4">↑ Admiring sea life at Ripley's Aquarium</h6>
             </div>
 
             <div class="z-10 relative">
               <img src="emo.jpg" class="w-full h-auto rounded-lg" />
-              <p class="pt-4">
+              <h6 class="pt-4">
                 ↑ Listening and belting to emo music (I am a great singer,
                 trust)
               </h4>
@@ -395,9 +385,7 @@
     </div>
 
     <!-- Designing harmony section -->
-    <div
-      class="justify-center bg-[#1B191B] w-[100%] pt-8 md:pt-16 space-y-4 px-4 sm:px-10 md:px-10 lg:px-16 2xl:px-16"
-    >
+    <div class="justify-center bg-[#1B191B] w-[100%] pt-8 md:pt-16 space-y-4 px-4 sm:px-10 md:px-10 lg:px-16 2xl:px-16">
       <h3 class="text-white">Designing harmony, one pixel at a time.</h3>
       <h6 class="text-grey">
         Play a song that holds a special place in my heart
@@ -405,12 +393,22 @@
     </div>
 
     <!-- p5.js Sketch Container -->
-    <section>
+    <section id="sketch-section">
       <div id="sketch-container" class="w-full overflow-hidden"></div>
     </section>
-
+ <script>
+      // WDOM and p5.js to be ready
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", function () {
+          if (typeof p5 !== "undefined") {
+            // auto-detect setup() and draw() functions
+          }
+        });
+      }
+    </script>
     <footer-component></footer-component>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/addons/p5.sound.min.js"></script>
     <script type="module" src="cursor.js"></script>
     <script type="module" src="sketch.js"></script>
   </body>

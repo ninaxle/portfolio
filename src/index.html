@@ -143,9 +143,9 @@
 
   <body>
     <script src="header.js" type="module"></script>
-    <!-- where header.js is the name of our reusable component script -->
+    <!-- header.js is the name of the reusable component script -->
+     
     <script src="footer.js" type="module"></script>
-    <!-- where header.js is the name of our reusable component script -->
     <header-component></header-component>
 
     <div class="geist-grid-wrapper">
@@ -193,16 +193,12 @@
         </div>
 
         <div class="px-4 sm:px-10 md:px-10 lg:px-16 2xl:px-16">
-          <div
-            class="grid grid-cols-1 md:grid-cols-2 gap-8 cards-section"
-          ></div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 cards-section"></div>
         </div>
       </section>
     </div>
 
-    <div
-      class="justify-center bg-[#1B191B] w-[100%] pt-8 md:pt-16 space-y-4 px-4 sm:px-10 md:px-10 lg:px-16 2xl:px-16"
-    >
+    <div class="justify-center bg-[#1B191B] w-[100%] pt-8 md:pt-16 space-y-4 px-4 sm:px-10 md:px-10 lg:px-16 2xl:px-16">
       <h3 class="text-white">Designing harmony, one pixel at a time.</h3>
       <h6 class="text-grey">
         Play a song that holds a special place in my heart
@@ -213,15 +209,14 @@
     <section>
       <div id="sketch-container" class="w-full overflow-hidden"></div>
     </section>
-
     <script type="module" src="main.js"></script>
 
     <script>
-      // Wait for DOM and p5.js to be ready
+      // WDOM and p5.js to be ready
       if (document.readyState === "loading") {
         document.addEventListener("DOMContentLoaded", function () {
           if (typeof p5 !== "undefined") {
-            // p5.js will auto-detect setup() and draw() functions
+            // auto-detect setup() and draw() functions
           }
         });
       }

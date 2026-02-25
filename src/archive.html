@@ -171,8 +171,6 @@
       href="https://fonts.googleapis.com/css2?family=Fragment+Mono&display=swap"
       rel="stylesheet"
     />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/addons/p5.sound.min.js"></script>
   </head>
   <body>
     <script type="module" src="header.js"></script>
@@ -209,22 +207,34 @@
       </section>
     </div>
 
-    <div
-      class="justify-center bg-[#1B191B] w-[100%] pt-8 md:pt-16 space-y-4 px-4 sm:px-10 md:px-10 lg:px-16 2xl:px-16"
-    >
+     <div class="justify-center bg-[#1B191B] w-[100%] pt-8 md:pt-16 space-y-4 px-4 sm:px-10 md:px-10 lg:px-16 2xl:px-16">
       <h3 class="text-white">Designing harmony, one pixel at a time.</h3>
       <h6 class="text-grey">
         Play a song that holds a special place in my heart
       </h6>
     </div>
 
+    <!-- p5.js Sketch Container -->
     <section>
       <div id="sketch-container" class="w-full overflow-hidden"></div>
     </section>
+    <script type="module" src="main.js"></script>
+
+    <script>
+      // WDOM and p5.js to be ready
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", function () {
+          if (typeof p5 !== "undefined") {
+            // auto-detect setup() and draw() functions
+          }
+        });
+      }
+    </script>
 
     <footer-component></footer-component>
 
-    <script type="module" src="main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/addons/p5.sound.min.js"></script>
     <script type="module" src="cursor.js"></script>
     <script type="module" src="sketch.js"></script>
   </body>

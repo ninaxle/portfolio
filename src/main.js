@@ -190,27 +190,27 @@ const uxuiCardsData = [
     title: "Genesys Cloud",
     tags: "INTERNSHIP",
     image: "gen.png",
-    description: "Interactive music visualization using p5.js",
+    description: "Product strategy on enterprise contact center software",
   },
   {
     title: "Goodself Design System",
     tags: "DESIGN SYSTEM | UI LIBRARIES | ACCESSIBILITY | MOBILE, DESKTOP & TABLET",
     image: "ds.png",
-    description: "Accessible component library for multi-platform products",
+    description: "A design system for a healthtech start-up, built with accessibility and responsiveness",
   },
   {
     title: "Here:after",
     image: "here.png",
     link: "hereafter.html",
     tags: "WINNER | RGD CANADA '23 | UX RESEARCH | MOBILE",
-    description: "End-of-life planning app for documenting final wishes",
+    description: "A mental health journalling application designed for self-reflection",
   },
   {
     title: "The Digital Music Box - Carousel Visualizer",
     tags: "CODE | MUSIC VISUALIZATION",
     link: "https://editor.p5js.org/ninistar/full/bu9tv-CMp",
     video: "ponie2.mp4",
-    description: "Interactive music visualization using p5.js",
+    description: "An interactive music visualization using p5.js",
   },
 
   {
@@ -218,7 +218,7 @@ const uxuiCardsData = [
     image: "accessi.png",
     link: "accessichat.html",
     tags: "HONOURABLE MENTION | RGD CANADA '24 | HACKATHON | MOBILE",
-    description: "AI chat interface built with accessibility-first approach",
+    description: "An AI-powered AAC app designed to support people with disabilities with daily communication",
   },
 ];
 
@@ -245,26 +245,26 @@ const playCardsData = [
     tags: "CODE | MINI-GAME",
     link: "https://editor.p5js.org/ninistar/full/UL27yTVgl",
     video: "pur.mp4",
-    description: "Playful mini-game built in p5.js",
+    description: "A playful catcher game built in p5.js",
   },
   {
     title: "Exomis Design + Development",
     tags: "RESPONSIVE DESIGN | UX RESEARCH | MOBILE & DESKTOP",
     image: "exomis.png",
-    description: "Responsive website design with UX research",
+    description: "An about page optimized for mobile and web",
   },
   {
     title: "Meiva",
     tags: "MOBILE & DESKTOP",
     image: "meiva.png",
-    description: "Cross-platform app for mobile and desktop",
+    description: "a responsive vaccine website that makes booking vaccines easier",
   },
   {
     title: "Dear Diary",
     tags: "ILLUSTRATION | WEB DESIGN | DESKTOP",
     link: "https://youtu.be/WAzITLPvqEU",
     video: "red.mp4",
-    description: "Illustrated web experience with personal narratives",
+    description: "An interactive scrolling website that reimagines Little Red Riding Hood through a feminist lens",
   },
 ];
 
