@@ -190,13 +190,13 @@ const uxuiCardsData = [
     title: "Genesys Cloud",
     tags: "INTERNSHIP",
     image: "gen.png",
-    description: "Product strategy on enterprise contact center software",
+    description: "Shaping product direction for enterprise contact center software",
   },
   {
     title: "Goodself Design System",
     tags: "DESIGN SYSTEM | UI LIBRARIES | ACCESSIBILITY | MOBILE, DESKTOP & TABLET",
     image: "ds.png",
-    description: "A design system for a healthtech start-up, built with accessibility and responsiveness",
+    description: "A healthtech design system designed around accessibility",
   },
   {
     title: "Here:after",
@@ -218,7 +218,7 @@ const uxuiCardsData = [
     image: "accessi.png",
     link: "accessichat.html",
     tags: "HONOURABLE MENTION | RGD CANADA '24 | HACKATHON | MOBILE",
-    description: "An AI-powered AAC app designed to support people with disabilities with daily communication",
+    description: "An AI-powered AAC app designed to support people with disabilities",
   },
 ];
 
@@ -245,26 +245,26 @@ const playCardsData = [
     tags: "CODE | MINI-GAME",
     link: "https://editor.p5js.org/ninistar/full/UL27yTVgl",
     video: "pur.mp4",
-    description: "A playful catcher game built in p5.js",
+    description: "A catcher game built in p5.js",
   },
   {
     title: "Exomis Design + Development",
     tags: "RESPONSIVE DESIGN | UX RESEARCH | MOBILE & DESKTOP",
     image: "exomis.png",
-    description: "An about page optimized for mobile and web",
+    description: "A studio page for a local design agency",
   },
   {
     title: "Meiva",
     tags: "MOBILE & DESKTOP",
     image: "meiva.png",
-    description: "a responsive vaccine website that makes booking vaccines easier",
+    description: "A responsive vaccine website that makes booking vaccines easier",
   },
   {
     title: "Dear Diary",
     tags: "ILLUSTRATION | WEB DESIGN | DESKTOP",
     link: "https://youtu.be/WAzITLPvqEU",
     video: "red.mp4",
-    description: "An interactive scrolling website that reimagines Little Red Riding Hood through a feminist lens",
+    description: "Little Red Riding Hood reimagined as an interactive scroll experience",
   },
 ];
 
