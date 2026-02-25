@@ -202,18 +202,8 @@
     <section>
       <div id="sketch-container" class="w-full overflow-hidden"></div>
     </section>
+    
     <script type="module" src="main.js"></script>
-
-    <script>
-      // WDOM and p5.js to be ready
-      if (document.readyState === "loading") {
-        document.addEventListener("DOMContentLoaded", function () {
-          if (typeof p5 !== "undefined") {
-            // auto-detect setup() and draw() functions
-          }
-        });
-      }
-    </script>
     <footer-component></footer-component>
     <script type="module" src="cursor.js"></script>
 
