@@ -13,6 +13,7 @@
     color: #352b38;
   }
 
+  
   title {
     @apply text-4xl md:text-5xl;
   }
@@ -226,6 +227,8 @@ Prevents scrollbars if canvas is full screen */
   top: calc(var(--grid-crosshair-y) + 24px);
   left: 0;
   right: 0;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
   height: 1px;
   background: var(--grid-line-color);
   z-index: 0;
@@ -276,6 +279,8 @@ Prevents scrollbars if canvas is full screen */
   top: var(--grid-crosshair-y);
   left: 0;
   right: 0;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
   height: 1px;
   background: var(--grid-line-color);
   z-index: 0;
