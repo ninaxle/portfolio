@@ -9,109 +9,54 @@ function initSketch() {
     let animationTimer = 0;
     let lastHoveredIndex = -1;
 
-    // ... (Keep melody and notePositions exactly as they were)
+    // max-w-7xl = 1280px
+    const MAX_WIDTH = 1280;
+    const MAX_HEIGHT = 600;
+
     let melody = [
-      { note: "D4", dur: 3 },
-      { note: "B4", dur: 3 },
-      { note: "G3", dur: 3 },
-      { note: "D3", dur: 3 },
-      { note: "E3", dur: 1 },
-      { note: "F#3", dur: 1 },
-      { note: "G3", dur: 1 },
-      { note: "E3", dur: 1.5 },
-      { note: "G3", dur: 1.5 },
-      { note: "D3", dur: 3 },
-      { note: "A4", dur: 3 },
-      { note: "D4", dur: 3 },
-      { note: "B4", dur: 3 },
-      { note: "G3", dur: 3 },
-      { note: "E3", dur: 1 },
-      { note: "G3", dur: 1 },
-      { note: "G3", dur: 1 },
-      { note: "A4", dur: 2 },
-      { note: "B4", dur: 1 },
-      { note: "A4", dur: 3 },
-      { note: "B4", dur: 1 },
-      { note: "C4", dur: 1 },
-      { note: "B4", dur: 1 },
-      { note: "A4", dur: 1 },
-      { note: "D4", dur: 2 },
-      { note: "B4", dur: 1 },
-      { note: "A4", dur: 1 },
-      { note: "G3", dur: 3 },
-      { note: "A4", dur: 1 },
-      { note: "B4", dur: 2 },
-      { note: "G3", dur: 1 },
-      { note: "E3", dur: 2 },
-      { note: "G3", dur: 1 },
-      { note: "E3", dur: 1 },
-      { note: "D3", dur: 3 },
-      { note: "E3", dur: 1 },
-      { note: "G3", dur: 2 },
-      { note: "B4", dur: 1 },
-      { note: "A4", dur: 2 },
-      { note: "D3", dur: 1 },
-      { note: "G3", dur: 2 },
-      { note: "B4", dur: 1 },
-      { note: "A4", dur: 2 },
-      { note: "B4", dur: 1 },
-      { note: "C4", dur: 1 },
-      { note: "D4", dur: 1 },
-      { note: "B4", dur: 1 },
-      { note: "G3", dur: 2 },
-      { note: "A3", dur: 1 },
-      { note: "A3", dur: 1 },
-      { note: "G3", dur: 6 },
+      { note: "D4", dur: 3 }, { note: "B4", dur: 3 }, { note: "G3", dur: 3 },
+      { note: "D3", dur: 3 }, { note: "E3", dur: 1 }, { note: "F#3", dur: 1 },
+      { note: "G3", dur: 1 }, { note: "E3", dur: 1.5 }, { note: "G3", dur: 1.5 },
+      { note: "D3", dur: 3 }, { note: "A4", dur: 3 }, { note: "D4", dur: 3 },
+      { note: "B4", dur: 3 }, { note: "G3", dur: 3 }, { note: "E3", dur: 1 },
+      { note: "G3", dur: 1 }, { note: "G3", dur: 1 }, { note: "A4", dur: 2 },
+      { note: "B4", dur: 1 }, { note: "A4", dur: 3 }, { note: "B4", dur: 1 },
+      { note: "C4", dur: 1 }, { note: "B4", dur: 1 }, { note: "A4", dur: 1 },
+      { note: "D4", dur: 2 }, { note: "B4", dur: 1 }, { note: "A4", dur: 1 },
+      { note: "G3", dur: 3 }, { note: "A4", dur: 1 }, { note: "B4", dur: 2 },
+      { note: "G3", dur: 1 }, { note: "E3", dur: 2 }, { note: "G3", dur: 1 },
+      { note: "E3", dur: 1 }, { note: "D3", dur: 3 }, { note: "E3", dur: 1 },
+      { note: "G3", dur: 2 }, { note: "B4", dur: 1 }, { note: "A4", dur: 2 },
+      { note: "D3", dur: 1 }, { note: "G3", dur: 2 }, { note: "B4", dur: 1 },
+      { note: "A4", dur: 2 }, { note: "B4", dur: 1 }, { note: "C4", dur: 1 },
+      { note: "D4", dur: 1 }, { note: "B4", dur: 1 }, { note: "G3", dur: 2 },
+      { note: "A3", dur: 1 }, { note: "A3", dur: 1 }, { note: "G3", dur: 6 },
     ];
+
     let notePositions = {
-      G4: -2,
-      "F#4": -1,
-      F4: -1,
-      E4: 0,
-      D4: 1,
-      C4: 2,
-      B4: -4,
-      A4: -3,
-      B3: 3,
-      A3: 4,
-      G3: 5,
-      "F#3": 6,
-      F3: 6,
-      E3: 7,
-      D3: 8,
+      G4: -2, "F#4": -1, F4: -1, E4: 0, D4: 1, C4: 2,
+      B4: -4, A4: -3, B3: 3, A3: 4, G3: 5, "F#3": 6,
+      F3: 6, E3: 7, D3: 8,
     };
 
     let celestialSymbols = [
-      "@",
-      "♪",
-      "^",
-      "☆",
-      "♡",
-      "<",
-      "#",
-      "＊",
-      "&",
-      "!",
-      "+",
-      "~",
-      "=",
-      "?",
-      "%",
-      "♫",
-      "o",
-      "•",
-      ".",
+      "@","♪","^","☆","♡","<","#","＊","&","!","+","~","=","?","%","♫","o","•",".",
     ];
     let celestialColors = [];
 
+    function getContainerWidth() {
+      let container = document.getElementById("sketch-container");
+      let rect = container ? container.getBoundingClientRect() : { width: p.windowWidth };
+      return Math.min(Math.floor(rect.width) || p.windowWidth, MAX_WIDTH);
+    }
+
     p.setup = function () {
-      let w = p.windowWidth;
-      let h = p.windowHeight;
-      // Mobile gets taller canvas to prevent cropping
-      let canvasHeight = w < 600 ? h * 0.8 : h * 0.6;
+      let w = getContainerWidth();
+      let isMobile = w < 600;
+      let canvasHeight = Math.min(isMobile ? p.windowHeight * 0.75 : p.windowHeight * 0.6, MAX_HEIGHT);
+
       let cnv = p.createCanvas(w, canvasHeight);
       cnv.parent("sketch-container");
-
       cnv.style("display", "block");
       cnv.style("max-width", "100%");
       cnv.style("height", "auto");
@@ -119,6 +64,7 @@ function initSketch() {
       p.textAlign(p.CENTER, p.CENTER);
       p.textFont("Doto");
       p.colorMode(p.RGB, 255, 255, 255, 255);
+
       celestialColors = [
         p.color("#FA36A3"),
         p.color("#6FB5B6"),
@@ -141,34 +87,29 @@ function initSketch() {
         n.myPersonalTrinkle = p.random(10, 40);
         n.char = p.random(celestialSymbols);
       }
+
       layoutNotes();
     };
 
     function layoutNotes() {
-      let w = p.windowWidth;
-      let h = p.windowHeight;
+      let w = getContainerWidth();
+      let isMobile = w < 600;
 
-      // Proportional calculations instead of rigid breakpoints
-      let margin = w * 0.05; // 5% margin on each side
+      let margin = isMobile ? 16 : 32;
       let maxLineWidth = w - margin * 2;
 
-      // Smaller padding on mobile, larger on desktop
-      let topPadding = w < 600 ? h * 0.05 : h * 0.08 + w * 0.02;
-      let bottomPadding = w < 600 ? h * 0.08 : h * 0.12 + w * 0.02;
-
-      // Scale row height and symbol size - smaller values on mobile
-      let rowHeight = w < 600 ? h * 0.06 : h * 0.08;
-      let symbolSize = p.constrain(w * 0.04, 16, 30); // 4% of width, clamped between 16-30
+      // Fixed, predictable padding — no viewport-relative values
+      let topPadding = isMobile ? 30 : 48;
+      let bottomPadding = isMobile ? 40 : 56;
+      let rowHeight = isMobile ? 52 : 68;
 
       let y = topPadding;
-
-      // Group notes into rows first to calculate centering
       let rows = [[]];
       let currentRow = 0;
       let currentX = 0;
 
       for (let n of melody) {
-        let noteW = 30 + n.dur * 3; // Smaller note width on mobile
+        let noteW = 30 + n.dur * 3;
         if (currentX + noteW > maxLineWidth) {
           currentRow++;
           rows[currentRow] = [];
@@ -178,16 +119,13 @@ function initSketch() {
         currentX += noteW;
       }
 
-      // Position notes based on row totals
       for (let i = 0; i < rows.length; i++) {
         let totalRowWidth = rows[i].reduce((sum, item) => sum + item.width, 0);
-        // Start X is the center of the screen minus half the row width
         let startX = (w - totalRowWidth) / 2;
-
         let runningX = startX;
+
         for (let item of rows[i]) {
           let n = item.noteRef;
-          // Offset runningX by half the note width because text is CENTER aligned
           n.targetX = runningX + item.width / 2;
           n.targetY = y;
           n.spawnDelay = y * 0.15 + n.myPersonalTrinkle;
@@ -196,17 +134,11 @@ function initSketch() {
         y += rowHeight;
       }
 
-      // Store symbol size for use in draw
-      window.sketchSymbolSize = symbolSize;
-
-      // Calculate minimum needed height for content
       let contentHeight = topPadding + rows.length * rowHeight + bottomPadding;
-      // Ensure canvas is at least 80% of viewport height on mobile, 60% on desktop
-      let minCanvasHeight = w < 600 ? h * 0.8 : h * 0.6;
-      let finalCanvasHeight = Math.max(contentHeight, minCanvasHeight);
+      let minHeight = isMobile ? Math.min(p.windowHeight * 0.75, MAX_HEIGHT) : Math.min(p.windowHeight * 0.6, MAX_HEIGHT);
+      let finalHeight = Math.min(Math.max(contentHeight, minHeight), MAX_HEIGHT);
 
-      // Resize canvas
-      p.resizeCanvas(w, finalCanvasHeight);
+      p.resizeCanvas(w, finalHeight);
     }
 
     p.windowResized = () => layoutNotes();
@@ -214,7 +146,6 @@ function initSketch() {
     p.draw = function () {
       p.background("#1B191B");
       let scrollPos = window.scrollY;
-      window.isHoveringNote = false;
 
       let canvasRect = p.canvas.getBoundingClientRect();
       if (canvasRect.top < p.windowHeight - 20) hasTriggered = true;
@@ -250,49 +181,39 @@ function initSketch() {
 
         let isActive = playing && i === currentNote;
         let isMusicNote = ["♪", "♫"].includes(n.char);
-
-        // --- NEW INTERACTION LOGIC ---
-        // Only hover if song is NOT playing
         let isHovered = p.dist(p.mouseX, p.mouseY, fx, fy) < 30 && !playing;
         let c = isActive || isMusicNote ? n.hue : p.color("#fcfcfc");
 
         if (isHovered && isMusicNote) {
-          // 1. Pixel Noise Ding (Triggers once per hover)
           if (lastHoveredIndex !== i) {
             oscillator.setType("triangle");
             oscillator.freq(p.random(900, 1300));
             oscillator.amp(0.2, 0);
             oscillator.start();
-            oscillator.amp(0, 0.05); // Short 50ms blip
+            oscillator.amp(0, 0.05);
             lastHoveredIndex = i;
           }
-
-          // 2. Visual Transformation
           p.scale(1.4);
           p.rotate(p.sin(p.frameCount * 0.1) * 0.2);
-          c = p.lerpColor(c, p.color("#fcfcfc"), 0.4); // Lighten note
+          c = p.lerpColor(c, p.color("#fcfcfc"), 0.4);
 
-          // 3. Play Song Label with Translucent Rectangle
           p.push();
           p.resetMatrix();
           let msg = "play song";
           p.textFont("Fragment Mono");
           p.textSize(14);
           let tw = p.textWidth(msg);
-
           p.noStroke();
-          p.fill(0, 180); // Translucent black
+          p.fill(0, 180);
           p.rectMode(p.CENTER);
           p.rect(p.mouseX + 38, p.mouseY - 10, tw + 32, 36, 10);
-
           p.fill("#fcfcfc");
           p.textAlign(p.CENTER, p.CENTER);
           p.text(msg, p.mouseX + 38, p.mouseY - 10);
           p.pop();
         } else if (lastHoveredIndex === i) {
-          lastHoveredIndex = -1; // Reset when mouse leaves
+          lastHoveredIndex = -1;
         }
-        // --- END NEW INTERACTION LOGIC ---
 
         p.fill(p.red(c), p.green(c), p.blue(c), n.opacity);
         p.textSize(26 * n.sizeVar);
@@ -309,23 +230,15 @@ function initSketch() {
         p.pop();
       }
     };
-    // ... (Keep handleCursor, getHoveredNoteIndex, mousePressed, mouseDragged, etc. the same)
-    function handleCursor() {
-      let h = getHoveredNoteIndex();
-      if (draggedNoteIndex !== -1) p.cursor("grabbing");
-      else if (h !== -1)
-        p.cursor(["♪", "♫"].includes(melody[h].char) ? "pointer" : "grab");
-      else p.cursor("none");
-    }
+
     function getHoveredNoteIndex() {
       for (let i = 0; i < melody.length; i++) {
-        if (
-          p.dist(p.mouseX, p.mouseY, melody[i].screenX, melody[i].screenY) < 30
-        )
+        if (p.dist(p.mouseX, p.mouseY, melody[i].screenX, melody[i].screenY) < 30)
           return i;
       }
       return -1;
     }
+
     p.mousePressed = function () {
       if (p.getAudioContext().state !== "running") p.getAudioContext().resume();
       let i = getHoveredNoteIndex();
@@ -340,15 +253,15 @@ function initSketch() {
         melody[draggedNoteIndex].offsetY += p.movedY;
       }
     };
-    p.mouseReleased = () => {
-      draggedNoteIndex = -1;
-    };
+    p.mouseReleased = () => { draggedNoteIndex = -1; };
+
     function startMusic() {
       if (playing) return;
       playing = true;
       oscillator.start();
       playNote(0);
     }
+
     function playNote(i) {
       if (i >= melody.length) {
         oscillator.amp(0, 0.2);
@@ -363,36 +276,24 @@ function initSketch() {
       let n = melody[i];
       oscillator.freq(noteToFreq(n.note));
       oscillator.amp(0.3, 0.05);
-      setTimeout(
-        () => {
-          oscillator.amp(0, 0.05);
-          n.char = p.random(celestialSymbols);
-        },
-        n.dur * tempoMultiplier - 50,
-      );
+      setTimeout(() => {
+        oscillator.amp(0, 0.05);
+        n.char = p.random(celestialSymbols);
+      }, n.dur * tempoMultiplier - 50);
       setTimeout(() => playNote(i + 1), n.dur * tempoMultiplier);
     }
+
     function noteToFreq(n) {
       return {
-        D3: 146.83,
-        E3: 164.81,
-        F3: 174.61,
-        "F#3": 185,
-        G3: 196,
-        A3: 220,
-        B3: 246.94,
-        C4: 261.63,
-        D4: 293.66,
-        E4: 329.63,
-        F4: 349.23,
-        "F#4": 369.99,
-        G4: 392,
-        A4: 440,
-        B4: 493.88,
+        D3: 146.83, E3: 164.81, F3: 174.61, "F#3": 185,
+        G3: 196, A3: 220, B3: 246.94, C4: 261.63,
+        D4: 293.66, E4: 329.63, F4: 349.23, "F#4": 369.99,
+        G4: 392, A4: 440, B4: 493.88,
       }[n];
     }
   };
-new p5(sketch, document.getElementById('sketch-container'));
+
+  new p5(sketch, document.getElementById("sketch-container"));
 }
 
 initSketch();
