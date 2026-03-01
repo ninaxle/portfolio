@@ -25,7 +25,6 @@ document.body.appendChild(tooltip);
 
 // Mouse tracking for tooltip - only for cards without links, desktop only
 document.addEventListener("mousemove", (e) => {
-  // Only show tooltip on desktop (md breakpoint and up = 768px)
   if (window.innerWidth < 768) return;
 
   const tooltipCards = document.querySelectorAll(".has-tooltip");
@@ -53,15 +52,20 @@ document.addEventListener("mousemove", (e) => {
 });
 
 // Helper to build the media element (video or image)
+// width/height attributes give the browser an aspect ratio hint for CLS,
+// actual display sizing is still handled entirely by CSS classes.
 function getMediaHTML(card, imageClass, hasHover = false) {
   const hoverClass = hasHover
     ? "transition duration-300 ease-in-out hover:scale-110"
     : "";
+
   if (card.video) {
     return `
       <video
         src="${card.video}"
         class="w-full h-auto ${imageClass} ${hoverClass}"
+        width="800"
+        height="600"
         autoplay
         muted
         loop
@@ -74,6 +78,8 @@ function getMediaHTML(card, imageClass, hasHover = false) {
       src="${card.image}"
       alt="${card.title}"
       loading="lazy"
+      width="800"
+      height="600"
       class="w-full h-auto ${imageClass} ${hoverClass}"
     />
   `;
