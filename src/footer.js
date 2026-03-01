@@ -15,15 +15,19 @@ class FooterComponent extends HTMLElement {
 
         footer {
           background: #1B191B;
-          padding: 40px 80px;
           border-top: 1px solid #272630;
+          padding: 40px 0;
+        }
+
+        .footer-inner {
+          max-width: 80rem;
+          margin: 0 auto;
           display: flex;
           justify-content: space-between;
           align-items: center;
           gap: 2rem;
         }
 
-        /* Each section takes equal width */
         .footer-brand {
           flex: 1;
         }
@@ -98,48 +102,27 @@ class FooterComponent extends HTMLElement {
           transform: translateY(-2px);
         }
 
-        .social-links a.linkedin:hover {
-          background: #6f76c8;
-        }
-
-        .social-links a.github:hover {
-          background: #C06AE2;
-        }
-
-        .social-links a.email:hover {
-          background: #33b0b0;
-        }
-
-        /* instagram / behance — commented out but ready */
-        .social-links a.instagram:hover {
-          background: rgb(255, 95, 158);
-        }
-        .social-links a.behance:hover {
-          background: #5e3c49;
-        }
+        .social-links a.linkedin:hover { background: #6f76c8; }
+        .social-links a.github:hover { background: #C06AE2; }
+        .social-links a.email:hover { background: #33b0b0; }
+        .social-links a.instagram:hover { background: rgb(255, 95, 158); }
+        .social-links a.behance:hover { background: #5e3c49; }
 
         @media (min-width: 1536px) {
-          header {
-            font-size: 28px;
-          }
-        }
-
-        @media (max-width: 900px) {
-          footer {
-            padding: 36px 64px;
-          }
-          .nav-links a {
-            padding: 6px 7px;
-          }
+          header { font-size: 28px; }
         }
 
         @media (max-width: 768px) {
           footer {
+            padding: 32px 0;
+          }
+
+          .footer-inner {
             flex-direction: column;
             align-items: center;
-            padding: 32px 16px;
             gap: 20px;
             text-align: center;
+            padding: 0 1rem;
           }
 
           .footer-brand,
@@ -162,7 +145,6 @@ class FooterComponent extends HTMLElement {
             gap: 0.75rem;
           }
 
-          /* Disable hover states on mobile */
           .nav-links a:hover,
           .social-links a:hover,
           .social-links a.linkedin:hover,
@@ -176,36 +158,38 @@ class FooterComponent extends HTMLElement {
       </style>
 
       <footer>
-        <div class="footer-brand">
-          <header>© 2026, Programmed in Javascript by me :)</header>
-        </div>
+        <div class="footer-inner">
+          <div class="footer-brand">
+            <header>© 2026, Programmed in Javascript by me :)</header>
+          </div>
 
-        <nav class="footer-nav">
-          <ul class="nav-links">
-            <li><a href="index.html">HOME</a></li>
-            <li><a href="archive.html">PLAYGROUND</a></li>
-            <li><a href="about.html">ABOUT</a></li>
-            <li><a href="https://drive.google.com/file/d/1sD1fMjfXNEWNiBkKbNERJu5LpGkz4HdC/view?usp=sharing" target="_blank">RESUME</a></li>
-          </ul>
-        </nav>
+          <nav class="footer-nav">
+            <ul class="nav-links">
+              <li><a href="index.html">HOME</a></li>
+              <li><a href="archive.html">PLAYGROUND</a></li>
+              <li><a href="about.html">ABOUT</a></li>
+              <li><a href="https://drive.google.com/file/d/1sD1fMjfXNEWNiBkKbNERJu5LpGkz4HdC/view?usp=sharing" target="_blank">RESUME</a></li>
+            </ul>
+          </nav>
 
-        <div class="footer-social">
-          <div class="social-links">
-            <a class="linkedin" href="https://www.linkedin.com/in/ninale65/" target="_blank" aria-label="LinkedIn">
-              <i class="fa-brands fa-linkedin-in"></i>
-            </a>
-            <a class="github" href="https://github.com/ninaxle" target="_blank" aria-label="GitHub">
-              <i class="fa-brands fa-github"></i>
-            </a>
-            <!-- <a class="instagram" href="https://www.instagram.com/ninmedias/" target="_blank" aria-label="Instagram">
-              <i class="fa-brands fa-instagram"></i>
-            </a> -->
-            <!-- <a class="behance" href="https://www.behance.net/ninale1" target="_blank" aria-label="Behance">
-              <i class="fa-brands fa-behance"></i>
-            </a> -->
-            <a class="email" href="mailto:ninalle.65@gmail.com" aria-label="Email">
-              <i class="fa-solid fa-envelope"></i>
-            </a>
+          <div class="footer-social">
+            <div class="social-links">
+              <a class="linkedin" href="https://www.linkedin.com/in/ninale65/" target="_blank" aria-label="LinkedIn">
+                <i class="fa-brands fa-linkedin-in"></i>
+              </a>
+              <a class="github" href="https://github.com/ninaxle" target="_blank" aria-label="GitHub">
+                <i class="fa-brands fa-github"></i>
+              </a>
+              <!-- <a class="instagram" href="https://www.instagram.com/ninmedias/" target="_blank" aria-label="Instagram">
+                <i class="fa-brands fa-instagram"></i>
+              </a> -->
+              <!-- <a class="behance" href="https://www.behance.net/ninale1" target="_blank" aria-label="Behance">
+                <i class="fa-brands fa-behance"></i>
+              </a> -->
+              <a class="email" href="mailto:ninalle.65@gmail.com" aria-label="Email">
+                <i class="fa-solid fa-envelope"></i>
+              </a>
+            </div>
           </div>
         </div>
       </footer>
