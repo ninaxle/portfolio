@@ -65,7 +65,7 @@ function getMediaHTML(card, imageClass, hasHover = false) {
         src="${card.video}"
         class="w-full h-auto ${imageClass} ${hoverClass}"
         width="800"
-        height="600"
+        height="500"
         autoplay
         muted
         loop
@@ -79,7 +79,7 @@ function getMediaHTML(card, imageClass, hasHover = false) {
       alt="${card.title}"
       loading="lazy"
       width="800"
-      height="600"
+      height="500"
       class="w-full h-auto ${imageClass} ${hoverClass}"
     />
   `;
