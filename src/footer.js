@@ -168,7 +168,7 @@ class FooterComponent extends HTMLElement {
               <li><a href="index.html">HOME</a></li>
               <li><a href="archive.html">PLAYGROUND</a></li>
               <li><a href="about.html">ABOUT</a></li>
-              <li><a href="https://drive.google.com/file/d/1sD1fMjfXNEWNiBkKbNERJu5LpGkz4HdC/view?usp=sharing" target="_blank">RESUME</a></li>
+              <li><a href="https://drive.google.com/file/d/1Bn7hLZSnF0pDdedUdzKksWR4BTFf8oe0/view?usp=sharing" target="_blank">RESUME</a></li>
             </ul>
           </nav>
 
