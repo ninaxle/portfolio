@@ -14,46 +14,115 @@ function initSketch() {
     const MAX_HEIGHT = 600;
 
     let melody = [
-      { note: "D4", dur: 3 }, { note: "B4", dur: 3 }, { note: "G3", dur: 3 },
-      { note: "D3", dur: 3 }, { note: "E3", dur: 1 }, { note: "F#3", dur: 1 },
-      { note: "G3", dur: 1 }, { note: "E3", dur: 1.5 }, { note: "G3", dur: 1.5 },
-      { note: "D3", dur: 3 }, { note: "A4", dur: 3 }, { note: "D4", dur: 3 },
-      { note: "B4", dur: 3 }, { note: "G3", dur: 3 }, { note: "E3", dur: 1 },
-      { note: "G3", dur: 1 }, { note: "G3", dur: 1 }, { note: "A4", dur: 2 },
-      { note: "B4", dur: 1 }, { note: "A4", dur: 3 }, { note: "B4", dur: 1 },
-      { note: "C4", dur: 1 }, { note: "B4", dur: 1 }, { note: "A4", dur: 1 },
-      { note: "D4", dur: 2 }, { note: "B4", dur: 1 }, { note: "A4", dur: 1 },
-      { note: "G3", dur: 3 }, { note: "A4", dur: 1 }, { note: "B4", dur: 2 },
-      { note: "G3", dur: 1 }, { note: "E3", dur: 2 }, { note: "G3", dur: 1 },
-      { note: "E3", dur: 1 }, { note: "D3", dur: 3 }, { note: "E3", dur: 1 },
-      { note: "G3", dur: 2 }, { note: "B4", dur: 1 }, { note: "A4", dur: 2 },
-      { note: "D3", dur: 1 }, { note: "G3", dur: 2 }, { note: "B4", dur: 1 },
-      { note: "A4", dur: 2 }, { note: "B4", dur: 1 }, { note: "C4", dur: 1 },
-      { note: "D4", dur: 1 }, { note: "B4", dur: 1 }, { note: "G3", dur: 2 },
-      { note: "A3", dur: 1 }, { note: "A3", dur: 1 }, { note: "G3", dur: 6 },
+      { note: "D4", dur: 3 },
+      { note: "B4", dur: 3 },
+      { note: "G3", dur: 3 },
+      { note: "D3", dur: 3 },
+      { note: "E3", dur: 1 },
+      { note: "F#3", dur: 1 },
+      { note: "G3", dur: 1 },
+      { note: "E3", dur: 1.5 },
+      { note: "G3", dur: 1.5 },
+      { note: "D3", dur: 3 },
+      { note: "A4", dur: 3 },
+      { note: "D4", dur: 3 },
+      { note: "B4", dur: 3 },
+      { note: "G3", dur: 3 },
+      { note: "E3", dur: 1 },
+      { note: "G3", dur: 1 },
+      { note: "G3", dur: 1 },
+      { note: "A4", dur: 2 },
+      { note: "B4", dur: 1 },
+      { note: "A4", dur: 3 },
+      { note: "B4", dur: 1 },
+      { note: "C4", dur: 1 },
+      { note: "B4", dur: 1 },
+      { note: "A4", dur: 1 },
+      { note: "D4", dur: 2 },
+      { note: "B4", dur: 1 },
+      { note: "A4", dur: 1 },
+      { note: "G3", dur: 3 },
+      { note: "A4", dur: 1 },
+      { note: "B4", dur: 2 },
+      { note: "G3", dur: 1 },
+      { note: "E3", dur: 2 },
+      { note: "G3", dur: 1 },
+      { note: "E3", dur: 1 },
+      { note: "D3", dur: 3 },
+      { note: "E3", dur: 1 },
+      { note: "G3", dur: 2 },
+      { note: "B4", dur: 1 },
+      { note: "A4", dur: 2 },
+      { note: "D3", dur: 1 },
+      { note: "G3", dur: 2 },
+      { note: "B4", dur: 1 },
+      { note: "A4", dur: 2 },
+      { note: "B4", dur: 1 },
+      { note: "C4", dur: 1 },
+      { note: "D4", dur: 1 },
+      { note: "B4", dur: 1 },
+      { note: "G3", dur: 2 },
+      { note: "A3", dur: 1 },
+      { note: "A3", dur: 1 },
+      { note: "G3", dur: 6 },
     ];
 
     let notePositions = {
-      G4: -2, "F#4": -1, F4: -1, E4: 0, D4: 1, C4: 2,
-      B4: -4, A4: -3, B3: 3, A3: 4, G3: 5, "F#3": 6,
-      F3: 6, E3: 7, D3: 8,
+      G4: -2,
+      "F#4": -1,
+      F4: -1,
+      E4: 0,
+      D4: 1,
+      C4: 2,
+      B4: -4,
+      A4: -3,
+      B3: 3,
+      A3: 4,
+      G3: 5,
+      "F#3": 6,
+      F3: 6,
+      E3: 7,
+      D3: 8,
     };
 
     let celestialSymbols = [
-      "@","♪","^","☆","♡","<","#","＊","&","!","+","~","=","?","%","♫","o","•",".",
+      "@",
+      "♪",
+      "^",
+      "☆",
+      "♡",
+      "<",
+      "#",
+      "＊",
+      "&",
+      "!",
+      "+",
+      "~",
+      "=",
+      "?",
+      "%",
+      "♫",
+      "o",
+      "•",
+      ".",
     ];
     let celestialColors = [];
 
     function getContainerWidth() {
       let container = document.getElementById("sketch-container");
-      let rect = container ? container.getBoundingClientRect() : { width: p.windowWidth };
+      let rect = container
+        ? container.getBoundingClientRect()
+        : { width: p.windowWidth };
       return Math.min(Math.floor(rect.width) || p.windowWidth, MAX_WIDTH);
     }
 
     p.setup = function () {
       let w = getContainerWidth();
       let isMobile = w < 600;
-      let canvasHeight = Math.min(isMobile ? p.windowHeight * 0.75 : p.windowHeight * 0.6, MAX_HEIGHT);
+      let canvasHeight = Math.min(
+        isMobile ? p.windowHeight * 0.75 : p.windowHeight * 0.6,
+        MAX_HEIGHT,
+      );
 
       let cnv = p.createCanvas(w, canvasHeight);
       cnv.parent("sketch-container");
@@ -92,18 +161,14 @@ function initSketch() {
     };
 
     function layoutNotes() {
-      let w = getContainerWidth();
+      let w = p.width;
       let isMobile = w < 600;
 
       let margin = isMobile ? 16 : 32;
       let maxLineWidth = w - margin * 2;
 
-      // Fixed, predictable padding — no viewport-relative values
-      let topPadding = isMobile ? 30 : 48;
-      let bottomPadding = isMobile ? 40 : 56;
-      let rowHeight = isMobile ? 52 : 68;
+      let minRowHeight = 170;
 
-      let y = topPadding;
       let rows = [[]];
       let currentRow = 0;
       let currentX = 0;
@@ -119,6 +184,18 @@ function initSketch() {
         currentX += noteW;
       }
 
+      let contentHeight = rows.length * minRowHeight;
+      let rowHeight, topPadding;
+
+      if (contentHeight > p.height) {
+        rowHeight = p.height / rows.length;
+        topPadding = 0;
+      } else {
+        rowHeight = minRowHeight;
+        topPadding = (p.height - contentHeight) / 2;
+      }
+
+      let y = topPadding;
       for (let i = 0; i < rows.length; i++) {
         let totalRowWidth = rows[i].reduce((sum, item) => sum + item.width, 0);
         let startX = (w - totalRowWidth) / 2;
@@ -133,19 +210,12 @@ function initSketch() {
         }
         y += rowHeight;
       }
-
-      let contentHeight = topPadding + rows.length * rowHeight + bottomPadding;
-      let minHeight = isMobile ? Math.min(p.windowHeight * 0.75, MAX_HEIGHT) : Math.min(p.windowHeight * 0.6, MAX_HEIGHT);
-      let finalHeight = Math.min(Math.max(contentHeight, minHeight), MAX_HEIGHT);
-
-      p.resizeCanvas(w, finalHeight);
     }
 
     p.windowResized = () => layoutNotes();
 
     p.draw = function () {
       p.background("#1B191B");
-      let scrollPos = window.scrollY;
 
       let canvasRect = p.canvas.getBoundingClientRect();
       if (canvasRect.top < p.windowHeight - 20) hasTriggered = true;
@@ -159,8 +229,8 @@ function initSketch() {
           n.opacity = p.lerp(n.opacity, 255, 0.1);
         }
 
-        let noteY = n.targetY + (notePositions[n.note] || 8) * 6;
-        let scrollEffect = scrollPos * n.parallaxMult;
+        let targetYWithNotePosition =
+          n.targetY + (notePositions[n.note] || 8) * 6;
         let bob = ["♪", "♫"].includes(n.char)
           ? p.sin(p.frameCount * 0.1 + n.jittOffset) * 4
           : 0;
@@ -171,8 +241,8 @@ function initSketch() {
         }
 
         let fx = n.targetX + n.rX + n.offsetX;
-        let fy = noteY + n.rY + bob + n.offsetY + n.dropOffset + scrollEffect;
-
+        let fy =
+          targetYWithNotePosition + n.rY + bob + n.offsetY + n.dropOffset;
         n.screenX = fx;
         n.screenY = fy;
 
@@ -233,7 +303,9 @@ function initSketch() {
 
     function getHoveredNoteIndex() {
       for (let i = 0; i < melody.length; i++) {
-        if (p.dist(p.mouseX, p.mouseY, melody[i].screenX, melody[i].screenY) < 30)
+        if (
+          p.dist(p.mouseX, p.mouseY, melody[i].screenX, melody[i].screenY) < 30
+        )
           return i;
       }
       return -1;
@@ -253,7 +325,9 @@ function initSketch() {
         melody[draggedNoteIndex].offsetY += p.movedY;
       }
     };
-    p.mouseReleased = () => { draggedNoteIndex = -1; };
+    p.mouseReleased = () => {
+      draggedNoteIndex = -1;
+    };
 
     function startMusic() {
       if (playing) return;
@@ -276,19 +350,33 @@ function initSketch() {
       let n = melody[i];
       oscillator.freq(noteToFreq(n.note));
       oscillator.amp(0.3, 0.05);
-      setTimeout(() => {
-        oscillator.amp(0, 0.05);
-        n.char = p.random(celestialSymbols);
-      }, n.dur * tempoMultiplier - 50);
+      setTimeout(
+        () => {
+          oscillator.amp(0, 0.05);
+          n.char = p.random(celestialSymbols);
+        },
+        n.dur * tempoMultiplier - 50,
+      );
       setTimeout(() => playNote(i + 1), n.dur * tempoMultiplier);
     }
 
     function noteToFreq(n) {
       return {
-        D3: 146.83, E3: 164.81, F3: 174.61, "F#3": 185,
-        G3: 196, A3: 220, B3: 246.94, C4: 261.63,
-        D4: 293.66, E4: 329.63, F4: 349.23, "F#4": 369.99,
-        G4: 392, A4: 440, B4: 493.88,
+        D3: 146.83,
+        E3: 164.81,
+        F3: 174.61,
+        "F#3": 185,
+        G3: 196,
+        A3: 220,
+        B3: 246.94,
+        C4: 261.63,
+        D4: 293.66,
+        E4: 329.63,
+        F4: 349.23,
+        "F#4": 369.99,
+        G4: 392,
+        A4: 440,
+        B4: 493.88,
       }[n];
     }
   };
