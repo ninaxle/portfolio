@@ -167,7 +167,7 @@ function initSketch() {
       let margin = isMobile ? 16 : 32;
       let maxLineWidth = w - margin * 2;
 
-      let minRowHeight = 170;
+      let minRowHeight = 130;
 
       let rows = [[]];
       let currentRow = 0;
