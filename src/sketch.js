@@ -185,14 +185,16 @@ function initSketch() {
       }
 
       let contentHeight = rows.length * minRowHeight;
-      let rowHeight, topPadding;
+      let rowHeight;
 
-      if (contentHeight > p.height) {
-        rowHeight = p.height / rows.length;
-        topPadding = 0;
+      let topPadding = 64;
+      let bottomPadding = 40;
+      const mobileHeight = p.height - topPadding - bottomPadding;
+      if (contentHeight > mobileHeight) {
+        rowHeight = mobileHeight / rows.length;
       } else {
         rowHeight = minRowHeight;
-        topPadding = (p.height - contentHeight) / 2;
+        topPadding = (p.height - contentHeight) / 2 + 40;
       }
 
       let y = topPadding;
@@ -203,8 +205,13 @@ function initSketch() {
 
         for (let item of rows[i]) {
           let n = item.noteRef;
+          let noteOffset = (notePositions[n.note] || 8) * 6;
+          if (noteOffset > rowHeight - 30) {
+            noteOffset = (noteOffset + 30) * rowHeight / 100;
+          }
+
           n.targetX = runningX + item.width / 2;
-          n.targetY = y;
+          n.targetY = y + noteOffset;
           n.spawnDelay = y * 0.15 + n.myPersonalTrinkle;
           runningX += item.width;
         }
@@ -229,8 +236,6 @@ function initSketch() {
           n.opacity = p.lerp(n.opacity, 255, 0.1);
         }
 
-        let targetYWithNotePosition =
-          n.targetY + (notePositions[n.note] || 8) * 6;
         let bob = ["♪", "♫"].includes(n.char)
           ? p.sin(p.frameCount * 0.1 + n.jittOffset) * 4
           : 0;
@@ -241,8 +246,7 @@ function initSketch() {
         }
 
         let fx = n.targetX + n.rX + n.offsetX;
-        let fy =
-          targetYWithNotePosition + n.rY + bob + n.offsetY + n.dropOffset;
+        let fy = n.targetY + n.rY + bob + n.offsetY + n.dropOffset;
         n.screenX = fx;
         n.screenY = fy;
 
