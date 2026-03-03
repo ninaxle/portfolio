@@ -26,6 +26,7 @@ class FooterComponent extends HTMLElement {
           justify-content: space-between;
           align-items: center;
           gap: 2rem;
+          padding: 0 2rem;
         }
 
         .footer-brand {
@@ -48,7 +49,7 @@ class FooterComponent extends HTMLElement {
           font-size: 20px;
           color: #FFFFFF;
           font-weight: 500;
-          white-space: nowrap;
+          white-space: normal;
         }
 
         .nav-links {
@@ -70,7 +71,7 @@ class FooterComponent extends HTMLElement {
           text-decoration: none;
           border-radius: 6px;
           transition: color 0.2s ease;
-          white-space: nowrap;
+          white-space: normal;
         }
 
         .nav-links a:hover {
@@ -108,22 +109,30 @@ class FooterComponent extends HTMLElement {
         .social-links a.instagram:hover { background: rgb(255, 95, 158); }
         .social-links a.behance:hover { background: #5e3c49; }
 
+      /* Large desktop: removed padding to align to max */
+        @media (min-width: 1344px) { /* 80rem + padding offset */
+          .footer-inner {
+            padding: 0;
+          }
+        }
+
         @media (min-width: 1536px) {
           header { font-size: 28px; }
         }
 
         @media (max-width: 768px) {
           footer {
-            padding: 32px 0;
+            padding: 16px 0;
           }
 
-          .footer-inner {
+            .footer-inner {
             flex-direction: column;
             align-items: center;
             gap: 20px;
             text-align: center;
-            padding: 0 1rem;
+            padding: 0 0.5rem; 
           }
+
 
           .footer-brand,
           .footer-nav,
