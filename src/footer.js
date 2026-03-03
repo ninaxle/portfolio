@@ -122,7 +122,7 @@ class FooterComponent extends HTMLElement {
 
         @media (max-width: 768px) {
           footer {
-            padding: 16px 0;
+            padding: 32px 0;
           }
 
             .footer-inner {
