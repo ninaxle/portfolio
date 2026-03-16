@@ -56,7 +56,7 @@ document.addEventListener("mousemove", (e) => {
 // actual display sizing is still handled entirely by CSS classes.
 function getMediaHTML(card, imageClass, hasHover = false) {
   const hoverClass = hasHover
-    ? "transition duration-300 ease-in-out hover:scale-110"
+    ? "transition duration-300 ease-in-out hover:scale-105"
     : "";
 
   if (card.video) {
