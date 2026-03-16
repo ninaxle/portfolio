@@ -5,6 +5,8 @@
 @layer base {
   body {
     background-color: #fcfcfc;
+    @apply selection:bg-[#efeded] selection:text-[#4B52A2];
+
   }
 
   html {
