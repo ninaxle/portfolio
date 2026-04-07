@@ -247,31 +247,49 @@ const brandCardsData = [
 // Data for Play cards
 const playCardsData = [
   {
+    title: "The Wish Economy",
+    tags: "PUBLICATION | ASCII | P5JS",
+    image: "wishe/thumbnail.jpg",
+    description: "A publication about birthdays, data, and digital performance",
+  },
+  {
+    title: "Accelerator",
+    tags: "CAPSTONE PROJECT | UNITY | BLENDER | PROCREATE",
+        link: "accelerator.html",
+
+    image: "degree-project/thumbnail.png",
+    description: "An analog horror game based on digital acceleration paradox",
+  },
+    {
+    title: "Meiva",
+    tags: "MOBILE & DESKTOP",
+    image: "meiva.png",
+    description: "A responsive vaccine booking site designed to reduce friction",
+  },
+
+  {
     title: "The Purrfect Supper",
     tags: "CODE | MINI-GAME",
     link: "https://editor.p5js.org/ninistar/full/UL27yTVgl",
     video: "pur.mp4",
     description: "A catcher game built in p5.js",
   },
-  {
-    title: "Exomis Design + Development",
-    tags: "RESPONSIVE DESIGN | UX RESEARCH | MOBILE & DESKTOP",
-    image: "exomis.png",
-    description: "A studio page for a local design agency",
-  },
-  {
-    title: "Meiva",
-    tags: "MOBILE & DESKTOP",
-    image: "meiva.png",
-    description: "A responsive vaccine booking site designed to reduce friction",
-  },
-  {
-    title: "Dear Diary",
-    tags: "ILLUSTRATION | WEB DESIGN | DESKTOP",
-    link: "https://youtu.be/WAzITLPvqEU",
-    video: "red.mp4",
-    description: "Little Red Riding Hood as an interactive scroll experience",
-  },
+  
+  // {
+  //   title: "Dear Diary",
+  //   tags: "ILLUSTRATION | WEB DESIGN | DESKTOP",
+  //   link: "https://youtu.be/WAzITLPvqEU",
+  //   video: "red.mp4",
+  //   description: "Little Red Riding Hood as an interactive scroll experience",
+  // },
+
+
+  // {
+  //   title: "Exomis Design + Development",
+  //   tags: "RESPONSIVE DESIGN | UX RESEARCH | MOBILE & DESKTOP",
+  //   image: "exomis.png",
+  //   description: "A studio page for a local design agency",
+  // },
 ];
 
 // Main execution
