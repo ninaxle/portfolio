@@ -254,11 +254,11 @@ const playCardsData = [
   },
   {
     title: "Accelerator",
-    tags: "CAPSTONE PROJECT | UNITY | BLENDER | PROCREATE",
+    tags: "CAPSTONE PROJECT | UNITY | VS CODE | BLENDER | PROCREATE",
         link: "accelerator.html",
 
     image: "degree-project/thumbnail.png",
-    description: "An analog horror game based on digital acceleration paradox",
+    description: "An analog horror game based on the Digital Acceleration Paradox",
   },
     {
     title: "Meiva",
