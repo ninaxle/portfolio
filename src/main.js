@@ -257,7 +257,7 @@ const playCardsData = [
     tags: "CAPSTONE PROJECT | UNITY | VS CODE | BLENDER | PROCREATE",
         link: "accelerator.html",
 
-    image: "degree-project/thumbnail.png",
+    image: "degree-project/thumb.png",
     description: "An analog horror game based on the Digital Acceleration Paradox",
   },
     {
