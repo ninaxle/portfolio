@@ -198,18 +198,22 @@ const uxuiCardsData = [
     image: "gen.png",
     description: "Shaping product direction for enterprise contact center software",
   },
+
+  {
+    title: "Accelerator",
+    tags: "CAPSTONE PROJECT | UNITY | VS CODE | BLENDER | PROCREATE",
+        link: "accelerator.html",
+
+    image: "degree-project/thumb.png",
+    description: "An analog horror game based on the Digital Acceleration Paradox",
+  },
+
+
   {
     title: "Goodself Design System",
     tags: "DESIGN SYSTEM | UI LIBRARIES | ACCESSIBILITY | MOBILE, DESKTOP & TABLET",
     image: "ds.png",
     description: "A healthtech design system designed around accessibility",
-  },
-  {
-    title: "Here:after",
-    image: "here.png",
-    link: "hereafter.html",
-    tags: "WINNER | RGD CANADA '23 | UX RESEARCH | MOBILE",
-    description: "A mental health journalling application designed for self-reflection",
   },
   {
     title: "The Digital Music Box - Carousel Visualizer",
@@ -218,6 +222,15 @@ const uxuiCardsData = [
     video: "ponie2.mp4",
     description: "An interactive music visualization using p5.js",
   },
+
+  {
+    title: "Here:after",
+    image: "here.png",
+    link: "hereafter.html",
+    tags: "WINNER | RGD CANADA '23 | UX RESEARCH | MOBILE",
+    description: "A mental health journalling application designed for self-reflection",
+  },
+  
 
   {
     title: "Accessichat",
@@ -252,14 +265,7 @@ const playCardsData = [
     image: "wishe/thumbnail.jpg",
     description: "A publication about birthdays, data, and digital performance",
   },
-  {
-    title: "Accelerator",
-    tags: "CAPSTONE PROJECT | UNITY | VS CODE | BLENDER | PROCREATE",
-        link: "accelerator.html",
-
-    image: "degree-project/thumb.png",
-    description: "An analog horror game based on the Digital Acceleration Paradox",
-  },
+  
     {
     title: "Meiva",
     tags: "MOBILE & DESKTOP",
@@ -275,13 +281,13 @@ const playCardsData = [
     description: "A catcher game built in p5.js",
   },
   
-  // {
-  //   title: "Dear Diary",
-  //   tags: "ILLUSTRATION | WEB DESIGN | DESKTOP",
-  //   link: "https://youtu.be/WAzITLPvqEU",
-  //   video: "red.mp4",
-  //   description: "Little Red Riding Hood as an interactive scroll experience",
-  // },
+  {
+    title: "Dear Diary",
+    tags: "ILLUSTRATION | WEB DESIGN | DESKTOP",
+    link: "https://youtu.be/WAzITLPvqEU",
+    video: "red.mp4",
+    description: "Little Red Riding Hood as an interactive scroll experience",
+  },
 
 
   // {
