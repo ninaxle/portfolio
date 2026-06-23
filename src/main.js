@@ -119,7 +119,7 @@ function createCards(sectionSelector, cardsData, isBrandSection = false) {
     if (card.tags) {
       const tagsArray = card.tags.split(" | ");
       const bracketTags = tagsArray.map((tag) => `[${tag.trim()}]`).join(" ");
-      tagHTML = `<p class="text-gray-500">${bracketTags}</p>`;
+      tagHTML = `<p class="text-grey">${bracketTags}</p>`;
     }
 
     // Default (no link) card - with tooltip on hover + mobile badge
@@ -142,7 +142,7 @@ function createCards(sectionSelector, cardsData, isBrandSection = false) {
       <div class="relative z-10">
         <div>${tagHTML}</div>
         <h4>${card.title}</h4>
-        ${card.description ? `<p class="text-gray-500">${card.description}</p>` : ""}
+        ${card.description ? `<p class="text-grey">${card.description}</p>` : ""}
       </div>
     `;
 
@@ -162,7 +162,7 @@ function createCards(sectionSelector, cardsData, isBrandSection = false) {
         <div class="relative z-10">
           <div>${tagHTML}</div>
           <h4>${card.title}</h4>
-          ${card.description ? `<p class="text-gray-500">${card.description}</p>` : ""}
+          ${card.description ? `<p class="text-grey">${card.description}</p>` : ""}
         </div>
       `;
       const isExternal =
@@ -192,29 +192,37 @@ function createCards(sectionSelector, cardsData, isBrandSection = false) {
 
 // Data for UX/UI cards
 const uxuiCardsData = [
-  {
-    title: "Genesys Cloud",
-    tags: "INTERNSHIP",
-    image: "gen.png",
+ 
+
+  
+   {
+    title: "Radiate Showcase Website",
+    tags: "CMS | WEB DESIGN",
+    link: "radiate.html",
+    image: "radiate/thumbnail-1.png",
     description: "Shaping product direction for enterprise contact center software",
+
   },
 
-  {
+     {
+    title: "Melio",
+    tags: "CMS | WEB DESIGN",
+    link: "melio.html",
+    image: "melio/melio.png",
+    description: "Shaping product direction for enterprise contact center software",
+
+  },
+
+
+   {
     title: "Accelerator",
     tags: "CAPSTONE PROJECT | UNITY | VS CODE | BLENDER | PROCREATE",
         link: "accelerator.html",
 
-    image: "degree-project/thumb.png",
+    video: "degree-project/jumpscare.mp4",
     description: "An analog horror game based on the Digital Acceleration Paradox",
   },
 
-
-  {
-    title: "Goodself Design System",
-    tags: "DESIGN SYSTEM | UI LIBRARIES | ACCESSIBILITY | MOBILE, DESKTOP & TABLET",
-    image: "ds.png",
-    description: "A healthtech design system designed around accessibility",
-  },
   {
     title: "The Digital Music Box - Carousel Visualizer",
     tags: "CODE | MUSIC VISUALIZATION",
@@ -222,15 +230,22 @@ const uxuiCardsData = [
     video: "ponie2.mp4",
     description: "An interactive music visualization using p5.js",
   },
+// {
+//     title: "Genesys Cloud",
+//     tags: "INTERNSHIP",
+//     image: "gen.png",
+//     description: "Shaping product direction for enterprise contact center software",
+//   },
 
-  {
-    title: "Here:after",
-    image: "here.png",
-    link: "hereafter.html",
-    tags: "WINNER | RGD CANADA '23 | UX RESEARCH | MOBILE",
-    description: "A mental health journalling application designed for self-reflection",
-  },
-  
+  // {
+  //   title: "Goodself Design System",
+  //   tags: "DESIGN SYSTEM | UI LIBRARIES | ACCESSIBILITY | MOBILE, DESKTOP & TABLET",
+  //   link: "gs-design-system.html",
+
+  //   image: "ds.png",
+  //   description: "A healthtech design system designed around accessibility",
+  // },
+
 
   {
     title: "Accessichat",
@@ -239,6 +254,18 @@ const uxuiCardsData = [
     tags: "HONOURABLE MENTION | RGD CANADA '24 | HACKATHON | MOBILE",
     description: "An AI-powered AAC app designed to support people with disabilities",
   },
+
+
+  {
+    title: "Here:after",
+    image: "here.png",
+    link: "hereafter.html",
+    tags: "WINNER | RGD CANADA '23 | UX RESEARCH | MOBILE",
+    description: "A mental health journalling application designed for self-reflection",
+  },
+
+   
+  
 ];
 
 // Data for Brand cards
@@ -273,6 +300,22 @@ const playCardsData = [
     description: "A responsive vaccine booking site designed to reduce friction",
   },
 
+    {
+    title: "The Digital Music Box - Carousel Visualizer",
+    tags: "CODE | MUSIC VISUALIZATION",
+    link: "https://editor.p5js.org/ninistar/full/bu9tv-CMp",
+    video: "ponie2.mp4",
+    description: "An interactive music visualization using p5.js",
+  },
+  
+      {
+    title: "Dear Diary",
+    tags: "ILLUSTRATION | WEB DESIGN | DESKTOP",
+    link: "https://youtu.be/WAzITLPvqEU",
+    video: "red.mp4",
+    description: "Little Red Riding Hood as an interactive scroll experience",
+  },
+
   {
     title: "The Purrfect Supper",
     tags: "CODE | MINI-GAME",
@@ -281,21 +324,16 @@ const playCardsData = [
     description: "A catcher game built in p5.js",
   },
   
+
   {
-    title: "Dear Diary",
-    tags: "ILLUSTRATION | WEB DESIGN | DESKTOP",
-    link: "https://youtu.be/WAzITLPvqEU",
-    video: "red.mp4",
-    description: "Little Red Riding Hood as an interactive scroll experience",
+    title: "Exomis Design + Development",
+    tags: "RESPONSIVE DESIGN | UX RESEARCH | MOBILE & DESKTOP",
+    image: "exomis.png",
+    description: "A studio page for a local design agency",
   },
 
 
-  // {
-  //   title: "Exomis Design + Development",
-  //   tags: "RESPONSIVE DESIGN | UX RESEARCH | MOBILE & DESKTOP",
-  //   image: "exomis.png",
-  //   description: "A studio page for a local design agency",
-  // },
+
 ];
 
 // Main execution
