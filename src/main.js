@@ -20,7 +20,7 @@ tooltip.style.cssText = `
   z-index: 1000;
   white-space: nowrap;
 `;
-tooltip.textContent = "coming soon";
+tooltip.textContent = "under construction";
 document.body.appendChild(tooltip);
 
 // Mouse tracking for tooltip - only for cards without links, desktop only
@@ -136,7 +136,7 @@ function createCards(sectionSelector, cardsData, isBrandSection = false) {
           font-family: 'Fragment Mono', monospace;
           font-size: 14px;
         ">
-          COMING SOON
+          UNDER CONSTRUCTION
         </span>
       </div>
       <div class="relative z-10">
@@ -230,21 +230,19 @@ const uxuiCardsData = [
     video: "ponie2.mp4",
     description: "An interactive music visualization using p5.js",
   },
-// {
-//     title: "Genesys Cloud",
-//     tags: "INTERNSHIP",
-//     image: "gen.png",
-//     description: "Shaping product direction for enterprise contact center software",
-//   },
+{
+    title: "Genesys Cloud",
+    tags: "INTERNSHIP",
+    image: "gen.png",
+    description: "Shaping product direction for enterprise contact center software",
+  },
 
-  // {
-  //   title: "Goodself Design System",
-  //   tags: "DESIGN SYSTEM | UI LIBRARIES | ACCESSIBILITY | MOBILE, DESKTOP & TABLET",
-  //   link: "gs-design-system.html",
-
-  //   image: "ds.png",
-  //   description: "A healthtech design system designed around accessibility",
-  // },
+  {
+    title: "Goodself Design System",
+    tags: "DESIGN SYSTEM | UI LIBRARIES | ACCESSIBILITY | MOBILE, DESKTOP & TABLET",
+    image: "ds.png",
+    description: "A healthtech design system designed around accessibility",
+  },
 
 
   {
@@ -289,6 +287,8 @@ const playCardsData = [
   {
     title: "The Wish Economy",
     tags: "PUBLICATION | ASCII | P5JS",
+    link: "https://www.desn.ca/2026-projects/project-3-nina-le",
+
     image: "wishe/thumbnail.jpg",
     description: "A publication about birthdays, data, and digital performance",
   },
@@ -300,21 +300,14 @@ const playCardsData = [
     description: "A responsive vaccine booking site designed to reduce friction",
   },
 
-    {
-    title: "The Digital Music Box - Carousel Visualizer",
-    tags: "CODE | MUSIC VISUALIZATION",
-    link: "https://editor.p5js.org/ninistar/full/bu9tv-CMp",
-    video: "ponie2.mp4",
-    description: "An interactive music visualization using p5.js",
-  },
-  
-      {
-    title: "Dear Diary",
-    tags: "ILLUSTRATION | WEB DESIGN | DESKTOP",
-    link: "https://youtu.be/WAzITLPvqEU",
-    video: "red.mp4",
-    description: "Little Red Riding Hood as an interactive scroll experience",
-  },
+  //   {
+  //   title: "The Digital Music Box - Carousel Visualizer",
+  //   tags: "CODE | MUSIC VISUALIZATION",
+  //   link: "https://editor.p5js.org/ninistar/full/bu9tv-CMp",
+  //   video: "ponie2.mp4",
+  //   description: "An interactive music visualization using p5.js",
+  // },
+
 
   {
     title: "The Purrfect Supper",
@@ -324,13 +317,20 @@ const playCardsData = [
     description: "A catcher game built in p5.js",
   },
   
-
-  {
-    title: "Exomis Design + Development",
-    tags: "RESPONSIVE DESIGN | UX RESEARCH | MOBILE & DESKTOP",
-    image: "exomis.png",
-    description: "A studio page for a local design agency",
+  
+      {
+    title: "Dear Diary",
+    tags: "ILLUSTRATION | WEB DESIGN | DESKTOP",
+    link: "https://youtu.be/WAzITLPvqEU",
+    video: "red.mp4",
+    description: "Little Red Riding Hood as an interactive scroll experience",
   },
+  // {
+  //   title: "Exomis Design + Development",
+  //   tags: "RESPONSIVE DESIGN | UX RESEARCH | MOBILE & DESKTOP",
+  //   image: "exomis.png",
+  //   description: "A studio page for a local design agency",
+  // },
 
 
 
