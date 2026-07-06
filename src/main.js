@@ -197,19 +197,19 @@ const uxuiCardsData = [
   
    {
     title: "Radiate Showcase Website",
-    tags: "CMS | WEB DESIGN",
+    tags: "PRODUCT MANAGEMENT | UX STRATEGY",
     link: "radiate.html",
     image: "radiate/thumbnail-1.png",
-    description: "Shaping product direction for enterprise contact center software",
+    description: "Leading product strategy to get 44 design grads discovered at scale",
 
   },
 
      {
     title: "Melio",
-    tags: "CMS | WEB DESIGN",
+    tags: "WEARABLE TECH | HEALTHCARE | AI SAFETY | UX RESEARCH",
     link: "melio.html",
     image: "melio/melio.png",
-    description: "Shaping product direction for enterprise contact center software",
+    description: "Rhythm-based app helping dementia patients reconnect with time through music",
 
   },
 
