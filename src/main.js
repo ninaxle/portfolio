@@ -218,8 +218,7 @@ const uxuiCardsData = [
     title: "Accelerator",
     tags: "CAPSTONE PROJECT | UNITY | VS CODE | BLENDER | PROCREATE",
         link: "accelerator.html",
-
-    video: "degree-project/jumpscare.mp4",
+    video: "degree-project/jumpsacre.mp4",
     description: "An analog horror game based on the Digital Acceleration Paradox",
   },
 
