@@ -379,10 +379,13 @@ class Header extends HTMLElement {
     const projectName = this.getAttribute("project-name") || "";
 
     const allProjects = [
+      { name: "Radiate", link: "radiate.html" },
+      { name: "Melio", link: "melio.html" },
+
       { name: "Here:after", link: "hereafter.html" },
       { name: "Accessichat", link: "accessichat.html" },
       { name: "Accelerator", link: "accelerator.html" },
-
+      
       {
         name: "The Digital Music Box",
         link: "https://editor.p5js.org/ninistar/full/bu9tv-CMp",
