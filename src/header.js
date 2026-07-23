@@ -340,7 +340,7 @@ class Header extends HTMLElement {
         <li><a href="index.html">WORKS</a></li>
         <li><a href="archive.html">PLAYGROUND</a></li>
         <li><a href="about.html">ABOUT</a></li>
-        <li><a href="https://drive.google.com/file/d/1Bn7hLZSnF0pDdedUdzKksWR4BTFf8oe0/view?usp=sharing" target="_blank">RESUME</a></li>
+        <li><a href="resume/Nina Le-Resume.pdf" target="_blank">RESUME</a></li>
       </ul>
     `;
     this.setActiveLink();
@@ -354,7 +354,7 @@ class Header extends HTMLElement {
         <a href="index.html">WORKS</a>
         <a href="archive.html">PLAYGROUND</a>
         <a href="about.html">ABOUT</a>
-        <a href="https://drive.google.com/file/d/1Bn7hLZSnF0pDdedUdzKksWR4BTFf8oe0/view?usp=sharing" target="_blank">RESUME</a>
+        <a href="resume/Nina Le-Resume.pdf" target="_blank">RESUME</a>
       </div>
     `;
 
@@ -422,7 +422,7 @@ class Header extends HTMLElement {
       <ul class="nav-links">
         <li><a href="archive.html">PLAYGROUND</a></li>
         <li><a href="about.html">ABOUT</a></li>
-        <li><a href="https://drive.google.com/file/d/1Bn7hLZSnF0pDdedUdzKksWR4BTFf8oe0/view?usp=sharing" target="_blank">RESUME</a></li>
+        <li><a href="resume/Nina Le-Resume.pdf" target="_blank">RESUME</a></li>
       </ul>
     `;
     this.setActiveLink();
