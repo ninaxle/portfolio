@@ -274,6 +274,324 @@ function createCards(sectionSelector, cardsData, isBrandSection = false, boxOneT
   });
 }
 
+// ---------------------------------------------------------------------------
+// Playground card functions (filtered, image + caption only)
+// ---------------------------------------------------------------------------
+
+// Simplified card content for playground — image/video + caption only, no title/tags
+function buildPlaygroundCardContent(card) {
+  const wrapper = document.createElement("div");
+  wrapper.className = `flex flex-col space-y-4 ${CONTENT_BOX_PADDING} h-full`;
+
+  if (!card) {
+    return wrapper;
+  }
+
+  const imageClass =
+    card.title === "Dear Diary" ||
+    card.title === "Goodself Design System" ||
+    card.title === "The Digital Music Box - Carousel Visualizer" ||
+    card.title === "Meiva" ||
+    card.title === "The Purrfect Supper"
+      ? "object-cover"
+      : "object-contain";
+
+  if (card.link) {
+    const isExternal =
+      card.link.startsWith("http://") || card.link.startsWith("https://");
+    const targetAttr = isExternal
+      ? ' target="_blank" rel="noopener noreferrer"'
+      : "";
+
+    wrapper.innerHTML = /*html*/ `
+      <a href="${card.link}" class="space-y-4 block"${targetAttr}>
+        <div class="w-full rounded-2xl relative z-10 overflow-hidden bg-light">
+          <div class="relative group">
+            ${getMediaHTML(card, imageClass, true)}
+          </div>
+        </div>
+        <div class="relative z-10">
+          <p class="text-grey">${card.description || ""}</p>
+        </div>
+      </a>
+    `;
+  } else {
+    wrapper.classList.add("has-tooltip");
+    wrapper.innerHTML = /*html*/ `
+      <div class="w-full rounded-2xl relative z-10 overflow-hidden bg-[#f3f3f4]">
+        <div class="inner-content w-full rounded-2xl overflow-hidden">
+          ${getMediaHTML(card, imageClass, true)}
+        </div>
+        <span class="md:hidden absolute top-3 right-3" style="
+          background: rgba(0, 0, 0, 0.7);
+          color: #fcfcfc;
+          padding: 4px 8px;
+          border-radius: 4px;
+          font-family: 'Fragment Mono', monospace;
+          font-size: 14px;
+        ">
+          UNDER CONSTRUCTION
+        </span>
+      </div>
+      <div class="relative z-10">
+        <p class="text-grey">${card.description || ""}</p>
+      </div>
+    `;
+  }
+
+  return wrapper;
+}
+
+// Builds filter buttons for the playground
+function buildPlaygroundFilters(containerSelector, categories, onFilter) {
+  const container = document.querySelector(containerSelector);
+  if (!container) {
+    console.error("Filter container not found:", containerSelector);
+    return;
+  }
+
+  const wrapper = document.createElement("div");
+  wrapper.className = "flex flex-wrap gap-2";
+
+  const allBtn = document.createElement("button");
+  allBtn.textContent = "All";
+  allBtn.className =
+    "px-4 py-2 rounded-full border border-grid text-sm font-[family-name:'Fragment_Mono'] transition-colors bg-black text-white";
+  allBtn.addEventListener("click", () => {
+    setActive("All");
+    onFilter("All");
+  });
+  wrapper.appendChild(allBtn);
+
+  categories.forEach((cat) => {
+    const btn = document.createElement("button");
+    btn.textContent = cat;
+    btn.className =
+      "px-4 py-2 rounded-full border border-grid text-sm font-[family-name:'Fragment_Mono'] transition-colors hover:border-black";
+    btn.addEventListener("click", () => {
+      setActive(cat);
+      onFilter(cat);
+    });
+    wrapper.appendChild(btn);
+  });
+
+  function setActive(label) {
+    wrapper.querySelectorAll("button").forEach((b) => {
+      if (b.textContent === label) {
+        b.classList.add("bg-black", "text-white");
+        b.classList.remove("hover:border-black");
+      } else {
+        b.classList.remove("bg-black", "text-white");
+        b.classList.add("hover:border-black");
+      }
+    });
+  }
+
+  container.appendChild(wrapper);
+}
+
+// Creates filtered playground cards — uses the existing grid layout but with
+// simplified card content (image + caption only, no title/tags).
+function createPlaygroundCards(sectionSelector, cardsData, filterContainerSelector) {
+  const cardsSections = document.querySelectorAll(sectionSelector);
+  if (!cardsSections.length) {
+    console.error("Cards section not found:", sectionSelector);
+    return;
+  }
+
+  // Extract unique categories from all cards
+  const allCategories = [
+    ...new Set(cardsData.flatMap((card) => card.category || [])),
+  ];
+
+  let currentFilter = "All";
+
+  function getFilteredCards() {
+    if (currentFilter === "All") return cardsData;
+    return cardsData.filter(
+      (card) => card.category && card.category.includes(currentFilter)
+    );
+  }
+
+  function renderGrid() {
+    const filtered = getFilteredCards();
+    const pairs = chunkIntoPairs(filtered);
+
+    cardsSections.forEach((sectionEl) => {
+      sectionEl.innerHTML = "";
+
+      pairs.forEach((pair, i) => {
+        const [cardA, cardB] = pair;
+
+        const section = document.createElement("div");
+        section.className = `grid-section flex flex-col w-full ${GRID_LINE}`;
+
+        // Row 1: optional text | empty
+        const rowTop = document.createElement("div");
+        rowTop.className = `w-full border-t ${GRID_LINE}`;
+        const boxOneText =
+          i === 0 && currentFilter === "All"
+            ? "// Where I pixel push away"
+            : "";
+        rowTop.innerHTML = /*html*/ `
+          <div class="max-w-full xl:max-w-[94rem] xl:mx-auto grid grid-cols-1 md:grid-cols-2 px-4 md:px-16 lg:px-[7.95rem] ${COLUMN_GAP}">
+            <div class="${PLACEHOLDER_BOX_HEIGHT} flex items-center px-6 border-x ${GRID_LINE}">
+              ${boxOneText ? `<p class="text-grey">${boxOneText}</p>` : ""}
+            </div>
+            <div class="${PLACEHOLDER_BOX_HEIGHT} border-x ${GRID_LINE}"></div>
+          </div>
+        `;
+
+        // Row 2: card A | card B (simplified content)
+        const rowContent = document.createElement("div");
+        rowContent.className = `w-full border-t ${GRID_LINE}`;
+
+        const innerGrid = document.createElement("div");
+        innerGrid.className = `max-w-full xl:max-w-[94rem] xl:mx-auto grid grid-cols-1 md:grid-cols-2 px-4 md:px-16 lg:px-[7.95rem] ${COLUMN_GAP}`;
+
+        [cardA, cardB].forEach((card) => {
+          const box = document.createElement("div");
+          box.className = `border-x ${GRID_LINE}`;
+          box.appendChild(buildPlaygroundCardContent(card));
+          innerGrid.appendChild(box);
+        });
+
+        rowContent.appendChild(innerGrid);
+
+        section.appendChild(rowTop);
+        section.appendChild(rowContent);
+        sectionEl.appendChild(section);
+      });
+    });
+  }
+
+  // Set up filter UI
+  buildPlaygroundFilters(filterContainerSelector, allCategories, (filter) => {
+    currentFilter = filter;
+    renderGrid();
+  });
+
+  // Initial render
+  renderGrid();
+}
+
+// ---------------------------------------------------------------------------
+// About section grid functions (reusable for any page)
+// ---------------------------------------------------------------------------
+
+// Builds a 2-column profile intro grid (image left, text right)
+function buildProfileGrid(data, containerSelector) {
+  const container = document.querySelector(containerSelector);
+  if (!container) {
+    console.error("Profile grid container not found:", containerSelector);
+    return;
+  }
+
+  const grid = document.createElement("div");
+  grid.className = "grid grid-cols-1 md:grid-cols-2 gap-4 2xl:gap-20";
+
+  // Left column — image
+  const imageCol = document.createElement("div");
+  imageCol.className = "w-full z-10 relative order-2 md:order-1 px-4 lg:px-16 2xl:px-4";
+  imageCol.innerHTML = /*html*/ `
+    <img
+      src="${data.image}"
+      alt="${data.alt || "Profile picture"}"
+      class="rounded-3xl w-full md:w-7/8 2xl:w-full h-auto lg:h-[800px] 2xl:h-[900px] object-cover object-center"
+    />
+  `;
+
+  // Right column — text
+  const textCol = document.createElement("div");
+  textCol.className = "flex flex-col gap-8 xl:gap-14 z-10 relative order-1 md:order-2";
+
+  // Bio section
+  const bio = document.createElement("div");
+  bio.className = "flex flex-col gap-4 px-4 md:px-0";
+  bio.innerHTML = /*html*/ `
+    <div class="flex flex-col w-full gap-4 pb-8 md:pb-12">
+      <h3 class="z-20">${data.description}</h3>
+      ${data.tagline ? `<p class="smolwidth z-20 text-grey">${data.tagline}</p>` : ""}
+    </div>
+  `;
+  textCol.appendChild(bio);
+
+  // Experience section
+  if (data.experience && data.experience.length > 0) {
+    const expSection = document.createElement("div");
+    expSection.className = "flex flex-col gap-4 px-4 md:px-0 smolwidth pb-8";
+
+    let expHTML = `<p class="text-grey">[EXPERIENCE]</p>`;
+    data.experience.forEach((exp) => {
+      expHTML += /*html*/ `
+        <div>
+          <p>${exp.role}</p>
+          <h6>${exp.description}</h6>
+        </div>
+      `;
+    });
+    expSection.innerHTML = expHTML;
+    textCol.appendChild(expSection);
+  }
+
+  grid.appendChild(imageCol);
+  grid.appendChild(textCol);
+  container.appendChild(grid);
+}
+
+// Builds a 4-column awards grid (images in row 1, captions in row 2)
+function buildAwardsGrid(data, containerSelector) {
+  const container = document.querySelector(containerSelector);
+  if (!container) {
+    console.error("Awards grid container not found:", containerSelector);
+    return;
+  }
+
+  const grid = document.createElement("div");
+  grid.className = "grid grid-cols-1 md:grid-cols-4 gap-8";
+
+  data.forEach((award) => {
+    const cell = document.createElement("div");
+    cell.className = "flex flex-col gap-4 md:gap-8 rounded-2xl z-10 relative";
+    cell.innerHTML = /*html*/ `
+      <div class="flex justify-center items-center 2xl:p-8 rounded-2xl h-52 overflow-hidden border border-grid bg-white">
+        <img src="${award.image}" class="w-4/6 h-auto" alt="${award.label}" />
+      </div>
+      <div class="flex flex-col gap-2">
+        <h6 class="label text-grey">[${award.label}]</h6>
+        <p>${award.caption}</p>
+      </div>
+    `;
+    grid.appendChild(cell);
+  });
+
+  container.appendChild(grid);
+}
+
+// Builds a 3-column free time grid (square images with captions)
+function buildFreeTimeGrid(data, containerSelector) {
+  const container = document.querySelector(containerSelector);
+  if (!container) {
+    console.error("Free time grid container not found:", containerSelector);
+    return;
+  }
+
+  const grid = document.createElement("div");
+  grid.className = "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8";
+
+  data.forEach((item) => {
+    const cell = document.createElement("div");
+    cell.className = "z-10 relative";
+    cell.innerHTML = /*html*/ `
+      <img src="${item.image}" class="w-full aspect-square object-cover rounded-lg" alt="${item.caption}" />
+      <h6 class="pt-4">${item.caption}</h6>
+    `;
+    grid.appendChild(cell);
+  });
+
+  container.appendChild(grid);
+}
+
 // Data for UX/UI cards
 const uxuiCardsData = [
 
@@ -348,79 +666,57 @@ const uxuiCardsData = [
 
 ];
 
-// Data for Brand cards
-const brandCardsData = [
+// Combined playground cards (brand + play) with categories for filtering
+const playgroundCardsData = [
   {
     title: "Lost in Translation",
     tags: "TYPOGRAPHY | PRINT",
     image: "sound.png",
     description: "Typographic study of language barriers",
+    category: ["digital & print"],
   },
   {
     title: "How to Plant Plum Trees",
     tags: "ILLUSTRATION | DATA VISUALIZATION",
     image: "tree.png",
     description: "Botanical guide with data storytelling",
+    category: ["illustration", "digital & print"],
   },
-];
-
-// Data for Play cards
-const playCardsData = [
   {
     title: "The Wish Economy",
     tags: "PUBLICATION | ASCII | P5JS",
     link: "https://www.desn.ca/2026-projects/project-3-nina-le",
-
     image: "wishe/thumbnail.jpg",
     description: "A publication about birthdays, data, and digital performance",
+    category: ["digital & print", "code"],
   },
-
   {
     title: "Meiva",
     tags: "MOBILE & DESKTOP",
     image: "meiva.png",
     description: "A responsive vaccine booking site designed to reduce friction",
+    category: ["digital & print", "interactive"],
   },
-
-  //   {
-  //   title: "The Digital Music Box - Carousel Visualizer",
-  //   tags: "CODE | MUSIC VISUALIZATION",
-  //   link: "https://editor.p5js.org/ninistar/full/bu9tv-CMp",
-  //   video: "ponie2.mp4",
-  //   description: "An interactive music visualization using p5.js",
-  // },
-
-
   {
     title: "The Purrfect Supper",
     tags: "CODE | MINI-GAME",
     link: "https://editor.p5js.org/ninistar/full/UL27yTVgl",
     video: "pur.mp4",
     description: "A catcher game built in p5.js",
+    category: ["code", "interactive"],
   },
-
-
   {
     title: "Dear Diary",
     tags: "ILLUSTRATION | WEB DESIGN | DESKTOP",
     link: "https://youtu.be/WAzITLPvqEU",
     video: "red.mp4",
     description: "Little Red Riding Hood as an interactive scroll experience",
+    category: ["illustration", "interactive"],
   },
-  // {
-  //   title: "Exomis Design + Development",
-  //   tags: "RESPONSIVE DESIGN | UX RESEARCH | MOBILE & DESKTOP",
-  //   image: "exomis.png",
-  //   description: "A studio page for a local design agency",
-  // },
-
-
-
 ];
 
 // Main execution
 document.addEventListener("DOMContentLoaded", () => {
   createCards(".cards-section", uxuiCardsData, false, "// Craft at the intersection of design and code");
-  createCards(".cards-section2", brandCardsData, true);
-  createCards(".cards-section3", playCardsData, true);
+  createPlaygroundCards(".cards-section3", playgroundCardsData, ".playground-filters");
 });
