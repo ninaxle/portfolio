@@ -31,138 +31,6 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
     <title>Nina's Playground</title>
-    <style>
-      /* Archive hero - progressive grid lines */
-      .archive-hero .grid-lines {
-        background-image:
-          linear-gradient(
-            to right,
-            var(--grid-line-color) 1px,
-            transparent 1px
-          ),
-          linear-gradient(to right, var(--grid-line-color) 1px, transparent 1px);
-        background-size:
-          1px 100%,
-          1px 100%;
-        background-position:
-          var(--grid-line-1) 0,
-          var(--grid-line-4) 0;
-        background-repeat: no-repeat;
-      }
-      @media (min-width: 1024px) {
-        .archive-hero .grid-lines {
-          background-image:
-            linear-gradient(
-              to right,
-              var(--grid-line-color) 1px,
-              transparent 1px
-            ),
-            linear-gradient(
-              to right,
-              var(--grid-line-color) 1px,
-              transparent 1px
-            ),
-            linear-gradient(
-              to right,
-              var(--grid-line-color) 1px,
-              transparent 1px
-            );
-          background-size:
-            1px 100%,
-            1px 100%,
-            1px 100%;
-          background-position:
-            var(--grid-line-1) 0,
-            var(--grid-line-3) 0,
-            var(--grid-line-4) 0;
-        }
-      }
-
-      /* Archive projects - progressive grid lines */
-      .archive-projects .grid-lines {
-        background-image:
-          linear-gradient(
-            to right,
-            var(--grid-line-color) 1px,
-            transparent 1px
-          ),
-          linear-gradient(to right, var(--grid-line-color) 1px, transparent 1px);
-        background-size:
-          1px 100%,
-          1px 100%;
-        background-position:
-          var(--grid-line-1) 0,
-          var(--grid-line-4) 0;
-        background-repeat: no-repeat;
-      }
-      @media (min-width: 768px) {
-        .archive-projects .grid-lines {
-          background-image:
-            linear-gradient(
-              to right,
-              var(--grid-line-color) 1px,
-              transparent 1px
-            ),
-            linear-gradient(
-              to right,
-              var(--grid-line-color) 1px,
-              transparent 1px
-            ),
-            linear-gradient(
-              to right,
-              var(--grid-line-color) 1px,
-              transparent 1px
-            );
-          background-size:
-            1px 100%,
-            1px 100%,
-            1px calc(100% - var(--grid-crosshair-y));
-          background-position:
-            var(--grid-line-1) 0,
-            var(--grid-line-2) var(--grid-crosshair-y),
-            var(--grid-line-4) 0;
-        }
-      }
-      @media (min-width: 1024px) {
-        .archive-projects .grid-lines {
-          background-image:
-            linear-gradient(
-              to right,
-              var(--grid-line-color) 1px,
-              transparent 1px
-            ),
-            linear-gradient(
-              to right,
-              var(--grid-line-color) 1px,
-              transparent 1px
-            ),
-            linear-gradient(
-              to right,
-              var(--grid-line-color) 1px,
-              transparent 1px
-            ),
-            linear-gradient(
-              to right,
-              var(--grid-line-color) 1px,
-              transparent 1px
-            );
-          background-size:
-            1px 100%,
-            1px calc(100% - var(--grid-crosshair-y)),
-            1px calc(100% - var(--grid-crosshair-y)),
-            1px 100%;
-          background-position:
-            var(--grid-line-1) 0,
-            var(--grid-line-2) var(--grid-crosshair-y),
-            var(--grid-line-3) var(--grid-crosshair-y),
-            var(--grid-line-4) 0;
-        }
-      }
-
-      .archive-projects::after {
-        display: none;
-      }
-    </style>
     <link
       href="https://fonts.googleapis.com/css2?family=Doto:wght@400;700&display=swap"
       rel="stylesheet"
@@ -178,38 +46,33 @@
 
     <header-component></header-component>
 
-    <div class="geist-grid-wrapper max-w-full xl:max-w-[1312px] xl:mx-auto">
-      <section class="px-4 pt-16 md:pt-12 pb-8 hero-with-grid archive-hero">
-        <div class="grid-lines"></div>
-        <div class="grid-crosshair left"></div>
-        <div class="grid-crosshair right"></div>
-        <div class="max-w-7xl mx-auto">
-          <div class="grid grid-cols-1 gap-4 pt-8 md:pt-32">
-            <div class="flex flex-col w-full gap-4 px-4 lg:px-16 2xl:px-4">
-              <h3 class="z-20">Playground</h3>
-              <p class="smolwidth z-20 text-grey">
-                // A collection of my ongoing experiments in art, code, and
-                design
-              </p>
-              <div class="playground-filters pb-8"></div>
-            </div>
+    <div class="geist-grid-wrapper">
+      <!-- HERO SECTION — huge image framed by grid-box borders/crosshairs -->
+      <section class="py-14 lg:pb-24">
+        <div class="grid-box grid-box-top-line py-8">
+          <div class="grid-box-verticals"></div>
+          <div class="grid-crosshair-left"></div>
+          <div class="grid-crosshair-right"></div>
+          <div class="grid-content">
+            <div class="w-full aspect-[16/9] bg-[#e5e5e5] rounded-2xl"></div>
           </div>
         </div>
       </section>
-
-      <!-- 
-      <section class="projects-with-grid archive-projects pb-8 lg:pb-24">
-        <div class="grid-lines"></div>
-
-        <div class="max-w-7xl mx-auto px-4 lg:px-16 2xl:px-4">
-          <div class="playground-filters pb-8"></div>
-          <div
-            class="grid grid-cols-1 md:grid-cols-2 gap-8 cards-section3"
-          ></div>
-        </div>
-      </section> -->
     </div>
 
+    <!-- Title, subtitle, and filters — below the hero -->
+    <section class="py-8">
+      <div class="max-w-7xl mx-auto px-4 lg:px-16 2xl:px-4">
+        <h3>Playground</h3>
+        <p class="smolwidth text-grey pb-8">
+          // A collection of my ongoing experiments in art, code, and
+          design
+        </p>
+        <div class="playground-filters pb-8"></div>
+      </div>
+    </section>
+
+    <!-- Cards -->
     <section class="cards-section3"></section>
 
     <section class="justify-center bg-black w-[100%] pt-8 md:pt-16">
