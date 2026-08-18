@@ -30,7 +30,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
-    <title>Nina's Portfoilo</title>
+    <title>Nina's Portfolio</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Doto:wght@400;700&display=swap"
       rel="stylesheet"
@@ -39,107 +39,6 @@
       href="https://fonts.googleapis.com/css2?family=Fragment+Mono&display=swap"
       rel="stylesheet"
     />
-
-    <style>
-      /* Hero section - progressive grid lines */
-      .hero-with-grid .grid-lines {
-        background-image:
-          linear-gradient(
-            to right,
-            var(--grid-line-color) 1px,
-            transparent 1px
-          ),
-          linear-gradient(to right, var(--grid-line-color) 1px, transparent 1px);
-        background-size:
-          1px 100%,
-          1px 100%;
-        background-position:
-          var(--grid-line-1) 0,
-          var(--grid-line-4) 0;
-        background-repeat: no-repeat;
-      }
-
-      /* Projects section - progressive grid lines */
-      .projects-with-grid .grid-lines {
-        background-image:
-          linear-gradient(
-            to right,
-            var(--grid-line-color) 1px,
-            transparent 1px
-          ),
-          linear-gradient(to right, var(--grid-line-color) 1px, transparent 1px);
-        background-size:
-          1px 100%,
-          1px 100%;
-        background-position:
-          var(--grid-line-1) 0,
-          var(--grid-line-4) 0;
-        background-repeat: no-repeat;
-      }
-      @media (min-width: 768px) {
-        .projects-with-grid .grid-lines {
-          background-image:
-            linear-gradient(
-              to right,
-              var(--grid-line-color) 1px,
-              transparent 1px
-            ),
-            linear-gradient(
-              to right,
-              var(--grid-line-color) 1px,
-              transparent 1px
-            ),
-            linear-gradient(
-              to right,
-              var(--grid-line-color) 1px,
-              transparent 1px
-            );
-          background-size:
-            1px 100%,
-            1px 100%,
-            1px calc(100% - var(--grid-crosshair-y));
-          background-position:
-            var(--grid-line-1) 0,
-            var(--grid-line-2) var(--grid-crosshair-y),
-            var(--grid-line-4) 0;
-        }
-      }
-      @media (min-width: 1024px) {
-        .projects-with-grid .grid-lines {
-          background-image:
-            linear-gradient(
-              to right,
-              var(--grid-line-color) 1px,
-              transparent 1px
-            ),
-            linear-gradient(
-              to right,
-              var(--grid-line-color) 1px,
-              transparent 1px
-            ),
-            linear-gradient(
-              to right,
-              var(--grid-line-color) 1px,
-              transparent 1px
-            ),
-            linear-gradient(
-              to right,
-              var(--grid-line-color) 1px,
-              transparent 1px
-            );
-          background-size:
-            1px 100%,
-            1px calc(100% - var(--grid-crosshair-y)),
-            1px calc(100% - var(--grid-crosshair-y)),
-            1px 100%;
-          background-position:
-            var(--grid-line-1) 0,
-            var(--grid-line-2) var(--grid-crosshair-y),
-            var(--grid-line-3) var(--grid-crosshair-y),
-            var(--grid-line-4) 0;
-        }
-      }
-    </style>
   </head>
 
   <body>
@@ -147,62 +46,72 @@
     <!-- header.js is the name of the reusable component script -->
     <script src="footer.js" type="module"></script>
     <header-component></header-component>
+    <!-- Wrapper now handles side margin/padding gutters smoothly across screen sizes -->
+    <div class="geist-grid-wrapper">
+      <!-- HERO SECTION -->
+      <section class="py-14 lg:pb-24">
+        <div class="grid-box grid-box-top-line py-8">
+          <!-- Continuous vertical side lines extending upward -->
+          <div class="grid-box-verticals"></div>
 
-    <div class="geist-grid-wrapper max-w-full xl:max-w-[1312px] xl:mx-auto">
-      <section class="px-4 py-14 lg:pb-24 hero-with-grid">
-        <div class="grid-lines"></div>
-        <div class="grid-crosshair left"></div>
-        <div class="grid-crosshair right"></div>
-        <div class="max-w-7xl mx-auto">
-          <div
-            class="flex flex-col items-center justify-center w-full relative pt-8 md:pt-0"
-          >
-            <div
-              id="ascii-music-container"
-              class="z-[-1] overflow-hidden"
-            ></div>
-          </div>
+          <!-- Thin 24px Crosshairs -->
+          <div class="grid-crosshair-left"></div>
+          <div class="grid-crosshair-right"></div>
 
-          <div
-            class="flex flex-col items-center md:flex-row w-full justify-center gap-8"
-          >
-            <div class="flex flex-col items-center flex-1 gap-8 md:gap-4">
-              <div class="max-w-3xl mx-auto space-y-8 md:space-y-6">
-                <h2 class="text-center pt-8 md:pt-0 z-20">
-                  Hey I am Nina, a ux/ui designer.
-                </h2>
-                <p class="smolwidth text-center text-grey z-20">
-                  /* As a vocalist and developer, my strengths are on focusing
-                  on the technical and fine-tuning harmonious experiences */
-                </p>
+          <div class="grid-content">
+            <div class="max-w-7xl mx-auto">
+              <div
+                class="flex flex-col items-center justify-center w-full relative pt-8 md:pt-0"
+              >
+                <div
+                  id="ascii-music-container"
+                  class="z-[-1] overflow-hidden"
+                ></div>
+              </div>
+
+              <div
+                class="flex flex-col items-center md:flex-row w-full justify-center gap-8"
+              >
+                <div class="flex flex-col items-center flex-1 gap-8 md:gap-4">
+                  <div class="max-w-3xl mx-auto space-y-8 md:space-y-6">
+                    <h2 class="text-center pt-8 md:pt-0 z-20">
+                      Hey I am Nina, a ux/ui designer.
+                    </h2>
+                    <p class="smolwidth text-center text-grey z-20">
+                      /* As a vocalist and developer, my strengths are on
+                      focusing on the technical and fine-tuning harmonious
+                      experiences */
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="md:pt-32 projects-with-grid pb-8 lg:pb-24">
-        <div class="grid-lines"></div>
-        <div class="grid-crosshair left"></div>
-        <div class="grid-crosshair right"></div>
-        <div class="max-w-7xl mx-auto">
-          <div class="flex flex-col w-full gap-4 px-4 lg:px-16 2xl:px-4 pb-8">
-            <h3 class="z-20">Featured Works</h3>
-            <p class="smolwidth z-20 text-grey">
-              // Craft at the intersection of design and code
-            </p>
-          </div>
+      <!-- FEATURED WORKS SECTION -->
+      <section class="w-full">
+        <div class="grid-box grid-box-top-line">
+          <!-- Continuous vertical side lines -->
+          <div class="grid-box-verticals"></div>
 
-          <div class="px-4 lg:px-16 2xl:px-4">
-            <!-- standard padding for width is above so px-4 lg:px-16 2xl:px-4 -->
-            <div
-              class="grid grid-cols-1 md:grid-cols-2 gap-8 cards-section"
-            ></div>
+          <!-- Thin 24px Crosshairs -->
+          <div class="grid-crosshair-left"></div>
+          <div class="grid-crosshair-right"></div>
+
+          <div class="grid-content pb-2 pt-6 px-4">
+            <h3 class="z-20">Featured Works</h3>
           </div>
         </div>
       </section>
     </div>
+    <!-- Cards Sections -->
+    <section class="cards-section"></section>
+    <section class="cards-section"></section>
+    <section class="cards-section"></section>
 
+    <!-- Footer Visualizer -->
     <section class="justify-center bg-black w-[100%] pt-8 md:pt-16">
       <div class="px-4 lg:px-16 2xl:px-4 max-w-7xl mx-auto">
         <h3 class="text-white">Designing harmony, one pixel at a time.</h3>

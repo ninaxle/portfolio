@@ -86,7 +86,6 @@ Prevents scrollbars if canvas is full screen */
     justify-content: center;
     margin-top: 50px; /* Pushes it down from the top */
     margin-bottom: 50px; /* Pushes it down from the top */
-
     border: 2px solid white; /* Optional: lets you see the box edges */
   }
 
@@ -144,109 +143,121 @@ Prevents scrollbars if canvas is full screen */
   /*border animations */
 }
 
-/* Geist Grid System - Using CSS Variables */
+/* Prevent horizontal scrollbar from full-bleed top horizontal line */
+html, body {
+  overflow-x: clip;
+}
+
+:root {
+  --grid-line-color: #d9d9d9;
+  --crosshair-color: #272630;
+}
+
+/* 1. Outer Wrapper: Adds responsive outer gutters so crosshairs & vertical lines
+      stay visible on mobile/tablet screens instead of sitting at screen edge (0px) */
 .geist-grid-wrapper {
   position: relative;
-  /* Grid position variables - used by both lines and crosshairs */
-  --grid-line-1: 10%;
-  --grid-line-2: 37%;
-  --grid-line-3: 63%;
-  --grid-line-4: 90%;
-  --grid-crosshair-y: 20px;
-  /* Colors from config - full opacity */
-  --crosshair-color: #272630;
-  --grid-line-color: #dedcdc;
+  width: 100%;
+  max-width: 94rem; /* 1504px */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;   /* 16px gutter on mobile */
+  padding-right: 1rem;
 }
 
-/* Grid lines container */
-.grid-lines {
+@media (min-width: 768px) {
+  .geist-grid-wrapper {
+    padding-left: 4rem; /* 64px gutter on tablet */
+    padding-right: 4rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .geist-grid-wrapper {
+    padding-left: 7.95rem; /* Desktop gutter */
+    padding-right: 7.95rem;
+  }
+}
+
+/* 2. Grid Box Container: Vertical lines & crosshairs align exactly to this box */
+.grid-box {
+  position: relative;
+  width: 100%;
+}
+
+/* 3. Continuous Vertical Lines: Extends top: -100vh up through screen top (0) */
+.grid-box-verticals {
   position: absolute;
-  top: 0;
+  top: -100vh;
+  bottom: 0;
   left: 0;
   right: 0;
-  bottom: 0;
+  border-left: 1px solid var(--grid-line-color);
+  border-right: 1px solid var(--grid-line-color);
   pointer-events: none;
-  z-index: 0;
+  z-index: 5;
 }
 
-/* Sections with grid */
-.hero-with-grid,
-.projects-with-grid {
+/* 4. Full-Bleed Edge-to-Edge Horizontal Line */
+.grid-box-top-line {
   position: relative;
-  z-index: 1;
 }
 
-/* Grid crosshair styling */
-.grid-crosshair {
-  position: absolute;
-  width: 12px;
-  height: 12px;
-  pointer-events: none;
-  z-index: 10;
-  /* Center the crosshair on the intersection point */
-  transform: translate(-50%, -50%);
-}
-
-/* Create the + symbol using pseudo-elements */
-.grid-crosshair::before,
-.grid-crosshair::after {
+.grid-box-top-line::before {
   content: "";
   position: absolute;
-  background: var(--crosshair-color);
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  height: 1px;
+  background-color: var(--grid-line-color);
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* 5. Crosshairs (+): Positioned exactly on left: 0 and left: 100% of .grid-box */
+.grid-crosshair-left,
+.grid-crosshair-right {
+  position: absolute;
+  top: 0;
+  width: 24px;
+  height: 24px;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 20;
+}
+
+.grid-crosshair-left {
+  left: 0;
+}
+
+.grid-crosshair-right {
+  left: 100%;
+}
+
+.grid-crosshair-left::before,
+.grid-crosshair-right::before {
+  content: "";
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-}
-
-/* Horizontal line of + */
-.grid-crosshair::before {
   width: 24px;
   height: 1px;
+  background-color: var(--crosshair-color);
 }
 
-/* Vertical line of + */
-.grid-crosshair::after {
-  width: 1px;
-  height: 24px;
-}
-
-/* Hero section - only 2 vertical lines framing center (1 column) */
-.hero-with-grid .grid-lines {
-  background-image:
-    linear-gradient(to right, var(--grid-line-color) 1px, transparent 1px),
-    linear-gradient(to right, var(--grid-line-color) 1px, transparent 1px);
-  background-size: 1px 100%;
-  background-position:
-    var(--grid-line-1) 0,
-    var(--grid-line-4) 0;
-  background-repeat: no-repeat;
-}
-
-/* Hero horizontal line */
-.hero-with-grid::before {
+.grid-crosshair-left::after,
+.grid-crosshair-right::after {
   content: "";
   position: absolute;
-  top: calc(var(--grid-crosshair-y) + 24px);
-  left: 0;
-  right: 0;
-  width: 100vw;
-  margin-left: calc(50% - 50vw);
-  height: 1px;
-  background: var(--grid-line-color);
-  z-index: 0;
-  pointer-events: none;
-}
-
-/* Hero left crosshair - intersects at line 1 */
-.hero-with-grid .grid-crosshair.left {
-  top: calc(var(--grid-crosshair-y) + 24px);
-  left: var(--grid-line-1);
-}
-
-/* Hero right crosshair - intersects at line 4 */
-.hero-with-grid .grid-crosshair.right {
-  top: calc(var(--grid-crosshair-y) + 24px);
-  left: var(--grid-line-4);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1px;
+  height: 24px;
+  background-color: var(--crosshair-color);
 }
 
 #ascii-music-container canvas {
