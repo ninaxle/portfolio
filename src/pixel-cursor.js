@@ -7,11 +7,39 @@ const isMobile =
   );
 
 if (!isMobile) {
-  const PIXEL_COLOR = "rgb(233, 41, 137)";
   const PIXEL_SIZE = 14;
   const MIN_DISTANCE = 4;
   const TRAIL_LIFETIME = 600;
   const OPACITY_STEPS = 10;
+
+  const STROKE_COLORS = [
+    [230, 50, 70],
+    [255, 95, 158],
+    [192, 106, 226],
+    [111, 118, 200],
+    [51, 176, 176],
+  ];
+
+  let colorIndex = Math.floor(Math.random() * STROKE_COLORS.length);
+  let colorMix = 0;
+
+  function getCurrentColor() {
+    const c1 = STROKE_COLORS[colorIndex];
+    const c2 = STROKE_COLORS[(colorIndex + 1) % STROKE_COLORS.length];
+    const vary = () => (Math.random() - 0.5) * 20 | 0;
+    const r = Math.min(255, Math.max(0, c1[0] + (c2[0] - c1[0]) * colorMix + vary()));
+    const g = Math.min(255, Math.max(0, c1[1] + (c2[1] - c1[1]) * colorMix + vary()));
+    const b = Math.min(255, Math.max(0, c1[2] + (c2[2] - c1[2]) * colorMix + vary()));
+    return `rgb(${r},${g},${b})`;
+  }
+
+  function advanceColor() {
+    colorMix += 0.003;
+    if (colorMix >= 1) {
+      colorMix = 0;
+      colorIndex = (colorIndex + 1) % STROKE_COLORS.length;
+    }
+  }
 
   const canvas = document.createElement("canvas");
   canvas.style.position = "fixed";
@@ -46,7 +74,9 @@ if (!isMobile) {
         x: gx * PIXEL_SIZE,
         y: gy * PIXEL_SIZE,
         time,
+        color: getCurrentColor(),
       });
+      advanceColor();
     }
   }
 
@@ -106,7 +136,7 @@ if (!isMobile) {
       const rawOpacity = 1 - age / TRAIL_LIFETIME;
       const opacity = Math.ceil(rawOpacity * OPACITY_STEPS) / OPACITY_STEPS;
       ctx.globalAlpha = opacity;
-      ctx.fillStyle = PIXEL_COLOR;
+      ctx.fillStyle = pixel.color;
       ctx.fillRect(pixel.x, pixel.y, PIXEL_SIZE, PIXEL_SIZE);
     }
 
