@@ -30,22 +30,22 @@ const awardsData = [
   {
     image: "rgd.png",
     label: "RGD AWARDS",
-    caption: "[1] 1st Place, UX Design [2] Honourable Mention in Augmented Creativity"
+    caption: "[1] 1st in UX Design [2] Honourable Mention (AI)"
   },
   {
     image: "dubstech.png",
     label: "DUBSTECH",
-    caption: "[3] 3rd Place, Gaming Track - UX Design Spring Hackathon"
+    caption: "[3] 3rd in Gaming Track"
   },
   {
     image: "dsa.png",
     label: "DSA DESN'ATHON",
-    caption: "[4] 2nd Place, Student Leadership [5] 2nd Place, Sustainability Award"
+    caption: "[4] 2nd in Student Leadership [5] 2nd in Sustainability"
   },
   {
     image: "wop.svg",
     label: "WALL OF PORTFOLIOS",
-    caption: "[6] Featured // Interactive Design Portfolios"
+    caption: "[6] Portfolio Feature"
   }
 ];
 
