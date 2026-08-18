@@ -477,119 +477,174 @@ function createPlaygroundCards(sectionSelector, cardsData, filterContainerSelect
 
 // ---------------------------------------------------------------------------
 // About section grid functions (reusable for any page)
+// Uses same GRID_LINE border styling as the card system
 // ---------------------------------------------------------------------------
 
-// Builds a 2-column profile intro grid (image left, text right)
-function buildProfileGrid(data, containerSelector) {
+// Builds a 2-column profile grid (image left, text right)
+// Each cell uses border-x GRID_LINE, row uses border-t GRID_LINE
+function buildProfileSection(data, containerSelector) {
   const container = document.querySelector(containerSelector);
   if (!container) {
-    console.error("Profile grid container not found:", containerSelector);
+    console.error("Profile section container not found:", containerSelector);
     return;
   }
 
-  const grid = document.createElement("div");
-  grid.className = "grid grid-cols-1 md:grid-cols-2 gap-4 2xl:gap-20";
+  const section = document.createElement("div");
+  section.className = `flex flex-col w-full ${GRID_LINE}`;
 
-  // Left column — image
-  const imageCol = document.createElement("div");
-  imageCol.className = "w-full z-10 relative order-2 md:order-1 px-4 lg:px-16 2xl:px-4";
-  imageCol.innerHTML = /*html*/ `
-    <img
-      src="${data.image}"
-      alt="${data.alt || "Profile picture"}"
-      class="rounded-3xl w-full md:w-7/8 2xl:w-full h-auto lg:h-[800px] 2xl:h-[900px] object-cover object-center"
-    />
-  `;
+  // Row 1: image | text
+  const row = document.createElement("div");
+  row.className = `w-full border-t ${GRID_LINE}`;
 
-  // Right column — text
-  const textCol = document.createElement("div");
-  textCol.className = "flex flex-col gap-8 xl:gap-14 z-10 relative order-1 md:order-2";
+  const innerGrid = document.createElement("div");
+  innerGrid.className = `grid grid-cols-1 md:grid-cols-2 ${COLUMN_GAP}`;
 
-  // Bio section
-  const bio = document.createElement("div");
-  bio.className = "flex flex-col gap-4 px-4 md:px-0";
-  bio.innerHTML = /*html*/ `
-    <div class="flex flex-col w-full gap-4 pb-8 md:pb-12">
-      <h3 class="z-20">${data.description}</h3>
-      ${data.tagline ? `<p class="smolwidth z-20 text-grey">${data.tagline}</p>` : ""}
+  // Image cell
+  const imageBox = document.createElement("div");
+  imageBox.className = `border-x ${GRID_LINE} ${CONTENT_BOX_PADDING}`;
+  imageBox.innerHTML = /*html*/ `
+    <div class="w-full rounded-2xl overflow-hidden bg-light">
+      <img
+        src="${data.image}"
+        alt="${data.alt || "Profile picture"}"
+        class="w-full h-auto object-cover"
+      />
     </div>
   `;
-  textCol.appendChild(bio);
 
-  // Experience section
+  // Text cell
+  const textBox = document.createElement("div");
+  textBox.className = `border-x ${GRID_LINE} ${CONTENT_BOX_PADDING} flex flex-col space-y-4`;
+
+  let textHTML = `<h3>${data.description}</h3>`;
+  if (data.tagline) {
+    textHTML += `<p class="text-grey">${data.tagline}</p>`;
+  }
   if (data.experience && data.experience.length > 0) {
-    const expSection = document.createElement("div");
-    expSection.className = "flex flex-col gap-4 px-4 md:px-0 smolwidth pb-8";
-
-    let expHTML = `<p class="text-grey">[EXPERIENCE]</p>`;
+    textHTML += `<div class="pt-4"><p class="text-grey">[EXPERIENCE]</p></div>`;
     data.experience.forEach((exp) => {
-      expHTML += /*html*/ `
+      textHTML += /*html*/ `
         <div>
           <p>${exp.role}</p>
           <h6>${exp.description}</h6>
         </div>
       `;
     });
-    expSection.innerHTML = expHTML;
-    textCol.appendChild(expSection);
   }
+  textBox.innerHTML = textHTML;
 
-  grid.appendChild(imageCol);
-  grid.appendChild(textCol);
-  container.appendChild(grid);
+  innerGrid.appendChild(imageBox);
+  innerGrid.appendChild(textBox);
+  row.appendChild(innerGrid);
+  section.appendChild(row);
+  container.appendChild(section);
 }
 
-// Builds a 4-column awards grid (images in row 1, captions in row 2)
-function buildAwardsGrid(data, containerSelector) {
+// Builds a 4-column awards grid
+// Row 1: images (company icons), Row 2: captions
+// Each cell uses border-x GRID_LINE, each row uses border-t GRID_LINE
+function buildAwardsSection(data, containerSelector) {
   const container = document.querySelector(containerSelector);
   if (!container) {
-    console.error("Awards grid container not found:", containerSelector);
+    console.error("Awards section container not found:", containerSelector);
     return;
   }
 
-  const grid = document.createElement("div");
-  grid.className = "grid grid-cols-1 md:grid-cols-4 gap-8";
+  const section = document.createElement("div");
+  section.className = `flex flex-col w-full ${GRID_LINE}`;
+
+  // Row 1: images
+  const imageRow = document.createElement("div");
+  imageRow.className = `w-full border-t ${GRID_LINE}`;
+  const imageGrid = document.createElement("div");
+  imageGrid.className = `grid grid-cols-2 md:grid-cols-4 ${COLUMN_GAP}`;
 
   data.forEach((award) => {
     const cell = document.createElement("div");
-    cell.className = "flex flex-col gap-4 md:gap-8 rounded-2xl z-10 relative";
+    cell.className = `border-x ${GRID_LINE} ${CONTENT_BOX_PADDING} flex justify-center items-center`;
     cell.innerHTML = /*html*/ `
-      <div class="flex justify-center items-center 2xl:p-8 rounded-2xl h-52 overflow-hidden border border-grid bg-white">
-        <img src="${award.image}" class="w-4/6 h-auto" alt="${award.label}" />
+      <div class="w-full rounded-2xl overflow-hidden bg-white flex justify-center items-center h-40">
+        <img src="${award.image}" class="w-3/5 h-auto" alt="${award.label}" />
       </div>
-      <div class="flex flex-col gap-2">
-        <h6 class="label text-grey">[${award.label}]</h6>
+    `;
+    imageGrid.appendChild(cell);
+  });
+  imageRow.appendChild(imageGrid);
+
+  // Row 2: captions
+  const captionRow = document.createElement("div");
+  captionRow.className = `w-full border-t ${GRID_LINE}`;
+  const captionGrid = document.createElement("div");
+  captionGrid.className = `grid grid-cols-2 md:grid-cols-4 ${COLUMN_GAP}`;
+
+  data.forEach((award) => {
+    const cell = document.createElement("div");
+    cell.className = `border-x ${GRID_LINE} ${CONTENT_BOX_PADDING}`;
+    cell.innerHTML = /*html*/ `
+      <div class="flex flex-col space-y-2">
+        <p class="text-grey">[${award.label}]</p>
         <p>${award.caption}</p>
       </div>
     `;
-    grid.appendChild(cell);
+    captionGrid.appendChild(cell);
   });
+  captionRow.appendChild(captionGrid);
 
-  container.appendChild(grid);
+  section.appendChild(imageRow);
+  section.appendChild(captionRow);
+  container.appendChild(section);
 }
 
-// Builds a 3-column free time grid (square images with captions)
-function buildFreeTimeGrid(data, containerSelector) {
+// Builds a 3-column free time grid
+// Row 1: square images, Row 2: captions
+// Each cell uses border-x GRID_LINE, each row uses border-t GRID_LINE
+function buildFreeTimeSection(data, containerSelector) {
   const container = document.querySelector(containerSelector);
   if (!container) {
-    console.error("Free time grid container not found:", containerSelector);
+    console.error("Free time section container not found:", containerSelector);
     return;
   }
 
-  const grid = document.createElement("div");
-  grid.className = "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8";
+  const section = document.createElement("div");
+  section.className = `flex flex-col w-full ${GRID_LINE}`;
+
+  // Row 1: images
+  const imageRow = document.createElement("div");
+  imageRow.className = `w-full border-t ${GRID_LINE}`;
+  const imageGrid = document.createElement("div");
+  imageGrid.className = `grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 ${COLUMN_GAP}`;
 
   data.forEach((item) => {
     const cell = document.createElement("div");
-    cell.className = "z-10 relative";
+    cell.className = `border-x ${GRID_LINE} ${CONTENT_BOX_PADDING}`;
     cell.innerHTML = /*html*/ `
-      <img src="${item.image}" class="w-full aspect-square object-cover rounded-lg" alt="${item.caption}" />
-      <h6 class="pt-4">${item.caption}</h6>
+      <div class="w-full rounded-2xl overflow-hidden bg-light">
+        <img src="${item.image}" class="w-full aspect-square object-cover" alt="${item.caption}" />
+      </div>
     `;
-    grid.appendChild(cell);
+    imageGrid.appendChild(cell);
   });
+  imageRow.appendChild(imageGrid);
 
-  container.appendChild(grid);
+  // Row 2: captions
+  const captionRow = document.createElement("div");
+  captionRow.className = `w-full border-t ${GRID_LINE}`;
+  const captionGrid = document.createElement("div");
+  captionGrid.className = `grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 ${COLUMN_GAP}`;
+
+  data.forEach((item) => {
+    const cell = document.createElement("div");
+    cell.className = `border-x ${GRID_LINE} ${CONTENT_BOX_PADDING}`;
+    cell.innerHTML = /*html*/ `
+      <p>${item.caption}</p>
+    `;
+    captionGrid.appendChild(cell);
+  });
+  captionRow.appendChild(captionGrid);
+
+  section.appendChild(imageRow);
+  section.appendChild(captionRow);
+  container.appendChild(section);
 }
 
 // Data for UX/UI cards
@@ -711,3 +766,6 @@ document.addEventListener("DOMContentLoaded", () => {
   createCards(".cards-section", uxuiCardsData, false, "// Craft at the intersection of design and code");
   createPlaygroundCards(".cards-section3", playgroundCardsData, ".playground-filters");
 });
+
+// Export functions for use in other modules (e.g., about.js)
+export { buildProfileSection, buildAwardsSection, buildFreeTimeSection };

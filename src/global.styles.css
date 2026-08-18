@@ -140,6 +140,11 @@ Prevents scrollbars if canvas is full screen */
     left: 0; /* Align the dash to the start */
   }
 
+  .label {
+    font-family: "Fragment Mono", monospace;
+    font-size: 14px;
+  }
+
   /*border animations */
 }
 
