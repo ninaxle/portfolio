@@ -540,9 +540,9 @@ function buildProfileSection(data, containerSelector) {
   container.appendChild(section);
 }
 
-// Builds a 4-column awards grid
-// Row 1: images (company icons), Row 2: captions
-// Each cell uses border-x GRID_LINE, each row uses border-t GRID_LINE
+// Builds an awards grid — each award is one box (image + divider + caption)
+// 1 col mobile, 2 cols tablet, 4 cols desktop
+// Each cell uses border-x + border-t GRID_LINE, row uses border-t GRID_LINE
 function buildAwardsSection(data, containerSelector) {
   const container = document.querySelector(containerSelector);
   if (!container) {
@@ -553,51 +553,32 @@ function buildAwardsSection(data, containerSelector) {
   const section = document.createElement("div");
   section.className = `flex flex-col w-full ${GRID_LINE}`;
 
-  // Row 1: images
-  const imageRow = document.createElement("div");
-  imageRow.className = `w-full border-t ${GRID_LINE}`;
-  const imageGrid = document.createElement("div");
-  imageGrid.className = `grid grid-cols-2 md:grid-cols-4 ${COLUMN_GAP}`;
+  const row = document.createElement("div");
+  row.className = `w-full border-t ${GRID_LINE}`;
+  const grid = document.createElement("div");
+  grid.className = `grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 ${COLUMN_GAP}`;
 
   data.forEach((award) => {
     const cell = document.createElement("div");
-    cell.className = `border-x ${GRID_LINE} ${CONTENT_BOX_PADDING} flex justify-center items-center`;
+    cell.className = `border-x border-t ${GRID_LINE} ${CONTENT_BOX_PADDING} flex flex-col`;
     cell.innerHTML = /*html*/ `
       <div class="w-full rounded-2xl overflow-hidden bg-white flex justify-center items-center h-40">
         <img src="${award.image}" class="w-3/5 h-auto" alt="${award.label}" />
       </div>
+      <div class="border-t ${GRID_LINE} my-4 -mx-6"></div>
+      <p>${award.caption}</p>
     `;
-    imageGrid.appendChild(cell);
+    grid.appendChild(cell);
   });
-  imageRow.appendChild(imageGrid);
 
-  // Row 2: captions
-  const captionRow = document.createElement("div");
-  captionRow.className = `w-full border-t ${GRID_LINE}`;
-  const captionGrid = document.createElement("div");
-  captionGrid.className = `grid grid-cols-2 md:grid-cols-4 ${COLUMN_GAP}`;
-
-  data.forEach((award) => {
-    const cell = document.createElement("div");
-    cell.className = `border-x ${GRID_LINE} ${CONTENT_BOX_PADDING}`;
-    cell.innerHTML = /*html*/ `
-      <div class="flex flex-col space-y-2">
-        <p class="text-grey">[${award.label}]</p>
-        <p>${award.caption}</p>
-      </div>
-    `;
-    captionGrid.appendChild(cell);
-  });
-  captionRow.appendChild(captionGrid);
-
-  section.appendChild(imageRow);
-  section.appendChild(captionRow);
+  row.appendChild(grid);
+  section.appendChild(row);
   container.appendChild(section);
 }
 
-// Builds a 3-column free time grid
-// Row 1: square images, Row 2: captions
-// Each cell uses border-x GRID_LINE, each row uses border-t GRID_LINE
+// Builds a free time grid — each item is one box (square image + caption)
+// 6 boxes total, single grid with CSS handling row wrap
+// Each cell uses border-x + border-t GRID_LINE
 function buildFreeTimeSection(data, containerSelector) {
   const container = document.querySelector(containerSelector);
   if (!container) {
@@ -608,42 +589,25 @@ function buildFreeTimeSection(data, containerSelector) {
   const section = document.createElement("div");
   section.className = `flex flex-col w-full ${GRID_LINE}`;
 
-  // Row 1: images
-  const imageRow = document.createElement("div");
-  imageRow.className = `w-full border-t ${GRID_LINE}`;
-  const imageGrid = document.createElement("div");
-  imageGrid.className = `grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 ${COLUMN_GAP}`;
+  const row = document.createElement("div");
+  row.className = `w-full border-t ${GRID_LINE}`;
+  const grid = document.createElement("div");
+  grid.className = `grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ${COLUMN_GAP}`;
 
   data.forEach((item) => {
     const cell = document.createElement("div");
-    cell.className = `border-x ${GRID_LINE} ${CONTENT_BOX_PADDING}`;
+    cell.className = `border-x border-t ${GRID_LINE} ${CONTENT_BOX_PADDING} flex flex-col`;
     cell.innerHTML = /*html*/ `
       <div class="w-full rounded-2xl overflow-hidden bg-light">
         <img src="${item.image}" class="w-full aspect-square object-cover" alt="${item.caption}" />
       </div>
+      <p class="pt-4">${item.caption}</p>
     `;
-    imageGrid.appendChild(cell);
+    grid.appendChild(cell);
   });
-  imageRow.appendChild(imageGrid);
 
-  // Row 2: captions
-  const captionRow = document.createElement("div");
-  captionRow.className = `w-full border-t ${GRID_LINE}`;
-  const captionGrid = document.createElement("div");
-  captionGrid.className = `grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 ${COLUMN_GAP}`;
-
-  data.forEach((item) => {
-    const cell = document.createElement("div");
-    cell.className = `border-x ${GRID_LINE} ${CONTENT_BOX_PADDING}`;
-    cell.innerHTML = /*html*/ `
-      <p>${item.caption}</p>
-    `;
-    captionGrid.appendChild(cell);
-  });
-  captionRow.appendChild(captionGrid);
-
-  section.appendChild(imageRow);
-  section.appendChild(captionRow);
+  row.appendChild(grid);
+  section.appendChild(row);
   container.appendChild(section);
 }
 
