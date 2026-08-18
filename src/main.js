@@ -623,13 +623,7 @@ const uxuiCardsData = [
     description: "An analog horror game based on the Digital Acceleration Paradox",
   },
 
-  {
-    title: "The Digital Music Box - Carousel Visualizer",
-    tags: "CODE | MUSIC VISUALIZATION",
-    link: "https://editor.p5js.org/ninistar/full/bu9tv-CMp",
-    video: "ponie2.mp4",
-    description: "An interactive music visualization using p5.js",
-  },
+
   {
     title: "Genesys Cloud",
     tags: "INTERNSHIP",
@@ -644,7 +638,6 @@ const uxuiCardsData = [
     description: "A healthtech design system designed around accessibility",
   },
 
-
   {
     title: "Accessichat",
     image: "accessi.png",
@@ -653,7 +646,6 @@ const uxuiCardsData = [
     description: "An AI-powered AAC app designed to support people with disabilities",
   },
 
-
   {
     title: "Here:after",
     image: "here.png",
@@ -661,8 +653,6 @@ const uxuiCardsData = [
     tags: "WINNER | RGD CANADA '23 | UX RESEARCH | MOBILE",
     description: "A mental health journalling application designed for self-reflection",
   },
-
-
 
 ];
 
@@ -706,6 +696,13 @@ const playgroundCardsData = [
     video: "red.mp4",
     description: "Little Red Riding Hood as an interactive scroll experience",
     category: ["illustration", "interactive"],
+  },
+    {
+    title: "The Digital Music Box - Carousel Visualizer",
+    tags: "CODE | MUSIC VISUALIZATION",
+    link: "https://editor.p5js.org/ninistar/full/bu9tv-CMp",
+    video: "ponie2.mp4",
+    description: "An interactive music visualization using p5.js",
   },
 ];
 
