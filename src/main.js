@@ -694,6 +694,33 @@ const playgroundCardsData = [
     description: "A responsive vaccine booking site designed to reduce friction",
     category: ["interactive"],
   },
+
+
+    {
+    title: "Digital",
+    tags: "MOBILE & DESKTOP",
+    image: "momit.png",
+    description: "Digital dd concept: mastermind toys x momit sam york",
+    category: ["digital & print"],
+  },
+
+      {
+    title: "sertis",
+    tags: "MOBILE & DESKTOP",
+    image: "sertis.png",
+    description: "OCR and doctors notes",
+    category: ["interactive"],
+  },
+
+
+        {
+    title: "spiral",
+    tags: "MOBILE & DESKTOP",
+    image: "spiral.png",
+    description: "website based on the essay",
+    category: ["interactive"],
+  },
+
   {
     title: "The Purrfect Supper",
     tags: "CODE | MINI-GAME",
