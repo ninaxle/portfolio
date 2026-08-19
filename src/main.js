@@ -279,7 +279,7 @@ function createCards(sectionSelector, cardsData, isBrandSection = false, boxOneT
 // ---------------------------------------------------------------------------
 
 // Simplified card content for playground — image/video + caption only, no title/tags
-function buildPlaygroundCardContent(card) {
+function buildPlaygroundCardContent(card, galleryCards, cardIndex) {
   const wrapper = document.createElement("div");
   wrapper.className = `flex flex-col space-y-4 ${CONTENT_BOX_PADDING} h-full`;
 
@@ -296,48 +296,41 @@ function buildPlaygroundCardContent(card) {
       ? "object-cover"
       : "object-contain";
 
-  if (card.link) {
-    const isExternal =
-      card.link.startsWith("http://") || card.link.startsWith("https://");
-    const targetAttr = isExternal
-      ? ' target="_blank" rel="noopener noreferrer"'
-      : "";
+  wrapper.innerHTML = /*html*/ `
+    <div class="lightbox-trigger w-full rounded-2xl relative z-10 overflow-hidden bg-[#f3f3f4] cursor-pointer">
+      <div class="inner-content w-full rounded-2xl overflow-hidden">
+        ${getMediaHTML(card, imageClass, true)}
+      </div>
+      ${!card.link ? `
+      <span class="md:hidden absolute top-3 right-3" style="
+        background: rgba(0, 0, 0, 0.7);
+        color: #fcfcfc;
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-family: 'Fragment Mono', monospace;
+        font-size: 14px;
+      ">
+        UNDER CONSTRUCTION
+      </span>` : ""}
+    </div>
+    <div class="relative z-10">
+      <p class="text-grey">${card.description || ""}</p>
+    </div>
+  `;
 
-    wrapper.innerHTML = /*html*/ `
-      <a href="${card.link}" class="space-y-4 block"${targetAttr}>
-        <div class="w-full rounded-2xl relative z-10 overflow-hidden bg-light">
-          <div class="relative group">
-            ${getMediaHTML(card, imageClass, true)}
-          </div>
-        </div>
-        <div class="relative z-10">
-          <p class="text-grey">${card.description || ""}</p>
-        </div>
-      </a>
-    `;
-  } else {
-    wrapper.classList.add("has-tooltip");
-    wrapper.innerHTML = /*html*/ `
-      <div class="w-full rounded-2xl relative z-10 overflow-hidden bg-[#f3f3f4]">
-        <div class="inner-content w-full rounded-2xl overflow-hidden">
-          ${getMediaHTML(card, imageClass, true)}
-        </div>
-        <span class="md:hidden absolute top-3 right-3" style="
-          background: rgba(0, 0, 0, 0.7);
-          color: #fcfcfc;
-          padding: 4px 8px;
-          border-radius: 4px;
-          font-family: 'Fragment Mono', monospace;
-          font-size: 14px;
-        ">
-          UNDER CONSTRUCTION
-        </span>
-      </div>
-      <div class="relative z-10">
-        <p class="text-grey">${card.description || ""}</p>
-      </div>
-    `;
-  }
+  const trigger = wrapper.querySelector(".lightbox-trigger");
+  trigger.addEventListener("click", () => {
+    const lightbox = document.querySelector("lightbox-modal");
+    if (lightbox) {
+      const items = galleryCards.map((c) => ({
+        src: c.video || c.image,
+        type: c.video ? "video" : "image",
+        caption: c.description || "",
+        link: c.link || null,
+      }));
+      lightbox.open({ items, index: cardIndex });
+    }
+  });
 
   return wrapper;
 }
@@ -449,10 +442,11 @@ function createPlaygroundCards(sectionSelector, cardsData, filterContainerSelect
         const innerGrid = document.createElement("div");
         innerGrid.className = `max-w-full xl:max-w-[94rem] xl:mx-auto grid grid-cols-1 md:grid-cols-2 px-4 md:px-16 lg:px-[7.95rem] ${COLUMN_GAP}`;
 
-        [cardA, cardB].forEach((card) => {
+        [cardA, cardB].forEach((card, ci) => {
           const box = document.createElement("div");
           box.className = `border-x ${GRID_LINE}`;
-          box.appendChild(buildPlaygroundCardContent(card));
+          const cardIdx = i * 2 + ci;
+          box.appendChild(buildPlaygroundCardContent(card, filtered, cardIdx));
           innerGrid.appendChild(box);
         });
 
