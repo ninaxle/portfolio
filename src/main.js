@@ -89,7 +89,7 @@ function getMediaHTML(card, imageClass, hasHover = false) {
     return `
       <video
         src="${card.video}"
-        class="w-full ${MEDIA_HEIGHT} ${imageClass} ${hoverClass}"
+        class="w-full ${MEDIA_HEIGHT} ${imageClass} ${hoverClass} cursor-pointer"
         width="800"
         height="500"
         autoplay
@@ -106,7 +106,7 @@ function getMediaHTML(card, imageClass, hasHover = false) {
       loading="lazy"
       width="800"
       height="500"
-      class="w-full ${MEDIA_HEIGHT} ${imageClass} ${hoverClass}"
+      class="w-full ${MEDIA_HEIGHT} ${imageClass} ${hoverClass} cursor-pointer"
     />
   `;
 }
@@ -116,7 +116,7 @@ function getMediaHTML(card, imageClass, hasHover = false) {
 // radius as before), now sized to live inside a grid cell (box 3 or 4).
 function buildCardContent(card) {
   const wrapper = document.createElement("div");
-  wrapper.className = `flex flex-col space-y-4 ${CONTENT_BOX_PADDING} h-full`;
+  wrapper.className = `flex flex-col space-y-4 ${CONTENT_BOX_PADDING} h-full cursor-pointer`;
 
   if (!card) {
     // No second project for this pair — leave the cell empty.
@@ -281,45 +281,24 @@ function createCards(sectionSelector, cardsData, isBrandSection = false, boxOneT
 // Simplified card content for playground — image/video + caption only, no title/tags
 function buildPlaygroundCardContent(card, galleryCards, cardIndex) {
   const wrapper = document.createElement("div");
-  wrapper.className = `flex flex-col space-y-4 ${CONTENT_BOX_PADDING} h-full`;
+  wrapper.className = `flex flex-col space-y-4 ${CONTENT_BOX_PADDING} h-full cursor-pointer transition-colors duration-200 hover:bg-[#F6F5F6] group`;
 
   if (!card) {
     return wrapper;
   }
 
-  const imageClass =
-    card.title === "Dear Diary" ||
-    card.title === "Goodself Design System" ||
-    card.title === "The Digital Music Box - Carousel Visualizer" ||
-    card.title === "Meiva" ||
-    card.title === "The Purrfect Supper"
-      ? "object-cover"
-      : "object-contain";
-
   wrapper.innerHTML = /*html*/ `
-    <div class="lightbox-trigger w-full rounded-2xl relative z-10 overflow-hidden bg-[#f3f3f4] cursor-pointer">
-      <div class="inner-content w-full rounded-2xl overflow-hidden">
-        ${getMediaHTML(card, imageClass, true)}
+    <div class="w-full rounded-2xl relative z-10 overflow-hidden">
+      <div class="inner-content w-full rounded-2xl overflow-hidden border border-[#e5e3e3]">
+        ${getMediaHTML(card, "object-cover", false)}
       </div>
-      ${!card.link ? `
-      <span class="md:hidden absolute top-3 right-3" style="
-        background: rgba(0, 0, 0, 0.7);
-        color: #fcfcfc;
-        padding: 4px 8px;
-        border-radius: 4px;
-        font-family: 'Fragment Mono', monospace;
-        font-size: 14px;
-      ">
-        UNDER CONSTRUCTION
-      </span>` : ""}
     </div>
     <div class="relative z-10">
-      <p class="text-grey">${card.description || ""}</p>
+      <p class="text-grey transition-colors duration-200">${card.description || ""}</p>
     </div>
   `;
 
-  const trigger = wrapper.querySelector(".lightbox-trigger");
-  trigger.addEventListener("click", () => {
+  wrapper.addEventListener("click", () => {
     const lightbox = document.querySelector("lightbox-modal");
     if (lightbox) {
       const items = galleryCards.map((c) => ({
@@ -671,13 +650,6 @@ const uxuiCardsData = [
 
 // Combined playground cards (brand + play) with categories for filtering
 const playgroundCardsData = [
-  {
-    title: "Lost in Translation",
-    tags: "TYPOGRAPHY | PRINT",
-    image: "sound.png",
-    description: "Typographic study of language barriers",
-    category: ["digital & print"],
-  },
 
   {
     title: "The Wish Economy",
@@ -687,6 +659,32 @@ const playgroundCardsData = [
     description: "A publication about birthdays, data, and digital performance",
     category: ["digital & print"],
   },
+
+
+    {
+    title: "The Wish Economy",
+    tags: "PUBLICATION | ASCII | P5JS",
+    link: "https://www.desn.ca/2026-projects/project-3-nina-le",
+    image: "wishe/death.jpg",
+    description: "A publication about birthdays, data, and digital performance",
+    category: ["digital & print"],
+  },
+  {
+    title: "Lost in Translation",
+    tags: "TYPOGRAPHY | PRINT",
+    image: "sound.png",
+    description: "Typographic study of language barriers",
+    category: ["digital & print"],
+  },
+
+   {
+    title: "Lost in Translation",
+    tags: "TYPOGRAPHY | PRINT",
+    image: "sound3.png",
+    description: "Typographic study of language barriers",
+    category: ["digital & print"],
+  },
+  
   {
     title: "Meiva",
     tags: "MOBILE & DESKTOP",
@@ -694,6 +692,8 @@ const playgroundCardsData = [
     description: "A responsive vaccine booking site designed to reduce friction",
     category: ["interactive"],
   },
+
+
 
 
     {
