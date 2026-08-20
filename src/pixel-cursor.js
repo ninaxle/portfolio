@@ -7,7 +7,7 @@ const isMobile =
   );
 
 if (!isMobile) {
-  const PIXEL_SIZE = 14;
+  const PIXEL_SIZE = 10;
   const MIN_DISTANCE = 4;
   const TRAIL_LIFETIME = 600;
   const OPACITY_STEPS = 10;
