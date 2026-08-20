@@ -531,7 +531,7 @@ function buildAwardsSection(data, containerSelector) {
 
   data.forEach((award) => {
     const cell = document.createElement("div");
-    cell.className = `border-x border-t ${GRID_LINE} ${CONTENT_BOX_PADDING} flex flex-col`;
+    cell.className = `border-x sm:border-t-0 ${GRID_LINE} ${CONTENT_BOX_PADDING} flex flex-col`;
     cell.innerHTML = /*html*/ `
       <div class="w-full rounded-2xl overflow-hidden bg-white flex justify-center items-center h-40">
         <img src="${award.image}" class="w-3/5 h-auto" alt="${award.label}" />
@@ -560,25 +560,47 @@ function buildFreeTimeSection(data, containerSelector) {
   const section = document.createElement("div");
   section.className = `flex flex-col w-full ${GRID_LINE}`;
 
-  const row = document.createElement("div");
-  row.className = `w-full border-t ${GRID_LINE}`;
-  const grid = document.createElement("div");
-  grid.className = `grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ${COLUMN_GAP}`;
+  // Split data into chunks of 3 for 3-column rows
+  const rows = [];
+  for (let i = 0; i < data.length; i += 3) {
+    rows.push(data.slice(i, i + 3));
+  }
 
-  data.forEach((item) => {
-    const cell = document.createElement("div");
-    cell.className = `border-x border-t ${GRID_LINE} ${CONTENT_BOX_PADDING} flex flex-col`;
-    cell.innerHTML = /*html*/ `
-      <div class="w-full rounded-2xl overflow-hidden bg-light">
-        <img src="${item.image}" class="w-full aspect-square object-cover" alt="${item.caption}" />
+  rows.forEach((rowItems) => {
+    // Placeholder row (empty cells)
+    const placeholderRow = document.createElement("div");
+    placeholderRow.className = `w-full border-t ${GRID_LINE}`;
+    placeholderRow.innerHTML = /*html*/ `
+      <div class="max-w-full xl:max-w-[94rem] xl:mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-4 md:px-16 lg:px-[7.95rem] ${COLUMN_GAP}">
+        <div class="${PLACEHOLDER_BOX_HEIGHT} border-x ${GRID_LINE}"></div>
+        <div class="${PLACEHOLDER_BOX_HEIGHT} border-x ${GRID_LINE} hidden md:block"></div>
+        <div class="${PLACEHOLDER_BOX_HEIGHT} border-x ${GRID_LINE} hidden lg:block"></div>
       </div>
-      <p class="pt-4">${item.caption}</p>
     `;
-    grid.appendChild(cell);
+    section.appendChild(placeholderRow);
+
+    // Content row
+    const contentRow = document.createElement("div");
+    contentRow.className = `w-full border-t ${GRID_LINE}`;
+    const grid = document.createElement("div");
+    grid.className = `max-w-full xl:max-w-[94rem] xl:mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-4 md:px-16 lg:px-[7.95rem] ${COLUMN_GAP}`;
+
+    rowItems.forEach((item) => {
+      const cell = document.createElement("div");
+      cell.className = `border-x ${GRID_LINE} ${CONTENT_BOX_PADDING} flex flex-col`;
+      cell.innerHTML = /*html*/ `
+        <div class="w-full rounded-2xl overflow-hidden bg-light">
+          <img src="${item.image}" class="w-full aspect-square object-cover" alt="${item.caption}" />
+        </div>
+        <p class="pt-4">${item.caption}</p>
+      `;
+      grid.appendChild(cell);
+    });
+
+    contentRow.appendChild(grid);
+    section.appendChild(contentRow);
   });
 
-  row.appendChild(grid);
-  section.appendChild(row);
   container.appendChild(section);
 }
 
