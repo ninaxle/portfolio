@@ -3,7 +3,7 @@ import { buildProfileSection, buildAwardsSection, buildFreeTimeSection } from ".
 
 const profileData = {
   image: "pfp.jpeg",
-  alt: "Profile picture of Nina Le",
+  alt: "a photo of me with my parasol!",
   description: "Nina is a ux/ui designer with a multidisciplinary background, blending a love for aesthetics with a sense of harmony and how things fit together.",
   // tagline: "// I git commit my design files, sing through my vowels, and pixel push until it's right. When I look at a cat, I see a circle and two triangles.",
   experience: [
