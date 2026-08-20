@@ -290,7 +290,7 @@ function buildPlaygroundCardContent(card, galleryCards, cardIndex) {
   wrapper.innerHTML = /*html*/ `
     <div class="w-full rounded-2xl relative z-10 overflow-hidden">
       <div class="inner-content w-full rounded-2xl overflow-hidden border border-[#e5e3e3]">
-        ${getMediaHTML(card, "object-cover", false)}
+        ${getMediaHTML(card, card.category?.includes("illustration") ? "object-contain" : "object-cover", false)}
       </div>
     </div>
     <div class="relative z-10">
@@ -325,16 +325,6 @@ function buildPlaygroundFilters(containerSelector, categories, onFilter) {
   const wrapper = document.createElement("div");
   wrapper.className = "flex flex-wrap gap-2";
 
-  const allBtn = document.createElement("button");
-  allBtn.textContent = "All";
-  allBtn.className =
-    "px-4 py-2 rounded-full border border-grid text-sm font-[family-name:'Fragment_Mono'] transition-colors bg-black text-white";
-  allBtn.addEventListener("click", () => {
-    setActive("All");
-    onFilter("All");
-  });
-  wrapper.appendChild(allBtn);
-
   categories.forEach((cat) => {
     const btn = document.createElement("button");
     btn.textContent = cat;
@@ -360,6 +350,8 @@ function buildPlaygroundFilters(containerSelector, categories, onFilter) {
   }
 
   container.appendChild(wrapper);
+
+  setActive(categories[0]);
 }
 
 // Creates filtered playground cards — uses the existing grid layout but with
@@ -376,10 +368,9 @@ function createPlaygroundCards(sectionSelector, cardsData, filterContainerSelect
     ...new Set(cardsData.flatMap((card) => card.category || [])),
   ];
 
-  let currentFilter = "All";
+  let currentFilter = allCategories[0];
 
   function getFilteredCards() {
-    if (currentFilter === "All") return cardsData;
     return cardsData.filter(
       (card) => card.category && card.category.includes(currentFilter)
     );
@@ -402,7 +393,7 @@ function createPlaygroundCards(sectionSelector, cardsData, filterContainerSelect
         const rowTop = document.createElement("div");
         rowTop.className = `w-full border-t ${GRID_LINE}`;
         const boxOneText =
-          i === 0 && currentFilter === "All"
+          i === 0 && currentFilter === allCategories[0]
             ? "// Where I pixel push away"
             : "";
         rowTop.innerHTML = /*html*/ `
@@ -669,6 +660,88 @@ const playgroundCardsData = [
     description: "A publication about birthdays, data, and digital performance",
     category: ["digital & print"],
   },
+
+
+    {
+    title: "phi",
+    tags: "TYPOGRAPHY | PRINT",
+    image: "phi.png",
+    description: "Typographic study of language barriers",
+    category: ["digital & print"],
+  },
+      {
+    title: "phi",
+    tags: "TYPOGRAPHY | PRINT",
+    image: "phi2.png",
+    description: "Typographic study of language barriers",
+    category: ["digital & print"],
+  },
+
+
+
+
+  // drawings
+  {
+    title: "lucid",
+    tags: "MOBILE & DESKTOP",
+    image: "lucid.png",
+    description: "website based on the essay",
+    category: ["illustration"],
+  },
+            {
+    title: "cakes",
+    tags: "MOBILE & DESKTOP",
+    image: "cakes.png",
+    description: "website based on the essay",
+    category: ["illustration"],
+  },
+
+
+  //       {
+  //   title: "package",
+  //   tags: "TYPOGRAPHY | PRINT",
+  //   image: "aqua.png",
+  //   description: "Typographic study of language barriers",
+  //   category: ["illustration"],
+  // },
+
+  //      {
+  //   title: "wwashi",
+  //   tags: "MOBILE & DESKTOP",
+  //   image: "washi.png",
+  //   description: "website based on the essay",
+  //   category: ["illustration"],
+  // },
+
+
+            {
+    title: "doodle",
+    tags: "MOBILE & DESKTOP",
+    image: "doodle.png",
+    description: "website based on the essay",
+    category: ["illustration"],
+  },
+
+
+                {
+    title: "frog",
+    tags: "MOBILE & DESKTOP",
+    image: "character.png",
+    description: "website based on the essay",
+    category: ["illustration"],
+  },
+
+
+
+  //       {
+  //   title: "life drawing",
+  //   tags: "TYPOGRAPHY | PRINT",
+  //   image: "lifedrawing.png",
+  //   description: "Typographic study of language barriers",
+  //   category: ["illustration"],
+  // },
+       
+
   {
     title: "Lost in Translation",
     tags: "TYPOGRAPHY | PRINT",
@@ -677,31 +750,49 @@ const playgroundCardsData = [
     category: ["digital & print"],
   },
 
-   {
-    title: "Lost in Translation",
-    tags: "TYPOGRAPHY | PRINT",
-    image: "sound3.png",
-    description: "Typographic study of language barriers",
+
+  
+
+
+
+
+   
+  //    {
+  //   title: "Lost in Translation",
+  //   tags: "TYPOGRAPHY | PRINT",
+  //   image: "sound3.png",
+  //   description: "Typographic study of language barriers",
+  //   category: ["digital & print"],
+  // },
+       {
+    title: "Digital",
+    tags: "MOBILE & DESKTOP",
+    image: "contents.png",
+    description: "Digital dd concept: mastermind toys x momit sam york",
     category: ["digital & print"],
   },
-  
+
+
+    
+
+
+
+// interactive
   {
-    title: "Meiva",
-    tags: "MOBILE & DESKTOP",
-    image: "meiva.png",
-    description: "A responsive vaccine booking site designed to reduce friction",
+    title: "Dear Diary",
+    tags: "ILLUSTRATION | WEB DESIGN | DESKTOP",
+    link: "https://youtu.be/WAzITLPvqEU",
+    video: "red.mp4",
+    description: "Little Red Riding Hood as an interactive scroll experience",
     category: ["interactive"],
   },
 
-
-
-
-    {
-    title: "Digital",
+         {
+    title: "spiral",
     tags: "MOBILE & DESKTOP",
-    image: "momit.png",
-    description: "Digital dd concept: mastermind toys x momit sam york",
-    category: ["digital & print"],
+    image: "spiral.png",
+    description: "website based on the essay",
+    category: ["interactive"],
   },
 
       {
@@ -713,14 +804,16 @@ const playgroundCardsData = [
   },
 
 
-        {
-    title: "spiral",
+  {
+    title: "Meiva",
     tags: "MOBILE & DESKTOP",
-    image: "spiral.png",
-    description: "website based on the essay",
+    image: "meiva.png",
+    description: "A responsive vaccine booking site designed to reduce friction",
     category: ["interactive"],
   },
 
+
+      
   {
     title: "The Purrfect Supper",
     tags: "CODE | MINI-GAME",
@@ -729,20 +822,17 @@ const playgroundCardsData = [
     description: "A catcher game built in p5.js. pixel art made in Aseprite.",
     category: ["code"],
   },
-  {
-    title: "Dear Diary",
-    tags: "ILLUSTRATION | WEB DESIGN | DESKTOP",
-    link: "https://youtu.be/WAzITLPvqEU",
-    video: "red.mp4",
-    description: "Little Red Riding Hood as an interactive scroll experience",
-    category: ["illustration", "interactive"],
-  },
+
+
+  
     {
     title: "The Digital Music Box - Carousel Visualizer",
     tags: "CODE | MUSIC VISUALIZATION",
     link: "https://editor.p5js.org/ninistar/full/bu9tv-CMp",
     video: "ponie2.mp4",
     description: "An interactive music visualization using p5.js",
+        category: ["code"],
+
   },
 ];
 
