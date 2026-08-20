@@ -297,14 +297,14 @@ function buildPlaygroundCardContent(card, galleryCards, cardIndex) {
       ? "bg-[#FDF7F6]"
       : "bg-transparent";
 
-  wrapper.innerHTML = /*html*/ `
+  wrapper.innerHTML = /*html/where to edit playcard content*/ `
     <div class="w-full rounded-2xl relative z-10 overflow-hidden">
       <div class="inner-content w-full rounded-2xl overflow-hidden border border-[#e5e3e3] ${bgColor}">
         ${getMediaHTML(card, imageClass, false)}
       </div>
     </div>
     <div class="relative z-10">
-      <p class="text-grey transition-colors duration-200">${card.description || ""}</p>
+      <p class="transition-colors duration-200">${card.description || ""}</p>
     </div>
   `;
 
@@ -402,10 +402,7 @@ function createPlaygroundCards(sectionSelector, cardsData, filterContainerSelect
         // Row 1: optional text | empty
         const rowTop = document.createElement("div");
         rowTop.className = `w-full border-t ${GRID_LINE}`;
-        const boxOneText =
-          i === 0 && currentFilter === allCategories[0]
-            ? "// Where I pixel push away"
-            : "";
+        const boxOneText = "";
         rowTop.innerHTML = /*html*/ `
           <div class="max-w-full xl:max-w-[94rem] xl:mx-auto grid grid-cols-1 md:grid-cols-2 px-4 md:px-16 lg:px-[7.95rem] ${COLUMN_GAP}">
             <div class="${PLACEHOLDER_BOX_HEIGHT} flex items-center px-6 border-x ${GRID_LINE}">

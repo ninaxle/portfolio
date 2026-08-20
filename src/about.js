@@ -2,7 +2,7 @@
 import { buildProfileSection, buildAwardsSection, buildFreeTimeSection } from "./main.js";
 
 const profileData = {
-  image: "pfp.jpeg",
+  image: "profile-content/pfp.jpeg",
   alt: "a photo of me with my parasol!",
   description: "Nina is a ux/ui designer with a multidisciplinary background, blending a love for aesthetics with a sense of harmony and how things fit together.",
   // tagline: "// I git commit my design files, sing through my vowels, and pixel push until it's right. When I look at a cat, I see a circle and two triangles.",
@@ -28,34 +28,34 @@ const profileData = {
 
 const awardsData = [
   {
-    image: "rgd.png",
+    image: "profile-content/rgd.png",
     label: "RGD AWARDS",
     caption: "[1] 1st in UX Design [2] Honourable Mention (AI)"
   },
   {
-    image: "dubstech.png",
+    image: "profile-content/dubstech.png",
     label: "DUBSTECH",
     caption: "[3] 3rd in Gaming Track"
   },
   {
-    image: "dsa.png",
+    image: "profile-content/dsa.png",
     label: "DSA DESN'ATHON",
     caption: "[4] 2nd in Student Leadership [5] 2nd in Sustainability"
   },
   {
-    image: "wop.svg",
+    image: "profile-content/wop.svg",
     label: "WALL OF PORTFOLIOS",
     caption: "[6] Portfolio Feature"
   }
 ];
 
 const freeTimeData = [
-  { image: "tea.jpg", caption: "↑ At afternoon tea; find the decoden phone case I made!" },
-  { image: "code.jpg", caption: "↑ Coding! I have been coding with HTML, CSS/Tailwind, and some Javascript. Currently looking into Python..." },
-  { image: "wip.jpg", caption: "↑ Making all kinds of art. Pivoting a bit from illustration, I've recently been sculpting mini clay figurines >:)" },
-  { image: "frogs.jpg", caption: "↑ Showing off work I am proud of - including the final form of my clay frogs" },
-  { image: "aqua.jpg", caption: "↑ Admiring sea life at Ripley's Aquarium" },
-  { image: "emo.jpg", caption: "↑ Listening and belting to emo music (I am a great singer, trust)" }
+  { image: "profile-content/tea.jpg", caption: "↑ At afternoon tea; find the decoden phone case I made!" },
+  { image: "profile-content/code.jpg", caption: "↑ Coding! I have been coding with HTML, CSS/Tailwind, and some Javascript. Currently looking into Python..." },
+  { image: "profile-content/wip.jpg", caption: "↑ Making all kinds of art. Pivoting a bit from illustration, I've recently been sculpting mini clay figurines >:)" },
+  { image: "profile-content/frogs.jpg", caption: "↑ Showing off work I am proud of - including the final form of my clay frogs" },
+  { image: "profile-content/aqua.jpg", caption: "↑ Admiring sea life at Ripley's Aquarium" },
+  { image: "profile-content/emo.jpg", caption: "↑ Listening and belting to emo music (I am a great singer, trust)" }
 ];
 
 document.addEventListener("DOMContentLoaded", () => {
