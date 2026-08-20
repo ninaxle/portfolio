@@ -288,7 +288,6 @@ function buildPlaygroundCardContent(card, galleryCards, cardIndex) {
   }
 
   const imageClass =
-    card.category?.includes("illustration") ||
     card.title === "The Digital Music Box - Carousel Visualizer"
       ? "object-contain"
       : "object-cover";
