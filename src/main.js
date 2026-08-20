@@ -287,10 +287,21 @@ function buildPlaygroundCardContent(card, galleryCards, cardIndex) {
     return wrapper;
   }
 
+  const imageClass =
+    card.category?.includes("illustration") ||
+    card.title === "The Digital Music Box - Carousel Visualizer"
+      ? "object-contain"
+      : "object-cover";
+
+  const bgColor =
+    card.title === "The Digital Music Box - Carousel Visualizer"
+      ? "bg-[#FDF7F6]"
+      : "bg-transparent";
+
   wrapper.innerHTML = /*html*/ `
     <div class="w-full rounded-2xl relative z-10 overflow-hidden">
-      <div class="inner-content w-full rounded-2xl overflow-hidden border border-[#e5e3e3]">
-        ${getMediaHTML(card, card.category?.includes("illustration") ? "object-contain" : "object-cover", false)}
+      <div class="inner-content w-full rounded-2xl overflow-hidden border border-[#e5e3e3] ${bgColor}">
+        ${getMediaHTML(card, imageClass, false)}
       </div>
     </div>
     <div class="relative z-10">
@@ -642,12 +653,13 @@ const uxuiCardsData = [
 // Combined playground cards (brand + play) with categories for filtering
 const playgroundCardsData = [
 
+  // d&p------------------------------------------------------------------
   {
     title: "The Wish Economy",
     tags: "PUBLICATION | ASCII | P5JS",
     link: "https://www.desn.ca/2026-projects/project-3-nina-le",
     image: "wishe/thumbnail.jpg",
-    description: "A publication about birthdays, data, and digital performance",
+    description: "An ASCII publication analyzing birthdays and digital media (1/2).",
     category: ["digital & print"],
   },
 
@@ -657,7 +669,7 @@ const playgroundCardsData = [
     tags: "PUBLICATION | ASCII | P5JS",
     link: "https://www.desn.ca/2026-projects/project-3-nina-le",
     image: "wishe/death.jpg",
-    description: "A publication about birthdays, data, and digital performance",
+    description: "An ASCII publication analyzing birthdays and digital media (2/2).",
     category: ["digital & print"],
   },
 
@@ -665,51 +677,57 @@ const playgroundCardsData = [
     {
     title: "phi",
     tags: "TYPOGRAPHY | PRINT",
-    image: "phi.png",
-    description: "Typographic study of language barriers",
+    image: "play-content/phi.png",
+    description: "Phi Ta Khon ผีตาโขน (1/2).",
     category: ["digital & print"],
   },
       {
     title: "phi",
     tags: "TYPOGRAPHY | PRINT",
-    image: "phi2.png",
-    description: "Typographic study of language barriers",
+    image: "play-content/phi2.png",
+    description: "Phi Ta Khon ผีตาโขน (2/2).",
     category: ["digital & print"],
   },
 
 
-
-
-  // drawings
-  {
-    title: "lucid",
-    tags: "MOBILE & DESKTOP",
-    image: "lucid.png",
-    description: "website based on the essay",
-    category: ["illustration"],
-  },
-            {
-    title: "cakes",
-    tags: "MOBILE & DESKTOP",
-    image: "cakes.png",
-    description: "website based on the essay",
-    category: ["illustration"],
-  },
-
+  //      {
+  //   title: "Digital",
+  //   tags: "MOBILE & DESKTOP",
+  //   image: "play-content/contents.png",
+  //   description: "Table of Contents.",
+  //   category: ["digital & print"],
+  // },
 
   //       {
   //   title: "package",
   //   tags: "TYPOGRAPHY | PRINT",
-  //   image: "aqua.png",
-  //   description: "Typographic study of language barriers",
-  //   category: ["illustration"],
+  //   image: "play-content/aqua.png",
+  //   description: "Package design concept: Goldfish x Art Aquarium Museum, Toyko.",
+  //   category: ["digital & print"],
   // },
 
+  // drawings-----------------------------------------------------------------
+  {
+    title: "Lucid Awakening - Riding the propaganda train",
+    tags: "MOBILE & DESKTOP",
+    image: "play-content/lucid.png",
+    description: "Lucid Awakening. Prismacolor.",
+    category: ["illustration"],
+  },
+            {
+    title: "Batter Cakes - Architectural drawing of a conceptual Bakery",
+    tags: "MOBILE & DESKTOP",
+    image: "play-content/cakes.png",
+    description: "Batter Cakes. Watercolour.",
+    category: ["illustration"],
+  },
+
+
   //      {
-  //   title: "wwashi",
+  //   title: "Washi Design",
   //   tags: "MOBILE & DESKTOP",
-  //   image: "washi.png",
-  //   description: "website based on the essay",
+  //   image: "play-content/washi.png",
+  //   description: "Sketchbook experiment with stationary washi tape, ink and marker.",
   //   category: ["illustration"],
   // },
 
@@ -717,63 +735,25 @@ const playgroundCardsData = [
             {
     title: "doodle",
     tags: "MOBILE & DESKTOP",
-    image: "doodle.png",
-    description: "website based on the essay",
+    image: "play-content/doodle.png",
+    description: "A doodle based on music, water and movement. Ink and Prismacolor.",
     category: ["illustration"],
   },
 
 
                 {
-    title: "frog",
+    title: "A frog with hair and an japanese school uniform.",
     tags: "MOBILE & DESKTOP",
-    image: "character.png",
-    description: "website based on the essay",
+    image: "play-content/character.png",
+    description: "Chantelle Star, the frog-shaped diva. Prismacolor.",
     category: ["illustration"],
   },
-
-
-
-  //       {
-  //   title: "life drawing",
-  //   tags: "TYPOGRAPHY | PRINT",
-  //   image: "lifedrawing.png",
-  //   description: "Typographic study of language barriers",
-  //   category: ["illustration"],
-  // },
-       
-
-  {
-    title: "Lost in Translation",
-    tags: "TYPOGRAPHY | PRINT",
-    image: "sound.png",
-    description: "Typographic study of language barriers",
-    category: ["digital & print"],
-  },
-
 
   
 
 
 
 
-   
-  //    {
-  //   title: "Lost in Translation",
-  //   tags: "TYPOGRAPHY | PRINT",
-  //   image: "sound3.png",
-  //   description: "Typographic study of language barriers",
-  //   category: ["digital & print"],
-  // },
-       {
-    title: "Digital",
-    tags: "MOBILE & DESKTOP",
-    image: "contents.png",
-    description: "Digital dd concept: mastermind toys x momit sam york",
-    category: ["digital & print"],
-  },
-
-
-    
 
 
 
@@ -782,58 +762,64 @@ const playgroundCardsData = [
     title: "Dear Diary",
     tags: "ILLUSTRATION | WEB DESIGN | DESKTOP",
     link: "https://youtu.be/WAzITLPvqEU",
-    video: "red.mp4",
-    description: "Little Red Riding Hood as an interactive scroll experience",
+    video: "play-content/red.mp4",
+    description: "A scrolling web experience that reimagines Little Red Riding Hood.",
+    category: ["interactive"],
+  },
+
+  {
+    title: "Meiva",
+    tags: "MOBILE & DESKTOP",
+    image: "play-content/meiva.png",
+    description: "A responsive vaccine booking site designed to reduce friction",
+    category: ["interactive"],
+  },
+
+
+      {
+    title: "sertis",
+    tags: "MOBILE & DESKTOP",
+    image: "play-content/sertis.png",
+    description: "An application that integrates OCR to interpret doctors’ notes",
     category: ["interactive"],
   },
 
          {
     title: "spiral",
     tags: "MOBILE & DESKTOP",
-    image: "spiral.png",
-    description: "website based on the essay",
-    category: ["interactive"],
-  },
-
-      {
-    title: "sertis",
-    tags: "MOBILE & DESKTOP",
-    image: "sertis.png",
-    description: "OCR and doctors notes",
+    image: "play-content/spiral.png",
+    description: "An experience reflecting The Spiralist.",
     category: ["interactive"],
   },
 
 
-  {
-    title: "Meiva",
-    tags: "MOBILE & DESKTOP",
-    image: "meiva.png",
-    description: "A responsive vaccine booking site designed to reduce friction",
-    category: ["interactive"],
-  },
+  
 
-
-      
-  {
-    title: "The Purrfect Supper",
-    tags: "CODE | MINI-GAME",
-    link: "https://editor.p5js.org/ninistar/full/UL27yTVgl",
-    video: "pur.mp4",
-    description: "A catcher game built in p5.js. pixel art made in Aseprite.",
-    category: ["code"],
-  },
-
-
+  // code
+ 
   
     {
     title: "The Digital Music Box - Carousel Visualizer",
     tags: "CODE | MUSIC VISUALIZATION",
     link: "https://editor.p5js.org/ninistar/full/bu9tv-CMp",
-    video: "ponie2.mp4",
+    video: "play-content/ponie2.mp4",
     description: "An interactive music visualization using p5.js",
         category: ["code"],
 
   },
+
+
+       
+  {
+    title: "The Purrfect Supper",
+    tags: "CODE | MINI-GAME",
+    link: "https://editor.p5js.org/ninistar/full/UL27yTVgl",
+    video: "play-content/pur.mp4",
+    description: "A catcher game built in p5.js. pixel art made in Aseprite.",
+    category: ["code"],
+  },
+
+
 ];
 
 // Main execution
