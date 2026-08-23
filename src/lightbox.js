@@ -15,18 +15,6 @@ lightboxTemplate.innerHTML = /* html */ `
     }
     .overlay.open { display: flex; flex-direction: column; align-items: center; justify-content: center; }
 
-    .top-bar {
-      position: fixed;
-      bottom: 1.5rem;
-      left: 0;
-      right: 0;
-      display: flex;
-      justify-content: center;
-      z-index: 10;
-    }
-
-    .counter { color: #555; font-family: "Fragment Mono", monospace; font-size: 0.75rem; }
-
     .slide-area {
       display: flex;
       align-items: center;
@@ -56,9 +44,9 @@ lightboxTemplate.innerHTML = /* html */ `
 
     .content { flex: 1; min-width: 0; display: flex; flex-direction: column; align-items: center; }
 
-    .media-wrap { width: 100%; border-radius: 1rem; overflow: hidden; background: #1a1a1a; }
+    .media-wrap { width: 100%; background: #1a1a1a; border-radius: 1rem; }
     .media-wrap img,
-    .media-wrap video { width: 100%; max-height: 70vh; object-fit: contain; display: block; }
+    .media-wrap video { width: 100%; max-height: 70vh; object-fit: contain; display: block; border-radius: 1rem; }
 
     .caption { color: #999; font-family: "Fragment Mono", monospace; font-size: 0.875rem; margin-top: 1rem; text-align: center; line-height: 1.5; }
 
@@ -75,22 +63,56 @@ lightboxTemplate.innerHTML = /* html */ `
       transition: all 0.2s;
     }
     .visit-link:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.5); }
+    .visit-link.no-link { visibility: hidden; }
+
+    .counter { color: #555; font-family: "Fragment Mono", monospace; font-size: 0.75rem; margin-top: 1rem; }
 
     .hidden { display: none !important; }
+
+    .nav-row { display: none; }
+
+    @media (max-width: 768px) {
+      .slide-area {
+        flex-direction: column;
+        gap: 1rem;
+        padding-bottom: 4rem;
+        align-items: center;
+      }
+      .slide-area .prev-btn,
+      .slide-area .next-btn {
+        display: none;
+      }
+      .nav-btn {
+        width: 2.25rem;
+        height: 2.25rem;
+      }
+      .nav-row {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        position: fixed;
+        bottom: 2rem;
+        left: 0;
+        right: 0;
+        z-index: 10;
+      }
+    }
   </style>
 
   <div class="overlay">
-    <div class="top-bar">
-      <span class="counter"></span>
-    </div>
-
     <div class="slide-area">
       <button class="nav-btn prev-btn" aria-label="Previous">‹</button>
       <div class="content">
         <div class="media-wrap"></div>
         <p class="caption"></p>
-        <a class="visit-link hidden" target="_blank" rel="noopener noreferrer">View Project →</a>
+        <a class="visit-link" target="_blank" rel="noopener noreferrer">View Project →</a>
+        <span class="counter"></span>
       </div>
+      <button class="nav-btn next-btn" aria-label="Next">›</button>
+    </div>
+
+    <div class="nav-row">
+      <button class="nav-btn prev-btn" aria-label="Previous">‹</button>
       <button class="nav-btn next-btn" aria-label="Next">›</button>
     </div>
   </div>
@@ -107,14 +129,14 @@ class LightboxModal extends HTMLElement {
     this.captionEl = this.shadowRoot.querySelector(".caption");
     this.visitLink = this.shadowRoot.querySelector(".visit-link");
     this.counterEl = this.shadowRoot.querySelector(".counter");
-    this.prevBtn = this.shadowRoot.querySelector(".prev-btn");
-    this.nextBtn = this.shadowRoot.querySelector(".next-btn");
+    this.prevBtns = this.shadowRoot.querySelectorAll(".prev-btn");
+    this.nextBtns = this.shadowRoot.querySelectorAll(".next-btn");
 
     this._items = [];
     this._index = 0;
 
-    this.prevBtn.addEventListener("click", () => this._go(-1));
-    this.nextBtn.addEventListener("click", () => this._go(1));
+    this.prevBtns.forEach((btn) => btn.addEventListener("click", () => this._go(-1)));
+    this.nextBtns.forEach((btn) => btn.addEventListener("click", () => this._go(1)));
     this.overlay.addEventListener("click", (e) => {
       if (e.target === this.overlay) this.close();
     });
@@ -169,15 +191,15 @@ class LightboxModal extends HTMLElement {
 
     if (item.link) {
       this.visitLink.href = item.link;
-      this.visitLink.classList.remove("hidden");
+      this.visitLink.classList.remove("no-link");
     } else {
-      this.visitLink.classList.add("hidden");
+      this.visitLink.classList.add("no-link");
     }
 
     this.counterEl.textContent = `${this._index + 1} / ${this._items.length}`;
 
-    this.prevBtn.classList.toggle("disabled", this._index === 0);
-    this.nextBtn.classList.toggle("disabled", this._index === this._items.length - 1);
+    this.prevBtns.forEach((btn) => btn.classList.toggle("disabled", this._index === 0));
+    this.nextBtns.forEach((btn) => btn.classList.toggle("disabled", this._index === this._items.length - 1));
   }
 
   _pauseVideo() {
