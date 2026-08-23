@@ -350,10 +350,10 @@ function buildPlaygroundFilters(containerSelector, categories, onFilter) {
   function setActive(label) {
     wrapper.querySelectorAll("button").forEach((b) => {
       if (b.textContent === label) {
-        b.classList.add("bg-black", "text-white");
+        b.classList.add("bg-black", "text-white", "border-black");
         b.classList.remove("hover:border-black");
       } else {
-        b.classList.remove("bg-black", "text-white");
+        b.classList.remove("bg-black", "text-white", "border-black");
         b.classList.add("hover:border-black");
       }
     });

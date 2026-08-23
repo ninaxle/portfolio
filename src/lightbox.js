@@ -89,7 +89,7 @@ lightboxTemplate.innerHTML = /* html */ `
       <div class="content">
         <div class="media-wrap"></div>
         <p class="caption"></p>
-        <a class="visit-link hidden" target="_blank" rel="noopener noreferrer">Visit →</a>
+        <a class="visit-link hidden" target="_blank" rel="noopener noreferrer">View Project →</a>
       </div>
       <button class="nav-btn next-btn" aria-label="Next">›</button>
     </div>
