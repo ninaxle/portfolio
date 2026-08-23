@@ -35,6 +35,7 @@ lightboxTemplate.innerHTML = /* html */ `
       display: flex;
       align-items: center;
       justify-content: center;
+      margin-bottom: 8.525rem;
       cursor: pointer;
       transition: background 0.2s;
       font-family: "Fragment Mono", monospace;
