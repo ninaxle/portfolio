@@ -224,7 +224,7 @@ function buildGridSection(pair, boxOneText = "") {
       <div class="${PLACEHOLDER_BOX_HEIGHT} flex items-center px-6 border-x ${GRID_LINE}">
         ${boxOneText ? `<p class="text-grey">${boxOneText}</p>` : ""}
       </div>
-      <div class="${PLACEHOLDER_BOX_HEIGHT} border-x ${GRID_LINE}"></div>
+      <div class="${PLACEHOLDER_BOX_HEIGHT} border-x ${GRID_LINE} hidden md:block"></div>
     </div>
   `;
 
@@ -408,7 +408,7 @@ function createPlaygroundCards(sectionSelector, cardsData, filterContainerSelect
             <div class="${PLACEHOLDER_BOX_HEIGHT} flex items-center px-6 border-x ${GRID_LINE}">
               ${boxOneText ? `<p class="text-grey">${boxOneText}</p>` : ""}
             </div>
-            <div class="${PLACEHOLDER_BOX_HEIGHT} border-x ${GRID_LINE}"></div>
+            <div class="${PLACEHOLDER_BOX_HEIGHT} border-x ${GRID_LINE} hidden md:block"></div>
           </div>
         `;
 
@@ -842,7 +842,7 @@ const playgroundCardsData = [
 
 // Main execution
 document.addEventListener("DOMContentLoaded", () => {
-  createCards(".cards-section", uxuiCardsData, false, "// Craft at the intersection of design and code");
+  createCards(".cards-section", uxuiCardsData, false, "// Craft blending design and code");
   createPlaygroundCards(".cards-section3", playgroundCardsData, ".playground-filters");
 });
 
