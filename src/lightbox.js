@@ -44,9 +44,9 @@ lightboxTemplate.innerHTML = /* html */ `
 
     .content { flex: 1; min-width: 0; display: flex; flex-direction: column; align-items: center; }
 
-    .media-wrap { width: 100%; background: #1a1a1a; border-radius: 1rem; }
+    .media-wrap { width: 100%; aspect-ratio: 16 / 9; background: #1a1a1a; border-radius: 1rem; overflow: hidden; }
     .media-wrap img,
-    .media-wrap video { width: 100%; max-height: 70vh; object-fit: contain; display: block; border-radius: 1rem; }
+    .media-wrap video { width: 100%; height: 100%; object-fit: contain; display: block; }
 
     .caption { color: #999; font-family: "Fragment Mono", monospace; font-size: 0.875rem; margin-top: 1rem; text-align: center; line-height: 1.5; }
 
