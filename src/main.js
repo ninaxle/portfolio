@@ -61,12 +61,12 @@ const GRID_LINE = "border-[#d9d9d9]";
 
 // Fixed height shared by the "empty" cell in row 1 (box 2, and box 1 when it
 // has no text). Adjust here to resize it.
-const PLACEHOLDER_BOX_HEIGHT = "h-12";
+const PLACEHOLDER_BOX_HEIGHT = "h-10 md:h-12";
 
 // Inner padding for the two content cells (boxes 3, 4) so the card content
 // doesn't touch the border lines. Typography/spacing *within* the card
 // (space-y-4, text classes, etc.) is unchanged from before.
-const CONTENT_BOX_PADDING = "p-6";
+const CONTENT_BOX_PADDING = "p-6 pb-4 md:p-6";
 
 // Small gap between the two columns on desktop. Each row's own border-top
 // still spans the full width of the row (including this gap), so the
