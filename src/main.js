@@ -78,7 +78,7 @@ const COLUMN_GAP = "md:gap-x-4";
 // width/height attributes give the browser an aspect ratio hint for CLS,
 // actual display sizing is handled by CSS: fixed 385px height, object-fit
 // (cover/contain, set per-card via imageClass) controls how the media fills it.
-const MEDIA_HEIGHT = "h-[385px]";
+const MEDIA_HEIGHT = "w-full aspect-[8/5]";
 
 function getMediaHTML(card, imageClass, hasHover = false) {
   const hoverClass = hasHover
@@ -111,35 +111,52 @@ function getMediaHTML(card, imageClass, hasHover = false) {
   `;
 }
 
-// Builds the same "content" markup a card used to render inside a column
-// (media, tags, title, description — same typography, spacing, and border
-// radius as before), now sized to live inside a grid cell (box 3 or 4).
-function buildCardContent(card) {
+// Builds card content for both UX/UI and Playground cards
+// Unified styling: same hover, border, imageClass logic
+function buildCardContent(card, { showTitle = true, showTags = true, onClick = null } = {}) {
   const wrapper = document.createElement("div");
-  wrapper.className = `flex flex-col space-y-4 ${CONTENT_BOX_PADDING} h-full cursor-pointer`;
+  wrapper.className = `flex flex-col space-y-4 ${CONTENT_BOX_PADDING} h-full cursor-pointer md:hover:bg-[#F6F5F6] transition-colors duration-200`;
 
   if (!card) {
-    // No second project for this pair — leave the cell empty.
     return wrapper;
   }
 
   const imageClass =
-    card.title === "Dear Diary" ||
-    card.title === "Goodself Design System" ||
-    card.title === "The Digital Music Box - Carousel Visualizer" ||
-    card.title === "Meiva" ||
-    card.title === "The Purrfect Supper"
-      ? "object-cover"
-      : "object-contain";
+    card.title === "The Digital Music Box - Carousel Visualizer"
+      ? "object-contain"
+      : "object-cover";
+
+  const bgColor =
+    card.title === "The Digital Music Box - Carousel Visualizer"
+      ? "bg-[#FDF7F6]"
+      : "bg-transparent";
 
   let tagHTML = "";
-  if (card.tags) {
+  if (showTags && card.tags) {
     const tagsArray = card.tags.split(" | ");
     const bracketTags = tagsArray.map((tag) => `[${tag.trim()}]`).join(" ");
     tagHTML = `<p class="text-grey">${bracketTags}</p>`;
   }
 
-  if (card.link) {
+  const descriptionHTML = showTitle
+    ? `<p class="text-grey">${card.description || ""}</p>`
+    : `<p>${card.description || ""}</p>`;
+
+  if (onClick) {
+    // Playground card with lightbox
+    wrapper.innerHTML = /*html*/ `
+      <div class="w-full rounded-2xl relative z-10 overflow-hidden">
+        <div class="inner-content w-full rounded-2xl overflow-hidden border border-[#e5e3e3] ${bgColor}">
+          ${getMediaHTML(card, imageClass, false)}
+        </div>
+      </div>
+      <div class="relative z-10">
+        ${descriptionHTML}
+      </div>
+    `;
+    wrapper.addEventListener("click", onClick);
+  } else if (card.link) {
+    // UX/UI card with link
     const isExternal =
       card.link.startsWith("http://") || card.link.startsWith("https://");
     const targetAttr = isExternal
@@ -149,8 +166,8 @@ function buildCardContent(card) {
     wrapper.innerHTML = /*html*/ `
       <a href="${card.link}" class="space-y-4 block"${targetAttr}>
         <div class="w-full rounded-2xl relative z-10 overflow-hidden bg-light">
-          <div class="relative group">
-            ${getMediaHTML(card, imageClass, true)}
+          <div class="inner-content w-full rounded-2xl overflow-hidden border border-[#e5e3e3]">
+            ${getMediaHTML(card, imageClass, false)}
           </div>
         </div>
         <div class="relative z-10">
@@ -160,12 +177,13 @@ function buildCardContent(card) {
         </div>
       </a>
     `;
-  } else {
+  } else if (card) {
+    // UX/UI card without link (under construction)
     wrapper.classList.add("has-tooltip");
     wrapper.innerHTML = /*html*/ `
       <div class="w-full rounded-2xl relative z-10 overflow-hidden bg-[#f3f3f4]">
-        <div class="inner-content w-full rounded-2xl overflow-hidden">
-          ${getMediaHTML(card, imageClass, true)}
+        <div class="inner-content w-full rounded-2xl overflow-hidden border border-[#e5e3e3]">
+          ${getMediaHTML(card, imageClass, false)}
         </div>
         <span class="md:hidden absolute top-3 right-3" style="
           background: rgba(0, 0, 0, 0.7);
@@ -235,9 +253,9 @@ function buildGridSection(pair, boxOneText = "") {
   const innerGrid = document.createElement("div");
   innerGrid.className = `max-w-full xl:max-w-[94rem] xl:mx-auto  grid grid-cols-1 md:grid-cols-2 px-4 md:px-16 lg:px-[7.95rem] ${COLUMN_GAP}`;
 
-  [cardA, cardB].forEach((card) => {
+  [cardA, cardB].forEach((card, index) => {
     const box = document.createElement("div");
-    box.className = `border-x ${GRID_LINE}`;
+    box.className = `border-x ${GRID_LINE}${index === 0 ? ' border-b md:border-b-0' : ''}`;
     box.appendChild(buildCardContent(card));
     innerGrid.appendChild(box);
   });
@@ -277,52 +295,6 @@ function createCards(sectionSelector, cardsData, isBrandSection = false, boxOneT
 // ---------------------------------------------------------------------------
 // Playground card functions (filtered, image + caption only)
 // ---------------------------------------------------------------------------
-
-// Simplified card content for playground — image/video + caption only, no title/tags
-function buildPlaygroundCardContent(card, galleryCards, cardIndex) {
-  const wrapper = document.createElement("div");
-  wrapper.className = `flex flex-col space-y-4 ${CONTENT_BOX_PADDING} h-full cursor-pointer transition-colors duration-200 hover:bg-[#F6F5F6] group`;
-
-  if (!card) {
-    return wrapper;
-  }
-
-  const imageClass =
-    card.title === "The Digital Music Box - Carousel Visualizer"
-      ? "object-contain"
-      : "object-cover";
-
-  const bgColor =
-    card.title === "The Digital Music Box - Carousel Visualizer"
-      ? "bg-[#FDF7F6]"
-      : "bg-transparent";
-
-  wrapper.innerHTML = /*html/where to edit playcard content*/ `
-    <div class="w-full rounded-2xl relative z-10 overflow-hidden">
-      <div class="inner-content w-full rounded-2xl overflow-hidden border border-[#e5e3e3] ${bgColor}">
-        ${getMediaHTML(card, imageClass, false)}
-      </div>
-    </div>
-    <div class="relative z-10">
-      <p class="transition-colors duration-200">${card.description || ""}</p>
-    </div>
-  `;
-
-  wrapper.addEventListener("click", () => {
-    const lightbox = document.querySelector("lightbox-modal");
-    if (lightbox) {
-      const items = galleryCards.map((c) => ({
-        src: c.video || c.image,
-        type: c.video ? "video" : "image",
-        caption: c.description || "",
-        link: c.link || null,
-      }));
-      lightbox.open({ items, index: cardIndex });
-    }
-  });
-
-  return wrapper;
-}
 
 // Builds filter buttons for the playground
 function buildPlaygroundFilters(containerSelector, categories, onFilter) {
@@ -421,9 +393,23 @@ function createPlaygroundCards(sectionSelector, cardsData, filterContainerSelect
 
         [cardA, cardB].forEach((card, ci) => {
           const box = document.createElement("div");
-          box.className = `border-x ${GRID_LINE}`;
+          box.className = `border-x ${GRID_LINE}${ci === 0 ? ' border-b md:border-b-0' : ''}`;
           const cardIdx = i * 2 + ci;
-          box.appendChild(buildPlaygroundCardContent(card, filtered, cardIdx));
+
+          const onClick = card ? () => {
+            const lightbox = document.querySelector("lightbox-modal");
+            if (lightbox) {
+              const items = filtered.map((c) => ({
+                src: c.video || c.image,
+                type: c.video ? "video" : "image",
+                caption: c.description || "",
+                link: c.link || null,
+              }));
+              lightbox.open({ items, index: cardIdx });
+            }
+          } : null;
+
+          box.appendChild(buildCardContent(card, { showTitle: false, showTags: false, onClick }));
           innerGrid.appendChild(box);
         });
 
