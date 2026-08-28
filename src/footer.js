@@ -16,7 +16,19 @@ class FooterComponent extends HTMLElement {
         footer {
           background: #1B191B;
           border-top: 1px solid #272630;
-          padding: 40px 0;
+          padding: 40px 1rem; /* px-4, matches "Designing harmony" section */
+        }
+
+        @media (min-width: 768px) {
+          footer {
+            padding: 40px 4rem; /* md:px-16 */
+          }
+        }
+
+        @media (min-width: 1024px) {
+          footer {
+            padding: 40px 7.95rem; /* lg:px-[7.95rem] */
+          }
         }
 
         .footer-inner {
@@ -26,7 +38,19 @@ class FooterComponent extends HTMLElement {
           justify-content: space-between;
           align-items: center;
           gap: 2rem;
-          padding: 0 2rem;
+          padding: 0 1rem; /* px-4, matches inner div */
+        }
+
+        @media (min-width: 1024px) {
+          .footer-inner {
+            padding: 0 1.5rem; /* lg:px-6 */
+          }
+        }
+
+        @media (min-width: 1536px) {
+          .footer-inner {
+            padding: 0 2.5rem; /* 2xl:px-10 */
+          }
         }
 
         .footer-brand {
@@ -109,14 +133,7 @@ class FooterComponent extends HTMLElement {
         .social-links a.instagram:hover { background: rgb(255, 95, 158); }
         .social-links a.behance:hover { background: #5e3c49; }
 
-      /* Large desktop: removed padding to align to max */
-        @media (min-width: 1344px) { /* 80rem + padding offset */
-          .footer-inner {
-            padding: 0;
-          }
-        }
-
-        @media (min-width: 1536px) {
+      @media (min-width: 1536px) {
           header { font-size: 28px; }
         }
 
@@ -130,7 +147,7 @@ class FooterComponent extends HTMLElement {
             align-items: center;
             gap: 20px;
             text-align: center;
-            padding: 0 0.5rem; 
+            padding: 0 1rem; /* px-4, matches inner div */
           }
 
 
@@ -189,9 +206,9 @@ class FooterComponent extends HTMLElement {
               <a class="github" href="https://github.com/ninaxle" target="_blank" aria-label="GitHub">
                 <i class="fa-brands fa-github"></i>
               </a>
-              <!-- <a class="instagram" href="https://www.instagram.com/ninmedias/" target="_blank" aria-label="Instagram">
+              <a class="instagram" href="https://www.instagram.com/ninmedias/" target="_blank" aria-label="Instagram">
                 <i class="fa-brands fa-instagram"></i>
-              </a> -->
+              </a> 
               <!-- <a class="behance" href="https://www.behance.net/ninale1" target="_blank" aria-label="Behance">
                 <i class="fa-brands fa-behance"></i>
               </a> -->
