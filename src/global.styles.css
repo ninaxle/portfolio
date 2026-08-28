@@ -231,6 +231,7 @@ html, body {
   transform: translate(-50%, -50%);
   pointer-events: none;
   z-index: 20;
+  
 }
 
 .grid-crosshair-left {
@@ -240,6 +241,13 @@ html, body {
 .grid-crosshair-right {
   left: 100%;
 }
+
+ @media (max-width: 768px) {
+          .grid-crosshair-left,
+.grid-crosshair-right {
+            visibility: hidden;
+          }
+        }
 
 .grid-crosshair-left::before,
 .grid-crosshair-right::before {
