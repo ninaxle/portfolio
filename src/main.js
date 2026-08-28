@@ -66,7 +66,7 @@ const PLACEHOLDER_BOX_HEIGHT = "h-10 md:h-12";
 // Inner padding for the two content cells (boxes 3, 4) so the card content
 // doesn't touch the border lines. Typography/spacing *within* the card
 // (space-y-4, text classes, etc.) is unchanged from before.
-const CONTENT_BOX_PADDING = "p-6 pb-4 md:p-6";
+const CONTENT_BOX_PADDING = "p-4 pb-4 md:p-6";
 
 // Small gap between the two columns on desktop. Each row's own border-top
 // still spans the full width of the row (including this gap), so the
@@ -239,7 +239,7 @@ function buildGridSection(pair, boxOneText = "") {
   rowTop.className = `w-full border-t ${GRID_LINE}`;
   rowTop.innerHTML = /*html*/ `
     <div class="max-w-full xl:max-w-[94rem] xl:mx-auto grid grid-cols-1 md:grid-cols-2 px-4 md:px-16 lg:px-[7.95rem] ${COLUMN_GAP}">
-      <div class="${PLACEHOLDER_BOX_HEIGHT} flex items-center px-6 border-x ${GRID_LINE}">
+      <div class="${PLACEHOLDER_BOX_HEIGHT} flex items-center px-4 border-x ${GRID_LINE}">
         ${boxOneText ? `<p class="text-grey">${boxOneText}</p>` : ""}
       </div>
       <div class="${PLACEHOLDER_BOX_HEIGHT} border-x ${GRID_LINE} hidden md:block"></div>
@@ -377,7 +377,7 @@ function createPlaygroundCards(sectionSelector, cardsData, filterContainerSelect
         const boxOneText = "";
         rowTop.innerHTML = /*html*/ `
           <div class="max-w-full xl:max-w-[94rem] xl:mx-auto grid grid-cols-1 md:grid-cols-2 px-4 md:px-16 lg:px-[7.95rem] ${COLUMN_GAP}">
-            <div class="${PLACEHOLDER_BOX_HEIGHT} flex items-center px-6 border-x ${GRID_LINE}">
+            <div class="${PLACEHOLDER_BOX_HEIGHT} flex items-center px-4 border-x ${GRID_LINE}">
               ${boxOneText ? `<p class="text-grey">${boxOneText}</p>` : ""}
             </div>
             <div class="${PLACEHOLDER_BOX_HEIGHT} border-x ${GRID_LINE} hidden md:block"></div>
