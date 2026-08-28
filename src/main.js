@@ -115,11 +115,18 @@ function getMediaHTML(card, imageClass, hasHover = false) {
 // Unified styling: same hover, border, imageClass logic
 function buildCardContent(card, { showTitle = true, showTags = true, onClick = null } = {}) {
   const wrapper = document.createElement("div");
-  wrapper.className = `flex flex-col space-y-4 ${CONTENT_BOX_PADDING} h-full cursor-pointer md:hover:bg-[#F6F5F6] transition-colors duration-200`;
+  wrapper.className = `flex flex-col space-y-4 ${CONTENT_BOX_PADDING} h-full`;
 
   if (!card) {
     return wrapper;
   }
+
+  wrapper.classList.add(
+    "cursor-pointer",
+    "md:hover:bg-[#F6F5F6]",
+    "transition-colors",
+    "duration-200"
+  );
 
   const imageClass =
     card.title === "The Digital Music Box - Carousel Visualizer"
