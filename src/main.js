@@ -595,7 +595,7 @@ const uxuiCardsData = [
 
 
   {
-    title: "Radiate Showcase Website",
+    title: "Radiate Showcase Website 2026",
     tags: "PRODUCT MANAGEMENT | UX STRATEGY",
     link: "radiate.html",
     image: "radiate/thumbnail-1.png",
@@ -610,6 +610,12 @@ const uxuiCardsData = [
     image: "melio/melio.png",
     description: "Rhythm-based app helping dementia patients reconnect with time through music",
 
+  },
+  {
+    title: "Goodself Design System",
+    tags: "DESIGN SYSTEM | UI LIBRARIES | ACCESSIBILITY | MOBILE, DESKTOP & TABLET",
+    image: "ds.png",
+    description: "A healthtech design system designed around accessibility",
   },
 
 
@@ -629,15 +635,9 @@ const uxuiCardsData = [
     description: "Shaping product direction for enterprise contact center software",
   },
 
-  {
-    title: "Goodself Design System",
-    tags: "DESIGN SYSTEM | UI LIBRARIES | ACCESSIBILITY | MOBILE, DESKTOP & TABLET",
-    image: "ds.png",
-    description: "A healthtech design system designed around accessibility",
-  },
 
   {
-    title: "Accessichat",
+    title: "Accessichat | Honourable Mention in AI Creativity",
     image: "accessi.png",
     link: "accessichat.html",
     tags: "HONOURABLE MENTION | RGD CANADA '24 | HACKATHON | MOBILE",
@@ -645,7 +645,7 @@ const uxuiCardsData = [
   },
 
   {
-    title: "Here:after",
+    title: "Here:after | UX Award Winner",
     image: "here.png",
     link: "hereafter.html",
     tags: "WINNER | RGD CANADA '23 | UX RESEARCH | MOBILE",
@@ -727,14 +727,22 @@ const playgroundCardsData = [
   },
 
 
-  //      {
-  //   title: "Washi Design",
-  //   tags: "MOBILE & DESKTOP",
-  //   image: "play-content/washi.png",
-  //   description: "Sketchbook experiment with stationary washi tape, ink and marker.",
-  //   category: ["illustration"],
-  // },
 
+
+       {
+    title: "Washi Design",
+    tags: "MOBILE & DESKTOP",
+    image: "play-content/washi.png",
+    description: "Sketchbook experiment with stationary washi tape. Ink and marker.",
+    category: ["illustration"],
+  },
+    {
+    title: "Sweetheart from Omori",
+    tags: "MOBILE & DESKTOP",
+    image: "play-content/sweet.jpg",
+    description: "Sweetheart from Omori. Procreate drawing.",
+    category: ["illustration"],
+  },
 
             {
     title: "doodle",
@@ -752,8 +760,6 @@ const playgroundCardsData = [
     description: "Chantelle Star, the frog-shaped diva. Prismacolor.",
     category: ["illustration"],
   },
-
-  
 
 
 
