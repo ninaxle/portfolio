@@ -44,8 +44,9 @@
       <!-- Hero Image -->
       <div
         class="relative h-[60vh] md:h-[72vh] lg:max-h-[640px] xl:max-h-[748px]"
+        data-lightbox-exclude
       >
-        <img
+        <img loading="lazy"
           src="melio/thumbnail-hero.png"
           alt="Hero image"
           class="absolute top-0 left-0 w-full h-full object-cover"
@@ -271,12 +272,16 @@
 
     <!-- Import footer -->
     <script src="footer.js" type="module"></script>
-    <script src="https://unpkg.com/flowbite@1.4.0/dist/flowbite.js"></script>
 
     <footer-component></footer-component>
 
     <!-- Cursor effects -->
     <script type="module" src="cursor.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/flowbite@1.6.4/dist/flowbite.min.js"></script>
+
+    <!-- Lightbox -->
+    <script type="module" src="lightbox.js"></script>
+    <script type="module" src="lightbox-page.js"></script>
+    <lightbox-modal></lightbox-modal>
   </body>
 </html>
