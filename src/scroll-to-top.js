@@ -28,10 +28,11 @@ class ScrollComponent extends HTMLElement {
           display: flex;
           justify-content: center;
           align-items: center;
-          cursor: pointer;
-          transition: all 0.3s ease;
-          visibility: hidden; /* Initially hidden */
-          opacity: 0; /* Start as invisible */
+cursor: pointer;
+            z-index: 9999;
+            transition: all 0.3s ease;
+            visibility: hidden; /* Initially hidden */
+            opacity: 0; /* Start as invisible */
         }
 
         /* Bounce and Fade-in Animation */
