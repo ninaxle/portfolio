@@ -92,7 +92,7 @@ lightboxTemplate.innerHTML = /* html */ `
         gap: 1rem;
         justify-content: center;
         position: fixed;
-        bottom: 2rem;
+        bottom: 0.25rem;
         left: 0;
         right: 0;
         z-index: 10;

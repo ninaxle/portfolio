@@ -50,12 +50,12 @@ const awardsData = [
 ];
 
 const freeTimeData = [
-  { image: "profile-content/tea.jpg", caption: "↑ At afternoon tea; find the decoden phone case I made!" },
-  { image: "profile-content/code.jpg", caption: "↑ Coding! I have been coding with HTML, CSS/Tailwind, and some Javascript. Currently looking into Python..." },
-  { image: "profile-content/wip.jpg", caption: "↑ Making all kinds of art. Pivoting a bit from illustration, I've recently been sculpting mini clay figurines >:)" },
-  { image: "profile-content/frogs.jpg", caption: "↑ Showing off work I am proud of - including the final form of my clay frogs" },
-  { image: "profile-content/aqua.jpg", caption: "↑ Admiring sea life at Ripley's Aquarium" },
-  { image: "profile-content/emo.jpg", caption: "↑ Listening and belting to emo music (I am a great singer, trust)" }
+  { image: "profile-content/tea.jpg", caption: "At afternoon tea; find the decoden phone case I made!" },
+  { image: "profile-content/code.jpg", caption: "Coding! I am familiar with HTML, CSS/Tailwind, and JS." },
+  { image: "profile-content/wip.jpg", caption: "Making all kinds of art." },
+  { image: "profile-content/frogs.jpg", caption: "Showing off work I am proud of." },
+  { image: "profile-content/aqua.jpg", caption: "Admiring sea life at Ripley's Aquarium." },
+  { image: "profile-content/emo.jpg", caption: "Listening and belting to emo music." }
 ];
 
 document.addEventListener("DOMContentLoaded", () => {

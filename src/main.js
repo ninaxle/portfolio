@@ -461,7 +461,7 @@ function buildProfileSection(data, containerSelector) {
   row.className = `w-full border-t ${GRID_LINE}`;
 
   const innerGrid = document.createElement("div");
-  innerGrid.className = `grid grid-cols-1 md:grid-cols-2 ${COLUMN_GAP}`;
+  innerGrid.className = `grid grid-cols-1 lg:grid-cols-2 ${COLUMN_GAP}`;
 
   // Image cell
   const imageBox = document.createElement("div");
@@ -541,8 +541,8 @@ function buildAwardsSection(data, containerSelector) {
 }
 
 // Builds a free time grid — each item is one box (square image + caption)
-// 6 boxes total, single grid with CSS handling row wrap
-// Each cell uses border-x + border-t GRID_LINE
+// 1 col mobile, 2 cols tablet, 3 cols desktop, like the playground cards
+// Each cell uses border-x + border-t GRID_LINE, opens in the lightbox
 function buildFreeTimeSection(data, containerSelector) {
   const container = document.querySelector(containerSelector);
   if (!container) {
@@ -553,46 +553,60 @@ function buildFreeTimeSection(data, containerSelector) {
   const section = document.createElement("div");
   section.className = `flex flex-col w-full ${GRID_LINE}`;
 
-  // Split data into chunks of 3 for 3-column rows
-  const rows = [];
-  for (let i = 0; i < data.length; i += 3) {
-    rows.push(data.slice(i, i + 3));
-  }
+  // Placeholder row (empty cells)
+  const placeholderRow = document.createElement("div");
+  placeholderRow.className = `w-full border-t ${GRID_LINE}`;
+  placeholderRow.innerHTML = /*html*/ `
+    <div class="max-w-full xl:max-w-[94rem] xl:mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-4 md:px-16 lg:px-[7.95rem] ${COLUMN_GAP}">
+      <div class="${PLACEHOLDER_BOX_HEIGHT} border-x ${GRID_LINE}"></div>
+      <div class="${PLACEHOLDER_BOX_HEIGHT} border-x ${GRID_LINE} hidden md:block"></div>
+      <div class="${PLACEHOLDER_BOX_HEIGHT} border-x ${GRID_LINE} hidden lg:block"></div>
+    </div>
+  `;
+  section.appendChild(placeholderRow);
 
-  rows.forEach((rowItems) => {
-    // Placeholder row (empty cells)
-    const placeholderRow = document.createElement("div");
-    placeholderRow.className = `w-full border-t ${GRID_LINE}`;
-    placeholderRow.innerHTML = /*html*/ `
-      <div class="max-w-full xl:max-w-[94rem] xl:mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-4 md:px-16 lg:px-[7.95rem] ${COLUMN_GAP}">
-        <div class="${PLACEHOLDER_BOX_HEIGHT} border-x ${GRID_LINE}"></div>
-        <div class="${PLACEHOLDER_BOX_HEIGHT} border-x ${GRID_LINE} hidden md:block"></div>
-        <div class="${PLACEHOLDER_BOX_HEIGHT} border-x ${GRID_LINE} hidden lg:block"></div>
+  // Content row: all items in one continuous grid
+  const contentRow = document.createElement("div");
+  contentRow.className = `w-full border-t ${GRID_LINE}`;
+  const grid = document.createElement("div");
+  grid.className = `max-w-full xl:max-w-[94rem] xl:mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-4 md:px-16 lg:px-[7.95rem] ${COLUMN_GAP}`;
+
+  data.forEach((item, index) => {
+    const cell = document.createElement("div");
+    // Every card gets a top border except box 1 (the grid's top line covers
+    // it); box 2 stays borderless in 2-col, boxes 1-3 in 3-col.
+    const topBorder =
+      index === 0
+        ? ""
+        : index === 1
+          ? "border-t md:border-t-0"
+          : index === 2
+            ? "border-t lg:border-t-0"
+            : "border-t";
+    cell.className = `border-x ${GRID_LINE} ${topBorder} ${CONTENT_BOX_PADDING} flex flex-col cursor-pointer md:hover:bg-[#F6F5F6] transition-colors duration-200`;
+    cell.innerHTML = /*html*/ `
+      <div class="w-full rounded-2xl overflow-hidden bg-light border border-[#e5e3e3]">
+        <img src="${item.image}" class="w-full aspect-square object-cover" alt="${item.caption}" />
       </div>
+      <p class="pt-4">${item.caption}</p>
     `;
-    section.appendChild(placeholderRow);
-
-    // Content row
-    const contentRow = document.createElement("div");
-    contentRow.className = `w-full border-t ${GRID_LINE}`;
-    const grid = document.createElement("div");
-    grid.className = `max-w-full xl:max-w-[94rem] xl:mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-4 md:px-16 lg:px-[7.95rem] ${COLUMN_GAP}`;
-
-    rowItems.forEach((item) => {
-      const cell = document.createElement("div");
-      cell.className = `border-x ${GRID_LINE} ${CONTENT_BOX_PADDING} flex flex-col`;
-      cell.innerHTML = /*html*/ `
-        <div class="w-full rounded-2xl overflow-hidden bg-light">
-          <img src="${item.image}" class="w-full aspect-square object-cover" alt="${item.caption}" />
-        </div>
-        <p class="pt-4">${item.caption}</p>
-      `;
-      grid.appendChild(cell);
+    cell.addEventListener("click", () => {
+      const lightbox = document.querySelector("lightbox-modal");
+      if (lightbox) {
+        const items = data.map((c) => ({
+          src: c.image,
+          type: "image",
+          caption: c.caption || "",
+          link: c.link || null,
+        }));
+        lightbox.open({ items, index });
+      }
     });
-
-    contentRow.appendChild(grid);
-    section.appendChild(contentRow);
+    grid.appendChild(cell);
   });
+
+  contentRow.appendChild(grid);
+  section.appendChild(contentRow);
 
   container.appendChild(section);
 }
@@ -788,7 +802,7 @@ const playgroundCardsData = [
     title: "Meiva",
     tags: "MOBILE & DESKTOP",
     image: "play-content/meiva.png",
-    description: "A responsive vaccine booking site designed to reduce friction",
+    description: "A responsive vaccine booking site designed to reduce friction.",
     category: ["interactive"],
   },
 
@@ -797,7 +811,7 @@ const playgroundCardsData = [
     title: "sertis",
     tags: "MOBILE & DESKTOP",
     image: "play-content/sertis.png",
-    description: "An application that integrates OCR to interpret doctors’ notes",
+    description: "An application that integrates OCR to interpret doctors’ notes.",
     category: ["interactive"],
   },
 
@@ -820,7 +834,7 @@ const playgroundCardsData = [
     tags: "CODE | MUSIC VISUALIZATION",
     link: "https://editor.p5js.org/ninistar/full/bu9tv-CMp",
     video: "play-content/ponie2.mp4",
-    description: "An interactive music visualization using p5.js",
+    description: "An interactive music visualization using p5.js.",
         category: ["code"],
 
   },
