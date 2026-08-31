@@ -16,13 +16,13 @@ const profileData = {
       description: "My experiences shaped three things I believe about design:"
     },
     {
-      description: "<u>Empathy and focus come first.</u> Before deciding what a product should look or feel like, design decisions should be grounded in knowing whose experience is being shaped, and what they need in this specific moment."
+      description: "<u>Empathy and focus come first</u> Before deciding what a product should look or feel like, design decisions should be grounded in knowing whose experience is being shaped, and what they need in this specific moment."
     },
         {
-      description: "<u>Form goes with function.</u> I don't separate UI from UX. No matter how different the processes, they're all components of the final experience. You can't have good user experience with a bad interface."
+      description: "<u>Form goes with function</u> I don't separate UI from UX. No matter how different the processes, they're both components of the same final experience, and neither one exists in a vacuum."
     },
     {
-      description: "<u>Great design is pleasing.</u> A designer may have a different idea of a bad interface than the end user does. Pleasing will be defined differently depending on the audience; the goal is to make it pleasing for the people it's for."
+      description: "<u>Great design is pleasing</u> A designer may have a different idea of a bad interface than the end user does. Pleasing will be defined differently depending on the audience; the goal is to make it pleasing for the people it's for."
     },
     // {
     //   description: "Singing is still part of how I think. Even solo, I think about phrasing and pronunciation the way I think about layout. Design, like a good arrangement, is grounded in intentionality."
