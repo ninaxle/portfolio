@@ -489,7 +489,7 @@ function buildProfileSection(data, containerSelector) {
     data.experience.forEach((exp) => {
       textHTML += /*html*/ `
         <div>
-          <h6>${exp.description}</h6>
+          <h6${exp.listItem ? ' class="custom-list-item"' : ""}>${exp.description}</h6>
         </div>
       `;
     });
