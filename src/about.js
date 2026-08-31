@@ -8,21 +8,26 @@ const profileData = {
   // tagline: "// I git commit my design files, sing through my vowels, and pixel push until it's right. When I look at a cat, I see a circle and two triangles.",
   experience: [
     {
-      role: "Product Manager @ Radiate (YorkU)",
-      description: "Led product design and cross-team coordination for the graduate show, overseeing timelines, usability testing, and a scalable design system."
+      // role: "Product Manager @ Radiate (YorkU)",
+      description: "In high school choir, I was an alto. For a while, I thought that meant something about my voice. Instead, it meant something about my part. An alto's job is to hold the foundation by bridging the sopranos' melody and holding the harmony together underneath it. Turns out, that's most of what design is. Not every interface needs to sing soprano. Some products are meant to be loud, expressive, and delightful. Others are meant to disappear into the task and let the person get on with their day."
     },
     {
-      role: "User Experience Intern @ Genesys Cloud",
-      description: "Drove UX research and product strategy for a B2B SaaS platform by analyzing competitor design systems and translating usability insights into a prioritized feature roadmap."
+      // role: "User Experience Intern @ Genesys Cloud",
+      description: "My experiences shaped three things I believe about design:"
     },
     {
-      role: "UX/UI Intern @ Goodself",
-      description: "Designed and built a compliant, cross-platform design system and navigation structure from scratch while roadmapping a regulated medical tracking feature."
+      description: "Empathy and focus come first. Before deciding what a product should look or feel like, design decisions should be grounded in knowing whose experience is being shaped, and what they need in this specific moment."
+    },
+        {
+      description: "Form goes with function. I don't separate UI from UX. No matter how different the processes, they're all components of the final experience. You can't have good user experience with a bad interface."
     },
     {
-      role: "Product Design Intern @ Exomis Design + Development",
-      description: "Created research-backed user personas and journey maps to inform responsive, cross-device design decisions that improved retention and engagement."
-    }
+      description: "Great design is pleasing. A designer may have a different idea of a bad interface than the end user does. Pleasing will be defined differently depending on the audience; the goal is to make it work for the people it's for."
+    },
+    // {
+    //   description: "Singing is still part of how I think. Even solo, I think about phrasing and pronunciation the way I think about layout. Design, like a good arrangement, is grounded in intentionality."
+    // }
+
   ]
 };
 

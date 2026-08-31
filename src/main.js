@@ -485,11 +485,10 @@ function buildProfileSection(data, containerSelector) {
     textHTML += `<p class="text-grey">${data.tagline}</p>`;
   }
   if (data.experience && data.experience.length > 0) {
-    textHTML += `<div class="pt-4"><p class="text-grey">[EXPERIENCE]</p></div>`;
+    textHTML += `<div class="pt-4"><p class="text-grey">[MY DESIGN PHILOSOPHY]</p></div>`;
     data.experience.forEach((exp) => {
       textHTML += /*html*/ `
         <div>
-          <p>${exp.role}</p>
           <h6>${exp.description}</h6>
         </div>
       `;
@@ -808,7 +807,7 @@ const playgroundCardsData = [
 
 
       {
-    title: "sertis",
+    title: "OCR application for doctors’ notes",
     tags: "MOBILE & DESKTOP",
     image: "play-content/sertis.png",
     description: "An application that integrates OCR to interpret doctors’ notes.",
@@ -816,7 +815,7 @@ const playgroundCardsData = [
   },
 
          {
-    title: "spiral",
+    title: "The Spiralist",
     tags: "MOBILE & DESKTOP",
     image: "play-content/spiral.png",
     description: "An experience reflecting The Spiralist.",

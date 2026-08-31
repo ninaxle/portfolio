@@ -273,9 +273,8 @@ const HERO_TITLE = {
   options: {
     texts: [
       "Hey I am Nina, a ux/ui designer.",
-      "Hey I am Nina, a developer.",
+      "Hey I am Nina, a front-end developer.",
       "Hey I am Nina, a vocalist.",
-      "Hey I am Nina, an artist.",
     ],
     staticPrefix: "Hey I am Nina, ",
     trigger: "auto",
