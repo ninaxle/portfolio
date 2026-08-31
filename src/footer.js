@@ -206,7 +206,7 @@ class FooterComponent extends HTMLElement {
               <a class="github" href="https://github.com/ninaxle" target="_blank" aria-label="GitHub">
                 <i class="fa-brands fa-github"></i>
               </a>
-              <a class="instagram" href="https://www.instagram.com/ninmedias/" target="_blank" aria-label="Instagram">
+              <a class="instagram" href="https://www.instagram.com/duckatdusk" target="_blank" aria-label="Instagram">
                 <i class="fa-brands fa-instagram"></i>
               </a> 
               <!-- <a class="behance" href="https://www.behance.net/ninale1" target="_blank" aria-label="Behance">
