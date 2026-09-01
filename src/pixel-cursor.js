@@ -92,6 +92,19 @@ if (!isMobile) {
   }
 
   document.addEventListener("mousemove", (e) => {
+    const overFooter = e
+      .composedPath()
+      .some(
+        (el) =>
+          el &&
+          (el.tagName === "FOOTER" || el.tagName === "FOOTER-COMPONENT"),
+      );
+
+    if (overFooter) {
+      hasLastPoint = false;
+      return;
+    }
+
     const overSketch =
       e.target.tagName === "CANVAS" ||
       e.target.classList.contains("p5Canvas");
