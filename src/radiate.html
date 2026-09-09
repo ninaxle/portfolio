@@ -44,19 +44,33 @@
     <scroll-component></scroll-component>
     <header-component project-page project-name="RADIATE"></header-component>
 
+    <!-- Hero Image (full width, sidebars start below) -->
+    <div class="w-full max-w-[94rem] mx-auto">
+      <div
+        class="relative h-[60vh] md:h-[72vh] lg:max-h-[640px] xl:max-h-[748px]"
+        data-lightbox-exclude
+      >
+        <img
+          src="radiate/thumbnail-hero.png"
+          alt="Hero image"
+          class="absolute top-0 left-0 w-full h-full object-cover"
+        />
+      </div>
+    </div>
+
     <!-- Sidebar + content kept together, capped like the homepage -->
     <div class="w-full max-w-[94rem] mx-auto flex">
       <nav
         id="radiate-nav"
         aria-label="On this  "
-        class="hidden lg:flex lg:flex-col w-60 shrink-0 overflow-y-auto sticky top-0 h-screen self-start border-r border-grid pt-8 pb-8 px-8 font-['Fragment_Mono',monospace] tracking-[-0.04em]"
+        class="hidden lg:flex lg:flex-col w-max whitespace-nowrap shrink-0 overflow-y-auto sticky top-0 h-screen self-start border-r 2xl:border-l border-grid pt-14 pb-8 pl-12 pr-12 font-['Fragment_Mono',monospace] tracking-[-0.04em]"
       >
-        <a
+        <!-- <a
           href="index.html"
           class="flex items-center justify-between w-full uppercase text-[11px] text-grey tracking-wider rounded-md py-3 mb-4 hover:text-blob cursor-pointer transition-colors hover:underline underline-offset-4"
         >
           <span class="hover:underline underline-offset-4">← Back to Works</span>
-        </a>
+        </a> -->
         
         <span class="text-[11px] text-grey uppercase mb-2 mt-4 tracking-wider ">Documentation</span>
         <a href="#overview" data-scroll="overview" class="text-[13px] leading-[1.4] py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors">Overview</a>
@@ -80,26 +94,12 @@
         <a href="#phase-3" data-scroll="phase-3" class="text-[13px] leading-[1.4] py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors">Production and Launch</a>
         <a href="#building-qa" data-scroll="building-qa" class="text-[13px] leading-[1.4] py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors">Building and QA</a>
 
-        <span class="block mt-4 mb-4 border-l-2 pl-2.5"></span>
+        <span class="block w-full mt-4 mb-4 border-l-2 pl-2.5"></span>
         <a href="#final-outcomes" data-scroll="final-outcomes" class="text-[13px] leading-[1.4] py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors">Final Outcomes</a>
         <a href="#reflection" data-scroll="reflection" class="text-[13px] leading-[1.4] py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors">Reflection</a>
       </nav>
 
       <main class="flex-1 min-w-0">
-      <!-- Hero Image -->
-      <div>
-        <div
-          class="relative h-[60vh] md:h-[72vh] lg:max-h-[640px] xl:max-h-[748px]"
-          data-lightbox-exclude
-        >
-          <img
-            src="radiate/thumbnail-hero.png"
-            alt="Hero image"
-            class="absolute top-0 left-0 w-full h-full object-cover"
-          />
-        </div>
-      </div>
-
       <!-- Intro Section -->
       <section class="border-grid border-b">
         <div
@@ -1359,7 +1359,7 @@ Figma across mobile, tablet and desktop, standardized layouts where appropriate,
     <!-- Right spacing rail (empty, mirrors the sidebar) -->
     <div
       aria-hidden="true"
-      class="hidden lg:block sticky top-0 h-screen self-start w-32 shrink-0 border-l border-grid"
+      class="hidden lg:block sticky top-0 h-screen self-start w-12 shrink-0 border-l 2xl:border-r border-grid"
     ></div>
     </div>
 
