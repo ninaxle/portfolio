@@ -122,8 +122,8 @@ function buildCardContent(card, { showTitle = true, showTags = true, onClick = n
   }
 
   wrapper.classList.add(
-    "cursor-pointer",
-    "md:hover:bg-[#F6F5F6]",
+    "md:hover:cursor-pointer",
+    "md:hover:bg-[#EDEBEE]",
     "transition-colors",
     "duration-200"
   );
