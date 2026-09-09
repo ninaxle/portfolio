@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <!-- Google tag (gtag.js) -->
     <script
@@ -31,6 +31,10 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
     <title>Radiate Showcase Website</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fragment+Mono&display=swap"
+      rel="stylesheet"
+    />
   </head>
 
   <body>
@@ -40,28 +44,71 @@
     <scroll-component></scroll-component>
     <header-component project-page project-name="RADIATE"></header-component>
 
-    <main>
-      <!-- Hero Image -->
-      <div
-        class="relative h-[60vh] md:h-[72vh] lg:max-h-[640px] xl:max-h-[748px]"
-        data-lightbox-exclude
+    <!-- Sidebar + content kept together, capped like the homepage -->
+    <div class="w-full max-w-[94rem] mx-auto flex">
+      <nav
+        id="radiate-nav"
+        aria-label="On this  "
+        class="hidden lg:flex lg:flex-col w-60 shrink-0 overflow-y-auto sticky top-0 h-screen self-start border-r border-grid pt-8 pb-8 px-8 font-['Fragment_Mono',monospace] tracking-[-0.04em]"
       >
-        <img
-          src="radiate/thumbnail-hero.png"
-          alt="Hero image"
-          class="absolute top-0 left-0 w-full h-full object-cover"
-        />
+        <a
+          href="index.html"
+          class="flex items-center justify-between w-full uppercase text-[11px] font-bold tracking-wider rounded-md py-3 mb-4 text-black hover:text-blob cursor-pointer transition-colors hover:underline underline-offset-4"
+        >
+          <span class="hover:underline underline-offset-4">← Back to Works</span>
+        </a>
+        
+        <span class="text-[11px] text-grey uppercase mb-2 mt-4">Documentation</span>
+        <a href="#overview" data-scroll="overview" class="text-[13px] leading-[1.4] py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors">Overview</a>
+        <a href="#problem-statement" data-scroll="problem-statement" class="text-[13px] leading-[1.4] py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors">The Problem</a>
+        <a href="#solution" data-scroll="solution" class="text-[13px] leading-[1.4] py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors">The Solution</a>
+
+        <span class="block text-[11px] text-grey uppercase mt-7 mb-2">Phase 1</span>
+        <a href="#phase-1" data-scroll="phase-1" class="text-[13px] leading-[1.4] py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors">Discovery &amp; MVP</a>
+        <a href="#user-research" data-scroll="user-research" class="text-[13px] leading-[1.4] py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors">User Research</a>
+        <a href="#designing" data-scroll="designing" class="text-[13px] leading-[1.4] py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors">Designing on Figma</a>
+
+        <span class="block text-[11px] text-grey uppercase mt-7 mb-2">Phase 2</span>
+        <a href="#phase-2" data-scroll="phase-2" class="text-[13px] leading-[1.4] py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors">Strategic Foundation</a>
+        <a href="#scalable-system" data-scroll="scalable-system" class="text-[13px] leading-[1.4] py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors">Scalability</a>
+        <a href="#usability-testing" data-scroll="usability-testing" class="text-[13px] leading-[1.4] py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors">Usability Testing</a>
+        <a href="#ab-test" data-scroll="ab-test" class="text-[13px] leading-[1.4] py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors">A/B Testing</a>
+        <a href="#pain-points" data-scroll="pain-points" class="text-[13px] leading-[1.4] py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors">Key Pain Points</a>
+        <a href="#design-system" data-scroll="design-system" class="text-[13px] leading-[1.4] py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors">Design System Fixes</a>
+
+        <span class="block text-[11px] text-grey uppercase mt-7 mb-2">Phase 3</span>
+        <a href="#phase-3" data-scroll="phase-3" class="text-[13px] leading-[1.4] py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors">Production and Launch</a>
+        <a href="#building-qa" data-scroll="building-qa" class="text-[13px] leading-[1.4] py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors">Building and QA</a>
+
+        <span class="block mt-4 mb-4 border-l-2 pl-2.5"></span>
+        <a href="#final-outcomes" data-scroll="final-outcomes" class="text-[13px] leading-[1.4] py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors">Final Outcomes</a>
+        <a href="#reflection" data-scroll="reflection" class="text-[13px] leading-[1.4] py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors">Reflection</a>
+      </nav>
+
+      <main class="flex-1 min-w-0">
+      <!-- Hero Image -->
+      <div>
+        <div
+          class="relative h-[60vh] md:h-[72vh] lg:max-h-[640px] xl:max-h-[748px]"
+          data-lightbox-exclude
+        >
+          <img
+            src="radiate/thumbnail-hero.png"
+            alt="Hero image"
+            class="absolute top-0 left-0 w-full h-full object-cover"
+          />
+        </div>
       </div>
 
       <!-- Intro Section -->
       <section class="border-grid border-b">
         <div
-          class="max-w-7xl mx-auto flex flex-col pt-8 md:py-20 pb-8 gap-20 px-4"
+          class="max-w-7xl mx-auto flex flex-col pt-8 md:py-20 pb-8 gap-20 px-4 lg:px-12"
         >
           <div class="w-full flex flex-col gap-20 flex flex-col">
             <div class="flex flex-col gap-10 lg:w-[80%]">
               <div class="flex flex-col gap-8 pt-1">
-                <h2>Radiate Showcase Website</h2>
+                <h2 id="overview" class="scroll-mt-28">Radiate Showcase Website</h2>
                 <h4>
                   Radiate is York University's DESN 2026 Grad Show website,
                   built to help 44 design graduates get discovered by employers.
@@ -119,7 +166,7 @@
 
       <section class="image-display-section w-full border-grid border-b">
         <div class="image-container max-w-7xl mx-auto">
-          <div class="md:border-grid border-x sm:px-4">
+          <div class="md:border-grid border-x sm:px-4 lg:px-12">
             <p class="text-grey py-3 px-4 sm:px-0">[DESN.CA // WALKTHROUGH VIDEO]</p>
           </div>
           <iframe
@@ -134,11 +181,11 @@
       <!-- Problem Statement -->
       <section class="border-grid border-b">
         <div
-          class="max-w-7xl mx-auto flex flex-col py-8 md:py-12 md:pb-24 px-4 gap-4"
+          class="max-w-7xl mx-auto flex flex-col py-8 md:py-12 md:pb-24 px-4 gap-4 lg:px-12"
         >
           <div class="flex flex-col gap-10">
             <div class="flex flex-col gap-4 pt-1">
-              <p class="uppercase text-grey">The Problem Statement</p>
+              <p id="problem-statement" class="uppercase text-grey scroll-mt-28">The Problem Statement</p>
               <h4>
                 Grad show sites often reduce students to an identical grid of
                 thumbnails, making it hard for employers to judge fit and easy
@@ -153,11 +200,11 @@
       <!-- solution Statement -->
       <section class="border-grid border-b">
         <div
-          class="max-w-7xl mx-auto flex flex-col py-8 md:py-12 md:pb-24 px-4 gap-4"
+          class="max-w-7xl mx-auto flex flex-col py-8 md:py-12 md:pb-24 px-4 gap-4 lg:px-12"
         >
           <div class="flex flex-col gap-10">
             <div class="flex flex-col gap-4 pt-1">
-              <p class="uppercase text-grey">The Solution</p>
+              <p id="solution" class="uppercase text-grey scroll-mt-28">The Solution</p>
               <h4>
                 Every Radiate page gives each student a distinct identity
                 through their own profile, interactive contribution credits, and
@@ -176,7 +223,7 @@
       >
         <div class="image-display-section w-full border-grid border-b">
           <div class="image-container max-w-7xl mx-auto">
-            <div class="md:border-grid border-x sm:px-4">
+            <div class="md:border-grid border-x sm:px-4 lg:px-12">
               <p class="text-grey py-3 px-4 sm:px-0">
                 [STUDENT FEATURES // PERSONALIZED STUDENT PROFILES]
               </p>
@@ -195,7 +242,7 @@
         <!-- FIG.14 -->
         <div class="image-display-section w-full border-grid border-b">
           <div class="image-container max-w-7xl mx-auto">
-            <div class="md:border-grid border-x sm:px-4">
+            <div class="md:border-grid border-x sm:px-4 lg:px-12">
               <p class="text-grey py-3 px-4 sm:px-0">
                 [STUDENT FEATURES // SCANNABLE CASE STUDIES]
               </p>
@@ -218,7 +265,7 @@
       >
         <div class="image-display-section w-full border-grid border-b">
           <div class="image-container max-w-7xl mx-auto">
-            <div class="md:border-grid border-x sm:px-4">
+            <div class="md:border-grid border-x sm:px-4 lg:px-12">
               <p class="text-grey py-3 px-4 sm:px-0">
                 [STUDENT FEATURES // EMBLEM INTERACTIONS]
               </p>
@@ -237,7 +284,7 @@
         <!-- FIG.14 -->
         <div class="image-display-section w-full border-grid border-b">
           <div class="image-container max-w-7xl mx-auto">
-            <div class="md:border-grid border-x sm:px-4">
+            <div class="md:border-grid border-x sm:px-4 lg:px-12">
               <p class="text-grey py-3 px-4 sm:px-0">
                 [STUDENT FEATURES // INTERACTIVE CREDITS]
               </p>
@@ -259,10 +306,10 @@
       <!-- Product Development -->
       <section class="border-grid border-b">
         <div
-          class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-24 px-4 justify-between gap-8"
+          class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-24 px-4 justify-between gap-8 lg:px-12"
         >
           <div class="lg:w-[30%] shrink-0">
-            <h4>Phase 1: Discovery & MVP</h4>
+            <h4 id="phase-1" class="scroll-mt-28">Phase 1: Discovery & MVP</h4>
           </div>
           <div class="flex flex-col gap-4 md:gap-10 lg:w-[70%]">
             <div class="flex flex-col gap-4">
@@ -290,16 +337,14 @@
             </div>
               </div>
               
-            </div>
+</div>
           </div>
-        </div>
       </section>
-
 
       <!-- phase 1 -->
       <section class="image-display-section border-grid border-b w-full">
         <div class="image-container max-w-7xl mx-auto">
-          <div class="md:border-grid border-x sm:px-4">
+          <div class="md:border-grid border-x sm:px-4 lg:px-12">
             <p class="text-grey py-3 px-4 sm:px-0">
               [PHASE 1 FINAL DESIGN (V2) // SHIPPED ON NOV 3, 2025]
             </p>
@@ -321,10 +366,10 @@
       <!-- Product Development -->
       <section class="border-grid border-b">
         <div
-          class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-24 px-4 justify-between gap-8"
+          class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-24 px-4 justify-between gap-8 lg:px-12"
         >
           <div class="lg:w-[30%] shrink-0">
-            <h4>User Research</h4>
+            <h4 id="user-research" class="scroll-mt-28">User Research</h4>
           </div>
           <div class="flex flex-col gap-4 md:gap-10 lg:w-[70%]">
             <div class="flex flex-col gap-4">
@@ -359,13 +404,12 @@ Through the empathy mapping exercise, we gathered what a recruiter would need fr
               </div>
               
             </div>
-          </div>
-        </div>
+</div>
       </section>
 
-<section class="flex flex-col sm:flex-row gap-4 image-container max-w-7xl mx-auto">
+      <section class="flex flex-col sm:flex-row gap-4 image-container max-w-7xl mx-auto">
   <div class="image-display-section sm:w-2/5 border-grid border-b flex flex-col">
-    <div class="md:border-grid border-x sm:px-4">
+    <div class="md:border-grid border-x sm:px-4 lg:px-12">
       <p class="text-grey py-3 px-4 sm:px-0">
         [P1 IA // MVP BRIDGE]
       </p>
@@ -375,7 +419,7 @@ Through the empathy mapping exercise, we gathered what a recruiter would need fr
     </div>
   </div>
   <div class="image-display-section sm:w-3/5 border-grid border-b flex flex-col">
-    <div class="md:border-grid border-x sm:px-4">
+    <div class="md:border-grid border-x sm:px-4 lg:px-12">
       <p class="text-grey py-3 px-4 sm:px-0">
         [COMPETITIVE ANALYSIS // OFFERINGS ACROSS 9 GRAD SHOWS]
       </p>
@@ -390,10 +434,10 @@ Through the empathy mapping exercise, we gathered what a recruiter would need fr
 
         <section class="border-grid border-b">
         <div
-          class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-24 px-4 justify-between gap-8 md:gap-10"
+          class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-24 px-4 justify-between gap-8 md:gap-10 lg:px-12"
         >
           <div class="lg:w-[30%] shrink-0">
-            <h4>Designing on Figma
+            <h4 id="designing" class="scroll-mt-28">Designing on Figma
 
 </h4>
           </div>
@@ -413,7 +457,7 @@ Through the empathy mapping exercise, we gathered what a recruiter would need fr
       >
         <div class="image-display-section w-full border-grid border-b">
           <div class="image-container max-w-7xl mx-auto">
-            <div class="md:border-grid border-x sm:px-4">
+            <div class="md:border-grid border-x sm:px-4 lg:px-12">
               <p class="text-grey py-3 px-4 sm:px-0">
                 [P1 ITERATIONS // BEFORE BRAND IDENTITY WAS FINALIZED]
               </p>
@@ -428,7 +472,7 @@ Through the empathy mapping exercise, we gathered what a recruiter would need fr
         <!-- FIG.14 -->
         <div class="image-display-section w-full border-grid border-b">
           <div class="image-container max-w-7xl mx-auto">
-            <div class="md:border-grid border-x sm:px-4">
+            <div class="md:border-grid border-x sm:px-4 lg:px-12">
               <p class="text-grey py-3 px-4 sm:px-0">
                 [P1, V1 // SHIPPED OCTOBER 20, 2025 (COLOURS SWAPPED IN V2 RELEASE)]
               </p>
@@ -449,10 +493,10 @@ Through the empathy mapping exercise, we gathered what a recruiter would need fr
 
   <section class="border-grid border-b">
         <div
-          class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-24 px-4 justify-between gap-8"
+          class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-24 px-4 justify-between gap-8 lg:px-12"
         >
           <div class="lg:w-[30%] shrink-0">
-            <h4>Phase 2: Strategic Foundation</h4>
+            <h4 id="phase-2" class="scroll-mt-28">Phase 2: Strategic Foundation</h4>
           </div>
           <div class="flex flex-col gap-4 md:gap-10 lg:w-[70%]">
             <div class="flex flex-col gap-4">
@@ -479,7 +523,6 @@ Phase 2 delivered the core homepage (about-us, CTAs, photography & countdown) wi
               
             </div>
           </div>
-        </div>
       </section>
 
 
@@ -487,7 +530,7 @@ Phase 2 delivered the core homepage (about-us, CTAs, photography & countdown) wi
       <!-- FIG.6 heading -->
       <section class="image-display-section border-grid border-b w-full">
         <div class="image-container max-w-7xl mx-auto">
-          <div class="md:border-grid border-x sm:px-4">
+          <div class="md:border-grid border-x sm:px-4 lg:px-12">
             <p class="text-grey py-3 px-4 sm:px-0">
               [PHASE 2 FINAL DESIGN // SHIPPED ON JAN 4, 2026]
             </p>
@@ -509,10 +552,10 @@ Phase 2 delivered the core homepage (about-us, CTAs, photography & countdown) wi
 
         <section class="border-grid border-b">
         <div
-          class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-24 px-4 justify-between gap-8 md:gap-10"
+          class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-24 px-4 justify-between gap-8 md:gap-10 lg:px-12"
         >
           <div class="lg:w-[30%] shrink-0">
-            <h4>Creating a Scalable System
+            <h4 id="scalable-system" class="scroll-mt-28">Creating a Scalable System
 
 </h4>
           </div>
@@ -537,7 +580,7 @@ We scoped and designed the homepage (Phase 2) and the CMS & Sponsors (Phase 3) c
       >
         <div class="image-display-section w-full border-grid border-b">
           <div class="image-container max-w-7xl mx-auto">
-            <div class="md:border-grid border-x sm:px-4">
+            <div class="md:border-grid border-x sm:px-4 lg:px-12">
               <p class="text-grey py-3 px-4 sm:px-0">
                 [P2 IA // SPONSOR TIER INFO & BRAND IDENTITY]
               </p>
@@ -552,7 +595,7 @@ We scoped and designed the homepage (Phase 2) and the CMS & Sponsors (Phase 3) c
         <!-- FIG.14 -->
         <div class="image-display-section w-full border-grid border-b">
           <div class="image-container max-w-7xl mx-auto">
-            <div class="md:border-grid border-x sm:px-4">
+            <div class="md:border-grid border-x sm:px-4 lg:px-12">
               <p class="text-grey py-3 px-4 sm:px-0">
                 [P3 IA // CMS & SPONSOR WALL]
               </p>
@@ -573,10 +616,10 @@ We scoped and designed the homepage (Phase 2) and the CMS & Sponsors (Phase 3) c
       <!-- My Responsibilities -->
       <section class="border-grid border-b">
         <div
-          class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-16 px-4 justify-between gap-8"
+          class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-16 px-4 justify-between gap-8 lg:px-12"
         >
           <div class="lg:w-[30%] shrink-0">
-            <h4>Usability Testing
+            <h4 id="usability-testing" class="scroll-mt-28">Usability Testing
 </h4>
           </div>
           <div class="flex flex-col gap-10 lg:w-[70%]">
@@ -602,7 +645,7 @@ Overall sentiment was positive and the “would recommend to a friend” score c
             <!-- FIG.9 MOOD CATEGORIZATION FINDINGS -->
       <section class="image-display-section border-grid border-b w-full">
         <div class="image-container max-w-7xl mx-auto">
-          <div class="md:border-grid border-x sm:px-4">
+          <div class="md:border-grid border-x sm:px-4 lg:px-12">
             <p class="text-grey py-3 px-4 sm:px-0">
               ["ON A SCALE OF 1-5, HOW LIKELY ARE YOU TO RECOMMEND THE WEBSITE TO A FRIEND?"]
             </p>
@@ -622,10 +665,10 @@ Overall sentiment was positive and the “would recommend to a friend” score c
       <!-- My Responsibilities -->
       <section class="border-grid border-b">
         <div
-          class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-16 px-4 justify-between gap-8"
+          class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-16 px-4 justify-between gap-8 lg:px-12"
         >
           <div class="lg:w-[30%] shrink-0">
-            <h4>The Project Page A/B Test
+            <h4 id="ab-test" class="scroll-mt-28">The Project Page A/B Test
 </h4>
           </div>
           <div class="flex flex-col gap-10 lg:w-[70%]">
@@ -662,7 +705,7 @@ To resolve layout direction for student profiles, we ran an A/B preference test.
        <!-- FIG.6 heading -->
       <section class="image-display-section border-grid border-b w-full">
         <div class="image-container max-w-7xl mx-auto">
-          <div class="md:border-grid border-x sm:px-4">
+          <div class="md:border-grid border-x sm:px-4 lg:px-12">
             <p class="text-grey py-3 px-4 sm:px-0">
               [USABILITY // SCREEN C REDESIGN]
             </p>
@@ -682,11 +725,11 @@ To resolve layout direction for student profiles, we ran an A/B preference test.
       <!-- Shirley Section -->
       <section class="border-grid border-b">
         <div
-          class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-24 px-4 justify-between gap-8"
+          class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-24 px-4 justify-between gap-8 lg:px-12"
         >
 
           <div class="lg:w-[30%] shrink-0">
-            <h4>Addressing Key Pain Points</h4>
+            <h4 id="pain-points" class="scroll-mt-28">Addressing Key Pain Points</h4>
           </div>
           <div class="flex flex-col gap-4 md:gap-10 lg:w-[70%]">
 
@@ -762,10 +805,10 @@ To resolve layout direction for student profiles, we ran an A/B preference test.
       <!-- Wireframing & Prototyping -->
       <section class="border-grid border-b">
         <div
-          class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-24 px-4 justify-between gap-8 md:gap-10"
+          class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-24 px-4 justify-between gap-8 md:gap-10 lg:px-12"
         >
           <div class="lg:w-[30%] shrink-0">
-            <h4>Scaling Fixes into the Design System</h4>
+            <h4 id="design-system" class="scroll-mt-28">Scaling Fixes into the Design System</h4>
           </div>
           <div class="flex flex-col lg:w-[70%]">
             <h4>
@@ -796,7 +839,7 @@ To resolve layout direction for student profiles, we ran an A/B preference test.
       <!-- FIG.6 heading -->
       <section class="image-display-section border-grid border-b w-full">
         <div class="image-container max-w-7xl mx-auto">
-          <div class="md:border-grid border-x sm:px-4">
+          <div class="md:border-grid border-x sm:px-4 lg:px-12">
             <p class="text-grey py-3 px-4 sm:px-0">
               [DESIGN SYSTEM // DESKTOP GRID SYSTEM]
             </p>
@@ -820,7 +863,7 @@ To resolve layout direction for student profiles, we ran an A/B preference test.
       >
         <div class="image-display-section w-full border-grid border-b">
           <div class="image-container max-w-7xl mx-auto">
-            <div class="md:border-grid border-x sm:px-4">
+            <div class="md:border-grid border-x sm:px-4 lg:px-12">
               <p class="text-grey py-3 px-4 sm:px-0">
                 [DESIGN SYSTEM // CTA BUTTONS]
               </p>
@@ -839,7 +882,7 @@ To resolve layout direction for student profiles, we ran an A/B preference test.
         <!-- FIG.14 -->
         <div class="image-display-section w-full border-grid border-b">
           <div class="image-container max-w-7xl mx-auto">
-            <div class="md:border-grid border-x sm:px-4">
+            <div class="md:border-grid border-x sm:px-4 lg:px-12">
               <p class="text-grey py-3 px-4 sm:px-0">
                 [DESIGN SYSTEM // PRIMARY BUTTON STATES]
               </p>
@@ -853,13 +896,13 @@ To resolve layout direction for student profiles, we ran an A/B preference test.
               class="md:border border-grid md:border-b-0 w-full"
               alt="All Features"
             >
-          </div>
-        </div>
+</div>
       </section>
+
       <!-- FIG.6 heading -->
       <section class="image-display-section border-grid border-b w-full">
         <div class="image-container max-w-7xl mx-auto">
-          <div class="md:border-grid border-x sm:px-4">
+          <div class="md:border-grid border-x sm:px-4 lg:px-12">
             <p class="text-grey py-3 px-4 sm:px-0">
               [DESIGN SYSTEM // HEADINGS THROUGH P2 TO P3]
             </p>
@@ -878,7 +921,7 @@ To resolve layout direction for student profiles, we ran an A/B preference test.
 
  <section class="image-display-section border-grid border-b w-full">
         <div class="image-container max-w-7xl mx-auto">
-          <div class="md:border-grid border-x sm:px-4">
+          <div class="md:border-grid border-x sm:px-4 lg:px-12">
             <p class="text-grey py-3 px-4 sm:px-0">
               [DESIGN SYSTEM // FOOTERS THROUGH P2 TO P3]
             </p>
@@ -898,10 +941,10 @@ To resolve layout direction for student profiles, we ran an A/B preference test.
 
   <section class="border-grid border-b">
         <div
-          class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-24 px-4 justify-between gap-8"
+          class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-24 px-4 justify-between gap-8 lg:px-12"
         >
           <div class="lg:w-[30%] shrink-0">
-            <h4>Phase 3: Production and Launch</h4>
+            <h4 id="phase-3" class="scroll-mt-28">Phase 3: Production and Launch</h4>
           </div>
           <div class="flex flex-col gap-4 md:gap-10 lg:w-[70%]">
             <div class="flex flex-col gap-4">
@@ -930,7 +973,6 @@ With the homepage shipped, Phase 3 involved homepage updates, rolling out 130+ C
               
             </div>
           </div>
-        </div>
       </section>
 
 
@@ -938,7 +980,7 @@ With the homepage shipped, Phase 3 involved homepage updates, rolling out 130+ C
       <!-- FIG.6 heading -->
       <section class="image-display-section border-grid border-b w-full">
         <div class="image-container max-w-7xl mx-auto">
-          <div class="md:border-grid border-x sm:px-4">
+          <div class="md:border-grid border-x sm:px-4 lg:px-12">
             <p class="text-grey py-3 px-4 sm:px-0">
               [PHASE 3 FINAL DESIGN // SHIPPED ON APR 3, 2026]
             </p>
@@ -963,11 +1005,11 @@ With the homepage shipped, Phase 3 involved homepage updates, rolling out 130+ C
         <!-- Shirley Section -->
       <section class="border-grid border-b">
         <div
-          class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-24 px-4 justify-between gap-8"
+          class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-24 px-4 justify-between gap-8 lg:px-12"
         >
 
           <div class="lg:w-[30%] shrink-0">
-            <h4>Building and QA</h4>
+            <h4 id="building-qa" class="scroll-mt-28">Building and QA</h4>
           </div>
           <div class="flex flex-col gap-4 md:gap-10 lg:w-[70%]">
 
@@ -1055,7 +1097,7 @@ Figma across mobile, tablet and desktop, standardized layouts where appropriate,
 
             <section class="image-display-section border-grid border-b w-full">
         <div class="image-container max-w-7xl mx-auto">
-          <div class="md:border-grid border-x sm:px-4">
+          <div class="md:border-grid border-x sm:px-4 lg:px-12">
             <p class="text-grey py-3 px-4 sm:px-0">
               [FIG.7 USING UTILITY CLASSES TO CREATE FLEX LAYOUTS]
             </p>
@@ -1081,7 +1123,7 @@ Figma across mobile, tablet and desktop, standardized layouts where appropriate,
       >
         <div class="image-display-section w-full border-grid border-b">
           <div class="image-container max-w-7xl mx-auto">
-            <div class="md:border-grid border-x sm:px-4">
+            <div class="md:border-grid border-x sm:px-4 lg:px-12">
               <p class="text-grey py-3 px-4 sm:px-0">
                 [DESN.CA // PROJECTS]
               </p>
@@ -1096,7 +1138,7 @@ Figma across mobile, tablet and desktop, standardized layouts where appropriate,
         <!-- FIG.14 -->
         <div class="image-display-section w-full border-grid border-b">
           <div class="image-container max-w-7xl mx-auto">
-            <div class="md:border-grid border-x sm:px-4">
+            <div class="md:border-grid border-x sm:px-4 lg:px-12">
               <p class="text-grey py-3 px-4 sm:px-0">
                 [DESN.CA // MOBILE OVERVIEW]
               </p>
@@ -1115,7 +1157,7 @@ Figma across mobile, tablet and desktop, standardized layouts where appropriate,
       >
         <div class="image-display-section w-full border-grid border-b">
           <div class="image-container max-w-7xl mx-auto">
-            <div class="md:border-grid border-x sm:px-4">
+            <div class="md:border-grid border-x sm:px-4 lg:px-12">
               <p class="text-grey py-3 px-4 sm:px-0">
                 [DESN.CA // MOBILE CASE STUDY & PROFILE]
               </p>
@@ -1130,7 +1172,7 @@ Figma across mobile, tablet and desktop, standardized layouts where appropriate,
         <!-- FIG.14 -->
         <div class="image-display-section w-full border-grid border-b">
           <div class="image-container max-w-7xl mx-auto">
-            <div class="md:border-grid border-x sm:px-4">
+            <div class="md:border-grid border-x sm:px-4 lg:px-12">
               <p class="text-grey py-3 px-4 sm:px-0">
                 [DESN.CA // CREDITS CAROUSEL]
               </p>
@@ -1150,10 +1192,10 @@ Figma across mobile, tablet and desktop, standardized layouts where appropriate,
       <!-- Final Outcomes -->
       <section class="border-grid border-b">
         <div
-          class="max-w-7xl mx-auto flex flex-col lg:flex-row py-12 pb-16 px-4 justify-between gap-8"
+          class="max-w-7xl mx-auto flex flex-col lg:flex-row py-12 pb-16 px-4 justify-between gap-8 lg:px-12"
         >
           <div class="lg:w-[30%] shrink-0">
-            <h4>Final Outcomes</h4>
+            <h4 id="final-outcomes" class="scroll-mt-28">Final Outcomes</h4>
           </div>
           <div class="flex flex-col gap-10 lg:w-[70%]">
             <div class="flex flex-col gap-6">
@@ -1182,10 +1224,10 @@ Figma across mobile, tablet and desktop, standardized layouts where appropriate,
       <!-- My Responsibilities -->
       <section class="border-grid border-b">
         <div
-          class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-16 px-4 justify-between gap-8"
+          class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-16 px-4 justify-between gap-8 lg:px-12"
         >
           <div class="lg:w-[30%] shrink-0">
-            <h4>Reflection</h4>
+            <h4 id="reflection" class="scroll-mt-28">Reflection</h4>
           </div>
           <div class="flex flex-col gap-10 lg:w-[70%]">
             <div class="flex flex-col gap-3">
@@ -1235,7 +1277,7 @@ Figma across mobile, tablet and desktop, standardized layouts where appropriate,
   <!-- FIG.19 -->
       <section class="image-display-section w-full border-grid border-b">
         <div class="image-container max-w-7xl mx-auto">
-          <div class="md:border-grid border-x sm:px-4">
+          <div class="md:border-grid border-x sm:px-4 lg:px-12">
             <p class="text-grey py-3 px-4 sm:px-0">
               [DESN.CA // HOMEPAGE]
             </p>
@@ -1257,7 +1299,7 @@ Figma across mobile, tablet and desktop, standardized layouts where appropriate,
       >
         <div class="image-display-section w-full border-grid border-b">
           <div class="image-container max-w-7xl mx-auto">
-    <div class="md:border-grid border-x sm:px-4">
+    <div class="md:border-grid border-x sm:px-4 lg:px-12">
               <p class="text-grey py-3 px-4 sm:px-0">
                 [WEB TEAM // GROUP PHOTO 1]
               </p>
@@ -1273,7 +1315,7 @@ Figma across mobile, tablet and desktop, standardized layouts where appropriate,
         <!-- FIG.14 -->
         <div class="image-display-section w-full border-grid border-b">
           <div class="image-container max-w-7xl mx-auto">
-          <div class="md:border-grid border-x sm:px-4">
+          <div class="md:border-grid border-x sm:px-4 lg:px-12">
               <p class="text-grey py-3 px-4 sm:px-0">
                 [WEB TEAM // GROUP PHOTO 2]
               </p>
@@ -1291,7 +1333,7 @@ Figma across mobile, tablet and desktop, standardized layouts where appropriate,
 
       <section class="image-display-section w-full border-grid  mb-10">
         <div class="image-container max-w-7xl mx-auto">
-          <div class="md:border-grid border-x sm:px-4">
+          <div class="md:border-grid border-x sm:px-4 lg:px-12">
             <p class="text-grey py-3 px-4 sm:px-0">
               [RADIATE DAY 2 // CLASS OF 2026]
             </p>
@@ -1314,6 +1356,13 @@ Figma across mobile, tablet and desktop, standardized layouts where appropriate,
 
     </main>
 
+    <!-- Right spacing rail (empty, mirrors the sidebar) -->
+    <div
+      aria-hidden="true"
+      class="hidden lg:block sticky top-0 h-screen self-start w-32 shrink-0 border-l border-grid"
+    ></div>
+    </div>
+
     <!-- Import footer -->
     <script src="footer.js" type="module"></script>
 
@@ -1327,5 +1376,45 @@ Figma across mobile, tablet and desktop, standardized layouts where appropriate,
     <script type="module" src="lightbox.js"></script>
     <script type="module" src="lightbox-page.js"></script>
     <lightbox-modal></lightbox-modal>
+
+    <!-- Sidebar nav scroll spy -->
+    <script>
+      (() => {
+        const nav = document.getElementById("radiate-nav");
+        if (!nav) return;
+
+        const links = Array.from(nav.querySelectorAll("a[data-scroll]"));
+        const targets = [];
+
+        links.forEach((link) => {
+          const id = link.dataset.scroll;
+          const el = document.getElementById(id);
+          if (el) targets.push(el);
+        });
+
+        if (!("IntersectionObserver" in window) || targets.length === 0) return;
+
+        const setActive = (id) => {
+          links.forEach((l) => {
+            const on = l.dataset.scroll === id;
+            l.classList.toggle("text-blob", on);
+            l.classList.toggle("border-blob", on);
+            l.classList.toggle("border-[#d0d0d0]", !on);
+          });
+        };
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) return;
+              setActive(entry.target.id);
+            });
+          },
+          { rootMargin: "-25% 0px -65% 0px", threshold: 0 }
+        );
+
+        targets.forEach((el) => observer.observe(el));
+      })();
+    </script>
   </body>
 </html>
