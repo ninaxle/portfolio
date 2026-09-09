@@ -80,16 +80,17 @@ const COLUMN_GAP = "md:gap-x-4";
 // (cover/contain, set per-card via imageClass) controls how the media fills it.
 const MEDIA_HEIGHT = "w-full aspect-[8/5]";
 
-function getMediaHTML(card, imageClass, hasHover = false) {
+function getMediaHTML(card, imageClass, hasHover = false, showCursor = true) {
   const hoverClass = hasHover
     ? "transition duration-300 ease-in-out hover:scale-105"
     : "";
+  const cursorClass = showCursor ? "cursor-pointer" : "";
 
   if (card.video) {
     return `
       <video
         src="${card.video}"
-        class="w-full ${MEDIA_HEIGHT} ${imageClass} ${hoverClass} cursor-pointer"
+        class="w-full ${MEDIA_HEIGHT} ${imageClass} ${hoverClass} ${cursorClass}"
         width="800"
         height="500"
         autoplay
@@ -106,7 +107,7 @@ function getMediaHTML(card, imageClass, hasHover = false) {
       loading="lazy"
       width="800"
       height="500"
-      class="w-full ${MEDIA_HEIGHT} ${imageClass} ${hoverClass} cursor-pointer"
+      class="w-full ${MEDIA_HEIGHT} ${imageClass} ${hoverClass} ${cursorClass}"
     />
   `;
 }
@@ -122,7 +123,6 @@ function buildCardContent(card, { showTitle = true, showTags = true, onClick = n
   }
 
   wrapper.classList.add(
-    "md:hover:cursor-pointer",
     "md:hover:bg-[#EDEBEE]",
     "transition-colors",
     "duration-200"
@@ -151,6 +151,7 @@ function buildCardContent(card, { showTitle = true, showTags = true, onClick = n
 
   if (onClick) {
     // Playground card with lightbox
+    wrapper.classList.add("cursor-pointer");
     wrapper.innerHTML = /*html*/ `
       <div class="w-full rounded-2xl relative z-10 overflow-hidden">
         <div class="inner-content w-full rounded-2xl overflow-hidden border border-[#e5e3e3] ${bgColor}">
@@ -190,7 +191,7 @@ function buildCardContent(card, { showTitle = true, showTags = true, onClick = n
     wrapper.innerHTML = /*html*/ `
       <div class="w-full rounded-2xl relative z-10 overflow-hidden bg-[#f3f3f4]">
         <div class="inner-content w-full rounded-2xl overflow-hidden border border-[#e5e3e3]">
-          ${getMediaHTML(card, imageClass, false)}
+          ${getMediaHTML(card, imageClass, false, false)}
         </div>
         <span class="md:hidden absolute top-3 right-3" style="
           background: rgba(0, 0, 0, 0.7);

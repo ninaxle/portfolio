@@ -63,7 +63,6 @@ if (!isMobile) {
       }
     } else {
       // Normal Section: Reset everything
-      if (currentTarget) currentTarget.style.cursor = "default";
       document.body.style.cursor = "auto";
       composeImg.style.display = "none";
     }
