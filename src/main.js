@@ -583,7 +583,7 @@ function buildFreeTimeSection(data, containerSelector) {
           : index === 2
             ? "border-t lg:border-t-0"
             : "border-t";
-    cell.className = `border-x ${GRID_LINE} ${topBorder} ${CONTENT_BOX_PADDING} flex flex-col cursor-pointer md:hover:bg-[#F6F5F6] transition-colors duration-200`;
+    cell.className = `border-x ${GRID_LINE} ${topBorder} ${CONTENT_BOX_PADDING} flex flex-col cursor-pointer md:hover:bg-[#EDEBEE] transition-colors duration-200`;
     cell.innerHTML = /*html*/ `
       <div class="w-full rounded-2xl overflow-hidden bg-light border border-[#e5e3e3]">
         <img src="${item.image}" class="w-full aspect-square object-cover" alt="${item.caption}" />
