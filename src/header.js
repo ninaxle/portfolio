@@ -80,7 +80,7 @@ headerTemplate.innerHTML = /* html */ `
     }
 
     .nav-links a:hover {
-      background-color: #efeded;
+      background-color: #EDEBEE;
       color: #1B191B;
     }
 
