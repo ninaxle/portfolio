@@ -40,7 +40,7 @@
   }
 
   p {
-    @apply text-sm leading-6  2xl:text-xl 2xl:leading-[1.35];
+    @apply text-sm leading-6 2xl:leading-[1.35];
     font-family: "Fragment Mono", monospace;
     font-weight: 300;
     letter-spacing: -0.04em;
