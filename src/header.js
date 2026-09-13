@@ -43,7 +43,6 @@ headerTemplate.innerHTML = /* html */ `
       background: rgba(252, 252, 252, 1);
       width: auto;
       min-width: min-content;
-      max-width: calc(100vw - 16px);
       margin-top: 1rem;
       padding: 8px;
       border-radius: 20px;
@@ -54,6 +53,13 @@ headerTemplate.innerHTML = /* html */ `
       justify-content: space-between;
       align-items: center;
       gap: 4px;
+    }
+
+    /* Overflow cap only on desktop; mobile gets full width */
+    @media (min-width: 769px) {
+      header {
+        max-width: calc(100vw - 16px);
+      }
     }
 
     /* ─── NAV LINKS ─────────────────────────────────────────── */
