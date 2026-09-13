@@ -18,11 +18,11 @@ class ScrollComponent extends HTMLElement {
 
         #scroll {
           position: fixed;
-          right: 44px;
+          right: 60px;
           bottom: 108px;
-          width: 100px;
-          height: 100px;
-          border-radius: 50%; /* Circle shape */
+          width: 80px;
+          height: 80px;
+          border-radius: 25%; /* round square shape. 50% achieves a circle if u ever want that back */
           background-color: #1B191B;
           color: white;
           display: flex;
