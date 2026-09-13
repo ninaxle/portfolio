@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <script
       async
@@ -30,20 +30,26 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
     <title>Accessichat</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fragment+Mono&display=swap"
+      rel="stylesheet"
+    />
   </head>
 
   <body>
+    <!-- Import the header component -->
     <script src="header.js" type="module"></script>
+    <script src="scroll-to-top.js" type="module"></script>
+    <scroll-component></scroll-component>
     <header-component
       project-page
       project-name="ACCESSICHAT"
     ></header-component>
-    <script src="scroll-to-top.js" type="module"></script>
 
-    <main>
-      <!-- Hero Image -->
+    <!-- Hero Image (full width, sidebars start below) -->
+    <div class="w-full max-w-[94rem] mx-auto">
       <div
-        class="relative h-[60vh] md:h-[72vh] lg:max-h-[640px] xl:max-h-[900px] overflow-hidden"
+        class="relative h-[60vh] md:h-[72vh] lg:max-h-[640px] xl:max-h-[748px] overflow-hidden"
         data-lightbox-exclude
       >
         <img
@@ -53,885 +59,1045 @@
           class="absolute top-12 sm:top-0 left-0 w-full h-full object-cover md:object-top"
         />
       </div>
+    </div>
 
-      <!-- Intro Section -->
-      <section class="border-grid border-b">
-        <div
-          class="max-w-7xl mx-auto flex flex-col pt-8 md:py-20 pb-8 gap-20 px-4"
+    <!-- Sidebar + content kept together, capped like the homepage -->
+    <div class="w-full max-w-[94rem] mx-auto flex">
+      <nav
+        id="accessichat-nav"
+        aria-label="On this page"
+        class="hidden lg:flex lg:flex-col w-max whitespace-nowrap shrink-0 overflow-y-auto sticky top-0 h-screen self-start border-r 2xl:border-l border-grid xl:pt-10 2xl:pt-14 pb-14 pl-12 pr-12 font-['Fragment_Mono',monospace] tracking-[-0.04em]"
+      >
+        <span class="text-sm leading-6 text-grey uppercase mb-2"
+          >Documentation</span
         >
-          <div class="flex flex-col gap-10 lg:w-[80%]">
-            <div class="flex flex-col gap-8 pt-1">
-              <h2>Accessichat — Honourable Mention in Augmented Creativity</h2>
-              <h4>
-                Accessichat is an augmentative and alternative communication
-                (AAC) application designed to improve verbal and written
-                communication for individuals with visible and invisible
-                disabilities. The app leverages AI to provide accessible
-                communication tools, helping users achieve greater independence
-                and confidence in their daily interactions.
-              </h4>
-            </div>
-          </div>
+        <a
+          href="#overview"
+          data-scroll="overview"
+          class="text-sm leading-6 py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors"
+          >Overview</a
+        >
+        <a
+          href="#my-responsibilities"
+          data-scroll="my-responsibilities"
+          class="text-sm leading-6 py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors"
+          >My Responsibilities</a
+        >
 
-          <div class="flex md:flex-row flex-col w-full gap-4">
-            <div
-              class="flex-grow p-4 pt-0 pl-0 flex flex-col gap-1 border-b border-grid md:w-1/3"
-            >
-              <p class="text-grey">[AWARD]</p>
-              <h6>
-                Honourable Mention in Augmented Creativity, RDG Student Awards
-                2024
-              </h6>
-            </div>
-            <div
-              class="flex-grow p-4 pt-0 pl-0 flex flex-col gap-1 border-b border-grid md:w-1/3"
-            >
-              <p class="text-grey">[TIMELINE]</p>
-              <h6>June 19, 2023 – July 20, 2023</h6>
-            </div>
-            <div
-              class="flex-grow p-4 pt-0 pl-0 flex flex-col gap-1 border-b border-grid md:w-1/3"
-            >
-              <p class="text-grey">[TEAM]</p>
-              <h6>Farwa Babar & Adrianna Estrada</h6>
-            </div>
-          </div>
+        <span class="block text-sm leading-6 text-grey uppercase mt-7 mb-2"
+          >Discovery</span
+        >
+        <a
+          href="#product-development"
+          data-scroll="product-development"
+          class="text-sm leading-6 py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors"
+          >Product Development</a
+        >
+        <a
+          href="#participant-selection"
+          data-scroll="participant-selection"
+          class="text-sm leading-6 py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors"
+          >Participant Selection</a
+        >
+        <a
+          href="#pain-points"
+          data-scroll="pain-points"
+          class="text-sm leading-6 py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors"
+          >Pain Points</a
+        >
+        <a
+          href="#competitive-analysis"
+          data-scroll="competitive-analysis"
+          class="text-sm leading-6 py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors"
+          >Competitive Analysis</a
+        >
+        <a
+          href="#problem-reframing"
+          data-scroll="problem-reframing"
+          class="text-sm leading-6 py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors"
+          >Problem Reframing</a
+        >
 
-          <div class="mt-[-48px] sm:mt-0">
-            <a
-              href="https://www.figma.com/proto/xzcrgVq1JayAV9BSRoBcbk/AccessiChat?page-id=165%3A917&node-id=235-5820&viewport=-1109%2C849%2C0.3&t=JzOe134Wgy3o8pQB-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=235%3A5820&show-proto-sidebar=1"
-              target="_blank"
-              class="flex flex-col hover-image"
-            >
-              <button
-                class="rounded-xl md:rounded-2xl px-4 pb-6 py-5 2xl:py-8 bg-[#EDEBEE] hover:text-white hover:bg-black transition flex justify-center items-baseline gap-4"
+        <span class="block text-sm leading-6 text-grey uppercase mt-7 mb-2"
+          >Defining & Developing</span
+        >
+        <a
+          href="#problem-statement"
+          data-scroll="problem-statement"
+          class="text-sm leading-6 py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors"
+          >Problem Statement</a
+        >
+        <a
+          href="#ideation"
+          data-scroll="ideation"
+          class="text-sm leading-6 py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors"
+          >Ideation</a
+        >
+        <a
+          href="#solution"
+          data-scroll="solution"
+          class="text-sm leading-6 py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors"
+          >The Solution</a
+        >
+        <a
+          href="#wireframing"
+          data-scroll="wireframing"
+          class="text-sm leading-6 py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors"
+          >Wireframing & Prototyping</a
+        >
+
+        <span class="block text-sm leading-6 text-grey uppercase mt-7 mb-2"
+          >Delivery</span
+        >
+        <a
+          href="#assumptions-mapping"
+          data-scroll="assumptions-mapping"
+          class="text-sm leading-6 py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors"
+          >Assumptions Mapping</a
+        >
+        <a
+          href="#usability-testing"
+          data-scroll="usability-testing"
+          class="text-sm leading-6 py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors"
+          >Usability Testing</a
+        >
+
+        <span class="block w-full mt-4 mb-4 border-l-2 pl-2.5"></span>
+        <a
+          href="#final-outcomes"
+          data-scroll="final-outcomes"
+          class="text-sm leading-6 py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors"
+          >Final Outcomes</a
+        >
+        <a
+          href="#key-learning"
+          data-scroll="key-learning"
+          class="text-sm leading-6 py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors"
+          >Key Learning & Next Steps</a
+        >
+      </nav>
+
+      <main class="flex-1 min-w-0">
+        <!-- Intro Section -->
+        <section class="border-grid border-b">
+          <div
+            class="max-w-7xl mx-auto flex flex-col pt-8 md:pb-20 md:pt-12 pb-8 gap-20 px-4 lg:px-12"
+          >
+            <div class="flex flex-col gap-10 lg:w-[80%]">
+              <div class="flex flex-col gap-8 pt-1">
+                <h2 id="overview" class="scroll-mt-28">
+                  Accessichat — Honourable Mention in Augmented Creativity
+                </h2>
+                <h4>
+                  Accessichat is an augmentative and alternative communication
+                  (AAC) application designed to improve verbal and written
+                  communication for individuals with visible and invisible
+                  disabilities. The app leverages AI to provide accessible
+                  communication tools, helping users achieve greater
+                  independence and confidence in their daily interactions.
+                </h4>
+              </div>
+            </div>
+
+            <div class="flex md:flex-row flex-col w-full gap-4">
+              <div
+                class="flex-grow p-4 pt-0 pl-0 flex flex-col gap-1 border-b border-grid md:w-1/3"
               >
-                <p><i class="fa-brands fa-figma"></i></p>
-                <h4>Try the Figma Link</h4>
-              </button>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <!-- Unlabelled image -->
-      <section class="image-display-section w-full border-grid border-b">
-        <div class="image-container max-w-7xl mx-auto" data-lightbox-exclude>
-          <img
-            loading="lazy"
-            src="accessichat5.png"
-            class="md:border border-grid md:border-y-0 w-full"
-            alt="All Features"
-          />
-        </div>
-      </section>
-
-      <!-- FIG.1 IN-APP FEATURES -->
-      <section class="image-display-section w-full border-grid border-b">
-        <div class="image-container max-w-7xl mx-auto">
-          <div class="md:border-grid border-x sm:px-4">
-            <p class="text-grey py-3 px-4 sm:px-0">[FIG.1 IN-APP FEATURES]</p>
-          </div>
-          <img
-            loading="lazy"
-            src="accessichat-all-features.png"
-            class="md:border border-grid md:border-b-0 w-full"
-            alt="All Features"
-          />
-        </div>
-      </section>
-
-      <!-- My Responsibilities -->
-      <section class="border-grid border-b">
-        <div
-          class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-16 px-4 justify-between gap-8"
-        >
-          <div class="lg:w-[30%] shrink-0">
-            <h4 class="md:pt-[0.75rem]">My Responsibilities</h4>
-          </div>
-          <div class="flex flex-col gap-10 lg:w-[70%]">
-            <div class="flex flex-col gap-3 pt-4">
-              <h4 class="text-left">
-                I was most involved in designing the
-                <u>Goal and Routine Setting</u> feature, and the
-                <u>Scenario Practice</u>
-                screens from start-to-finish.
-              </h4>
-              <div class="flex flex-col gap-4 pt-4">
-                <h6 class="text-left">Some of my activities included:</h6>
-                <div class="text-left">
-                  <h6 class="custom-list-item">Conducting User Interviews</h6>
-                  <h6 class="custom-list-item">
-                    Competitive Analysis (Researching AI & ACC tools)
-                  </h6>
-                  <h6 class="custom-list-item">
-                    Interpreting Quantitative & Qualitative Data
-                  </h6>
-                  <h6 class="custom-list-item">Creating Empathy Maps</h6>
-                  <h6 class="custom-list-item">Developing User Flows</h6>
-                  <h6 class="custom-list-item">Designing Wireframes</h6>
-                  <h6 class="custom-list-item">Streamlining the Style Guide</h6>
-                </div>
+                <p class="text-grey">[AWARD]</p>
+                <h6>
+                  Honourable Mention in Augmented Creativity, RDG Student Awards
+                  2024
+                </h6>
+              </div>
+              <div
+                class="flex-grow p-4 pt-0 pl-0 flex flex-col gap-1 border-b border-grid md:w-1/3"
+              >
+                <p class="text-grey">[TIMELINE]</p>
+                <h6>June 19, 2023 – July 20, 2023</h6>
+              </div>
+              <div
+                class="flex-grow p-4 pt-0 pl-0 flex flex-col gap-1 border-b border-grid md:w-1/3"
+              >
+                <p class="text-grey">[TEAM]</p>
+                <h6>Farwa Babar & Adrianna Estrada</h6>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
 
-      <!-- FIG.2 -->
-      <section class="image-display-section w-full border-grid border-b">
-        <div class="image-container max-w-7xl mx-auto">
-          <div class="md:border-grid border-x sm:px-4">
-            <p class="text-grey py-3 px-4 sm:px-0">
-              [FIG.2 GOAL AND ROUTINE SETTING SCREENS]
-            </p>
-          </div>
-          <img
-            loading="lazy"
-            src="accessichat4.png"
-            class="md:border border-grid md:border-b-0 w-full"
-            alt="All Features"
-          />
-        </div>
-      </section>
-
-      <!-- FIG.3 -->
-      <section class="image-display-section w-full border-grid border-b">
-        <div class="image-container max-w-7xl mx-auto">
-          <div class="md:border-grid border-x sm:px-4">
-            <p class="text-grey py-3 px-4 sm:px-0">
-              [FIG.3 SCENARIO PRACTICE SCREENS]
-            </p>
-          </div>
-          <img
-            loading="lazy"
-            src="accessichat3.png"
-            class="md:border border-grid md:border-b-0 w-full"
-            alt="All Features"
-          />
-        </div>
-      </section>
-
-      <!-- Product Development -->
-      <section class="border-grid border-b">
-        <div
-          class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-24 px-4 justify-between gap-8"
-        >
-          <div class="lg:w-[30%] shrink-0">
-            <h4 class="md:pt-[0.75rem]">Product Development</h4>
-          </div>
-          <div class="flex flex-col gap-4 md:gap-10 lg:w-[70%]">
-            <div class="flex flex-col gap-4 pt-4">
-              <p class="text-left text-grey">PROBLEM SPACE</p>
-              <h4 class="text-left">
-                This project was part of the 2023 Remarkable Designathon, where
-                we were tasked to explore:
-                <i
-                  >How might we use AI to enable greater independence and
-                  participation for people with disabilities in their daily
-                  lives and communities?</i
+            <div class="mt-[-48px] sm:mt-0">
+              <a
+                href="https://www.figma.com/proto/xzcrgVq1JayAV9BSRoBcbk/AccessiChat?page-id=165%3A917&node-id=235-5820&viewport=-1109%2C849%2C0.3&t=JzOe134Wgy3o8pQB-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=235%3A5820&show-proto-sidebar=1"
+                target="_blank"
+                class="flex flex-col hover-image"
+              >
+                <button
+                  class="rounded-xl md:rounded-2xl px-4 pb-6 py-5 2xl:py-8 bg-[#EDEBEE] hover:text-white hover:bg-black transition flex justify-center items-baseline gap-4"
                 >
-              </h4>
-            </div>
-            <div class="flex flex-col gap-6 pt-4">
-              <p class="text-left text-grey">WORKING WITH OUR USERS</p>
-              <h4 class="text-left">
-                Throughout this project, we closely collaborated with
-                <u>3 individuals with disabilities</u> who provided invaluable
-                insights across all stages, from initial user interviews to
-                multiple rounds of usability testing and ongoing consultation.
-                These participants were compensated for their time and
-                contributions.
-              </h4>
+                  <p><i class="fa-brands fa-figma"></i></p>
+                  <h4>Try the Figma Link</h4>
+                </button>
+              </a>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <!-- Participant Selection -->
-      <section class="border-grid border-b">
-        <div
-          class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-16 px-4 justify-between gap-8"
-        >
-          <div class="lg:w-[30%] shrink-0">
-            <h4 class="md:pt-[0.75rem]">Our Participant Selection Process</h4>
+        <!-- Unlabelled image -->
+        <section class="image-display-section w-full border-grid border-b">
+          <div class="image-container max-w-7xl mx-auto" data-lightbox-exclude>
+            <img
+              loading="lazy"
+              src="accessichat5.png"
+              class="w-full"
+              alt="All Features"
+            />
           </div>
-          <div class="flex flex-col gap-10 lg:w-[70%]">
-            <div class="flex flex-col gap-3 pt-4">
-              <h4 class="text-left">
-                We began by reaching out to the disability community and
-                distributing a pre-screening survey via Google Forms.
+        </section>
+
+        <!-- FIG.1 IN-APP FEATURES -->
+        <section class="image-display-section w-full border-grid border-b">
+          <div class="image-container max-w-7xl mx-auto">
+            <div class="md:border-grid sm:px-4 lg:px-12">
+              <p class="text-grey py-3 px-4 sm:px-0">[FIG.1 IN-APP FEATURES]</p>
+            </div>
+            <img
+              loading="lazy"
+              src="accessichat-all-features.png"
+              class="md:border-y border-grid md:border-b-0 w-full"
+              alt="All Features"
+            />
+          </div>
+        </section>
+
+        <!-- My Responsibilities -->
+        <section class="border-grid border-b">
+          <div
+            class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-16 px-4 justify-between gap-8 lg:px-12"
+          >
+            <div class="lg:w-[30%] shrink-0">
+              <h4 id="my-responsibilities" class="scroll-mt-28">
+                My Responsibilities
               </h4>
+            </div>
+            <div class="flex flex-col gap-10 lg:w-[70%]">
+              <div class="flex flex-col gap-3 pt-4">
+                <h4 class="text-left">
+                  I was most involved in designing the
+                  <u>Goal and Routine Setting</u> feature, and the
+                  <u>Scenario Practice</u>
+                  screens from start-to-finish.
+                </h4>
+                <div class="flex flex-col gap-4 pt-4">
+                  <h6 class="text-left">Some of my activities included:</h6>
+                  <div class="text-left">
+                    <h6 class="custom-list-item">Conducting User Interviews</h6>
+                    <h6 class="custom-list-item">
+                      Competitive Analysis (Researching AI & ACC tools)
+                    </h6>
+                    <h6 class="custom-list-item">
+                      Interpreting Quantitative & Qualitative Data
+                    </h6>
+                    <h6 class="custom-list-item">Creating Empathy Maps</h6>
+                    <h6 class="custom-list-item">Developing User Flows</h6>
+                    <h6 class="custom-list-item">Designing Wireframes</h6>
+                    <h6 class="custom-list-item">
+                      Streamlining the Style Guide
+                    </h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- FIG.2 -->
+        <section class="image-display-section w-full border-grid border-b">
+          <div class="image-container max-w-7xl mx-auto">
+            <div class="md:border-grid sm:px-4 lg:px-12">
+              <p class="text-grey py-3 px-4 sm:px-0">
+                [FIG.2 GOAL AND ROUTINE SETTING SCREENS]
+              </p>
+            </div>
+            <img
+              loading="lazy"
+              src="accessichat4.png"
+              class="md:border-y border-grid md:border-b-0 w-full"
+              alt="All Features"
+            />
+          </div>
+        </section>
+
+        <!-- FIG.3 -->
+        <section class="image-display-section w-full border-grid border-b">
+          <div class="image-container max-w-7xl mx-auto">
+            <div class="md:border-grid sm:px-4 lg:px-12">
+              <p class="text-grey py-3 px-4 sm:px-0">
+                [FIG.3 SCENARIO PRACTICE SCREENS]
+              </p>
+            </div>
+            <img
+              loading="lazy"
+              src="accessichat3.png"
+              class="md:border-y border-grid md:border-b-0 w-full"
+              alt="All Features"
+            />
+          </div>
+        </section>
+
+        <!-- Product Development -->
+        <section class="border-grid border-b">
+          <div
+            class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-24 px-4 justify-between gap-8 lg:px-12"
+          >
+            <div class="lg:w-[30%] shrink-0">
+              <h4 id="product-development" class="scroll-mt-28">
+                Product Development
+              </h4>
+            </div>
+            <div class="flex flex-col gap-4 md:gap-10 lg:w-[70%]">
               <div class="flex flex-col gap-4 pt-4">
-                <h6 class="text-left">This survey served two key purposes:</h6>
-                <div class="text-left">
-                  <h6 class="custom-list-item">
-                    To evaluate if participants' experiences aligned with our
-                    problem statement
-                  </h6>
-                  <h6 class="custom-list-item">
-                    To ensure ethical participation guidelines were met
-                  </h6>
-                </div>
+                <p class="text-left text-grey">PROBLEM SPACE</p>
                 <h4 class="text-left">
-                  In the process, we intentionally sought diversity in our
-                  participant group across age, gender, and disability. Our
-                  focus was primarily on individuals with neurological and
-                  physical disabilities who often face challenges in
-                  communication, encounter societal biases, and struggle to find
-                  effective tools for self-expression.
+                  This project was part of the 2023 Remarkable Designathon,
+                  where we were tasked to explore:
+                  <i
+                    >How might we use AI to enable greater independence and
+                    participation for people with disabilities in their daily
+                    lives and communities?</i
+                  >
+                </h4>
+              </div>
+              <div class="flex flex-col gap-6 pt-4">
+                <p class="text-left text-grey">WORKING WITH OUR USERS</p>
+                <h4 class="text-left">
+                  Throughout this project, we closely collaborated with
+                  <u>3 individuals with disabilities</u> who provided invaluable
+                  insights across all stages, from initial user interviews to
+                  multiple rounds of usability testing and ongoing consultation.
+                  These participants were compensated for their time and
+                  contributions.
                 </h4>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <!-- FIG.4 -->
-      <section class="image-display-section w-full border-grid border-b">
-        <div class="image-container max-w-7xl mx-auto">
-          <img
-            loading="lazy"
-            src="accessichat-empathy-map.png"
-            class="md:border border-grid md:border-t-0 w-full"
-            alt="All Features"
-          />
-          <div class="md:border-grid border-x sm:px-4">
-            <p class="text-grey py-3 px-4 sm:px-0">
-              [FIG.4 OUR EMPATHY MAPS BASED ON 3 USERS]
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <!-- Pain Points -->
-      <section class="border-grid border-b">
-        <div class="max-w-7xl mx-auto py-8 md:py-12 md:pb-24 px-4">
-          <div class="flex flex-col gap-10">
-            <div class="flex flex-col gap-4 pt-1">
-              <h3>
-                They identified with several key pain points and considerations:
-              </h3>
-            </div>
-            <div
-              class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4"
-            >
-              <div class="box bg-lime-100 p-4 rounded text-left">
-                <h3 class="font-semibold pb-3">Communication Barriers</h3>
-                <h4>
-                  3 users lacked tools for immediate or effective communication
-                </h4>
-              </div>
-              <div class="box bg-lime-100 p-4 rounded text-left">
-                <h3 class="font-semibold pb-3">Social Stigma</h3>
-                <h4>
-                  2 in 3 users had limited safe spaces to express needs without
-                  fear of judgment
-                </h4>
-              </div>
-              <div class="box bg-lime-100 p-4 rounded text-left">
-                <h3 class="font-semibold pb-3">Daily Socialization</h3>
-                <h4>
-                  2 in 3 users faced difficulty socializing due to societal
-                  biases and overwhelming environments
-                </h4>
-              </div>
-              <div class="box bg-lime-100 p-4 rounded text-left">
-                <h3 class="font-semibold pb-3">Helpful Tools</h3>
-                <h4>
-                  2 in 3 users found value in text and audio outputs for
-                  processing information and communicating
-                </h4>
-              </div>
-              <div class="box bg-lime-100 p-4 rounded text-left">
-                <h3 class="font-semibold pb-3">Discrimination</h3>
-                <h4>
-                  1 in 3 users lacked accessible information on addressing bias
-                  and discrimination
-                </h4>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Competitive Analysis -->
-      <section class="border-grid border-b">
-        <div
-          class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-24 px-4 justify-between gap-8"
-        >
-          <div class="lg:w-[30%] shrink-0">
-            <h4 class="md:pt-[0.75rem]">Competitive Analysis</h4>
-          </div>
-          <div class="flex flex-col gap-4 md:gap-10 lg:w-[70%]">
-            <div class="flex flex-col gap-4 pt-4">
-              <h4 class="text-left">
-                We conducted a competitive analysis focusing on tools and
-                applications our participants actively used, such as
-                Proloquo2go, Otter.ai, and Finch. By examining these familiar
-                applications, we gained valuable insights into successful user
-                experience elements and performance metrics.
+        <!-- Participant Selection -->
+        <section class="border-grid border-b">
+          <div
+            class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-16 px-4 justify-between gap-8 lg:px-12"
+          >
+            <div class="lg:w-[30%] shrink-0">
+              <h4 id="participant-selection" class="scroll-mt-28">
+                Our Participant Selection Process
               </h4>
             </div>
-            <div class="flex flex-col gap-6 pt-4">
-              <p class="text-left text-grey">TECHNOLOGY & CAPACITIES</p>
-              <div class="flex flex-col gap-4">
+            <div class="flex flex-col gap-10 lg:w-[70%]">
+              <div class="flex flex-col gap-3 pt-4">
                 <h4 class="text-left">
-                  Our analysis revealed key success criteria across these
-                  applications:
+                  We began by reaching out to the disability community and
+                  distributing a pre-screening survey via Google Forms.
                 </h4>
-                <div class="text-left">
-                  <h4 class="custom-list-item">
-                    While apps like Finch and Proloquo2go offer manual
-                    customization settings, AI-powered apps excel in creating
-                    adaptive, personalized experiences that evolve with users
-                    over time.
-                  </h4>
-                  <h4 class="custom-list-item">
-                    Leading apps utilize Natural Language Processing (NLP),
-                    Automatic Speech Recognition (ASR), and generative AI for
-                    features like real-time transcription, speech-to-text
-                    conversion, and personalized recommendations.
-                  </h4>
-                  <h4 class="custom-list-item">
-                    All successful tools prioritize their users' communication
-                    goals, whether supporting those with speech impairments or
-                    providing mental health assistance.
+                <div class="flex flex-col gap-4 pt-4">
+                  <h6 class="text-left">
+                    This survey served two key purposes:
+                  </h6>
+                  <div class="text-left">
+                    <h6 class="custom-list-item">
+                      To evaluate if participants' experiences aligned with our
+                      problem statement
+                    </h6>
+                    <h6 class="custom-list-item">
+                      To ensure ethical participation guidelines were met
+                    </h6>
+                  </div>
+                  <h4 class="text-left">
+                    In the process, we intentionally sought diversity in our
+                    participant group across age, gender, and disability. Our
+                    focus was primarily on individuals with neurological and
+                    physical disabilities who often face challenges in
+                    communication, encounter societal biases, and struggle to
+                    find effective tools for self-expression.
                   </h4>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <!-- FIG.5 -->
-      <section class="image-display-section w-full border-grid border-b">
-        <div class="image-container max-w-7xl mx-auto">
-          <div class="md:border-grid border-x sm:px-4">
-            <p class="text-grey py-3 px-4 sm:px-0">
-              [FIG.5 COMPETITIVE ANALYSIS ON AAC COMMUNICATION, MANAGING
-              OVERSTIMULATION & AI/VR]
-            </p>
+        <!-- FIG.4 -->
+        <section class="image-display-section w-full border-grid border-b">
+          <div class="image-container max-w-7xl mx-auto">
+            <img
+              loading="lazy"
+              src="accessichat-empathy-map.png"
+              class="md:border-y border-grid md:border-t-0 w-full"
+              alt="All Features"
+            />
+            <div class="md:border-grid sm:px-4 lg:px-12">
+              <p class="text-grey py-3 px-4 sm:px-0">
+                [FIG.4 OUR EMPATHY MAPS BASED ON 3 USERS]
+              </p>
+            </div>
           </div>
-          <img
-            loading="lazy"
-            src="accessichat-analysis1.png"
-            class="md:border border-grid md:border-b-0 w-full"
-            alt="All Features"
-          />
-        </div>
-      </section>
+        </section>
 
-      <!-- Problem Reframing -->
-      <section class="border-grid border-b">
-        <div
-          class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-24 px-4 justify-between gap-8"
-        >
-          <div class="lg:w-[30%] shrink-0">
-            <h4 class="md:pt-[0.75rem]">Problem Reframing</h4>
+        <!-- Pain Points -->
+        <section class="border-grid border-b">
+          <div class="max-w-7xl mx-auto py-8 md:py-12 md:pb-24 px-4 lg:px-12">
+            <div class="flex flex-col gap-10">
+              <div class="flex flex-col gap-4 pt-1">
+                <h3 id="pain-points" class="scroll-mt-28">
+                  They identified with several key pain points and
+                  considerations:
+                </h3>
+              </div>
+              <div
+                class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4"
+              >
+                <div class="box bg-lime-100 p-4 rounded text-left">
+                  <h3 class="font-semibold pb-3">Communication Barriers</h3>
+                  <h4>
+                    3 users lacked tools for immediate or effective
+                    communication
+                  </h4>
+                </div>
+                <div class="box bg-lime-100 p-4 rounded text-left">
+                  <h3 class="font-semibold pb-3">Social Stigma</h3>
+                  <h4>
+                    2 in 3 users had limited safe spaces to express needs
+                    without fear of judgment
+                  </h4>
+                </div>
+                <div class="box bg-lime-100 p-4 rounded text-left">
+                  <h3 class="font-semibold pb-3">Daily Socialization</h3>
+                  <h4>
+                    2 in 3 users faced difficulty socializing due to societal
+                    biases and overwhelming environments
+                  </h4>
+                </div>
+                <div class="box bg-lime-100 p-4 rounded text-left">
+                  <h3 class="font-semibold pb-3">Helpful Tools</h3>
+                  <h4>
+                    2 in 3 users found value in text and audio outputs for
+                    processing information and communicating
+                  </h4>
+                </div>
+                <div class="box bg-lime-100 p-4 rounded text-left">
+                  <h3 class="font-semibold pb-3">Discrimination</h3>
+                  <h4>
+                    1 in 3 users lacked accessible information on addressing
+                    bias and discrimination
+                  </h4>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="flex flex-col gap-4 md:gap-10 lg:w-[70%]">
-            <div class="flex flex-col gap-4 pt-4">
-              <h4 class="text-left">
-                We synthesized our research into three key "How Might We" (HMW)
-                statements:
+        </section>
+
+        <!-- Competitive Analysis -->
+        <section class="border-grid border-b">
+          <div
+            class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-24 px-4 justify-between gap-8 lg:px-12"
+          >
+            <div class="lg:w-[30%] shrink-0">
+              <h4 id="competitive-analysis" class="scroll-mt-28">
+                Competitive Analysis
               </h4>
-              <div class="text-left">
-                <h4 class="custom-list-item">
-                  HMW increase tools for immediate and effective communication
-                  for people with disabilities?
-                </h4>
-                <h4 class="custom-list-item">
-                  HMW create opportunities for people with disabilities to
-                  express their needs without fear or stigma?
-                </h4>
-                <h4 class="custom-list-item">
-                  HMW enhance daily experiences for people with disabilities to
-                  help them manage life more effectively and enjoyably?
+            </div>
+            <div class="flex flex-col gap-4 md:gap-10 lg:w-[70%]">
+              <div class="flex flex-col gap-4 pt-4">
+                <h4 class="text-left">
+                  We conducted a competitive analysis focusing on tools and
+                  applications our participants actively used, such as
+                  Proloquo2go, Otter.ai, and Finch. By examining these familiar
+                  applications, we gained valuable insights into successful user
+                  experience elements and performance metrics.
                 </h4>
               </div>
-              <h4 class="text-left">
-                This process allowed us to come to an appropriate and narrow,
-                redefined problem statement.
-              </h4>
+              <div class="flex flex-col gap-6 pt-4">
+                <p class="text-left text-grey">TECHNOLOGY & CAPACITIES</p>
+                <div class="flex flex-col gap-4">
+                  <h4 class="text-left">
+                    Our analysis revealed key success criteria across these
+                    applications:
+                  </h4>
+                  <div class="text-left">
+                    <h4 class="custom-list-item">
+                      While apps like Finch and Proloquo2go offer manual
+                      customization settings, AI-powered apps excel in creating
+                      adaptive, personalized experiences that evolve with users
+                      over time.
+                    </h4>
+                    <h4 class="custom-list-item">
+                      Leading apps utilize Natural Language Processing (NLP),
+                      Automatic Speech Recognition (ASR), and generative AI for
+                      features like real-time transcription, speech-to-text
+                      conversion, and personalized recommendations.
+                    </h4>
+                    <h4 class="custom-list-item">
+                      All successful tools prioritize their users' communication
+                      goals, whether supporting those with speech impairments or
+                      providing mental health assistance.
+                    </h4>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <!-- Problem Statement -->
-      <section class="border-grid border-b">
-        <div
-          class="max-w-7xl mx-auto flex flex-col py-8 md:py-12 md:pb-24 px-4 gap-4"
-        >
-          <div class="flex flex-col gap-10">
-            <div class="flex flex-col gap-4 pt-1">
-              <h4>The Problem Statement</h4>
-              <h3>
-                Individuals with neurological and physical disabilities need
-                effective accommodations to communicate clearly and concisely.
-                These tools will empower them to manage their daily experiences
-                in a more effective and enjoyable way.
-              </h3>
+        <!-- FIG.5 -->
+        <section class="image-display-section w-full border-grid border-b">
+          <div class="image-container max-w-7xl mx-auto">
+            <div class="md:border-grid sm:px-4 lg:px-12">
+              <p class="text-grey py-3 px-4 sm:px-0">
+                [FIG.5 COMPETITIVE ANALYSIS ON AAC COMMUNICATION, MANAGING
+                OVERSTIMULATION & AI/VR]
+              </p>
             </div>
+            <img
+              loading="lazy"
+              src="accessichat-analysis1.png"
+              class="md:border-y border-grid md:border-b-0 w-full"
+              alt="All Features"
+            />
           </div>
-        </div>
-      </section>
+        </section>
 
-      <!-- FIG.6 -->
-      <section class="image-display-section w-full border-grid border-b">
-        <div class="image-container max-w-7xl mx-auto">
-          <div class="md:border-grid border-x sm:px-4">
-            <p class="text-grey py-3 px-4 sm:px-0">
-              [FIG.6 ACCESSICHAT PRODUCT FEATURE]
-            </p>
-          </div>
-          <img
-            loading="lazy"
-            src="accessichat1.png"
-            class="md:border border-grid md:border-b-0 w-full"
-            alt="All Features"
-          />
-        </div>
-      </section>
-
-      <!-- Ideation -->
-      <section class="border-grid border-b">
-        <div
-          class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-24 px-4 justify-between gap-8"
-        >
-          <div class="lg:w-[30%] shrink-0">
-            <h4 class="md:pt-[0.75rem]">Ideation</h4>
-          </div>
-          <div class="flex flex-col gap-4 md:gap-10 lg:w-[70%]">
-            <div class="flex flex-col gap-4 pt-4">
-              <h4 class="text-left">
-                To develop our solution, we began with a brainstorming exercise
-                called Crazy 8's, which allowed us to generate a variety of
-                creative ideas for the app. We then utilized heatmap voting to
-                evaluate and identify the most promising features, ultimately
-                determining the winning concepts to focus on.
+        <!-- Problem Reframing -->
+        <section class="border-grid border-b">
+          <div
+            class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-24 px-4 justify-between gap-8 lg:px-12"
+          >
+            <div class="lg:w-[30%] shrink-0">
+              <h4 id="problem-reframing" class="scroll-mt-28">
+                Problem Reframing
               </h4>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- FIG.7 -->
-      <section class="image-display-section w-full border-grid border-b">
-        <div class="image-container max-w-7xl mx-auto">
-          <div class="md:border-grid border-x sm:px-4">
-            <p class="text-grey py-3 px-4 sm:px-0">
-              [FIG.7 CRAZY 8'S METHOD//PINK]
-            </p>
-          </div>
-          <img
-            loading="lazy"
-            src="accessichat-crazy8s.png"
-            class="md:border border-grid md:border-b-0 w-full"
-            alt="All Features"
-          />
-        </div>
-      </section>
-
-      <!-- FIG.8 -->
-      <section class="image-display-section w-full border-grid border-b">
-        <div class="image-container max-w-7xl mx-auto">
-          <div class="md:border-grid border-x sm:px-4">
-            <p class="text-grey py-3 px-4 sm:px-0">[FIG.8 HEATMAP VOTING]</p>
-          </div>
-          <img
-            loading="lazy"
-            src="accessichat-heatmap voting.png"
-            class="md:border border-grid md:border-b-0 w-full"
-            alt="All Features"
-          />
-        </div>
-      </section>
-
-      <!-- FIG.9 -->
-      <section class="image-display-section w-full border-grid border-b">
-        <div class="image-container max-w-7xl mx-auto">
-          <div class="md:border-grid border-x sm:px-4">
-            <p class="text-grey py-3 px-4 sm:px-0">
-              [FIG.9 WINNING IDEA/FEATURES]
-            </p>
-          </div>
-          <img
-            loading="lazy"
-            src="accessichat-winner.png"
-            class="md:border border-grid md:border-b-0 w-full"
-            alt="All Features"
-          />
-        </div>
-      </section>
-
-      <!-- The Solution -->
-      <section class="border-grid border-b">
-        <div
-          class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-24 px-4 justify-between gap-8"
-        >
-          <div class="lg:w-[30%] shrink-0">
-            <h4 class="md:pt-[0.75rem]">The Solution</h4>
-          </div>
-          <div class="flex flex-col gap-4 md:gap-10 lg:w-[70%]">
-            <div class="flex flex-col gap-4 pt-4">
-              <p class="text-left text-grey">ACCESSICHAT'S VALUE</p>
-              <h4 class="text-left">
-                Accessichat is an accommodating app dedicated to enhancing
-                communication for individuals with disabilities. We worked to
-                include features that would expand the means that people with
-                disabilities can communicate through advanced features such as:
-              </h4>
-              <div class="text-left">
-                <h4 class="custom-list-item">
-                  Speech-to-Text Conversion for real-time communication
+            <div class="flex flex-col gap-4 md:gap-10 lg:w-[70%]">
+              <div class="flex flex-col gap-4 pt-4">
+                <h4 class="text-left">
+                  We synthesized our research into three key "How Might We"
+                  (HMW) statements:
                 </h4>
-                <h4 class="custom-list-item">
-                  Scenario Practice for preparing for real-life conversations
-                </h4>
-                <h4 class="custom-list-item">
-                  Personalized Profiles with customizable "About Me" sections
-                </h4>
-                <h4 class="custom-list-item">
-                  Customizable Avatars reflecting cultural and personal
-                  preferences
-                </h4>
-                <h4 class="custom-list-item">
-                  Goal Setting and Progress tracking, allowing people to meet
-                  their communication goals and win in-app awards
+                <div class="text-left">
+                  <h4 class="custom-list-item">
+                    HMW increase tools for immediate and effective communication
+                    for people with disabilities?
+                  </h4>
+                  <h4 class="custom-list-item">
+                    HMW create opportunities for people with disabilities to
+                    express their needs without fear or stigma?
+                  </h4>
+                  <h4 class="custom-list-item">
+                    HMW enhance daily experiences for people with disabilities
+                    to help them manage life more effectively and enjoyably?
+                  </h4>
+                </div>
+                <h4 class="text-left">
+                  This process allowed us to come to an appropriate and narrow,
+                  redefined problem statement.
                 </h4>
               </div>
             </div>
-            <div class="flex flex-col gap-4 pt-4">
-              <p class="text-left text-grey">WHAT SETS US APART</p>
-              <h4 class="text-left">
-                Our app combines advanced communication features with tools for
-                emotional well-being and empowerment. It recognizes unique
-                speech patterns, supports note-sharing, and incorporates mental
-                health features and positive affirmations. By introducing an
-                award system to celebrate achievements and expanding
-                communication options for people with disabilities, our app
-                stands out as an inclusive and empowering platform.
-              </h4>
+          </div>
+        </section>
+
+        <!-- Problem Statement -->
+        <section class="border-grid border-b">
+          <div
+            class="max-w-7xl mx-auto flex flex-col py-8 md:py-12 md:pb-24 px-4 gap-4 lg:px-12"
+          >
+            <div class="flex flex-col gap-10">
+              <div class="flex flex-col gap-4 pt-1">
+                <h4 id="problem-statement" class="scroll-mt-28">
+                  The Problem Statement
+                </h4>
+                <h3>
+                  Individuals with neurological and physical disabilities need
+                  effective accommodations to communicate clearly and concisely.
+                  These tools will empower them to manage their daily
+                  experiences in a more effective and enjoyable way.
+                </h3>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <!-- Wireframing & Prototyping -->
-      <section class="border-grid border-b">
-        <div
-          class="max-w-7xl mx-auto flex flex-col lg:flex-row py-12 pb-16 px-4 justify-between gap-8"
-        >
-          <div class="lg:w-[30%] shrink-0">
-            <h4 class="md:pt-[0.75rem]">Wireframing & Prototyping</h4>
+        <!-- FIG.6 -->
+        <section class="image-display-section w-full border-grid border-b">
+          <div class="image-container max-w-7xl mx-auto">
+            <div class="md:border-grid sm:px-4 lg:px-12">
+              <p class="text-grey py-3 px-4 sm:px-0">
+                [FIG.6 ACCESSICHAT PRODUCT FEATURE]
+              </p>
+            </div>
+            <img
+              loading="lazy"
+              src="accessichat1.png"
+              class="md:border-y border-grid md:border-b-0 w-full"
+              alt="All Features"
+            />
           </div>
-          <div class="flex flex-col gap-10 lg:w-[70%]">
-            <div class="flex flex-col gap-3 pt-4">
-              <h4 class="text-left">
-                I began my process with rough sketches and developed 2 rounds of
-                low-fidelity prototypes to test key features like scenario
-                practice and goal setting.
-              </h4>
+        </section>
+
+        <!-- Ideation -->
+        <section class="border-grid border-b">
+          <div
+            class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-24 px-4 justify-between gap-8 lg:px-12"
+          >
+            <div class="lg:w-[30%] shrink-0">
+              <h4 id="ideation" class="scroll-mt-28">Ideation</h4>
+            </div>
+            <div class="flex flex-col gap-4 md:gap-10 lg:w-[70%]">
+              <div class="flex flex-col gap-4 pt-4">
+                <h4 class="text-left">
+                  To develop our solution, we began with a brainstorming
+                  exercise called Crazy 8's, which allowed us to generate a
+                  variety of creative ideas for the app. We then utilized
+                  heatmap voting to evaluate and identify the most promising
+                  features, ultimately determining the winning concepts to focus
+                  on.
+                </h4>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <!-- FIG.10 -->
-      <section class="image-display-section w-full border-grid border-b">
-        <div class="image-container max-w-7xl mx-auto">
-          <div class="md:border-grid border-x sm:px-4">
-            <p class="text-grey py-3 px-4 sm:px-0">
-              [FIG.10 ROUGH SKETCHES OF SCENARIO PRACTICE AND PROFILE]
-            </p>
+        <!-- FIG.7 -->
+        <section class="image-display-section w-full border-grid border-b">
+          <div class="image-container max-w-7xl mx-auto">
+            <div class="md:border-grid sm:px-4 lg:px-12">
+              <p class="text-grey py-3 px-4 sm:px-0">
+                [FIG.7 CRAZY 8'S METHOD//PINK]
+              </p>
+            </div>
+            <img
+              loading="lazy"
+              src="accessichat-crazy8s.png"
+              class="md:border-y border-grid md:border-b-0 w-full"
+              alt="All Features"
+            />
           </div>
-          <img
-            loading="lazy"
-            src="accessi-sketch.png"
-            class="md:border border-grid md:border-b-0 w-full"
-            alt="All Features"
-          />
-        </div>
-      </section>
+        </section>
 
-      <!-- FIG.11 -->
-      <section class="image-display-section w-full border-grid border-b">
-        <div class="image-container max-w-7xl mx-auto">
-          <div class="md:border-grid border-x sm:px-4">
-            <p class="text-grey py-3 px-4 sm:px-0">
-              [FIG.11 AWARD SYSTEM SKETCHES AND NOTES]
-            </p>
+        <!-- FIG.8 -->
+        <section class="image-display-section w-full border-grid border-b">
+          <div class="image-container max-w-7xl mx-auto">
+            <div class="md:border-grid sm:px-4 lg:px-12">
+              <p class="text-grey py-3 px-4 sm:px-0">[FIG.8 HEATMAP VOTING]</p>
+            </div>
+            <img
+              loading="lazy"
+              src="accessichat-heatmap voting.png"
+              class="md:border-y border-grid md:border-b-0 w-full"
+              alt="All Features"
+            />
           </div>
-          <img
-            loading="lazy"
-            src="accessi-sketch2.png"
-            class="md:border border-grid md:border-b-0 w-full"
-            alt="All Features"
-          />
-        </div>
-      </section>
+        </section>
 
-      <!-- FIG.12 -->
-      <section class="image-display-section w-full border-grid border-b">
-        <div class="image-container max-w-7xl mx-auto">
-          <div class="md:border-grid border-x sm:px-4">
-            <p class="text-grey py-3 px-4 sm:px-0">
-              [FIG.12 LO-FI PROTOTYPES ON SCENARIO PRACTICE//ROUNDS 1-2]
-            </p>
+        <!-- FIG.9 -->
+        <section class="image-display-section w-full border-grid border-b">
+          <div class="image-container max-w-7xl mx-auto">
+            <div class="md:border-grid sm:px-4 lg:px-12">
+              <p class="text-grey py-3 px-4 sm:px-0">
+                [FIG.9 WINNING IDEA/FEATURES]
+              </p>
+            </div>
+            <img
+              loading="lazy"
+              src="accessichat-winner.png"
+              class="md:border-y border-grid md:border-b-0 w-full"
+              alt="All Features"
+            />
           </div>
-          <img
-            loading="lazy"
-            src="accessichat-lowfi2.png"
-            class="md:border border-grid md:border-b-0 w-full"
-            alt="All Features"
-          />
-        </div>
-      </section>
+        </section>
 
-      <!-- FIG.13a -->
-      <section class="image-display-section w-full border-grid border-b">
-        <div class="image-container max-w-7xl mx-auto">
-          <div class="md:border-grid border-x sm:px-4">
-            <p class="text-grey py-3 px-4 sm:px-0">
-              [FIG.13 LO-FI PROTOTYPES ON GOAL SETTING//ROUND 1]
-            </p>
-          </div>
-          <img
-            loading="lazy"
-            src="accessichat-lowfi1.png"
-            class="md:border border-grid md:border-b-0 w-full"
-            alt="All Features"
-          />
-        </div>
-      </section>
-
-      <!-- FIG.13b -->
-      <section class="image-display-section w-full border-grid border-b">
-        <div class="image-container max-w-7xl mx-auto">
-          <div class="md:border-grid border-x sm:px-4">
-            <p class="text-grey py-3 px-4 sm:px-0">
-              [FIG.13 LO-FI PROTOTYPES ON GOAL AND ROUTINE SETTING//ROUND 2]
-            </p>
-          </div>
-          <img
-            loading="lazy"
-            src="accessichat-lowfi.png"
-            class="md:border border-grid md:border-b-0 w-full"
-            alt="All Features"
-          />
-        </div>
-      </section>
-
-      <!-- Assumptions Mapping -->
-      <section class="border-grid border-b">
-        <div
-          class="max-w-7xl mx-auto flex flex-col lg:flex-row py-12 pb-16 px-4 justify-between gap-8"
-        >
-          <div class="lg:w-[30%] shrink-0">
-            <h4 class="md:pt-[0.75rem]">Assumptions Mapping</h4>
-          </div>
-          <div class="flex flex-col gap-10 lg:w-[70%]">
-            <div class="flex flex-col gap-3 pt-4">
-              <h4 class="text-left">
-                Before user testing, we created an Assumptions Map to guide our
-                testing priorities. This helped us evaluate potential risks,
-                uncertainties, and impacts of our design decisions, informing
-                the questions we would ask during user testing.
-              </h4>
+        <!-- The Solution -->
+        <section class="border-grid border-b">
+          <div
+            class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-24 px-4 justify-between gap-8 lg:px-12"
+          >
+            <div class="lg:w-[30%] shrink-0">
+              <h4 id="solution" class="scroll-mt-28">The Solution</h4>
+            </div>
+            <div class="flex flex-col gap-4 md:gap-10 lg:w-[70%]">
+              <div class="flex flex-col gap-4 pt-4">
+                <p class="text-left text-grey">ACCESSICHAT'S VALUE</p>
+                <h4 class="text-left">
+                  Accessichat is an accommodating app dedicated to enhancing
+                  communication for individuals with disabilities. We worked to
+                  include features that would expand the means that people with
+                  disabilities can communicate through advanced features such
+                  as:
+                </h4>
+                <div class="text-left">
+                  <h4 class="custom-list-item">
+                    Speech-to-Text Conversion for real-time communication
+                  </h4>
+                  <h4 class="custom-list-item">
+                    Scenario Practice for preparing for real-life conversations
+                  </h4>
+                  <h4 class="custom-list-item">
+                    Personalized Profiles with customizable "About Me" sections
+                  </h4>
+                  <h4 class="custom-list-item">
+                    Customizable Avatars reflecting cultural and personal
+                    preferences
+                  </h4>
+                  <h4 class="custom-list-item">
+                    Goal Setting and Progress tracking, allowing people to meet
+                    their communication goals and win in-app awards
+                  </h4>
+                </div>
+              </div>
+              <div class="flex flex-col gap-4 pt-4">
+                <p class="text-left text-grey">WHAT SETS US APART</p>
+                <h4 class="text-left">
+                  Our app combines advanced communication features with tools
+                  for emotional well-being and empowerment. It recognizes unique
+                  speech patterns, supports note-sharing, and incorporates
+                  mental health features and positive affirmations. By
+                  introducing an award system to celebrate achievements and
+                  expanding communication options for people with disabilities,
+                  our app stands out as an inclusive and empowering platform.
+                </h4>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <!-- FIG.14 -->
-      <section class="image-display-section w-full border-grid border-b">
-        <div class="image-container max-w-7xl mx-auto">
-          <div class="md:border-grid border-x sm:px-4">
-            <p class="text-grey py-3 px-4 sm:px-0">
-              [FIG.14 RISK ASSIGNMENT AND THE HIGHEST RISKS TO OUR PRODUCT]
-            </p>
-          </div>
-          <img
-            loading="lazy"
-            src="accessichat-assumptions-map.png"
-            class="md:border border-grid md:border-b-0 w-full"
-            alt="All Features"
-          />
-        </div>
-      </section>
-
-      <!-- Usability Testing -->
-      <section class="border-grid border-b">
-        <div
-          class="max-w-7xl mx-auto flex flex-col lg:flex-row py-12 pb-16 px-4 justify-between gap-8"
-        >
-          <div class="lg:w-[30%] shrink-0">
-            <h4 class="md:pt-[0.75rem]">Usability Testing</h4>
-          </div>
-          <div class="flex flex-col gap-10 lg:w-[70%]">
-            <div class="flex flex-col gap-3 pt-4">
-              <h4 class="text-left">
-                Our 3 participants each engaged in 2 rounds of testing, with
-                each session lasting 20 minutes over Zoom. During each session,
-                participants shared their screens and cameras while exploring
-                the core features of the app. We evaluated both their ease of
-                using the app and asked specific questions derived from our
-                Assumptions Map to validate or challenge our initial
-                assumptions.
+        <!-- Wireframing & Prototyping -->
+        <section class="border-grid border-b">
+          <div
+            class="max-w-7xl mx-auto flex flex-col lg:flex-row py-12 pb-16 px-4 justify-between gap-8 lg:px-12"
+          >
+            <div class="lg:w-[30%] shrink-0">
+              <h4 id="wireframing" class="scroll-mt-28">
+                Wireframing & Prototyping
               </h4>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- FIG.15 -->
-      <section class="image-display-section w-full border-grid border-b">
-        <div class="image-container max-w-7xl mx-auto">
-          <div class="md:border-grid border-x sm:px-4">
-            <p class="text-grey py-3 px-4 sm:px-0">
-              [FIG.15 HOME PAGE FINDINGS]
-            </p>
-          </div>
-          <img
-            loading="lazy"
-            src="accessichat-use-home.png"
-            class="md:border border-grid md:border-b-0 w-full"
-            alt="All Features"
-          />
-        </div>
-      </section>
-
-      <!-- FIG.16 -->
-      <section class="image-display-section w-full border-grid border-b">
-        <div class="image-container max-w-7xl mx-auto">
-          <div class="md:border-grid border-x sm:px-4">
-            <p class="text-grey py-3 px-4 sm:px-0">
-              [FIG.16 SCENARIO PRACTICE FINDINGS]
-            </p>
-          </div>
-          <img
-            loading="lazy"
-            src="accessichat-use-scenario.png"
-            class="md:border border-grid md:border-b-0 w-full"
-            alt="All Features"
-          />
-        </div>
-      </section>
-
-      <!-- FIG.17 -->
-      <section class="image-display-section w-full border-grid border-b">
-        <div class="image-container max-w-7xl mx-auto">
-          <div class="md:border-grid border-x sm:px-4">
-            <p class="text-grey py-3 px-4 sm:px-0">[FIG.17 AI PET FINDINGS]</p>
-          </div>
-          <img
-            loading="lazy"
-            src="accessichat-use-aipet.png"
-            class="md:border border-grid md:border-b-0 w-full"
-            alt="All Features"
-          />
-        </div>
-      </section>
-
-      <!-- FIG.18 -->
-      <section class="image-display-section w-full border-grid border-b">
-        <div class="image-container max-w-7xl mx-auto">
-          <div class="md:border-grid border-x sm:px-4">
-            <p class="text-grey py-3 px-4 sm:px-0">
-              [FIG.18 GOAL AND ROUTINE SETTING FINDINGS]
-            </p>
-          </div>
-          <img
-            loading="lazy"
-            src="accessichat-use-goal.png"
-            class="md:border border-grid md:border-b-0 w-full"
-            alt="All Features"
-          />
-        </div>
-      </section>
-
-      <!-- Final Outcomes -->
-      <section class="border-grid border-b">
-        <div
-          class="max-w-7xl mx-auto flex flex-col lg:flex-row py-12 pb-16 px-4 justify-between gap-8"
-        >
-          <div class="lg:w-[30%] shrink-0">
-            <h4 class="md:pt-[0.75rem]">Final Outcomes</h4>
-          </div>
-          <div class="flex flex-col gap-10 lg:w-[70%]">
-            <div class="flex flex-col gap-6 pt-4">
-              <h4 class="text-left">
-                The project achieved significant improvements by incorporating
-                insights from user testing, ensuring the final product addressed
-                their needs. Furthermore, accessible communication tools were
-                successfully integrated with AI-driven features, enhancing
-                functionality for users with all kinds of disabilities. The
-                consistent user group confirmed their willingness to adopt the
-                application if made available. This validation, coupled with the
-                app's focus on augmented creativity, earned it an
-                <u>Honorable Mention at the 2024 RGD Student Design Awards.</u>
-              </h4>
+            <div class="flex flex-col gap-10 lg:w-[70%]">
+              <div class="flex flex-col gap-3 pt-4">
+                <h4 class="text-left">
+                  I began my process with rough sketches and developed 2 rounds
+                  of low-fidelity prototypes to test key features like scenario
+                  practice and goal setting.
+                </h4>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <!-- Key Learning -->
-      <section class="border-grid border-b">
-        <div
-          class="max-w-7xl mx-auto flex flex-col lg:flex-row py-12 pb-16 px-4 justify-between gap-8"
-        >
-          <div class="lg:w-[30%] shrink-0">
-            <h4 class="md:pt-[0.75rem]">Key Learning & Next Steps</h4>
+        <!-- FIG.10 -->
+        <section class="image-display-section w-full border-grid border-b">
+          <div class="image-container max-w-7xl mx-auto">
+            <div class="md:border-grid sm:px-4 lg:px-12">
+              <p class="text-grey py-3 px-4 sm:px-0">
+                [FIG.10 ROUGH SKETCHES OF SCENARIO PRACTICE AND PROFILE]
+              </p>
+            </div>
+            <img
+              loading="lazy"
+              src="accessi-sketch.png"
+              class="md:border-y border-grid md:border-b-0 w-full"
+              alt="All Features"
+            />
           </div>
-          <div class="flex flex-col gap-10 lg:w-[70%]">
-            <div class="flex flex-col gap-6 pt-4">
-              <h4 class="text-left">
-                The project provided valuable insights into AI integration,
-                demonstrating how generative AI can be leveraged for competitive
-                analysis and feature development without compromising
-                accessibility. Regular user testing played a pivotal role,
-                ensuring cultural alignment and informed design decisions.
-                Lastly, the adoption of agile methodology allowed the team to
-                continually improve the product based on user feedback,
-                resulting in a more refined and user-centered solution. Moving
-                forward, these lessons will guide the team in creating even more
-                impactful and inclusive tools.
-              </h4>
-              <h4 class="text-left">
-                * Feedback from RGD highlighted areas for improvement,
-                particularly in addressing WCAG guidelines and enhancing color
-                contrast requirements. Given more time, these aspects could have
-                been further refined to elevate the product's accessibility
-                standards.
+        </section>
+
+        <!-- FIG.11 -->
+        <section class="image-display-section w-full border-grid border-b">
+          <div class="image-container max-w-7xl mx-auto">
+            <div class="md:border-grid sm:px-4 lg:px-12">
+              <p class="text-grey py-3 px-4 sm:px-0">
+                [FIG.11 AWARD SYSTEM SKETCHES AND NOTES]
+              </p>
+            </div>
+            <img
+              loading="lazy"
+              src="accessi-sketch2.png"
+              class="md:border-y border-grid md:border-b-0 w-full"
+              alt="All Features"
+            />
+          </div>
+        </section>
+
+        <!-- FIG.12 -->
+        <section class="image-display-section w-full border-grid border-b">
+          <div class="image-container max-w-7xl mx-auto">
+            <div class="md:border-grid sm:px-4 lg:px-12">
+              <p class="text-grey py-3 px-4 sm:px-0">
+                [FIG.12 LO-FI PROTOTYPES ON SCENARIO PRACTICE//ROUNDS 1-2]
+              </p>
+            </div>
+            <img
+              loading="lazy"
+              src="accessichat-lowfi2.png"
+              class="md:border-y border-grid md:border-b-0 w-full"
+              alt="All Features"
+            />
+          </div>
+        </section>
+
+        <!-- FIG.13a -->
+        <section class="image-display-section w-full border-grid border-b">
+          <div class="image-container max-w-7xl mx-auto">
+            <div class="md:border-grid sm:px-4 lg:px-12">
+              <p class="text-grey py-3 px-4 sm:px-0">
+                [FIG.13 LO-FI PROTOTYPES ON GOAL SETTING//ROUND 1]
+              </p>
+            </div>
+            <img
+              loading="lazy"
+              src="accessichat-lowfi1.png"
+              class="md:border-y border-grid md:border-b-0 w-full"
+              alt="All Features"
+            />
+          </div>
+        </section>
+
+        <!-- FIG.13b -->
+        <section class="image-display-section w-full border-grid border-b">
+          <div class="image-container max-w-7xl mx-auto">
+            <div class="md:border-grid sm:px-4 lg:px-12">
+              <p class="text-grey py-3 px-4 sm:px-0">
+                [FIG.13 LO-FI PROTOTYPES ON GOAL AND ROUTINE SETTING//ROUND 2]
+              </p>
+            </div>
+            <img
+              loading="lazy"
+              src="accessichat-lowfi.png"
+              class="md:border-y border-grid md:border-b-0 w-full"
+              alt="All Features"
+            />
+          </div>
+        </section>
+
+        <!-- Assumptions Mapping -->
+        <section class="border-grid border-b">
+          <div
+            class="max-w-7xl mx-auto flex flex-col lg:flex-row py-12 pb-16 px-4 justify-between gap-8 lg:px-12"
+          >
+            <div class="lg:w-[30%] shrink-0">
+              <h4 id="assumptions-mapping" class="scroll-mt-28">
+                Assumptions Mapping
               </h4>
             </div>
+            <div class="flex flex-col gap-10 lg:w-[70%]">
+              <div class="flex flex-col gap-3 pt-4">
+                <h4 class="text-left">
+                  Before user testing, we created an Assumptions Map to guide
+                  our testing priorities. This helped us evaluate potential
+                  risks, uncertainties, and impacts of our design decisions,
+                  informing the questions we would ask during user testing.
+                </h4>
+              </div>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <!-- FIG.19 -->
-      <section class="image-display-section w-full border-grid border-b">
-        <div class="image-container max-w-7xl mx-auto">
-          <img
-            loading="lazy"
-            src="accesi-hero2.png"
-            class="md:border border-grid md:border-t-0 w-full"
-            alt="All Features"
-          />
-          <div class="md:border-grid border-x sm:px-4">
-            <p class="text-grey py-3 px-4 sm:px-0">
-              [FIG.19 SCENARIO PRACTICE//ASKING FOR DIRECTIONS]
-            </p>
+        <!-- FIG.14 -->
+        <section class="image-display-section w-full border-grid border-b">
+          <div class="image-container max-w-7xl mx-auto">
+            <div class="md:border-grid sm:px-4 lg:px-12">
+              <p class="text-grey py-3 px-4 sm:px-0">
+                [FIG.14 RISK ASSIGNMENT AND THE HIGHEST RISKS TO OUR PRODUCT]
+              </p>
+            </div>
+            <img
+              loading="lazy"
+              src="accessichat-assumptions-map.png"
+              class="md:border-y border-grid md:border-b-0 w-full"
+              alt="All Features"
+            />
           </div>
-        </div>
-      </section>
-    </main>
+        </section>
 
-    <scroll-component></scroll-component>
+        <!-- Usability Testing -->
+        <section class="border-grid border-b">
+          <div
+            class="max-w-7xl mx-auto flex flex-col lg:flex-row py-12 pb-16 px-4 justify-between gap-8 lg:px-12"
+          >
+            <div class="lg:w-[30%] shrink-0">
+              <h4 id="usability-testing" class="scroll-mt-28">
+                Usability Testing
+              </h4>
+            </div>
+            <div class="flex flex-col gap-10 lg:w-[70%]">
+              <div class="flex flex-col gap-3 pt-4">
+                <h4 class="text-left">
+                  Our 3 participants each engaged in 2 rounds of testing, with
+                  each session lasting 20 minutes over Zoom. During each
+                  session, participants shared their screens and cameras while
+                  exploring the core features of the app. We evaluated both
+                  their ease of using the app and asked specific questions
+                  derived from our Assumptions Map to validate or challenge our
+                  initial assumptions.
+                </h4>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- FIG.15 -->
+        <section class="image-display-section w-full border-grid border-b">
+          <div class="image-container max-w-7xl mx-auto">
+            <div class="md:border-grid sm:px-4 lg:px-12">
+              <p class="text-grey py-3 px-4 sm:px-0">
+                [FIG.15 HOME PAGE FINDINGS]
+              </p>
+            </div>
+            <img
+              loading="lazy"
+              src="accessichat-use-home.png"
+              class="md:border-y border-grid md:border-b-0 w-full"
+              alt="All Features"
+            />
+          </div>
+        </section>
+
+        <!-- FIG.16 -->
+        <section class="image-display-section w-full border-grid border-b">
+          <div class="image-container max-w-7xl mx-auto">
+            <div class="md:border-grid sm:px-4 lg:px-12">
+              <p class="text-grey py-3 px-4 sm:px-0">
+                [FIG.16 SCENARIO PRACTICE FINDINGS]
+              </p>
+            </div>
+            <img
+              loading="lazy"
+              src="accessichat-use-scenario.png"
+              class="md:border-y border-grid md:border-b-0 w-full"
+              alt="All Features"
+            />
+          </div>
+        </section>
+
+        <!-- FIG.17 -->
+        <section class="image-display-section w-full border-grid border-b">
+          <div class="image-container max-w-7xl mx-auto">
+            <div class="md:border-grid sm:px-4 lg:px-12">
+              <p class="text-grey py-3 px-4 sm:px-0">
+                [FIG.17 AI PET FINDINGS]
+              </p>
+            </div>
+            <img
+              loading="lazy"
+              src="accessichat-use-aipet.png"
+              class="md:border-y border-grid md:border-b-0 w-full"
+              alt="All Features"
+            />
+          </div>
+        </section>
+
+        <!-- FIG.18 -->
+        <section class="image-display-section w-full border-grid border-b">
+          <div class="image-container max-w-7xl mx-auto">
+            <div class="md:border-grid sm:px-4 lg:px-12">
+              <p class="text-grey py-3 px-4 sm:px-0">
+                [FIG.18 GOAL AND ROUTINE SETTING FINDINGS]
+              </p>
+            </div>
+            <img
+              loading="lazy"
+              src="accessichat-use-goal.png"
+              class="md:border-y border-grid md:border-b-0 w-full"
+              alt="All Features"
+            />
+          </div>
+        </section>
+
+        <!-- Final Outcomes -->
+        <section class="border-grid border-b">
+          <div
+            class="max-w-7xl mx-auto flex flex-col lg:flex-row py-12 pb-16 px-4 justify-between gap-8 lg:px-12"
+          >
+            <div class="lg:w-[30%] shrink-0">
+              <h4 id="final-outcomes" class="scroll-mt-28">Final Outcomes</h4>
+            </div>
+            <div class="flex flex-col gap-10 lg:w-[70%]">
+              <div class="flex flex-col gap-6 pt-4">
+                <h4 class="text-left">
+                  The project achieved significant improvements by incorporating
+                  insights from user testing, ensuring the final product
+                  addressed their needs. Furthermore, accessible communication
+                  tools were successfully integrated with AI-driven features,
+                  enhancing functionality for users with all kinds of
+                  disabilities. The consistent user group confirmed their
+                  willingness to adopt the application if made available. This
+                  validation, coupled with the app's focus on augmented
+                  creativity, earned it an
+                  <u
+                    >Honorable Mention at the 2024 RGD Student Design Awards.</u
+                  >
+                </h4>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Key Learning -->
+        <section class="border-grid border-b">
+          <div
+            class="max-w-7xl mx-auto flex flex-col lg:flex-row py-12 pb-16 px-4 justify-between gap-8 lg:px-12"
+          >
+            <div class="lg:w-[30%] shrink-0">
+              <h4 id="key-learning" class="scroll-mt-28">
+                Key Learning & Next Steps
+              </h4>
+            </div>
+            <div class="flex flex-col gap-10 lg:w-[70%]">
+              <div class="flex flex-col gap-6 pt-4">
+                <h4 class="text-left">
+                  The project provided valuable insights into AI integration,
+                  demonstrating how generative AI can be leveraged for
+                  competitive analysis and feature development without
+                  compromising accessibility. Regular user testing played a
+                  pivotal role, ensuring cultural alignment and informed design
+                  decisions. Lastly, the adoption of agile methodology allowed
+                  the team to continually improve the product based on user
+                  feedback, resulting in a more refined and user-centered
+                  solution. Moving forward, these lessons will guide the team in
+                  creating even more impactful and inclusive tools.
+                </h4>
+                <h4 class="text-left">
+                  * Feedback from RGD highlighted areas for improvement,
+                  particularly in addressing WCAG guidelines and enhancing color
+                  contrast requirements. Given more time, these aspects could
+                  have been further refined to elevate the product's
+                  accessibility standards.
+                </h4>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- FIG.19 -->
+        <section class="image-display-section w-full border-grid border-b">
+          <div class="image-container max-w-7xl mx-auto">
+            <img
+              loading="lazy"
+              src="accesi-hero2.png"
+              class="md:border-y border-grid md:border-t-0 w-full"
+              alt="All Features"
+            />
+            <div class="md:border-grid sm:px-4 lg:px-12">
+              <p class="text-grey py-3 px-4 sm:px-0">
+                [FIG.19 SCENARIO PRACTICE//ASKING FOR DIRECTIONS]
+              </p>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- Right spacing rail (empty, mirrors the sidebar) -->
+      <div
+        aria-hidden="true"
+        class="hidden lg:block sticky top-0 h-screen self-start w-12 shrink-0 border-l 2xl:border-r border-grid"
+      ></div>
+    </div>
+
+    <!-- Import footer -->
     <script src="footer.js" type="module"></script>
     <footer-component></footer-component>
     <script type="module" src="cursor.js"></script>
@@ -941,5 +1107,44 @@
     <script type="module" src="lightbox.js"></script>
     <script type="module" src="lightbox-page.js"></script>
     <lightbox-modal></lightbox-modal>
+    <!-- Sidebar nav scroll spy -->
+    <script>
+      (() => {
+        const nav = document.getElementById("accessichat-nav");
+        if (!nav) return;
+
+        const links = Array.from(nav.querySelectorAll("a[data-scroll]"));
+        const targets = [];
+
+        links.forEach((link) => {
+          const id = link.dataset.scroll;
+          const el = document.getElementById(id);
+          if (el) targets.push(el);
+        });
+
+        if (!("IntersectionObserver" in window) || targets.length === 0) return;
+
+        const setActive = (id) => {
+          links.forEach((l) => {
+            const on = l.dataset.scroll === id;
+            l.classList.toggle("text-blob", on);
+            l.classList.toggle("border-blob", on);
+            l.classList.toggle("border-[#d0d0d0]", !on);
+          });
+        };
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) return;
+              setActive(entry.target.id);
+            });
+          },
+          { rootMargin: "-25% 0px -65% 0px", threshold: 0 },
+        );
+
+        targets.forEach((el) => observer.observe(el));
+      })();
+    </script>
   </body>
 </html>
