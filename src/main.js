@@ -319,7 +319,7 @@ function buildPlaygroundFilters(containerSelector, categories, onFilter) {
     const btn = document.createElement("button");
     btn.textContent = cat;
     btn.className =
-      "px-4 py-2 rounded-full border border-grid text-sm font-[family-name:'Fragment_Mono'] transition-colors hover:border-black";
+      "px-4 py-2 rounded-xl border border-grid text-sm font-[family-name:'Fragment_Mono'] transition-colors hover:border-black";
     btn.addEventListener("click", () => {
       setActive(cat);
       onFilter(cat);
