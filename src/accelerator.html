@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <script
       async
@@ -31,6 +31,10 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
     <title>Accelerator</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fragment+Mono&display=swap"
+      rel="stylesheet"
+    />
   </head>
 
   <body>
@@ -41,17 +45,63 @@
     ></header-component>
     <script src="scroll-to-top.js" type="module"></script>
 
-    <main>
+    <!-- Hero Image (full width, sidebars start below) -->
+    <div class="w-full max-w-[94rem] mx-auto">
+      <div
+        class="relative h-[60vh] md:h-[72vh] lg:max-h-[640px] xl:max-h-[748px] overflow-hidden"
+        data-lightbox-exclude
+      >
+        <video
+          autoplay
+          muted
+          loop
+          playsinline
+          class="absolute top-0 left-0 w-full h-full object-cover md:object-top"
+        >
+          <source src="degree-project/thumbnail.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </div>
+
+    <!-- Sidebar + content kept together, capped like the homepage -->
+    <div class="w-full max-w-[94rem] mx-auto flex">
+      <nav
+        id="accelerator-nav"
+        aria-label="On this page"
+        class="hidden lg:flex lg:flex-col w-max whitespace-nowrap shrink-0 overflow-y-auto sticky top-0 h-screen self-start border-r 2xl:border-l border-grid xl:pt-10 2xl:pt-14 pb-14 pl-12 pr-12 font-['Fragment_Mono',monospace] tracking-[-0.04em]"
+      >
+        <span class="text-sm leading-6 text-grey uppercase mb-2">Documentation</span>
+        <a href="#overview" data-scroll="overview" class="text-sm leading-6 py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors">Overview</a>
+        <a href="#final-inquiry" data-scroll="final-inquiry" class="text-sm leading-6 py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors">Final Inquiry</a>
+        <a href="#capstone-project" data-scroll="capstone-project" class="text-sm leading-6 py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors">My Capstone Project</a>
+
+        <span class="block text-sm leading-6 text-grey uppercase mt-7 mb-2">Research</span>
+        <a href="#background" data-scroll="background" class="text-sm leading-6 py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors">Background</a>
+        <a href="#literature-review" data-scroll="literature-review" class="text-sm leading-6 py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors">Literature Review</a>
+        <a href="#gamification" data-scroll="gamification" class="text-sm leading-6 py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors">The Dark Side of Gamification</a>
+
+        <span class="block text-sm leading-6 text-grey uppercase mt-7 mb-2">Design</span>
+        <a href="#output" data-scroll="output" class="text-sm leading-6 py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors">The Output</a>
+        <a href="#game-premise" data-scroll="game-premise" class="text-sm leading-6 py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors">Game Premise</a>
+        <a href="#game-design" data-scroll="game-design" class="text-sm leading-6 py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors">Game Design</a>
+        <a href="#enemy-design" data-scroll="enemy-design" class="text-sm leading-6 py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors">Enemy Design</a>
+        <a href="#design-language" data-scroll="design-language" class="text-sm leading-6 py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors">Design Language</a>
+
+        <span class="block w-full mt-4 mb-4 border-l-2 pl-2.5"></span>
+        <a href="#key-learning" data-scroll="key-learning" class="text-sm leading-6 py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors">Key Learning &amp; Next Steps</a>
+      </nav>
+
+      <main class="flex-1 min-w-0">
 
 
-      <!-- Intro Section -->
+        <!-- Intro Section -->
       <section class="border-grid border-b">
         <div
-          class="max-w-7xl mx-auto flex flex-col pt-8 md:py-20 pb-8 gap-20 px-4"
+          class="max-w-7xl mx-auto flex flex-col pt-8 md:pb-20 md:pt-12 pb-8 gap-20 px-4 lg:px-12"
         >
           <div class="flex flex-col gap-10 lg:w-[80%]">
-            <div class="flex flex-col gap-8 pt-20 sm:p1-1">
-              <h2>Accelerator</h2>
+            <div class="flex flex-col gap-8 pt-1">
+              <h2 id="overview" class="scroll-mt-28">Accelerator</h2>
               <h4>
                 Have you ever wondered why you need to prove you are human to non-living algorithms?
                 AI predates the CAPTCHAs many can't solve, as both grow more inaccessible for the
@@ -59,19 +109,6 @@
               </h4>
             </div>
           </div>
-
-          <!-- Hero Image -->
-<div class="relative h-[60vh] md:h-[96vh] xl:max-h-[900px] overflow-hidden" data-lightbox-exclude>
-  <video
-    autoplay
-    muted
-    loop
-    playsinline
-    class="absolute sm:-top-10 left-0 w-full h-full object-cover md:object-top"
-  >
-    <source src="degree-project/thumbnail.mp4" type="video/mp4" />
-  </video>
-</div>
 
           <div class="flex md:flex-row flex-col w-full gap-4">
             <div
@@ -114,11 +151,11 @@
       <!-- Problem Statement -->
       <section class="border-grid border-b">
         <div
-          class="max-w-7xl mx-auto flex flex-col py-8 md:py-12 md:pb-24 px-4 gap-4"
+          class="max-w-7xl mx-auto flex flex-col py-8 md:py-12 md:pb-24 px-4 gap-4 lg:px-12"
         >
           <div class="flex flex-col gap-10">
             <div class="flex flex-col gap-4 pt-1">
-              <h4>Final Inquiry</h4>
+              <h4 id="final-inquiry" class="scroll-mt-28">Final Inquiry</h4>
               <h3>
                 How do AI‑mediated human identity verification systems intensify
                 anxiety and alienation through the transformation of everyday
@@ -132,14 +169,14 @@
 <!-- FIG.1 IN-APP FEATURES -->
       <section class="image-display-section w-full border-grid border-b">
         <div class="image-container max-w-7xl mx-auto">
-          <div class="md:border-grid border-x sm:px-4">
+          <div class="md:border-grid sm:px-4 lg:px-12">
             <p class="text-grey py-3 px-4 sm:px-0">
               FIG.1 "ARE YOU HUMAN??"
             </p>
           </div>
           <img loading="lazy"
             src="degree-project/poster.jpg"
-            class="md:border border-grid md:border-b-0 w-full"
+            class="md:border-y border-grid md:border-b-0 w-full"
             alt="All Features"
           />
         </div>
@@ -151,10 +188,10 @@
       <!-- Product Development -->
       <section class="border-grid border-b">
         <div
-          class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-24 px-4 justify-between gap-8"
+          class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-24 px-4 justify-between gap-8 lg:px-12"
         >
           <div class="lg:w-[30%] shrink-0">
-            <h4 class="md:pt-[0.75rem]">My Capstone Project</h4>
+            <h4 id="capstone-project" class="scroll-mt-28">My Capstone Project</h4>
           </div>
           <div class="flex flex-col gap-4 md:gap-10 lg:w-[70%]">
             <div class="flex flex-col gap-4 pt-4">
@@ -195,12 +232,12 @@
 <!-- FIG.1 IN-APP FEATURES -->
       <section class="image-display-section w-full border-grid border-b">
         <div class="image-container max-w-7xl mx-auto">
-          <div class="md:border-grid border-x sm:px-4">
+          <div class="md:border-grid sm:px-4 lg:px-12">
             <p class="text-grey py-3 px-4 sm:px-0">
               [FIG.2 WALKTHROUGH VIDEO]
             </p>
           </div>
-  <iframe class="md:border border-grid md:border-b-0 w-full h-96 md:h-[700px]"
+  <iframe class="md:border-y border-grid md:border-b-0 w-full h-96 md:h-[700px]"
     src="https://www.youtube.com/embed/yc79mKqQ47E"
     allowfullscreen>
   </iframe>
@@ -211,12 +248,12 @@
        <section class="flex flex-col sm:flex-row gap-4 image-container max-w-7xl mx-auto">
         <div class="image-display-section w-full border-grid border-b">
         <div class="image-container max-w-7xl mx-auto">
-          <div class="md:border-grid border-x sm:px-4">
+          <div class="md:border-grid border-r sm:px-4 lg:px-12">
             <p class="text-grey py-3 px-4 sm:px-0">
               [FIG.3 TEXT CAPTCHA]
             </p>
           </div>
-<video height="300" controls>
+<video class="md:border-y border-grid md:border-b-0 w-full" height="300" controls>
   <source src="degree-project/text-captcha.mp4" type="video/mp4">
 </video>
         </div>
@@ -224,12 +261,12 @@
             <!-- FIG.14 -->
       <div class="image-display-section w-full border-grid border-b">
         <div class="image-container max-w-7xl mx-auto">
-          <div class="md:border-grid border-x sm:px-4">
+          <div class="md:border-grid border-l sm:px-4 lg:px-12">
             <p class="text-grey py-3 px-4 sm:px-0">
               [FIG.4 IMAGE CAPTCHA - TYPE 1/5]
             </p>
           </div>
-<video height="300" controls>
+<video class="md:border-y border-grid md:border-b-0 w-full" height="300" controls>
   <source src="degree-project/image-captcha.mp4" type="video/mp4">
 </video>
         </div>
@@ -241,10 +278,10 @@
         <!-- Product Development -->
       <section class="border-grid border-b">
         <div
-          class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-24 px-4 justify-between gap-8"
+          class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-24 px-4 justify-between gap-8 lg:px-12"
         >
           <div class="lg:w-[30%] shrink-0">
-            <h4 class="md:pt-[0.75rem]">Background</h4>
+            <h4 id="background" class="scroll-mt-28">Background</h4>
           </div>
           <div class="flex flex-col gap-4 md:gap-10 lg:w-[70%]">
 
@@ -276,14 +313,14 @@
        <!-- FIG.13a -->
       <section class="image-display-section w-full border-grid border-b">
         <div class="image-container max-w-7xl mx-auto">
-          <div class="md:border-grid border-x sm:px-4">
+          <div class="md:border-grid sm:px-4 lg:px-12">
             <p class="text-grey py-3 px-4 sm:px-0">
               [FIG.5 FIRST CUTSCENE]
             </p>
           </div>
           <img loading="lazy"
             src="degree-project/note1.png"
-            class="md:border border-grid md:border-b-0 w-full"
+            class="md:border-y border-grid md:border-b-0 w-full"
             alt="All Features"
           />
         </div>
@@ -292,14 +329,14 @@
        <section class="flex flex-col sm:flex-row gap-4 image-container max-w-7xl mx-auto">
         <div class="image-display-section w-full border-grid border-b">
         <div class="image-container max-w-7xl mx-auto">
-          <div class="md:border-grid border-x sm:px-4">
+          <div class="md:border-grid border-r sm:px-4 lg:px-12">
             <p class="text-grey py-3 px-4 sm:px-0">
               [FIG.6 THE PERFECT COMPANION]
             </p>
           </div>
  <img loading="lazy"
             src="degree-project/sum.jpeg"
-            class="md:border border-grid md:border-b-0 w-full"
+            class="md:border-y border-grid md:border-b-0 w-full"
             alt="All Features"
           />
 
@@ -308,14 +345,14 @@
             <!-- FIG.14 -->
       <div class="image-display-section w-full border-grid border-b">
         <div class="image-container max-w-7xl mx-auto">
-          <div class="md:border-grid border-x sm:px-4">
+          <div class="md:border-grid border-l sm:px-4 lg:px-12">
             <p class="text-grey py-3 px-4 sm:px-0">
               [FIG.7 SO TRUSTWORTHY, ITS TOTALLY NOT SPYING ON YOU]
             </p>
           </div>
  <img loading="lazy"
             src="degree-project/love.jpeg"
-            class="md:border border-grid md:border-b-0 w-full"
+            class="md:border-y border-grid md:border-b-0 w-full"
             alt="All Features"
           />
         </div>
@@ -327,14 +364,14 @@
        <section class="flex flex-col sm:flex-row gap-4 image-container max-w-7xl mx-auto">
         <div class="image-display-section w-full border-grid border-b">
         <div class="image-container max-w-7xl mx-auto">
-          <div class="md:border-grid border-x sm:px-4">
+          <div class="md:border-grid border-r sm:px-4 lg:px-12">
             <p class="text-grey py-3 px-4 sm:px-0">
               [FIG.8 WE LOVE CUTE DOGS THAT DO EVERYTHING FOR US!!]
             </p>
           </div>
  <img loading="lazy"
             src="degree-project/yay.jpeg"
-            class="md:border border-grid md:border-b-0 w-full"
+            class="md:border-y border-grid md:border-b-0 w-full"
             alt="All Features"
           />
 
@@ -343,14 +380,14 @@
             <!-- FIG.14 -->
       <div class="image-display-section w-full border-grid border-b">
         <div class="image-container max-w-7xl mx-auto">
-          <div class="md:border-grid border-x sm:px-4">
+          <div class="md:border-grid border-l sm:px-4 lg:px-12">
             <p class="text-grey py-3 px-4 sm:px-0">
               [FIG.9 OH WOW THEY ARE A HERO]
             </p>
           </div>
  <img loading="lazy"
             src="degree-project/hero.jpeg"
-            class="md:border border-grid md:border-b-0 w-full"
+            class="md:border-y border-grid md:border-b-0 w-full"
             alt="All Features"
           />
         </div>
@@ -367,10 +404,10 @@
       <!-- lit -->
       <section class="border-grid border-b">
         <div
-          class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-24 px-4 justify-between gap-8"
+          class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-24 px-4 justify-between gap-8 lg:px-12"
         >
           <div class="lg:w-[30%] shrink-0">
-            <h4 class="md:pt-[0.75rem]">Literature Review</h4>
+            <h4 id="literature-review" class="scroll-mt-28">Literature Review</h4>
           </div>
           <div class="flex flex-col gap-4 md:gap-10 lg:w-[70%]">
             <div class="flex flex-col gap-4 pt-4">
@@ -428,14 +465,14 @@ As my research suggests, CAPTCHA, like many AI-facilitated systems, compels user
       <!-- FIG.14 -->
       <section class="image-display-section w-full border-grid border-b">
         <div class="image-container max-w-7xl mx-auto">
-          <div class="md:border-grid border-x sm:px-4">
+          <div class="md:border-grid sm:px-4 lg:px-12">
             <p class="text-grey py-3 px-4 sm:px-0">
               [FIG.10 PLAY THIS GAME TO PROVE YOU ARE HUMAN!!]
             </p>
           </div>
           <img loading="lazy"
             src="degree-project/gamif.png"
-            class="md:border border-grid md:border-b-0 w-full"
+            class="md:border-y border-grid md:border-b-0 w-full"
             alt="All Features"
           />
         </div>
@@ -443,10 +480,10 @@ As my research suggests, CAPTCHA, like many AI-facilitated systems, compels user
 
       <section class="border-grid border-b">
         <div
-          class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-24 px-4 justify-between gap-8"
+          class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-24 px-4 justify-between gap-8 lg:px-12"
         >
           <div class="lg:w-[30%] shrink-0">
-            <h4 class="md:pt-[0.75rem]">The Dark Side of Gamification</h4>
+            <h4 id="gamification" class="scroll-mt-28">The Dark Side of Gamification</h4>
           </div>
           <div class="flex flex-col gap-4 md:gap-10 lg:w-[70%]">
             <div class="flex flex-col gap-4 pt-4">
@@ -486,14 +523,14 @@ As my research suggests, CAPTCHA, like many AI-facilitated systems, compels user
       <!-- FIG.14 -->
       <section class="image-display-section w-full border-grid border-b">
         <div class="image-container max-w-7xl mx-auto">
-          <div class="md:border-grid border-x sm:px-4">
+          <div class="md:border-grid sm:px-4 lg:px-12">
             <p class="text-grey py-3 px-4 sm:px-0">
               [FIG.11 DID YOU KNOW?? HUMAN DATA FROM CAPTCHAS TEACH SMART CARS HOW TO DRIVE!!]
             </p>
           </div>
           <img loading="lazy"
             src="degree-project/work.jpeg"
-            class="md:border border-grid md:border-b-0 w-full"
+            class="md:border-y border-grid md:border-b-0 w-full"
             alt="All Features"
           />
         </div>
@@ -506,10 +543,10 @@ As my research suggests, CAPTCHA, like many AI-facilitated systems, compels user
       <!-- output -->
       <section class="border-grid border-b">
         <div
-          class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-24 px-4 justify-between gap-8"
+          class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-24 px-4 justify-between gap-8 lg:px-12"
         >
           <div class="lg:w-[30%] shrink-0">
-            <h4 class="md:pt-[0.75rem]">The Output</h4>
+            <h4 id="output" class="scroll-mt-28">The Output</h4>
           </div>
           <div class="flex flex-col gap-4 md:gap-10 lg:w-[70%]">
             <div class="flex flex-col gap-4 pt-4">
@@ -527,23 +564,15 @@ My game utilizes many metaphors, including placing the player in a car. Cars and
                 In this game, every AI related “tool” act as friction for the player, introducing them to the  issues of access and discrimination from my initial research. You also get to drive an awful car :)
               </h4>
             </div>
-            
-                
-
-
-
-              </div>
-            </div>
           </div>
         </div>
       </section>
-
       
 
       <!-- Ideation
       <section class="border-grid border-b">
         <div
-          class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-24 px-4 justify-between gap-8"
+          class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-24 px-4 justify-between gap-8 lg:px-12"
         >
           <div class="lg:w-[30%] shrink-0">
             <h4 class="md:pt-[0.75rem]">The Game Premise</h4>
@@ -568,11 +597,11 @@ But why are there these damned CAPTCHAs around the road? BORK is watching you an
        <!-- Problem Statement -->
       <section class="border-grid border-b">
         <div
-          class="max-w-7xl mx-auto flex flex-col py-8 md:py-12 md:pb-24 px-4 gap-4"
+          class="max-w-7xl mx-auto flex flex-col py-8 md:py-12 md:pb-24 px-4 gap-4 lg:px-12"
         >
           <div class="flex flex-col gap-10">
             <div class="flex flex-col gap-4 pt-1">
-              <h4>The Game Premise/"Lore"</h4>
+              <h4 id="game-premise" class="scroll-mt-28">The Game Premise/"Lore"</h4>
               <h3>
                  "It’s 2040 and the air has become so polluted that it killed living pets, leaving humans lonelier than ever. The cute AI companion and dog, BORK, developed by Tedbot, is a low-maintenance, ever-helpful companion who never ages, never leaves, and lives eternally. Does the concept of forever sound daunting? Not to worry as BORK is designed for humans in mind; they were designed around Isaac Asimov's "Three Laws of Robotics!"
 
@@ -587,14 +616,14 @@ But why are there these damned CAPTCHAs around the road? BORK is watching you an
       <!-- FIG.12 -->
       <section class="image-display-section w-full border-grid border-b">
         <div class="image-container max-w-7xl mx-auto">
-          <div class="md:border-grid border-x sm:px-4">
+          <div class="md:border-grid sm:px-4 lg:px-12">
             <p class="text-grey py-3 px-4 sm:px-0">
               [FIG.12 LEVEL DESIGN//MAP]
             </p>
           </div>
           <img loading="lazy"
             src="degree-project/map.png"
-            class="md:border border-grid md:border-b-0 w-full"
+            class="md:border-y border-grid md:border-b-0 w-full"
             alt="All Features"
           />
         </div>
@@ -603,14 +632,14 @@ But why are there these damned CAPTCHAs around the road? BORK is watching you an
             <!-- FIG.15 -->
       <section class="image-display-section w-full border-grid border-b">
         <div class="image-container max-w-7xl mx-auto">
-          <div class="md:border-grid border-x sm:px-4">
+          <div class="md:border-grid sm:px-4 lg:px-12">
             <p class="text-grey py-3 px-4 sm:px-0">
               [FIG.13 OLD CAPTCHA/ENEMY DESIGNS]
             </p>
           </div>
           <img loading="lazy"
             src="degree-project/old-designs.jpeg"
-            class="md:border border-grid md:border-b-0 w-full"
+            class="md:border-y border-grid md:border-b-0 w-full"
             alt="All Features"
           />
         </div>
@@ -619,14 +648,14 @@ But why are there these damned CAPTCHAs around the road? BORK is watching you an
          <!-- FIG.15 -->
       <section class="image-display-section w-full border-grid border-b">
         <div class="image-container max-w-7xl mx-auto">
-          <div class="md:border-grid border-x sm:px-4">
+          <div class="md:border-grid sm:px-4 lg:px-12">
             <p class="text-grey py-3 px-4 sm:px-0">
               [FIG.14 OLD UI/GAMEOVER]
             </p>
           </div>
           <img loading="lazy"
             src="degree-project/gameover.png"
-            class="md:border border-grid md:border-b-0 w-full"
+            class="md:border-y border-grid md:border-b-0 w-full"
             alt="All Features"
           />
         </div>
@@ -636,14 +665,14 @@ But why are there these damned CAPTCHAs around the road? BORK is watching you an
       <!-- FIG.15 -->
       <section class="image-display-section w-full border-grid border-b">
         <div class="image-container max-w-7xl mx-auto">
-          <div class="md:border-grid border-x sm:px-4">
+          <div class="md:border-grid sm:px-4 lg:px-12">
             <p class="text-grey py-3 px-4 sm:px-0">
               [FIG.15 LEVEL DESIGN WITH COLOUR SYSTEM]
             </p>
           </div>
           <img loading="lazy"
             src="degree-project/level.png"
-            class="md:border border-grid md:border-b-0 w-full"
+            class="md:border-y border-grid md:border-b-0 w-full"
             alt="All Features"
           />
         </div>
@@ -653,10 +682,10 @@ But why are there these damned CAPTCHAs around the road? BORK is watching you an
       <!-- Wireframing & Prototyping -->
       <section class="border-grid border-b">
         <div
-          class="max-w-7xl mx-auto flex flex-col lg:flex-row py-12 pb-16 px-4 justify-between gap-8"
+          class="max-w-7xl mx-auto flex flex-col lg:flex-row py-12 pb-16 px-4 justify-between gap-8 lg:px-12"
         >
           <div class="lg:w-[30%] shrink-0">
-            <h4 class="md:pt-[0.75rem]">Game Design</h4>
+            <h4 id="game-design" class="scroll-mt-28">Game Design</h4>
           </div>
           <div class="flex flex-col gap-10 lg:w-[70%]">
             <div class="flex flex-col gap-3 pt-4">
@@ -673,14 +702,14 @@ A core principle of game design is easing the player into the environment gradua
        <!-- FIG.12 -->
       <section class="image-display-section w-full border-grid border-b">
         <div class="image-container max-w-7xl mx-auto">
-          <div class="md:border-grid border-x sm:px-4">
+          <div class="md:border-grid sm:px-4 lg:px-12">
             <p class="text-grey py-3 px-4 sm:px-0">
               [FIG.16 ENEMY DRAFTS]
             </p>
           </div>
           <img loading="lazy"
             src="degree-project/designs.png"
-            class="md:border border-grid md:border-b-0 w-full"
+            class="md:border-y border-grid md:border-b-0 w-full"
             alt="All Features"
           />
         </div>
@@ -690,10 +719,10 @@ A core principle of game design is easing the player into the environment gradua
       <!-- Wireframing & Prototyping -->
       <section class="border-grid border-b">
         <div
-          class="max-w-7xl mx-auto flex flex-col lg:flex-row py-12 pb-16 px-4 justify-between gap-8"
+          class="max-w-7xl mx-auto flex flex-col lg:flex-row py-12 pb-16 px-4 justify-between gap-8 lg:px-12"
         >
           <div class="lg:w-[30%] shrink-0">
-            <h4 class="md:pt-[0.75rem]">The Enemy Design</h4>
+            <h4 id="enemy-design" class="scroll-mt-28">The Enemy Design</h4>
           </div>
           <div class="flex flex-col gap-10 lg:w-[70%]">
             <div class="flex flex-col gap-3 pt-4">
@@ -723,12 +752,12 @@ I eventually scrapped this design as I realized it would have been too difficult
        <section class="flex flex-col sm:flex-row gap-4 image-container max-w-7xl mx-auto">
         <div class="image-display-section w-full border-grid border-b">
         <div class="image-container max-w-7xl mx-auto">
-          <div class="md:border-grid border-x sm:px-4">
+          <div class="md:border-grid border-r sm:px-4 lg:px-12">
             <p class="text-grey py-3 px-4 sm:px-0">
               [FIG.17 FINAL BOSS TWEEKING AROUND]
             </p>
           </div>
-<video height="100" controls>
+<video class="md:border-y border-grid md:border-b-0 w-full" height="100" controls>
   <source src="degree-project/jig.mp4" type="video/mp4">
 </video>
         </div>
@@ -736,12 +765,12 @@ I eventually scrapped this design as I realized it would have been too difficult
             <!-- FIG.14 -->
       <div class="image-display-section w-full border-grid border-b">
         <div class="image-container max-w-7xl mx-auto">
-          <div class="md:border-grid border-x sm:px-4">
+          <div class="md:border-grid border-l sm:px-4 lg:px-12">
             <p class="text-grey py-3 px-4 sm:px-0">
               [FIG.18 THE BOSS/BORK WALK]
             </p>
           </div>
-<video height="100" controls>
+<video class="md:border-y border-grid md:border-b-0 w-full" height="100" controls>
   <source src="degree-project/walk.mp4" type="video/mp4">
 </video>
         </div>
@@ -749,12 +778,12 @@ I eventually scrapped this design as I realized it would have been too difficult
     <!-- FIG.14 -->
       <div class="image-display-section w-full border-grid border-b">
         <div class="image-container max-w-7xl mx-auto">
-          <div class="md:border-grid border-x sm:px-4">
+          <div class="md:border-grid border-l sm:px-4 lg:px-12">
             <p class="text-grey py-3 px-4 sm:px-0">
               [FIG.19 CRAWLING LIKE THAT GIRL FROM THE RING]
             </p>
           </div>
-<video width="600" controls>
+<video class="md:border-y border-grid md:border-b-0 w-full" width="600" controls>
   <source src="degree-project/crawl.mp4" type="video/mp4">
 </video>
         </div>
@@ -769,14 +798,14 @@ I eventually scrapped this design as I realized it would have been too difficult
       <!-- FIG.13a -->
       <section class="image-display-section w-full border-grid border-b">
         <div class="image-container max-w-7xl mx-auto">
-          <div class="md:border-grid border-x sm:px-4">
+          <div class="md:border-grid sm:px-4 lg:px-12">
             <p class="text-grey py-3 px-4 sm:px-0">
               [FIG.20 BORK METAMORPHOSIS IN COLOUR]
             </p>
           </div>
           <img loading="lazy"
             src="degree-project/enemy-full.png"
-            class="md:border border-grid md:border-b-0 w-full"
+            class="md:border-y border-grid md:border-b-0 w-full"
             alt="All Features"
           />
         </div>
@@ -794,14 +823,14 @@ I eventually scrapped this design as I realized it would have been too difficult
       <!-- FIG.13b -->
       <section class="image-display-section w-full border-grid border-b">
         <div class="image-container max-w-7xl mx-auto">
-          <div class="md:border-grid border-x sm:px-4">
+          <div class="md:border-grid sm:px-4 lg:px-12">
             <p class="text-grey py-3 px-4 sm:px-0">
               [FIG.21 LVL 1 CUTSCENE DRAFTS - IN-GAME]
             </p>
           </div>
           <img loading="lazy"
             src="degree-project/set1.png"
-            class="md:border border-grid md:border-b-0 w-full"
+            class="md:border-y border-grid md:border-b-0 w-full"
             alt="All Features"
           />
         </div>
@@ -811,14 +840,14 @@ I eventually scrapped this design as I realized it would have been too difficult
       <!-- FIG.14 -->
       <section class="image-display-section w-full border-grid border-b">
         <div class="image-container max-w-7xl mx-auto">
-          <div class="md:border-grid border-x sm:px-4">
+          <div class="md:border-grid sm:px-4 lg:px-12">
             <p class="text-grey py-3 px-4 sm:px-0">
               [FIG.22 LVL 2 CUTSCENE DRAFTS]
             </p>
           </div>
           <img loading="lazy"
             src="degree-project/set2.png"
-            class="md:border border-grid md:border-b-0 w-full"
+            class="md:border-y border-grid md:border-b-0 w-full"
             alt="All Features"
           />
         </div>
@@ -827,10 +856,10 @@ I eventually scrapped this design as I realized it would have been too difficult
          <!-- Product Development -->
       <section class="border-grid border-b">
         <div
-          class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-24 px-4 justify-between gap-8"
+          class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-24 px-4 justify-between gap-8 lg:px-12"
         >
           <div class="lg:w-[30%] shrink-0">
-            <h4 class="md:pt-[0.75rem]">Design Language</h4>
+            <h4 id="design-language" class="scroll-mt-28">Design Language</h4>
           </div>
           <div class="flex flex-col gap-4 md:gap-10 lg:w-[70%]">
 
@@ -886,14 +915,14 @@ I wanted the final output to use 3D models. I chose a 3D format specifically bec
       <!-- FIG.13b -->
       <section class="image-display-section w-full border-grid border-b">
         <div class="image-container max-w-7xl mx-auto">
-          <div class="md:border-grid border-x sm:px-4">
+          <div class="md:border-grid sm:px-4 lg:px-12">
             <p class="text-grey py-3 px-4 sm:px-0">
               [FIG.23 MAKING CAPTCHAS ON BLENDER]
             </p>
           </div>
           <img loading="lazy"
             src="degree-project/captcha.jpeg"
-            class="md:border border-grid md:border-b-0 w-full"
+            class="md:border-y border-grid md:border-b-0 w-full"
             alt="All Features"
           />
         </div>
@@ -903,14 +932,14 @@ I wanted the final output to use 3D models. I chose a 3D format specifically bec
       <!-- FIG.14 -->
       <section class="image-display-section w-full border-grid border-b">
         <div class="image-container max-w-7xl mx-auto">
-          <div class="md:border-grid border-x sm:px-4">
+          <div class="md:border-grid sm:px-4 lg:px-12">
             <p class="text-grey py-3 px-4 sm:px-0">
               [FIG.24 EARLY PROTOTYPING IN UNITY]
             </p>
           </div>
           <img loading="lazy"
             src="degree-project/pre-edit.jpeg"
-            class="md:border border-grid md:border-b-0 w-full"
+            class="md:border-y border-grid md:border-b-0 w-full"
             alt="All Features"
           />
         </div>
@@ -926,10 +955,10 @@ I wanted the final output to use 3D models. I chose a 3D format specifically bec
       <!-- Key Learning -->
       <section class="border-grid border-b">
         <div
-          class="max-w-7xl mx-auto flex flex-col lg:flex-row py-12 pb-16 px-4 justify-between gap-8"
+          class="max-w-7xl mx-auto flex flex-col lg:flex-row py-12 pb-16 px-4 justify-between gap-8 lg:px-12"
         >
           <div class="lg:w-[30%] shrink-0">
-            <h4 class="md:pt-[0.75rem]">Key Learning & Next Steps</h4>
+            <h4 id="key-learning" class="scroll-mt-28">Key Learning & Next Steps</h4>
           </div>
           <div class="flex flex-col gap-10 lg:w-[70%]">
             <div class="flex flex-col gap-6 pt-4">
@@ -949,10 +978,10 @@ I wanted the final output to use 3D models. I chose a 3D format specifically bec
         <div class="image-container max-w-7xl mx-auto">
           <img loading="lazy"
             src="degree-project/invalid.png"
-            class="md:border border-grid md:border-t-0 w-full"
+            class="md:border-y border-grid md:border-t-0 w-full"
             alt="All Features"
           />
-          <div class="md:border-grid border-x sm:px-4">
+          <div class="md:border-grid sm:px-4 lg:px-12">
             <p class="text-grey py-3 px-4 sm:px-0">
               [FIG.17 CAPTCHAS AND TECH JUST GET MORE ADVANCED AND INACCESSIBLE, BUT YOU STILL HAVE TO PROVE YOU ARE HUMAN!!]
             </p>
@@ -960,6 +989,13 @@ I wanted the final output to use 3D models. I chose a 3D format specifically bec
         </div>
       </section>
     </main>
+
+    <!-- Right spacing rail (empty, mirrors the sidebar) -->
+    <div
+      aria-hidden="true"
+      class="hidden lg:block sticky top-0 h-screen self-start w-12 shrink-0 border-l 2xl:border-r border-grid"
+    ></div>
+    </div>
 
     <scroll-component></scroll-component>
     <script src="footer.js" type="module"></script>
@@ -971,5 +1007,44 @@ I wanted the final output to use 3D models. I chose a 3D format specifically bec
     <script type="module" src="lightbox.js"></script>
     <script type="module" src="lightbox-page.js"></script>
     <lightbox-modal></lightbox-modal>
+  <!-- Sidebar nav scroll spy -->
+    <script>
+      (() => {
+        const nav = document.getElementById("accelerator-nav");
+        if (!nav) return;
+
+        const links = Array.from(nav.querySelectorAll("a[data-scroll]"));
+        const targets = [];
+
+        links.forEach((link) => {
+          const id = link.dataset.scroll;
+          const el = document.getElementById(id);
+          if (el) targets.push(el);
+        });
+
+        if (!("IntersectionObserver" in window) || targets.length === 0) return;
+
+        const setActive = (id) => {
+          links.forEach((l) => {
+            const on = l.dataset.scroll === id;
+            l.classList.toggle("text-blob", on);
+            l.classList.toggle("border-blob", on);
+            l.classList.toggle("border-[#d0d0d0]", !on);
+          });
+        };
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) return;
+              setActive(entry.target.id);
+            });
+          },
+          { rootMargin: "-25% 0px -65% 0px", threshold: 0 }
+        );
+
+        targets.forEach((el) => observer.observe(el));
+      })();
+    </script>
   </body>
 </html>
