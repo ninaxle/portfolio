@@ -390,6 +390,10 @@ class Header extends HTMLElement {
       window.removeEventListener("resize", this._onResize);
       this._onResize = null;
     }
+    if (this._headerRO) {
+      this._headerRO.disconnect();
+      this._headerRO = null;
+    }
   }
 
   /* ── DEFAULT MODE ──────────────────────────────────────────── */
@@ -559,8 +563,13 @@ class Header extends HTMLElement {
 
     const setTargetSlot = (slot, spring = false) => {
       if (!slot) return;
-      target = { slot, ...measure(slot) };
+      const m = measure(slot);
+      target = { slot, ...m };
       currentSlot = slot;
+      // Keep the pill's top/height in sync (slots can be 0-sized when
+      // hidden at small widths and come back after a resize).
+      indicator.style.top = `${m.top}px`;
+      indicator.style.height = `${m.h}px`;
       if (spring) {
         mode = "spring";
         vx = 0;
@@ -683,7 +692,9 @@ class Header extends HTMLElement {
       target = { slot: initialSlot, ...m };
       currentSlot = initialSlot;
       mark(initialSlot);
-      if (reduceMotion) {
+      // Skip the entrance pop when the slot is 0-sized (nav hidden at
+      // small widths) — the pill is invisible there anyway.
+      if (reduceMotion || m.w === 0 || m.h === 0) {
         indicator.style.transform = `translateX(${x}px)`;
         indicator.style.width = `${w}px`;
       } else {
@@ -734,13 +745,26 @@ class Header extends HTMLElement {
       });
     });
 
-    // ── Resize: re-measure and glide so the pill never desyncs ──
-    const resync = () => {
-      const slot = currentSlot || resting;
+    // ── Retarget: snap (not glide) so the pill always lands exactly ──
+    const resync = (slotOverride = null) => {
+      const slot = slotOverride || currentSlot || resting;
       if (!slot) return;
-      setTargetSlot(slot, false);
+      const m = measure(slot);
+      target = { slot, ...m };
+      currentSlot = slot;
+      x = m.x;
+      w = m.w;
+      vx = 0;
+      vw = 0;
       mode = "glide";
-      ensureLoop();
+      indicator.style.top = `${m.top}px`;
+      indicator.style.height = `${m.h}px`;
+      write();
+      mark(slot);
+      if (rafId) {
+        cancelAnimationFrame(rafId);
+        rafId = 0;
+      }
     };
 
     this._onResize = () => {
@@ -751,6 +775,16 @@ class Header extends HTMLElement {
       });
     };
     window.addEventListener("resize", this._onResize);
+
+    // React to the header's own geometry changes (drag resizing,
+    // breakpoint flip, font load) so the pill stays pixel-perfect.
+    if (typeof ResizeObserver !== "undefined") {
+      this._headerRO = new ResizeObserver(() => resync());
+      this._headerRO.observe(this.header);
+    }
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(() => resync());
+    }
   }
 
   setActiveLink() {
