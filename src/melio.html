@@ -31,6 +31,10 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
     <title>Melio</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fragment+Mono&display=swap"
+      rel="stylesheet"
+    />
   </head>
 
   <body>
@@ -40,8 +44,8 @@
     <scroll-component></scroll-component>
     <header-component project-page project-name="MELIO"></header-component>
 
-    <main>
-      <!-- Hero Image -->
+    <!-- Hero Image (full width, sidebars start below) -->
+    <div class="w-full max-w-[94rem] mx-auto">
       <div
         class="relative h-[60vh] md:h-[72vh] lg:max-h-[640px] xl:max-h-[748px]"
         data-lightbox-exclude
@@ -52,16 +56,30 @@
           class="absolute top-0 left-0 w-full h-full object-cover"
         />
       </div>
+    </div>
 
+    <!-- Sidebar + content kept together, capped like the homepage -->
+    <div class="w-full max-w-[94rem] mx-auto flex">
+      <nav
+        id="melio-nav"
+        aria-label="On this page"
+        class="hidden lg:flex lg:flex-col w-max whitespace-nowrap shrink-0 overflow-y-auto sticky top-0 h-screen self-start border-r 2xl:border-l border-grid xl:pt-10 2xl:pt-14 pb-14 pl-12 pr-12 font-['Fragment_Mono',monospace] tracking-[-0.04em]"
+      >
+        <span class="text-sm leading-6 text-grey uppercase mb-2">Documentation</span>
+        <a href="#overview" data-scroll="overview" class="text-sm leading-6 py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors">Overview</a>
+        <a href="#working-in-progress" data-scroll="working-in-progress" class="text-sm leading-6 py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors">Working in Progress</a>
+      </nav>
+
+      <main class="flex-1 min-w-0">
       <!-- Intro Section -->
       <section class="border-grid border-b">
         <div
-          class="max-w-7xl mx-auto flex flex-col pt-8 md:py-20 pb-8 gap-20 px-4"
+          class="max-w-7xl mx-auto flex flex-col pt-8 md:pb-20 md:pt-12 pb-8 gap-20 px-4 lg:px-12"
         >
           <div class="w-full flex flex-col gap-20 flex flex-col">
             <div class="flex flex-col gap-10 lg:w-[80%]">
               <div class="flex flex-col gap-8 pt-1">
-                <h2>Melio</h2>
+                <h2 id="overview" class="scroll-mt-28">Melio</h2>
                 <h4>
                   Melio is a wearable app that helps caregivers support dementia
                   patients through adaptive music therapy and rhythm-guided
@@ -112,11 +130,11 @@
 
       <section class="image-display-section w-full border-grid border-b">
         <div class="image-container max-w-7xl mx-auto">
-          <div class="md:border-grid border-x sm:px-4">
+          <div class="md:border-grid sm:px-4 lg:px-12">
             <p class="text-grey py-3 px-4 sm:px-0">[WALKTHROUGH VIDEO (TURN ON SOUND)]</p>
           </div>
           <iframe
-            class="md:border border-grid md:border-b-0 w-full h-96 md:h-[700px]"
+            class="md:border-y border-grid md:border-b-0 w-full h-96 md:h-[700px]"
             src="https://player.vimeo.com/video/1172404368?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
             allowfullscreen
           >
@@ -127,10 +145,10 @@
       <!-- My Responsibilities -->
       <section class="border-grid border-b">
         <div
-          class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-16 px-4 justify-between gap-8"
+          class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-16 px-4 justify-between gap-8 lg:px-12"
         >
           <div class="lg:w-[30%] shrink-0">
-            <h4 class="md:pt-[0.75rem]">Working in Progress</h4>
+            <h4 id="working-in-progress" class="scroll-mt-28">Working in Progress</h4>
           </div>
           <div class="flex flex-col gap-10 lg:w-[70%]">
             <div class="flex flex-col gap-3">
@@ -165,7 +183,7 @@
 
  <section class="image-display-section w-full border-grid border-b">
         <div class="image-container max-w-7xl mx-auto">
-          <div class="md:border-grid border-x sm:px-4">
+          <div class="md:border-grid sm:px-4 lg:px-12">
             <p class="text-grey py-3 px-4 sm:px-0">
               [MELIO HOMEPAGE]
             </p>
@@ -176,7 +194,7 @@
               loop
               playsinline
               src="melio/homepage.mp4"
-              class="md:border border-grid md:border-b-0 w-full"
+              class="md:border-y border-grid md:border-b-0 w-full"
               alt="All Features"
             ></video>
           
@@ -189,7 +207,7 @@
       >
         <div class="image-display-section w-full border-grid border-b">
           <div class="image-container max-w-7xl mx-auto">
-            <div class="md:border-grid border-x sm:px-4">
+            <div class="md:border-grid border-r sm:px-4 lg:px-12">
               <p class="text-grey py-3 px-4 sm:px-0">
                 [FLOW 1 // RHYTHM EXERCISE]
               </p>
@@ -200,7 +218,7 @@
               loop
               playsinline
               src="melio/exercise.mp4"
-              class="md:border border-grid md:border-b-0 w-full"
+              class="md:border-y border-grid md:border-b-0 w-full"
               alt="All Features"
             >
           </div>
@@ -208,7 +226,7 @@
         <!-- FIG.14 -->
         <div class="image-display-section w-full border-grid border-b">
           <div class="image-container max-w-7xl mx-auto">
-            <div class="md:border-grid border-x sm:px-4">
+            <div class="md:border-grid border-l sm:px-4 lg:px-12">
               <p class="text-grey py-3 px-4 sm:px-0">
                 [FLOW 2 // TEMPORAL LOG]
               </p>
@@ -219,7 +237,7 @@
               loop
               playsinline
               src="melio/temporal.mp4"
-              class="md:border border-grid md:border-b-0 w-full"
+              class="md:border-y border-grid md:border-b-0 w-full"
               alt="All Features"
             >
           </div>
@@ -231,7 +249,7 @@
       >
         <div class="image-display-section w-full border-grid border-b">
           <div class="image-container max-w-7xl mx-auto">
-            <div class="md:border-grid border-x sm:px-4">
+            <div class="md:border-grid border-r sm:px-4 lg:px-12">
               <p class="text-grey py-3 px-4 sm:px-0">
                 [FLOW 3 // AI SONG SELECTION]
               </p>
@@ -242,7 +260,7 @@
               loop
               playsinline
               src="melio/song.mp4"
-              class="md:border border-grid md:border-b-0 w-full"
+              class="md:border-y border-grid md:border-b-0 w-full"
               alt="All Features"
             >
           </div>
@@ -250,7 +268,7 @@
         <!-- FIG.14 -->
         <div class="image-display-section w-full border-grid border-b">
           <div class="image-container max-w-7xl mx-auto">
-            <div class="md:border-grid border-x sm:px-4">
+            <div class="md:border-grid border-l sm:px-4 lg:px-12">
               <p class="text-grey py-3 px-4 sm:px-0">
                 [FLOW 4 // LOCATION SHARING]
               </p>
@@ -261,7 +279,7 @@
               loop
               playsinline
               src="melio/location.mp4"
-              class="md:border border-grid md:border-b-0 w-full"
+              class="md:border-y border-grid md:border-b-0 w-full"
               alt="All Features"
             >
           </div>
@@ -269,6 +287,13 @@
       </section>
      
     </main>
+
+    <!-- Right spacing rail (empty, mirrors the sidebar) -->
+    <div
+      aria-hidden="true"
+      class="hidden lg:block sticky top-0 h-screen self-start w-12 shrink-0 border-l 2xl:border-r border-grid"
+    ></div>
+    </div>
 
     <!-- Import footer -->
     <script src="footer.js" type="module"></script>
@@ -283,5 +308,44 @@
     <script type="module" src="lightbox.js"></script>
     <script type="module" src="lightbox-page.js"></script>
     <lightbox-modal></lightbox-modal>
+  <!-- Sidebar nav scroll spy -->
+    <script>
+      (() => {
+        const nav = document.getElementById("melio-nav");
+        if (!nav) return;
+
+        const links = Array.from(nav.querySelectorAll("a[data-scroll]"));
+        const targets = [];
+
+        links.forEach((link) => {
+          const id = link.dataset.scroll;
+          const el = document.getElementById(id);
+          if (el) targets.push(el);
+        });
+
+        if (!("IntersectionObserver" in window) || targets.length === 0) return;
+
+        const setActive = (id) => {
+          links.forEach((l) => {
+            const on = l.dataset.scroll === id;
+            l.classList.toggle("text-blob", on);
+            l.classList.toggle("border-blob", on);
+            l.classList.toggle("border-[#d0d0d0]", !on);
+          });
+        };
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) return;
+              setActive(entry.target.id);
+            });
+          },
+          { rootMargin: "-25% 0px -65% 0px", threshold: 0 }
+        );
+
+        targets.forEach((el) => observer.observe(el));
+      })();
+    </script>
   </body>
 </html>
