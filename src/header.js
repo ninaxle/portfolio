@@ -43,6 +43,7 @@ headerTemplate.innerHTML = /* html */ `
       background: rgba(252, 252, 252, 1);
       width: auto;
       min-width: min-content;
+      max-width: calc(100vw - 16px);
       margin-top: 1rem;
       padding: 8px;
       border-radius: 20px;
@@ -72,7 +73,7 @@ headerTemplate.innerHTML = /* html */ `
       align-items: center;
     }
 
-    li { font-size: 14px; }
+    li { font-size: 14px; flex-shrink: 0; }
 
     .nav-links a {
       color: #8C8A98;
@@ -268,22 +269,16 @@ headerTemplate.innerHTML = /* html */ `
     }
 
     /* ─── NAV LAYOUT SLOTS ──────────────────────────────────── */
-    .nav-left {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-    }
-
-    .nav-center {
+    .nav-left,
+    .nav-center,
+    .nav-right {
+      min-width: 0;
       display: flex;
       align-items: center;
       gap: 4px;
     }
 
     .nav-right {
-      display: flex;
-      align-items: center;
-      gap: 4px;
       position: relative;
     }
 
@@ -312,6 +307,11 @@ headerTemplate.innerHTML = /* html */ `
 
       /* Hide desktop center nav on mobile */
       .nav-center {
+        display: none;
+      }
+
+      /* The sliding pill lives in the header, so hide it explicitly */
+      .nav-indicator {
         display: none;
       }
 
@@ -728,12 +728,20 @@ class Header extends HTMLElement {
       });
     });
 
-    // ── Resize: glide back to the resting slot ─────────────────
+    // ── Resize: re-measure and glide so the pill never desyncs ──
+    const resync = () => {
+      const slot = currentSlot || resting;
+      if (!slot) return;
+      setTargetSlot(slot, false);
+      mode = "glide";
+      ensureLoop();
+    };
+
     this._onResize = () => {
       if (this._resizeRaf) return;
       this._resizeRaf = requestAnimationFrame(() => {
         this._resizeRaf = 0;
-        goTo(resting, false);
+        resync();
       });
     };
     window.addEventListener("resize", this._onResize);
