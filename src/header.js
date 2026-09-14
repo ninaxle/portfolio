@@ -47,7 +47,9 @@ headerTemplate.innerHTML = /* html */ `
       padding: 8px;
       border-radius: 20px;
       border: 1px solid #d3d3d3;
-      transition: all 0.3s ease;
+      /* No layout transition: the full-width ↔ rounded forms switch
+         instantly, keeping the pill's measurements always accurate. */
+      transition: none;
       pointer-events: auto;
       display: flex;
       justify-content: space-between;
