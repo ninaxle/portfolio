@@ -619,7 +619,7 @@ const uxuiCardsData = [
     title: "Radiate Showcase Website 2026",
     tags: "PRODUCT MANAGEMENT | UX STRATEGY",
     link: "radiate.html",
-    image: "radiate/thumbnail-1.png",
+    image: "radiate/thumbnail-2.webp",
     description: "Leading product strategy to get 44 design grads discovered at scale",
 
   },
@@ -635,7 +635,7 @@ const uxuiCardsData = [
   {
     title: "Goodself Design System",
     tags: "DESIGN SYSTEM | UI LIBRARIES | ACCESSIBILITY | MOBILE, DESKTOP & TABLET",
-    image: "ds.png",
+    image: "ds.webp",
     description: "A healthtech design system designed around accessibility",
   },
 

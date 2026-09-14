@@ -414,8 +414,14 @@ function initAsciiMusic() {
             dy = smy - cy;
           const distSq = dx * dx + dy * dy;
 
-          const nearMouse = distSq < effectRadiusSq;
-          const nearAscii = distSq < asciiInfluenceRadiusSq;
+          // Only run the mouse-reactive effects within the bottom 3/4 of the
+          // canvas — hovering the top strip (e.g. while aiming for the nav
+          // bar) shouldn't trigger the easter egg.
+          const interactionActive = smy >= p.height * 0.25;
+
+          const nearMouse = interactionActive && distSq < effectRadiusSq;
+          const nearAscii =
+            interactionActive && distSq < asciiInfluenceRadiusSq;
           const distFromMouse = nearMouse || nearAscii ? Math.sqrt(distSq) : 0;
 
           let ripple1, ripple2;
