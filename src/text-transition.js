@@ -55,15 +55,18 @@ export function createTextTransition(element, options = {}) {
   const suffices = texts.map((text) =>
     staticPrefix && text.startsWith(staticPrefix)
       ? text.slice(staticPrefix.length)
-      : text
+      : text,
   );
 
   const holdFor = (index) =>
-    Array.isArray(holdMs) ? holdMs[index] ?? holdMs[holdMs.length - 1] : holdMs;
+    Array.isArray(holdMs)
+      ? (holdMs[index] ?? holdMs[holdMs.length - 1])
+      : holdMs;
 
   let stopped = true;
   let timerId = null;
   let rafId = null;
+  let current = 0;
 
   const sleep = (ms) =>
     new Promise((resolve) => {
@@ -182,13 +185,9 @@ export function createTextTransition(element, options = {}) {
     });
   }
 
-  async function runSequence() {
-    node.textContent = staticPrefix + suffices[0];
-    await sleep(startDelay);
-    if (stopped) return;
-
-    let current = 0;
-    while (true) {
+  async function cycleFrom(startIndex) {
+    current = startIndex;
+    while (!stopped) {
       const next = (current + 1) % texts.length;
       await morphText(suffices[current], suffices[next]);
       if (stopped) return;
@@ -198,7 +197,14 @@ export function createTextTransition(element, options = {}) {
     }
   }
 
-function start() {
+  async function runSequence() {
+    node.textContent = staticPrefix + suffices[0];
+    await sleep(startDelay);
+    if (stopped) return;
+    await cycleFrom(0);
+  }
+
+  function start() {
     if (!stopped) return;
     stopped = false;
 
@@ -210,7 +216,7 @@ function start() {
             runSequence();
           }
         },
-        { threshold: 0.6 }
+        { threshold: 0.6 },
       );
       observer.observe(node);
     } else if (trigger === "scroll") {
@@ -228,7 +234,7 @@ function start() {
             runSequence();
           }
         },
-        { threshold: 0.6 }
+        { threshold: 0.6 },
       );
       observer.observe(node);
       // Fallback: if the page fits the viewport there is nothing to scroll,
@@ -249,9 +255,20 @@ function start() {
     stopped = true;
     clearTimeout(timerId);
     if (rafId) cancelAnimationFrame(rafId);
+    // Always come to rest on the first phrase ("a ux/ui designer.").
+    current = 0;
+    node.textContent = staticPrefix + suffices[0];
   }
 
-  return { start, stop };
+  // Resume from the current phrase without the initial start delay.
+  async function resume() {
+    if (!stopped) return;
+    stopped = false;
+    node.textContent = staticPrefix + suffices[current];
+    await cycleFrom(current);
+  }
+
+  return { start, stop, resume };
 }
 
 // Instance wiring for the index page ---------------------------------------------------------------------------
@@ -293,7 +310,7 @@ const ifOnPage = (selector, fn) => {
 
 document.addEventListener("DOMContentLoaded", () => {
   const reducedMotion = window.matchMedia(
-    "(prefers-reduced-motion: reduce)"
+    "(prefers-reduced-motion: reduce)",
   ).matches;
 
   ifOnPage(FOOTER_TAGLINE.el, (el) => {
@@ -306,6 +323,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   ifOnPage(HERO_TITLE.el, (el) => {
     if (reducedMotion) return;
-    createTextTransition(el, HERO_TITLE.options).start();
+    const t = createTextTransition(el, HERO_TITLE.options);
+    // Lock the title when the ascii canvas comes to rest, resume with replay.
+    document.addEventListener("ascii-paused", () => t.stop());
+    document.addEventListener("ascii-resumed", () => t.resume());
+    t.start();
   });
 });

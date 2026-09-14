@@ -9,6 +9,10 @@ function initSketch() {
     let animationTimer = 0;
     let lastHoveredIndex = -1;
 
+    // Pause the draw loop while the footer is scrolled out of view.
+    let isVisible = true;
+    let observer = null;
+
     // max-w-7xl = 1280px
     const MAX_WIDTH = 1280;
     const MAX_HEIGHT = 600;
@@ -116,6 +120,29 @@ function initSketch() {
       return Math.min(Math.floor(rect.width) || p.windowWidth, MAX_WIDTH);
     }
 
+    // p5.sound is only needed for the actual notes — load it lazily on the
+    // first click instead of paying for it at page load.
+    function ensureAudioLib() {
+      if (window.p5 && typeof p5.Oscillator !== "undefined") {
+        return Promise.resolve();
+      }
+      return new Promise((resolve) => {
+        const s = document.createElement("script");
+        s.src =
+          "https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/addons/p5.sound.min.js";
+        s.onload = resolve;
+        document.head.appendChild(s);
+      });
+    }
+
+    function ensureOscillator() {
+      if (oscillator) return Promise.resolve();
+      return ensureAudioLib().then(() => {
+        oscillator = new p5.Oscillator("square");
+        oscillator.amp(0);
+      });
+    }
+
     p.setup = function () {
       let w = getContainerWidth();
       let isMobile = w < 600;
@@ -140,9 +167,6 @@ function initSketch() {
         p.color("#D92731"),
       ];
 
-      oscillator = new p5.Oscillator("square");
-      oscillator.amp(0);
-
       for (let n of melody) {
         n.rX = p.random(-12, 12);
         n.rY = p.random(-15, 15);
@@ -158,6 +182,27 @@ function initSketch() {
       }
 
       layoutNotes();
+
+      // PERF: don't run draw() until the footer is actually visible. It's
+      // off-screen on load, so this keeps the main thread idle until the
+      // user scrolls down to the music box.
+      p.noLoop();
+      if ("IntersectionObserver" in window) {
+        const el = document.getElementById("sketch-container");
+        if (el) {
+          observer = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                isVisible = entry.isIntersecting;
+                if (isVisible && !p.isLooping()) p.loop();
+                else if (!isVisible && p.isLooping()) p.noLoop();
+              });
+            },
+            { threshold: 0.01 },
+          );
+          observer.observe(el);
+        }
+      }
     };
 
     function layoutNotes() {
@@ -207,7 +252,7 @@ function initSketch() {
           let n = item.noteRef;
           let noteOffset = (notePositions[n.note] || 8) * 6;
           if (noteOffset > rowHeight - 30) {
-            noteOffset = (noteOffset + 30) * rowHeight / 100;
+            noteOffset = ((noteOffset + 30) * rowHeight) / 100;
           }
 
           n.targetX = runningX + item.width / 2;
@@ -222,6 +267,8 @@ function initSketch() {
     p.windowResized = () => layoutNotes();
 
     p.draw = function () {
+      if (!isVisible) return; // PERF: belt-and-suspenders guard alongside noLoop()
+
       p.background("#1B191B");
 
       let canvasRect = p.canvas.getBoundingClientRect();
@@ -259,7 +306,7 @@ function initSketch() {
         let c = isActive || isMusicNote ? n.hue : p.color("#fcfcfc");
 
         if (isHovered && isMusicNote) {
-          if (lastHoveredIndex !== i) {
+          if (oscillator && lastHoveredIndex !== i) {
             oscillator.setType("triangle");
             oscillator.freq(p.random(900, 1300));
             oscillator.amp(0.2, 0);
@@ -315,7 +362,8 @@ function initSketch() {
       return -1;
     }
 
-    p.mousePressed = function () {
+    p.mousePressed = async function () {
+      await ensureOscillator();
       if (p.getAudioContext().state !== "running") p.getAudioContext().resume();
       let i = getHoveredNoteIndex();
       if (i !== -1) {
@@ -383,6 +431,10 @@ function initSketch() {
         B4: 493.88,
       }[n];
     }
+
+    p.remove = function () {
+      if (observer) observer.disconnect();
+    };
   };
 
   new p5(sketch, document.getElementById("sketch-container"));
