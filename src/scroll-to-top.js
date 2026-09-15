@@ -20,9 +20,10 @@ class ScrollComponent extends HTMLElement {
           position: fixed;
           right: 60px;
           bottom: 108px;
-          width: 80px;
-          height: 80px;
+          width: 60px;
+          height: 60px;
           border-radius: 25%; /* round square shape. 50% achieves a circle if u ever want that back */
+          
           background-color: #1B191B;
           color: white;
           display: flex;
@@ -67,7 +68,7 @@ cursor: pointer;
             'FILL' 0,
             'wght' 200,
             'GRAD' 0;
-          font-size: 60px; /* Icon size */
+          font-size: 32px; /* Icon size */
         }
           
         @media (max-width: 768px) {
