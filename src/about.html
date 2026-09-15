@@ -142,9 +142,9 @@
     </div>
     <div id="freetime-section"></div>
 
-    <!-- Designing harmony section -->
+    <!-- Designing harmony section (clipped away until scrolled into view) -->
     <section
-      class="justify-center bg-black w-[100%] pt-8 md:pt-16 px-4 md:px-16 lg:px-[7.95rem] md:gap-x-4"
+      class="reveal justify-center bg-black w-[100%] pt-8 md:pt-16 px-4 md:px-16 lg:px-[7.95rem] md:gap-x-4"
     >
       <div
         class="px-4 lg:px-6 2xl:px-10 max-w-7xl mx-auto lg:pt-4 max-w-7xl mx-auto"
@@ -165,9 +165,8 @@
     <script type="module" src="lightbox.js"></script>
     <script type="module" src="cursor.js"></script>
 
-    <!-- Load p5.js and sketches AFTER everything else -->
+    <!-- Load p5.js AFTER everything else (p5.sound is lazy-loaded on demand by sketch.js) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/addons/p5.sound.min.js"></script>
     <script type="module" src="sketch.js"></script>
   </body>
 </html>

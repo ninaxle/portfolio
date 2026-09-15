@@ -472,6 +472,8 @@ function buildProfileSection(data, containerSelector) {
       <img
         src="${data.image}"
         alt="${data.alt || "Profile picture"}"
+        width="1536"
+        height="2048"
         class="w-full h-auto object-cover"
       />
     </div>
