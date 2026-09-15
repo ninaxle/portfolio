@@ -92,9 +92,8 @@ headerTemplate.innerHTML = /* html */ `
       transition: color 0.2s ease, background-color 0.2s ease;
     }
 
-    /* Project-mode nav: gray hover, black active (pill slides over it) */
+    /* Project-mode nav: black active (pill slides over it) */
     .nav-links a:hover {
-      background-color: #EDEBEE;
       color: #1B191B;
     }
 
