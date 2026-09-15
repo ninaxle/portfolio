@@ -126,6 +126,17 @@ Prevents scrollbars if canvas is full screen */
     animation-range: entry 0% cover 40%;
   }
 
+  /* Reveal-on-scroll: the section keeps its layout space (no page jump) but
+     paints nothing on initial load via clip-path, then appears instantly —
+     no animation — once the user scrolls to it. */
+  .reveal {
+    clip-path: inset(0 0 100% 0);
+  }
+
+  .reveal.in-view {
+    clip-path: inset(0 0 0 0);
+  }
+
   .custom-list-item {
     position: relative;
     padding-left: 20px; /* Add space for the custom dash */
@@ -272,7 +283,37 @@ html {
   background-color: var(--crosshair-color);
 }
 
+#ascii-music-container {
+  /* Reserve the exact hero-canvas height so the page never jumps when p5
+     mounts. Mobile canvas = windowWidth x 0.5*windowWidth, desktop is a
+     fixed 800x400 (capped by max-height on large 50vw). */
+  height: 50vw;
+  max-height: 400px;
+}
+
+@media (min-width: 768px) {
+  #ascii-music-container {
+    height: 400px;
+  }
+}
+
 #ascii-music-container canvas {
+  max-width: 100%;
+}
+
+/* The footer visualizer sizes proportionally (width from container, height
+   capped at 600px). Reserve a close stand-in ratio so the harmony section
+   doesn't pop in height; any slack is hidden by the section's black bg. */
+#sketch-container {
+  aspect-ratio: 5/3;
+  max-height: 600px;
+}
+
+@media (max-width: 768px) {
+  #sketch-container {
+    aspect-ratio: 3/5;
+    max-height: none;
+  }
 }
 
 /* Projects section - 4 vertical lines (2 columns) */

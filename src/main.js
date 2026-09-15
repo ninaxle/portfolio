@@ -855,6 +855,27 @@ const playgroundCardsData = [
 
 // Main execution
 document.addEventListener("DOMContentLoaded", () => {
+  // Reveal-on-scroll: flip any `.reveal` element to `.in-view` once it gets
+  // near the viewport. Uses a lightweight scroll check instead of
+  // IntersectionObserver because a clip-path-hidden target may never report
+  // an intersection — the `.reveal` section is clipped on load by design.
+  const revealEls = document.querySelectorAll(".reveal");
+  const revealIfInView = () => {
+    const limit = window.innerHeight * 0.85;
+    revealEls.forEach((el) => {
+      if (
+        !el.classList.contains("in-view") &&
+        el.getBoundingClientRect().top < limit
+      ) {
+        el.classList.add("in-view");
+      }
+    });
+  };
+  if (revealEls.length) {
+    window.addEventListener("scroll", revealIfInView, { passive: true });
+    revealIfInView();
+  }
+
   createCards(".cards-section", uxuiCardsData, false, "// Craft blending design and code");
   createPlaygroundCards(".cards-section3", playgroundCardsData, ".playground-filters");
 });
