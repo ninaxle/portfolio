@@ -370,13 +370,9 @@ class Header extends HTMLElement {
     this.navCenter = shadowRoot.getElementById("nav-center");
     this.navRight = shadowRoot.getElementById("nav-right");
     this.header = shadowRoot.querySelector("header");
-
-    this.handleScroll = this.handleScroll.bind(this);
   }
 
   connectedCallback() {
-    window.addEventListener("scroll", this.handleScroll);
-
     const isProjectPage = this.hasAttribute("project-page");
     if (isProjectPage) {
       this.setupProjectMode();
@@ -386,7 +382,6 @@ class Header extends HTMLElement {
   }
 
   disconnectedCallback() {
-    window.removeEventListener("scroll", this.handleScroll);
     if (this._onResize) {
       window.removeEventListener("resize", this._onResize);
       this._onResize = null;
@@ -802,23 +797,6 @@ class Header extends HTMLElement {
         link.classList.add("active");
       }
     });
-  }
-
-  handleScroll() {
-    if (window.innerWidth > 768) {
-      const scrollY = window.scrollY;
-      const totalHeight = document.documentElement.scrollHeight;
-      const windowHeight = window.innerHeight;
-      const threshold = 600;
-
-      if (scrollY + windowHeight > totalHeight - threshold) {
-        this.container.classList.add("hidden");
-      } else {
-        this.container.classList.remove("hidden");
-      }
-    } else {
-      this.container.classList.remove("hidden");
-    }
   }
 }
 
