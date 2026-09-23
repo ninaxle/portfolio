@@ -1,0 +1,1420 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-E6RS5N28XQ"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-E6RS5N28XQ");
+    </script>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link rel="stylesheet" href="global.styles.css" />
+    <link rel="modulepreload" href="header.js" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300..900&family=Syne:wght@400..800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <title>Radiate Showcase Website</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fragment+Mono&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <!-- Import the header component -->
+    <script src="header.js" type="module"></script>
+    <script src="scroll-to-top.js" type="module"></script>
+    <scroll-component></scroll-component>
+    <header-component project-page project-name="RADIATE"></header-component>
+
+    <!-- Hero Image (full width, sidebars start below) -->
+    <div class="w-full">
+      <div
+        class="relative h-[60vh] md:h-[72vh] lg:max-h-[640px] xl:max-h-[748px]"
+        data-lightbox-exclude
+      >
+        <img
+          src="radiate/thumbnail-hero.png"
+          alt="Hero image"
+          class="absolute top-0 left-0 w-full h-full object-cover"
+        />
+      </div>
+    </div>
+
+    <!-- Sidebar + content kept together, capped like the homepage -->
+    <div class="w-full max-w-[94rem] mx-auto flex">
+      <nav
+        id="radiate-nav"
+        aria-label="On this  "
+        class="hidden lg:flex lg:flex-col w-max whitespace-nowrap shrink-0 overflow-y-auto sticky top-0 h-screen self-start border-r 2xl:border-l border-grid pt-10 xl:pt-10 2xl:pt-14 pb-14 pl-12 pr-12 font-['Fragment_Mono',monospace] tracking-[-0.04em]"
+      >
+        <!-- <a
+          href="index.html"
+          class="flex items-center justify-between w-full uppercase text-[11px] text-grey tracking-wider rounded-md py-3 mb-4 hover:text-blob cursor-pointer transition-colors hover:underline underline-offset-4"
+        >
+          <span class="hover:underline underline-offset-4">← Back to Works</span>
+        </a> -->
+        
+        <span class="text-sm leading-6 text-grey uppercase mb-2">Documentation</span>
+        <a href="#overview" data-scroll="overview" class="text-sm leading-6 py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors">Overview</a>
+        <a href="#problem-statement" data-scroll="problem-statement" class="text-sm leading-6 py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors">The Problem</a>
+        <a href="#solution" data-scroll="solution" class="text-sm leading-6 py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors">The Solution</a>
+
+        <span class="block text-sm leading-6 text-grey uppercase mt-7 mb-2 ">Phase 1</span>
+        <a href="#phase-1" data-scroll="phase-1" class="text-sm leading-6 py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors">Discovery &amp; MVP</a>
+        <a href="#user-research" data-scroll="user-research" class="text-sm leading-6 py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors">User Research</a>
+        <a href="#designing" data-scroll="designing" class="text-sm leading-6 py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors">Designing on Figma</a>
+
+        <span class="block text-sm leading-6 text-grey uppercase mt-7 mb-2 ">Phase 2</span>
+        <a href="#phase-2" data-scroll="phase-2" class="text-sm leading-6 py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors">Strategic Foundation</a>
+        <a href="#scalable-system" data-scroll="scalable-system" class="text-sm leading-6 py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors">Scalability</a>
+        <a href="#usability-testing" data-scroll="usability-testing" class="text-sm leading-6 py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors">Usability Testing</a>
+        <a href="#ab-test" data-scroll="ab-test" class="text-sm leading-6 py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors">A/B Testing</a>
+        <a href="#pain-points" data-scroll="pain-points" class="text-sm leading-6 py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors">Key Pain Points</a>
+        <a href="#design-system" data-scroll="design-system" class="text-sm leading-6 py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors">Design System Fixes</a>
+
+        <span class="block text-sm leading-6 text-grey uppercase mt-7 mb-2">Phase 3</span>
+        <a href="#phase-3" data-scroll="phase-3" class="text-sm leading-6 py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors">Production &amp; Launch</a>
+        <a href="#building-qa" data-scroll="building-qa" class="text-sm leading-6 py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors">Building &amp; QA</a>
+
+        <span class="block w-full mt-4 mb-4 border-l-2 pl-2.5"></span>
+        <a href="#final-outcomes" data-scroll="final-outcomes" class="text-sm leading-6 py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors">Final Outcomes</a>
+        <a href="#reflection" data-scroll="reflection" class="text-sm leading-6 py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors">Reflection</a>
+      </nav>
+
+      <main class="flex-1 min-w-0">
+      <!-- Intro Section -->
+      <section class="border-grid border-b">
+        <div
+          class="max-w-7xl mx-auto flex flex-col pt-8 md:pb-20 md:pt-12 pb-8 gap-20 px-4 lg:px-12"
+        >
+          <div class="w-full flex flex-col gap-20 flex flex-col">
+            <div class="flex flex-col gap-10 lg:w-[80%]">
+              <div class="flex flex-col gap-8 pt-1">
+                <h2 id="overview" class="scroll-mt-28">Radiate Showcase Website</h2>
+                <h4>
+                  Radiate is York University's DESN 2026 Grad Show website,
+                  built to help 44 design graduates get discovered by employers.
+                  I led a team of 7 designers across 8 months and 3 phases,
+                  owning product strategy, team processes, and communication
+                  between branding, external relations, and web. The site
+                  launched April 3rd and now reaches ~3,000 users/month.
+                </h4>
+              </div>
+            </div>
+
+            <div class="flex md:flex-row flex-col w-full gap-4">
+              <div
+                class="flex-grow p-4 pt-0 pl-0 flex flex-col gap-1 border-b border-grid md:w-1/3"
+              >
+                <p class="text-grey">[ROLE]</p>
+                <h6>Project Manager/Team Lead</h6>
+              </div>
+
+              <div
+                class="flex-grow p-4 pt-0 pl-0 flex flex-col gap-1 border-b border-grid md:w-1/3"
+              >
+                <p class="text-grey">[TIMELINE]</p>
+                <h6>8 months (Sept – Apr 3), 3 phases</h6>
+              </div>
+              <div
+                class="flex-grow p-4 pt-0 pl-0 flex flex-col gap-1 border-b border-grid md:w-1/3"
+              >
+                <p class="text-grey">[TOOLS]</p>
+                <h6>
+                  Figma, Maze.co, Webflow CMS, JS
+                </h6>
+              </div>
+            </div>
+            <div class="mt-[-48px] sm:mt-0">
+              <a
+                href="https://desn.ca"
+                target="_blank"
+                class="flex flex-col hover-image"
+              >
+                <button
+                  class="rounded-xl md:rounded-2xl px-4 pb-6 py-5 2xl:py-8 bg-[#EDEBEE] hover:text-white hover:bg-black transition flex justify-center items-baseline gap-4"
+                >
+                  <p>
+                    <i class="fa-solid fa-link"></i>
+                  </p>
+                  <h4>View the Live Website</h4>
+                </button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="image-display-section w-full border-grid border-b">
+        <div class="image-container max-w-7xl mx-auto">
+          <div class="md:border-grid sm:px-4 lg:px-12">
+            <p class="text-grey py-3 px-4 sm:px-0">[DESN.CA // WALKTHROUGH VIDEO]</p>
+          </div>
+          <iframe
+            class="md:border-y border-grid md:border-b-0 w-full h-96 md:h-[700px]"
+            src="https://www.youtube.com/embed/igwnu1xhiss?si=ZBXK1lyaUs_WbRxB"
+            allowfullscreen
+          >
+          </iframe>
+        </div>
+      </section>
+
+      <!-- Problem Statement -->
+      <section class="border-grid border-b">
+        <div
+          class="max-w-7xl mx-auto flex flex-col py-8 md:py-12 md:pb-24 px-4 gap-4 lg:px-12"
+        >
+          <div class="flex flex-col gap-10">
+            <div class="flex flex-col gap-4 pt-1">
+              <p id="problem-statement" class="uppercase text-grey scroll-mt-28">The Problem Statement</p>
+              <h4>
+                Grad show sites often reduce students to an identical grid of
+                thumbnails, making it hard for employers to judge fit and easy
+                for strong candidates to get lost.
+              </h4>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- solution Statement -->
+      <section class="border-grid border-b">
+        <div
+          class="max-w-7xl mx-auto flex flex-col py-8 md:py-12 md:pb-24 px-4 gap-4 lg:px-12"
+        >
+          <div class="flex flex-col gap-10">
+            <div class="flex flex-col gap-4 pt-1">
+              <p id="solution" class="uppercase text-grey scroll-mt-28">The Solution</p>
+              <h4>
+                Every Radiate page gives each student a distinct identity
+                through their own profile, interactive contribution credits, and
+                work presented. The site also functions as a full event hub so
+                attendees have everything they need in one place.
+              </h4>
+            </div>
+          </div>
+        </div>
+      </section>
+
+       
+
+      <section
+        class="flex flex-col sm:flex-row gap-4 image-container max-w-7xl mx-auto"
+      >
+        <div class="image-display-section w-full border-grid border-b">
+          <div class="image-container max-w-7xl mx-auto">
+            <div class="md:border-grid border-r sm:px-4 lg:px-12">
+              <p class="text-grey py-3 px-4 sm:px-0">
+                [STUDENT FEATURES // PERSONALIZED PROFILES]
+              </p>
+            </div>
+            <video
+              autoplay
+              muted
+              loop
+              playsinline
+              src="radiate/1-student.mp4"
+              class="md:border-y border-grid md:border-b-0 w-full"
+              alt="All Features"
+            >
+          </div>
+        </div>
+        <!-- FIG.14 -->
+        <div class="image-display-section w-full border-grid border-b">
+          <div class="image-container max-w-7xl mx-auto">
+            <div class="md:border-grid border-l sm:px-4 lg:px-12">
+              <p class="text-grey py-3 px-4 sm:px-0">
+                [STUDENT FEATURES // SCANNABLE CASE STUDIES]
+              </p>
+            </div>
+                   <video
+              autoplay
+              muted
+              loop
+              playsinline
+              src="radiate/2-projects.mp4"
+              class="md:border-y border-grid md:border-b-0 w-full"
+              alt="All Features"
+            >
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="flex flex-col sm:flex-row gap-4 image-container max-w-7xl mx-auto"
+      >
+        <div class="image-display-section w-full border-grid border-b">
+          <div class="image-container max-w-7xl mx-auto">
+            <div class="md:border-grid border-r sm:px-4 lg:px-12">
+              <p class="text-grey py-3 px-4 sm:px-0">
+                [STUDENT FEATURES // EMBLEM INTERACTIONS]
+              </p>
+            </div>
+                   <video
+              autoplay
+              muted
+              loop
+              playsinline
+              src="radiate/3-grid.mp4"
+              class="md:border-y border-grid md:border-b-0 w-full"
+              alt="All Features"
+            >
+          </div>
+        </div>
+        <!-- FIG.14 -->
+        <div class="image-display-section w-full border-grid border-b">
+          <div class="image-container max-w-7xl mx-auto">
+            <div class="md:border-grid border-l sm:px-4 lg:px-12">
+              <p class="text-grey py-3 px-4 sm:px-0">
+                [STUDENT FEATURES // INTERACTIVE CREDITS]
+              </p>
+            </div>
+                     <video
+              autoplay
+              muted
+              loop
+              playsinline
+              src="radiate/4-credits.mp4"
+              class="md:border-y border-grid md:border-b-0 w-full"
+              alt="All Features"
+            >
+          </div>
+        </div>
+      </section>
+
+
+      <!-- Product Development -->
+      <section class="border-grid border-b">
+        <div
+          class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-24 px-4 justify-between gap-8 lg:px-12"
+        >
+          <div class="lg:w-[30%] shrink-0">
+            <h4 id="phase-1" class="scroll-mt-28">Phase 1: Discovery & MVP</h4>
+          </div>
+          <div class="flex flex-col gap-4 md:gap-10 lg:w-[70%]">
+            <div class="flex flex-col gap-4">
+              <p class="text-left text-grey">CHALLENGE</p>
+              <h4 class="text-left">
+                Building an understanding of design grad show expectations and
+                how to stand out.
+              </h4>
+            </div>
+            <div class="flex flex-col gap-6 pt-4">
+              <p class="text-left text-grey">GOALS</p>
+              <h4 class="text-left">
+                Get a site live to grow SEO, build anticipation, and bridge
+                traffic to our social channels and sponsor activities.
+              </h4>
+    
+                </div>
+                 <div class="flex flex-col gap-4 md:gap-10">
+            <div class="flex flex-col gap-4">
+              <p class="text-left text-grey">KEY OUTCOMES</p>
+              <h4 class="text-left">
+                We shipped a single MVP bridge page linking to the RSVP form, Instagram, email, and donations. This allowed us to gain SEO early while the full site was still under construction.
+
+              </h4>
+            </div>
+              </div>
+              
+</div>
+          </div>
+      </section>
+
+      <!-- phase 1 -->
+      <section class="image-display-section border-grid border-b w-full">
+        <div class="image-container max-w-7xl mx-auto">
+          <div class="md:border-grid sm:px-4 lg:px-12">
+            <p class="text-grey py-3 px-4 sm:px-0">
+              [PHASE 1 FINAL DESIGN (V2) // SHIPPED ON NOV 3, 2025]
+            </p>
+          </div>
+          <video
+           autoplay
+              muted
+              loop
+              playsinline
+            src="radiate/p1.mp4"
+            class="md:border-y border-grid md:border-b-0 w-full"
+            alt="All Features"
+          >
+        </div>
+      </section>
+
+
+    
+      <!-- Product Development -->
+      <section class="border-grid border-b">
+        <div
+          class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-24 px-4 justify-between gap-8 lg:px-12"
+        >
+          <div class="lg:w-[30%] shrink-0">
+            <h4 id="user-research" class="scroll-mt-28">User Research</h4>
+          </div>
+          <div class="flex flex-col gap-4 md:gap-10 lg:w-[70%]">
+            <div class="flex flex-col gap-4">
+              <p class="text-left text-grey uppercase">Competitive Analysis</p>
+              <h4 class="text-left">
+                  I analyzed competing grad shows as well as award-winning websites to identify what made them stand out design-wise and where there was room for us to do better.
+One pattern that kept surfacing even the strongest sites was that visual hierarchy buried people; branding dominated over student descriptions, occupation wasn't immediately clear from the student grids, and contact details required hunting. The visual identity came through before any sense of who the students actually were.
+This gap shaped our direction for Radiate, with every decision made to ensure the person behind the work was easy to find, read, and remember.
+              </h4>
+            </div>
+            <img loading="lazy"
+         
+            src="radiate/ca-contact.png"
+            class="md:border border-grid w-full mt-10"
+            alt="All Features"
+          />
+  <img loading="lazy"
+         
+            src="radiate/ca-links.png"
+            class="md:border border-grid w-full"
+            alt="All Features"
+          />
+                 <div class="flex flex-col gap-4 md:gap-10 ">
+            <div class="flex flex-col gap-4">
+              <p class="text-left text-grey uppercase">Employer Empathy Map</p>
+              <h4 class="text-left">
+                 As graduates, we already had firsthand insight into the student experience. So, we focused the empathy map on the employer, whose needs were less obvious but most critical to the graduates' success.
+Through the empathy mapping exercise, we gathered what a recruiter would need from the site: quickly assessing fit, understanding a student's focus area at a glance, and finding contact details without friction. 
+
+              </h4>
+            </div>
+              </div>
+              
+            </div>
+</div>
+      </section>
+
+      <section class="flex flex-col sm:flex-row gap-4 image-container max-w-7xl mx-auto">
+  <div class="image-display-section sm:w-2/5 border-grid border-b flex flex-col">
+    <div class="md:border-grid border-r sm:px-4 lg:px-12">
+      <p class="text-grey py-3 px-4 sm:px-0">
+        [P1 IA // MVP BRIDGE]
+      </p>
+    </div>
+    <div class="flex-1 bg-[]">
+      <img loading="lazy" src="radiate/p1-tree.png" class="h-full w-full object-contain md:border-t md:border-r border-grid md:border-t-0" alt="All Features" />
+    </div>
+  </div>
+  <div class="image-display-section sm:w-3/5 border-grid border-b flex flex-col">
+    <div class="md:border-grid border-l sm:px-4 lg:px-12">
+      <p class="text-grey py-3 px-4 sm:px-0">
+        [COMPETITIVE ANALYSIS // OFFERINGS ACROSS 9 GRAD SHOWS]
+      </p>
+    </div>
+    <div class="flex-1">
+      <img loading="lazy" src="radiate/map.png" class="h-full w-full object-contain md:border-t md:border-l border-grid md:border-t-0" alt="All Features" />
+    </div>
+  </div>
+</section>
+
+
+
+        <section class="border-grid border-b">
+        <div
+          class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-24 px-4 justify-between gap-8 md:gap-10 lg:px-12"
+        >
+          <div class="lg:w-[30%] shrink-0">
+            <h4 id="designing" class="scroll-mt-28">Designing on Figma
+
+</h4>
+          </div>
+          <div class="flex flex-col lg:w-[70%]">
+            <h4>
+             At this stage, final branding was still in development, so we explored several directions using gradients in the style established so far.
+
+
+            </h4>
+          </div>
+        </div>
+      </section>
+      
+
+      <section
+        class="flex flex-col sm:flex-row gap-4 image-container max-w-7xl mx-auto"
+      >
+        <div class="image-display-section w-full border-grid border-b">
+          <div class="image-container max-w-7xl mx-auto">
+            <div class="md:border-grid border-r sm:px-4 lg:px-12">
+              <p class="text-grey py-3 px-4 sm:px-0">
+                [P1 ITERATIONS // PRE-BRAND IDENTITY]
+              </p>
+            </div>
+          <img loading="lazy"
+            src="radiate/p1-versions.png"
+            class="md:border-t md:border-r border-grid md:border-t-0 w-full"
+            alt="All Features"
+          />
+          </div>
+        </div>
+        <!-- FIG.14 -->
+        <div class="image-display-section w-full border-grid border-b">
+          <div class="image-container max-w-7xl mx-auto">
+            <div class="md:border-grid border-l sm:px-4 lg:px-12">
+              <p class="text-grey py-3 px-4 sm:px-0">
+                [P1, V1 // SHIPPED OCTOBER 20, 2025]
+              </p>
+            </div>
+                            <img loading="lazy"
+            src="radiate/p1-v1.png"
+            class="md:border-t md:border-l border-grid md:border-t-0 w-full"
+            alt="All Features"
+          />
+          </div>
+        </div>
+      </section>
+
+
+
+
+ 
+
+  <section class="border-grid border-b">
+        <div
+          class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-24 px-4 justify-between gap-8 lg:px-12"
+        >
+          <div class="lg:w-[30%] shrink-0">
+            <h4 id="phase-2" class="scroll-mt-28">Phase 2: Strategic Foundation</h4>
+          </div>
+          <div class="flex flex-col gap-4 md:gap-10 lg:w-[70%]">
+            <div class="flex flex-col gap-4">
+              <p class="text-left text-grey">CHALLENGE</p>
+              <h4 class="text-left">
+                  Balance consistent, scalable design with the flexibility to adapt new deliverables based on cross-team and user feedback.              </h4>
+            </div>
+            <div class="flex flex-col gap-6 pt-4">
+              <p class="text-left text-grey">GOALS</p>
+              <h4 class="text-left">
+                Validate design direction with classmates and users, and ship a core homepage that reflects final branding and scales smoothly from Phase 2 to Phase 3.
+              </h4>
+       
+                </div>
+                 <div class="flex flex-col gap-4 md:gap-10">
+            <div class="flex flex-col gap-4">
+              <p class="text-left text-grey">KEY OUTCOMES</p>
+              <h4 class="text-left">
+Phase 2 delivered the core homepage (about-us, CTAs, photography & countdown) with the final branding applied. Since copywriting required external sign-off from concurrent teams, we designed layouts with flexible content zones to ensure copy updates wouldn't disrupt the visual hierarchy.
+
+              </h4>
+            </div>
+              </div>
+              
+            </div>
+          </div>
+      </section>
+
+
+
+      <!-- FIG.6 heading -->
+      <section class="image-display-section border-grid border-b w-full">
+        <div class="image-container max-w-7xl mx-auto">
+          <div class="md:border-grid sm:px-4 lg:px-12">
+            <p class="text-grey py-3 px-4 sm:px-0">
+              [PHASE 2 FINAL DESIGN // SHIPPED ON JAN 4, 2026]
+            </p>
+          </div>
+          <video
+           autoplay
+              muted
+              loop
+              playsinline
+            src="radiate/p2a.mp4"
+            class="md:border-y border-grid md:border-b-0 w-full"
+            alt="All Features"
+          >
+        </div>
+      </section>
+
+
+
+
+        <section class="border-grid border-b">
+        <div
+          class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-24 px-4 justify-between gap-8 md:gap-10 lg:px-12"
+        >
+          <div class="lg:w-[30%] shrink-0">
+            <h4 id="scalable-system" class="scroll-mt-28">Creating a Scalable System
+
+</h4>
+          </div>
+          <div class="flex flex-col lg:w-[70%]">
+            <h4>
+We scoped and designed the homepage (Phase 2) and the CMS & Sponsors (Phase 3) concurrently so they'd work as one cohesive ecosystem, with both designs planned, prototyped and tested together.
+
+
+            </h4>
+          </div>
+        </div>
+      </section>
+
+
+
+
+
+
+
+         <section
+        class="flex flex-col sm:flex-row gap-4 image-container max-w-7xl mx-auto"
+      >
+        <div class="image-display-section w-full border-grid border-b">
+          <div class="image-container max-w-7xl mx-auto">
+            <div class="md:border-grid border-r sm:px-4 lg:px-12">
+              <p class="text-grey py-3 px-4 sm:px-0">
+                [P2 IA // SPONSOR TIER INFO & BRAND IDENTITY]
+              </p>
+            </div>
+          <img loading="lazy"
+            src="radiate/p2-tree2.png"
+            class="md:border-t md:border-r border-grid md:border-t-0 w-full"
+            alt="All Features"
+          />
+          </div>
+        </div>
+        <!-- FIG.14 -->
+        <div class="image-display-section w-full border-grid border-b">
+          <div class="image-container max-w-7xl mx-auto">
+            <div class="md:border-grid border-l sm:px-4 lg:px-12">
+              <p class="text-grey py-3 px-4 sm:px-0">
+                [P3 IA // CMS & SPONSOR WALL]
+              </p>
+            </div>
+                            <img loading="lazy"
+            src="radiate/p2-tree3.png"
+            class="md:border-t md:border-l border-grid md:border-t-0 w-full"
+            alt="All Features"
+          />
+          </div>
+        </div>
+      </section>
+
+
+
+
+
+      <!-- My Responsibilities -->
+      <section class="border-grid border-b">
+        <div
+          class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-16 px-4 justify-between gap-8 lg:px-12"
+        >
+          <div class="lg:w-[30%] shrink-0">
+            <h4 id="usability-testing" class="scroll-mt-28">Usability Testing
+</h4>
+          </div>
+          <div class="flex flex-col gap-10 lg:w-[70%]">
+            <div class="flex flex-col gap-3">
+              <h4 class="text-left">
+To gauge the overall website experience, I co-designed the usability test questions and ran the synthesis session, grouping feedback from 12 participants across three task areas: first impressions, wayfinding, and the talent search experience.
+              </h4>
+
+              <div class="flex flex-col gap-4 pt-4">
+                <h4 class="text-left">
+Overall sentiment was positive and the “would recommend to a friend” score came in at 4.3 out of 5. But two critical issues emerged from the affinity mapping session: a 73% misclick rate on location, and a recurring sense that pages felt disconnected rather than part of one system.
+
+                </h4>
+               
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+            <!-- FIG.9 MOOD CATEGORIZATION FINDINGS -->
+      <section class="image-display-section border-grid border-b w-full">
+        <div class="image-container max-w-7xl mx-auto">
+          <div class="md:border-grid sm:px-4 lg:px-12">
+            <p class="text-grey py-3 px-4 sm:px-0">
+              ["ON A SCALE OF 1-5, HOW LIKELY ARE YOU TO RECOMMEND THE WEBSITE TO A FRIEND?"]
+            </p>
+          </div>
+          <img loading="lazy"
+            src="radiate/stats.png"
+            class="md:border-y border-grid md:border-b-0 w-full"
+            alt="All Features"
+          />
+        </div>
+      </section>
+
+
+
+     
+
+      <!-- My Responsibilities -->
+      <section class="border-grid border-b">
+        <div
+          class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-16 px-4 justify-between gap-8 lg:px-12"
+        >
+          <div class="lg:w-[30%] shrink-0">
+            <h4 id="ab-test" class="scroll-mt-28">The Project Page A/B Test
+</h4>
+          </div>
+          <div class="flex flex-col gap-10 lg:w-[70%]">
+            <div class="flex flex-col gap-3">
+              <h4 class="text-left">
+To resolve layout direction for student profiles, we ran an A/B preference test.
+              </h4>
+          
+              <div class="flex flex-col gap-4 pt-4">
+                <h4 class="text-left">
+                                      Screen A won the preference vote by a small margin. Participants also preferred specific details from Screen B, most notably placing the project title above the hero image, which made it immediately clear they were meant to scroll.
+                </h4>
+                            <video
+           autoplay
+              muted
+              loop
+              playsinline
+            src="radiate/ab-test.mp4"
+            class="md:border border-grid md:border-b-0 w-full my-10"
+            alt="All Features"
+          ></video>
+                <h4 class="text-left">
+                                      Between both layouts, users reported that project descriptions felt overwhelming as a single dense block, and images felt too large, making scrolling tedious. The overall feedback pointed to wanting content broken into smaller pieces so text and visuals could build naturally upon scrolling, leading to a rework of the project page layout in Phase 3 (Screen C).
+
+                </h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+       <!-- FIG.6 heading -->
+      <section class="image-display-section border-grid border-b w-full">
+        <div class="image-container max-w-7xl mx-auto">
+          <div class="md:border-grid sm:px-4 lg:px-12">
+            <p class="text-grey py-3 px-4 sm:px-0">
+              [USABILITY // SCREEN C REDESIGN]
+            </p>
+          </div>
+          <video
+           autoplay
+              muted
+              loop
+              playsinline
+            src="radiate/screenc.mp4"
+            class="md:border-y border-grid md:border-b-0 w-full"
+            alt="All Features"
+          >
+        </div>
+      </section>
+
+      <!-- Shirley Section -->
+      <section class="border-grid border-b">
+        <div
+          class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-24 px-4 justify-between gap-8 lg:px-12"
+        >
+
+          <div class="lg:w-[30%] shrink-0">
+            <h4 id="pain-points" class="scroll-mt-28">Addressing Key Pain Points</h4>
+          </div>
+          <div class="flex flex-col gap-4 md:gap-10 lg:w-[70%]">
+
+                  <h4 class="text-left">
+                We worked systematically to address other pain points from the usability test.
+
+              </h4>
+
+             <div class="flex flex-col gap-6 pt-4">
+              <p class="text-left text-grey uppercase">Information Hierarchy & Wayfinding</p>
+              <div class="text-left">
+                <h4 class="custom-list-item">The Problem: A 73% misclick rate occurred as location details were buried in the footer.</h4>
+                <h4 class="custom-list-item">The Fix: Made location details more visible in the updated navbar and footer, with additional touchpoints linking out to the Google Maps & Eventbrite.</h4>
+                       <img loading="lazy"
+         
+            src="radiate/wayfinding.png"
+            class="md:border border-grid w-full mt-10"
+            alt="All Features"
+          />
+              </div>
+            </div>
+            <div class="flex flex-col gap-6 pt-4">
+              <p class="text-left text-grey uppercase">Typography & Legibility</p>
+              <div class="text-left">
+                <h4 class="custom-list-item">The Problem: Several testers flagged that the brand's signature glow effect on the display typeface, combined with tight kerning and motion, made body text difficult to read.</h4>
+                <h4 class="custom-list-item">The Fix: Adjusted the colour values to soften the glow radius, improving readability and achieving WCAG compliance without compromising brand identity.</h4>
+                     <img loading="lazy"
+         
+            src="radiate/logo.png"
+            class="md:border border-grid w-full mt-10"
+            alt="All Features"
+          />
+              </div>
+            </div>
+             <div class="flex flex-col gap-6 pt-4">
+              <p class="text-left text-grey uppercase">Spacing & Layout Cohesion</p>
+              <div class="text-left">
+                <h4 class="custom-list-item">The Problem: Excessive negative space caused related data points to feel visually disconnected. Inconsistent use of spacing and border radius across designers also made the overall design feel disjointed.
+</h4>
+                <h4 class="custom-list-item">The Fix: Reworked sections with excessive negative space. Established uniform spacing and radius standards by section within the design system, and tightened layout bounding boxes to group related items by proximity. </h4>
+              </div>
+            <img loading="lazy"
+         
+            src="radiate/others-fix.png"
+            class="md:border border-grid w-full"
+            alt="All Features"
+          />
+      
+              <img loading="lazy"
+         
+            src="radiate/student-fix.png"
+            class="md:border border-grid w-full"
+            alt="All Features"
+          />
+
+    
+
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+
+
+
+           
+
+     
+
+      <!-- Wireframing & Prototyping -->
+      <section class="border-grid border-b">
+        <div
+          class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-24 px-4 justify-between gap-8 md:gap-10 lg:px-12"
+        >
+          <div class="lg:w-[30%] shrink-0">
+            <h4 id="design-system" class="scroll-mt-28">Scaling Fixes into the Design System</h4>
+          </div>
+          <div class="flex flex-col lg:w-[70%]">
+            <h4>
+             I worked with the web team to bake these usability fixes directly into our global design system, so a fix applied to one layout/section became standard practice across all others. By pushing updates through the design system and component library rather than one-off page edits, we sped up the update process, eliminated visual drift, and protected our hard launch timeline.
+            </h4>
+              <img loading="lazy"
+         
+            src="radiate/spacing.png"
+            class="md:border border-grid w-full mt-10"
+            alt="All Features"
+          />
+
+
+     
+                <img loading="lazy"
+         
+            src="radiate/specs.png"
+            class="md:border border-grid w-full mt-10"
+            alt="All Features"
+          />
+  
+          </div>
+          
+        </div>
+      </section>
+
+
+      <!-- FIG.6 heading -->
+      <section class="image-display-section border-grid border-b w-full">
+        <div class="image-container max-w-7xl mx-auto">
+          <div class="md:border-grid sm:px-4 lg:px-12">
+            <p class="text-grey py-3 px-4 sm:px-0">
+              [DESIGN SYSTEM // DESKTOP GRID SYSTEM]
+            </p>
+          </div>
+          <video
+           autoplay
+              muted
+              loop
+              playsinline
+            src="radiate/grids.mp4"
+            class="md:border-y border-grid md:border-b-0 w-full"
+            alt="All Features"
+          >
+        </div>
+      </section>
+
+
+
+  <section
+        class="flex flex-col sm:flex-row gap-4 image-container max-w-7xl mx-auto"
+      >
+        <div class="image-display-section w-full border-grid border-b">
+          <div class="image-container max-w-7xl mx-auto">
+            <div class="md:border-grid border-r sm:px-4 lg:px-12">
+              <p class="text-grey py-3 px-4 sm:px-0">
+                [DESIGN SYSTEM // CTA BUTTONS]
+              </p>
+            </div>
+            <video
+              autoplay
+              muted
+              loop
+              playsinline
+              src="radiate/tokens2.mp4"
+              class="md:border-t md:border-r border-grid md:border-b-0 w-full"
+              alt="All Features"
+            >
+          </div>
+        </div>
+        <!-- FIG.14 -->
+        <div class="image-display-section w-full border-grid border-b">
+          <div class="image-container max-w-7xl mx-auto">
+            <div class="md:border-grid border-l sm:px-4 lg:px-12">
+              <p class="text-grey py-3 px-4 sm:px-0">
+                [DESIGN SYSTEM // PRIMARY BUTTON STATES]
+              </p>
+            </div>
+                   <video
+              autoplay
+              muted
+              loop
+              playsinline
+              src="radiate/button.mp4"
+              class="md:border-t md:border-l border-grid md:border-b-0 w-full"
+              alt="All Features"
+            >
+</div>
+      </section>
+
+      <!-- FIG.6 heading -->
+      <section class="image-display-section border-grid border-b w-full">
+        <div class="image-container max-w-7xl mx-auto">
+          <div class="md:border-grid sm:px-4 lg:px-12">
+            <p class="text-grey py-3 px-4 sm:px-0">
+              [DESIGN SYSTEM // HEADINGS THROUGH P2 TO P3]
+            </p>
+          </div>
+          <video
+           autoplay
+              muted
+              loop
+              playsinline
+            src="radiate/header.mp4"
+            class="md:border-y border-grid md:border-b-0 w-full"
+            alt="All Features"
+          >
+        </div>
+      </section>
+
+ <section class="image-display-section border-grid border-b w-full">
+        <div class="image-container max-w-7xl mx-auto">
+          <div class="md:border-grid sm:px-4 lg:px-12">
+            <p class="text-grey py-3 px-4 sm:px-0">
+              [DESIGN SYSTEM // FOOTERS THROUGH P2 TO P3]
+            </p>
+          </div>
+         <video
+           autoplay
+              muted
+              loop
+              playsinline
+            src="radiate/footer.mp4"
+            class="md:border-y border-grid md:border-b-0 w-full"
+            alt="All Features"
+          >
+        </div>
+      </section>
+
+
+  <section class="border-grid border-b">
+        <div
+          class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-24 px-4 justify-between gap-8 lg:px-12"
+        >
+          <div class="lg:w-[30%] shrink-0">
+            <h4 id="phase-3" class="scroll-mt-28">Phase 3: Production & Launch</h4>
+          </div>
+          <div class="flex flex-col gap-4 md:gap-10 lg:w-[70%]">
+            <div class="flex flex-col gap-4">
+              <p class="text-left text-grey">CHALLENGE</p>
+              <h4 class="text-left">
+Keeping  team work systematic during development while ensuring a smooth CMS content handoff from peers.              </h4>
+            </div>
+            <div class="flex flex-col gap-6 pt-4">
+              <p class="text-left text-grey">GOALS</p>
+              <h4 class="text-left">
+Match the final build to the Figma designs, render content cleanly within the CMS layout, and account for responsive layouts and edge cases.
+
+              </h4>
+       
+                </div>
+                 <div class="flex flex-col gap-4 md:gap-10 ">
+            <div class="flex flex-col gap-4">
+              <p class="text-left text-grey">KEY OUTCOMES</p>
+              <h4 class="text-left">
+With the homepage shipped, Phase 3 involved homepage updates, rolling out 130+ CMS pages, a new sponsor wall, and ensuring layouts held together in production.
+
+
+              </h4>
+            </div>
+              </div>
+              
+            </div>
+          </div>
+      </section>
+
+
+
+      <!-- FIG.6 heading -->
+      <section class="image-display-section border-grid border-b w-full">
+        <div class="image-container max-w-7xl mx-auto">
+          <div class="md:border-grid sm:px-4 lg:px-12">
+            <p class="text-grey py-3 px-4 sm:px-0">
+              [PHASE 3 FINAL DESIGN // SHIPPED ON APR 3, 2026]
+            </p>
+          </div>
+          <video
+           autoplay
+              muted
+              loop
+              playsinline
+            src="radiate/p3.mp4"
+            class="md:border-y border-grid md:border-b-0 w-full"
+            alt="All Features"
+          >
+        </div>
+      </section>
+
+
+
+
+
+
+        <!-- Shirley Section -->
+      <section class="border-grid border-b">
+        <div
+          class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-24 px-4 justify-between gap-8 lg:px-12"
+        >
+
+          <div class="lg:w-[30%] shrink-0">
+            <h4 id="building-qa" class="scroll-mt-28">Building & QA</h4>
+          </div>
+          <div class="flex flex-col gap-4 md:gap-10 lg:w-[70%]">
+
+            
+
+             <div class="flex flex-col gap-6 pt-4">
+              <p class="text-left text-grey uppercase">MY ROLE IN THE BUILD</p>
+              <div class="text-left">
+                <h4> Drawing on my experience with frameworks like Tailwind, I checked implementation details and led QA; I verified each page matched
+Figma across mobile, tablet and desktop, standardized layouts where appropriate, built the carousel with Javascript, and occasionally updated CMS content. With the designs finalized, my role was keeping the web team aligned and making sure our work stayed consistent with the quality we'd set out to deliver.
+</h4>
+
+              </div>
+            </div>
+            <div class="flex flex-col gap-6 pt-4">
+              <p class="text-left text-grey uppercase">Standards before building</p>
+              <div class="text-left">
+                <h4>Before anyone started building, Sam Lampano and I led a team readout on Webflow conventions and best practices. Getting this agreed on upfront meant 8 people building in the same file wouldn't quietly drift into 8 different conventions.</h4>
+                     <img loading="lazy"
+         
+            src="radiate/best-p.png"
+            class="md:border border-grid w-full mt-10"
+            alt="All Features"
+          />
+              </div>
+            </div>
+             <div class="flex flex-col gap-6 pt-4">
+              <p class="text-left text-grey uppercase">What went smoothly</p>
+              <div class="text-left">
+                <h4>Webflow's flex-based layout combined with our utility-class system made most of the build straightforward. Additionally, standardizing our units meant responsive behavior mostly "just worked" once a section was built correctly the first time.
+</h4>
+              </div>
+
+       <video
+           autoplay
+              muted
+              loop
+              playsinline
+            src="radiate/utility.mp4"
+            class="md:border border-grid md:border-b-0 w-full"
+            alt="All Features"
+          ></video>
+          
+     <img loading="lazy"
+         
+            src="radiate/utility.png"
+            class="md:border border-grid w-full"
+            alt="All Features"
+          />
+
+
+            </div>
+
+
+
+
+             <div class="flex flex-col gap-6 pt-4">
+              <p class="text-left text-grey uppercase">Technical Trade-offs</p>
+              <div class="text-left">
+                <h4> Live vectors rendered inconsistently across browsers, so we initially swapped them for baked gradient images. While this worked for static pages, it broke scalability across 44 dynamic CMS pages. Rather than shipping something inconsistent at scale, I cut gradients from CMS pages entirely.
+</h4>
+ <img loading="lazy"
+         
+            src="radiate/new-gradients.png"
+            class="md:border border-grid w-full mt-10"
+            alt="All Features"
+          />
+              </div>
+
+ <img loading="lazy"
+         
+            src="radiate/gradient.png"
+            class="md:border border-grid w-full"
+            alt="All Features"
+          />
+              </div>
+
+             
+
+          </div>
+        </div>
+      </section>
+
+<!-- 
+
+            <section class="image-display-section border-grid border-b w-full">
+        <div class="image-container max-w-7xl mx-auto">
+          <div class="md:border-grid border-x sm:px-4 lg:px-12">
+            <p class="text-grey py-3 px-4 sm:px-0">
+              [FIG.7 USING UTILITY CLASSES TO CREATE FLEX LAYOUTS]
+            </p>
+          </div>
+         <video
+           autoplay
+              muted
+              loop
+              playsinline
+            src="radiate/utility.mp4"
+            class="md:border border-grid md:border-b-0 w-full"
+            alt="All Features"
+          >
+        </div>
+      </section> -->
+
+
+
+      
+
+      <section
+        class="flex flex-col sm:flex-row gap-4 image-container max-w-7xl mx-auto"
+      >
+        <div class="image-display-section w-full border-grid border-b">
+          <div class="image-container max-w-7xl mx-auto">
+            <div class="md:border-grid border-r sm:px-4 lg:px-12">
+              <p class="text-grey py-3 px-4 sm:px-0">
+                [DESN.CA // PROJECTS]
+              </p>
+            </div>
+            <img loading="lazy"
+              src="radiate/radiate-2.png"
+              class="md:border-t md:border-r border-grid md:border-b-0 w-full"
+              alt="All Features"
+            />
+          </div>
+        </div>
+        <!-- FIG.14 -->
+        <div class="image-display-section w-full border-grid border-b">
+          <div class="image-container max-w-7xl mx-auto">
+            <div class="md:border-grid border-l sm:px-4 lg:px-12">
+              <p class="text-grey py-3 px-4 sm:px-0">
+                [DESN.CA // MOBILE OVERVIEW]
+              </p>
+            </div>
+            <img loading="lazy"
+              src="radiate/radiate-4.png"
+              class="md:border-t md:border-l border-grid md:border-b-0 w-full"
+              alt="All Features"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="flex flex-col sm:flex-row gap-4 image-container max-w-7xl mx-auto"
+      >
+        <div class="image-display-section w-full border-grid border-b">
+          <div class="image-container max-w-7xl mx-auto">
+            <div class="md:border-grid border-r sm:px-4 lg:px-12">
+              <p class="text-grey py-3 px-4 sm:px-0">
+                [DESN.CA // MOBILE CASE STUDY & PROFILE]
+              </p>
+            </div>
+            <img loading="lazy"
+              src="radiate/radiate-6.png"
+              class="md:border-t md:border-r border-grid md:border-b-0 w-full"
+              alt="All Features"
+            />
+          </div>
+        </div>
+        <!-- FIG.14 -->
+        <div class="image-display-section w-full border-grid border-b">
+          <div class="image-container max-w-7xl mx-auto">
+            <div class="md:border-grid border-l sm:px-4 lg:px-12">
+              <p class="text-grey py-3 px-4 sm:px-0">
+                [DESN.CA // CREDITS CAROUSEL]
+              </p>
+            </div>
+            <img loading="lazy"
+              src="radiate/radiate-7.png"
+              class="md:border-t md:border-l border-grid md:border-b-0 w-full"
+              alt="All Features"
+            />
+          </div>
+        </div>
+      </section>
+
+
+
+
+      <!-- Final Outcomes -->
+      <section class="border-grid border-b">
+        <div
+          class="max-w-7xl mx-auto flex flex-col lg:flex-row py-12 pb-16 px-4 justify-between gap-8 lg:px-12"
+        >
+          <div class="lg:w-[30%] shrink-0">
+            <h4 id="final-outcomes" class="scroll-mt-28">Final Outcomes</h4>
+          </div>
+          <div class="flex flex-col gap-10 lg:w-[70%]">
+            <div class="flex flex-col gap-6">
+              <h4 class="text-left">
+                Upon shipping, The site has reached roughly ~3,000 users per
+                month, serving as the primary touchpoint between the Class of
+                2026 and the employers, peers, and industry professionals
+                discovering their work. After the event was over, we updated the
+                gallery to represent people’s booths at the exhibition.
+              </h4>
+            </div>
+                        <img loading="lazy"
+         
+            src="radiate/welcome.jpg"
+            class="md:border border-grid w-full"
+            alt="All Features"
+          />
+          </div>
+        </div>
+      </section>
+
+
+
+
+
+      <!-- My Responsibilities -->
+      <section class="border-grid border-b">
+        <div
+          class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-16 px-4 justify-between gap-8 lg:px-12"
+        >
+          <div class="lg:w-[30%] shrink-0">
+            <h4 id="reflection" class="scroll-mt-28">Reflection</h4>
+          </div>
+          <div class="flex flex-col gap-10 lg:w-[70%]">
+            <div class="flex flex-col gap-3">
+              <h4 class="text-left">
+                The hardest part of this project was coordination across two
+                different axes.
+              </h4>
+              <div class="flex flex-col gap-4 pt-4">
+                <div class="text-left">
+                  <h4 class="custom-list-item">
+                    The Cross-Functional Axis: Teams like branding, external
+                    relations, and web development each brought competing
+                    priorities and timelines. Success meant acting as the bridge
+                    to keep everyone aligned.
+                  </h4>
+                  <h4 class="custom-list-item">
+                    The Human Axis: Leading a cohort of peers means navigating
+                    unpredictable schedules as students juggle intense academic
+                    workloads and life.
+                  </h4>
+
+                  
+                </div>
+                <h4 class="text-left">
+                  I learned that leading well under these constraints requires
+                  discarding assumptions. It meant moving away from assuming
+                  people automatically knew how to execute a task, and
+                  treating project outcomes as a shared responsibility.
+                </h4>
+                <h4 class="text-left">
+                  Crucially, it taught me to design workflows around people's
+                  actual capacity, not just their technical capability. By
+                  intentionally checking in on a teammate's emotional and
+                  bandwidth before assigning a task, we prevented
+                  people from becoming quietly overcommitted. This
+                  empathy-driven approach smoothed out our handoffs and kept the
+                  team united, engaged, and supported from start to finish.
+                </h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+ 
+
+  <!-- FIG.19 -->
+      <section class="image-display-section w-full border-grid border-b">
+        <div class="image-container max-w-7xl mx-auto">
+          <div class="md:border-grid sm:px-4 lg:px-12">
+            <p class="text-grey py-3 px-4 sm:px-0">
+              [DESN.CA // HOMEPAGE]
+            </p>
+          </div>
+          <img loading="lazy"
+            src="radiate/radiate-1.png"
+            class="md:border-y border-grid md:border-t-0 w-full"
+            alt="All Features"
+          />
+          
+        </div>
+      </section>
+
+
+
+    
+ <section
+        class="flex flex-col sm:flex-row gap-4 image-container max-w-7xl mx-auto"
+      >
+        <div class="image-display-section w-full border-grid border-b">
+          <div class="image-container max-w-7xl mx-auto">
+    <div class="md:border-grid border-r sm:px-4 lg:px-12">
+              <p class="text-grey py-3 px-4 sm:px-0">
+                [WEB TEAM // GROUP PHOTO 1]
+              </p>
+            </div>
+            <img loading="lazy"
+              src="radiate/group1.jpg"
+              class="md:border-t md:border-r border-grid md:border-b-0 w-full"
+              alt="All Features"
+            />
+                   
+          </div>
+        </div>
+        <!-- FIG.14 -->
+        <div class="image-display-section w-full border-grid border-b">
+          <div class="image-container max-w-7xl mx-auto">
+          <div class="md:border-grid border-l sm:px-4 lg:px-12">
+              <p class="text-grey py-3 px-4 sm:px-0">
+                [WEB TEAM // GROUP PHOTO 2]
+              </p>
+            </div>
+            <img loading="lazy"
+              src="radiate/group2.jpg"
+              class="md:border-t md:border-l border-grid md:border-b-0 w-full"
+              alt="All Features"
+            />
+              
+          </div>
+        </div>
+      </section>
+ 
+
+      <section class="image-display-section w-full border-grid  mb-10">
+        <div class="image-container max-w-7xl mx-auto">
+          <div class="md:border-grid sm:px-4 lg:px-12">
+            <p class="text-grey py-3 px-4 sm:px-0">
+              [RADIATE DAY 2 // CLASS OF 2026]
+            </p>
+          </div>
+          <img loading="lazy"
+            src="radiate/class.jpg"
+            class="md:border-y border-grid md:border-t-0 w-full"
+            alt="All Features"
+          />
+          
+        </div>
+      </section>
+
+
+
+
+<!-- FIG.6 heading -->
+     
+
+
+    </main>
+
+    <!-- Right spacing rail (empty, mirrors the sidebar) -->
+    <div
+      aria-hidden="true"
+      class="hidden lg:block sticky top-0 h-screen self-start w-12 shrink-0 border-l 2xl:border-r border-grid"
+    ></div>
+    </div>
+
+    <!-- Import footer -->
+    <script src="footer.js" type="module"></script>
+
+    <footer-component></footer-component>
+
+    <!-- Cursor effects -->
+    <script type="module" src="cursor.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@1.6.4/dist/flowbite.min.js"></script>
+
+    <!-- Lightbox -->
+    <script type="module" src="lightbox.js"></script>
+    <script type="module" src="lightbox-page.js"></script>
+    <lightbox-modal></lightbox-modal>
+
+    <!-- Sidebar nav scroll spy -->
+    <script>
+      (() => {
+        const nav = document.getElementById("radiate-nav");
+        if (!nav) return;
+
+        const links = Array.from(nav.querySelectorAll("a[data-scroll]"));
+        const targets = [];
+
+        links.forEach((link) => {
+          const id = link.dataset.scroll;
+          const el = document.getElementById(id);
+          if (el) targets.push(el);
+        });
+
+        if (!("IntersectionObserver" in window) || targets.length === 0) return;
+
+        const setActive = (id) => {
+          links.forEach((l) => {
+            const on = l.dataset.scroll === id;
+            l.classList.toggle("text-blob", on);
+            l.classList.toggle("border-blob", on);
+            l.classList.toggle("border-[#d0d0d0]", !on);
+          });
+        };
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) return;
+              setActive(entry.target.id);
+            });
+          },
+          { rootMargin: "-25% 0px -65% 0px", threshold: 0 }
+        );
+
+        targets.forEach((el) => observer.observe(el));
+      })();
+    </script>
+  </body>
+</html>
