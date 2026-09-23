@@ -637,6 +637,7 @@ const uxuiCardsData = [
   {
     title: "Goodself Design System",
     tags: "DESIGN SYSTEM | UI LIBRARIES | ACCESSIBILITY | MOBILE, DESKTOP & TABLET",
+    link: "goodself.html",
     image: "ds.webp",
     description: "A healthtech design system designed around accessibility",
   },
