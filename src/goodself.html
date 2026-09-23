@@ -1,0 +1,911 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-E6RS5N28XQ"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-E6RS5N28XQ");
+    </script>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link rel="stylesheet" href="global.styles.css" />
+    <link rel="modulepreload" href="header.js" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300..900&family=Syne:wght@400..800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Goodself Design System</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fragment+Mono&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <!-- Import the header component -->
+    <script src="header.js" type="module"></script>
+    <script src="scroll-to-top.js" type="module"></script>
+    <scroll-component></scroll-component>
+    <header-component project-page project-name="GOODSELF"></header-component>
+
+    <!-- Hero Image (full width, sidebars start below) -->
+    <div class="w-full">
+      <div
+        class="relative h-[60vh] md:h-[72vh] lg:max-h-[640px] xl:max-h-[748px]"
+        data-lightbox-exclude
+      >
+        <img
+          loading="lazy"
+          src="goodself/hero.png"
+          alt="Hero image"
+          class="absolute top-0 left-0 w-full h-full object-cover border-grid border-b"
+        />
+      </div>
+    </div>
+
+    <!-- Sidebar + content kept together, capped like the homepage -->
+    <div class="w-full max-w-[94rem] mx-auto flex">
+      <nav
+        id="goodself-nav"
+        aria-label="On this page"
+        class="hidden lg:flex lg:flex-col w-max whitespace-nowrap shrink-0 overflow-y-auto sticky top-0 h-screen self-start border-r 2xl:border-l border-grid pt-10 xl:pt-10 2xl:pt-14 pb-14 pl-12 pr-12 font-['Fragment_Mono',monospace] tracking-[-0.04em]"
+      >
+        <span class="text-sm leading-6 text-grey uppercase mb-2">Overview</span>
+        <a
+          href="#overview"
+          data-scroll="overview"
+          class="text-sm leading-6 py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors"
+          >Overview</a
+        >
+        <a
+          href="#challenge"
+          data-scroll="challenge"
+          class="text-sm leading-6 py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors"
+          >The Challenge</a
+        >
+        <a
+          href="#competitive-benchmarking"
+          data-scroll="competitive-benchmarking"
+          class="text-sm leading-6 py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors"
+          >Competitive Benchmarking</a
+        >
+
+        <span class="block text-sm leading-6 text-grey uppercase mt-7 mb-2"
+          >Analysis</span
+        >
+        <a
+          href="#audit"
+          data-scroll="audit"
+          class="text-sm leading-6 py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors"
+          >Design System Audit</a
+        >
+
+        <span class="block text-sm leading-6 text-grey uppercase mt-7 mb-2"
+          >The Solution</span
+        >
+        <a
+          href="#solution"
+          data-scroll="solution"
+          class="text-sm leading-6 py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors"
+          >The Solution</a
+        >
+        <a
+          href="#navigation-redesign"
+          data-scroll="navigation-redesign"
+          class="text-sm leading-6 py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors"
+          >Navigation Redesign</a
+        >
+        <a
+          href="#documentation"
+          data-scroll="documentation"
+          class="text-sm leading-6 py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors"
+          >Documentation</a
+        >
+
+        <span class="block text-sm leading-6 text-grey uppercase mt-7 mb-2"
+          >Wrap-Up</span
+        >
+        <a
+          href="#deliverables"
+          data-scroll="deliverables"
+          class="text-sm leading-6 py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors"
+          >Final Deliverables</a
+        >
+        <a
+          href="#impact"
+          data-scroll="impact"
+          class="text-sm leading-6 py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors"
+          >Impact</a
+        >
+        <a
+          href="#takeaways"
+          data-scroll="takeaways"
+          class="text-sm leading-6 py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors"
+          >Key Takeaways</a
+        >
+        <a
+          href="#different"
+          data-scroll="different"
+          class="text-sm leading-6 py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors"
+          >What I'd Do Differently</a
+        >
+      </nav>
+
+      <main class="flex-1 min-w-0">
+        <section class="border-grid border-b">
+          <div
+            class="max-w-7xl mx-auto flex flex-col pt-8 md:pb-20 md:pt-12 pb-8 gap-20 px-4 lg:px-12"
+          >
+            <div class="w-full flex flex-col gap-20">
+              <div class="flex flex-col gap-10 lg:w-[80%]">
+                <div class="flex flex-col gap-8 pt-1">
+                  <h2 id="overview" class="scroll-mt-28">
+                    Building Trust Through Design Systems at Goodself
+                  </h2>
+                  <h4>
+                    Goodself is a healthtech startup that combines social media
+                    with evidence-based health information, connecting users
+                    with vetted health professionals through interactive
+                    streams, courses, and communities. As a UX designer on the
+                    product team, I balanced day-to-day feature sprints with
+                    building Goodself’s first formal design system.
+                  </h4>
+                </div>
+              </div>
+
+              <div class="flex md:flex-row flex-col w-full gap-4">
+                <div
+                  class="flex-grow p-4 pt-0 pl-0 flex flex-col gap-1 border-b border-grid md:w-1/3"
+                >
+                  <p class="text-grey">[ROLE]</p>
+                  <h6>UX Designer</h6>
+                </div>
+
+                <div
+                  class="flex-grow p-4 pt-0 pl-0 flex flex-col gap-1 border-b border-grid md:w-1/3"
+                >
+                  <p class="text-grey">[TIMELINE]</p>
+                  <h6>Sept 2024 – Apr 2025</h6>
+                </div>
+                <div
+                  class="flex-grow p-4 pt-0 pl-0 flex flex-col gap-1 border-b border-grid md:w-1/3"
+                >
+                  <p class="text-grey">[SCOPE]</p>
+                  <h6>iOS, Mobile, Tablet, Desktop</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- The Challenge -->
+        <section class="border-grid border-b">
+          <div
+            class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-24 px-4 justify-between gap-8 lg:px-12"
+          >
+            <div class="lg:w-[30%] shrink-0">
+              <h4 id="challenge" class="scroll-mt-28">Problem Space</h4>
+            </div>
+            <div class="flex flex-col gap-4 md:gap-10 lg:w-[70%]">
+              <h4 class="text-left">
+                When I joined Goodself, speed had taken priority over
+                scalability. Design decisions lived in individual heads instead
+                of shared documentation, our brand color and typography were
+                fragmented, and most interfaces had never been evaluated against
+                WCAG 2.2 AA.
+              </h4>
+              <h4 class="text-left">
+                Around the same time, leadership raised a separate but related
+                problem: new-hire feedback kept flagging Goodself's navigation,
+                especially on desktop, as clunky and unintuitive and asked me to
+                lead a full redesign.
+              </h4>
+              <h4 class="text-left">
+                Rather than treat these as two separate projects, I saw the
+                navigation rebuild as an opportunity to stress-test the new
+                design system while it was still being built. So I led the
+                research, audit, and development of Goodself's first formal
+                design system, with the navigation redesign as its proof of
+                concept.
+              </h4>
+            </div>
+          </div>
+        </section>
+
+        <!-- Competitive Benchmarking -->
+        <section class="border-grid border-b">
+          <div
+            class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-24 px-4 justify-between gap-8 lg:px-12"
+          >
+            <div class="lg:w-[30%] shrink-0">
+              <h4 id="competitive-benchmarking" class="scroll-mt-28">
+                Competitive Benchmarking
+              </h4>
+            </div>
+            <div class="flex flex-col gap-4 md:gap-10 lg:w-[70%]">
+              <h4 class="text-left">
+                I ran a competitive analysis across 9 apps, including
+                healthtech and weight-management apps that shared our audience
+                and constraints. For each, I looked at how many distinct greys
+                and blacks they used, their mobile text-sizing conventions, how
+                they applied colour to icons and distinguished categories, and
+                which apps used a warm primary colour more effectively than we
+                used our orange.
+              </h4>
+               <img loading="lazy"
+         
+            src="goodself/analysis.png"
+            class="md:border border-grid w-full mt-10"
+            alt="All Features"
+          />
+              <h4 class="text-left">
+                This research provided an evidence-based target for refining our
+                orange and gave us a benchmark of industry standards to ground
+                our design system audit.
+              </h4>
+            </div>
+          </div>
+        </section>
+
+        <!-- Design System Audit -->
+        <section class="border-grid border-b">
+          <div
+            class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-24 px-4 justify-between gap-8 lg:px-12"
+          >
+            <div class="lg:w-[30%] shrink-0">
+              <h4 id="audit" class="scroll-mt-28">Design System Audit</h4>
+            </div>
+            <div class="flex flex-col gap-4 md:gap-10 lg:w-[70%]">
+              <div class="flex flex-col gap-6 pt-4">
+                <p class="text-left text-grey uppercase">Typography</p>
+                <h4 class="text-left">
+                  Typography got the most rigorous audit as it was the most
+                  immediately jarring problem across desktop and mobile; some
+                  mobile interfaces had font sizes as small as 6.89px.
+                </h4>
+                <h4 class="text-left">
+                  I built two structured tracking sheets, one for mobile and one
+                  for web, cataloguing every typographic style in production
+                  against Current Name, Size, Weight, Line Height, Figma name,
+                  Dev-side name, Comments, and Implementation status.
+                </h4>
+                <h4 class="text-left">
+                  The results surfaced over 55 distinct type styles in use, many
+                  unnamed and never formally added to any system.
+                </h4>
+              </div>
+
+              <div class="flex flex-col gap-6 pt-4">
+                <p class="text-left text-grey uppercase">
+                  Why the Old Library Failed
+                </p>
+                <h4 class="text-left">
+                  Although an official typography library technically existed,
+                  team adoption was low because the library itself was ambiguous
+                  and disconnected from production.
+                </h4>
+                <h4 class="custom-list-item text-left">
+                  For Designers: Generic, un-prefixed names like Heading 4 gave
+                  no indication whether a style belonged to Goodself's official
+                  system or was just leftover noise from an old file. Because
+                  mobile styles had no prefix at all while desktop used Web/,
+                  designers couldn't tell canonical styles from legacy ones,
+                  leading them to bypass the library, detach styles, or create
+                  one-off text layers.
+                </h4>
+                <h4 class="custom-list-item text-left">
+                  For Developers: The Figma names were completely disconnected
+                  from the codebase. Because style names in design didn't use
+                  the same "language" as the code, engineers had to manually
+                  translate and guess which design style matched which code
+                  snippet every time they built a screen.
+                </h4>
+              </div>
+
+              <div class="flex flex-col gap-6 pt-4">
+                <p class="text-left text-grey uppercase">Spacing</p>
+                <h4 class="text-left">
+                  As part of the same audit, I documented frequently used
+                  spacing values across the app, giving the team a factual
+                  baseline. The next step would be defining the spacing tokens
+                  in Figma alongside the customer system rollout.
+                </h4>
+              </div>
+
+              <div class="flex flex-col gap-6 pt-4">
+                <p class="text-left text-grey uppercase">
+                  Components and Colour
+                </p>
+                <h4 class="text-left">
+                  Components and color were harder to audit the same way,
+                  because so little of what was in production was actually
+                  pulled from the current design library.
+                </h4>
+                <h4 class="text-left">
+                  Designers routinely defaulted to legacy or deprecated
+                  components instead, or guessed at the correct one. Several
+                  elements also existed only as one-off variants rather than
+                  reusable components. Cataloguing the official library fully
+                  upfront would have meant documenting a system the team wasn't
+                  even using.
+                </h4>
+                <h4 class="text-left">
+                  Some of the colour problems weren't even visible through
+                  Figma's own tools: not every instance of our orange used a
+                  shared color style, and several were applied as raw, one-off
+                  hex values that a simple style audit wouldn't catch.
+                </h4>
+              </div>
+            </div>
+          </div>
+        </section>
+
+         <!-- phase 1 -->
+      <section class="image-display-section border-grid border-b w-full">
+        <div class="image-container max-w-7xl mx-auto">
+          <div class="md:border-grid sm:px-4 lg:px-12">
+            <p class="text-grey py-3 px-4 sm:px-0">
+              [USES OF ORANGES IN PRODUCTION]
+            </p>
+          </div>
+          <img
+            src="goodself/oranges.png"
+            class="md:border-y border-grid md:border-b-0 w-full"
+            alt="too many oranges!"
+          >
+        </div>
+      </section>
+
+        <!-- The Solution -->
+        <section class="border-grid border-b">
+          <div
+            class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-24 px-4 justify-between gap-8 lg:px-12"
+          >
+            <div class="lg:w-[30%] shrink-0">
+              <h4 id="solution" class="scroll-mt-28">The Solution</h4>
+            </div>
+            <div class="flex flex-col gap-4 md:gap-10 lg:w-[70%]">
+              <h4 class="text-left">
+                Instead of waiting to launch an all-or-nothing design system, I
+                prioritized typography and navigation first, while working
+                through components and color incrementally.
+              </h4>
+
+              <div class="flex flex-col gap-6 pt-4">
+                <p class="text-left text-grey uppercase">Typography</p>
+                <h4 class="text-left">
+                  I consolidated the 55+ styles down to 8 canonical typographic
+                  styles (with a 12px minimum for body copy).
+                </h4>
+                <h4 class="text-left">
+                  To restore trust and eliminate handoff ambiguity, I overhauled
+                  the naming conventions to match production dev shorthand 1:1,
+                  and isolated edge cases into dedicated MR/ (Mobile Rare) and
+                  DR/ (Desktop Rare) sub-buckets.
+                </h4>
+                 <img loading="lazy"
+         
+            src="goodself/analysis.png"
+            class="md:border border-grid w-full mt-10"
+            alt="All Features"
+          />
+                <h4 class="text-left">
+                  The new naming convention gave designers a home for utility
+                  styles without polluting the core type scale, while making
+                  edge cases instantly searchable (MR/*) for future team audits
+                  and style consolidations.
+                </h4>
+                
+                <h4 class="text-left">
+                  With the new naming convention in place, designers could
+                  instantly identify system-approved styles in Figma, while
+                  developers could copy token names directly from code and
+                  search them in Figma without translation. The new type scale
+                  shipped to both Figma and production.
+                </h4>
+              </div>
+
+              <div class="flex flex-col gap-6 pt-4">
+                <p class="text-left text-grey uppercase">Components</p>
+                <h4 class="text-left">
+                  To address accumulated design debt without halting active
+                  feature work, I introduced a flag-and-ticket workflow. Instead
+                  of attempting a massive overhaul, we systematically flagged UI
+                  errors in Figma and live builds, converting them into
+                  individual backlog tickets to fix incrementally alongside
+                  feature sprints. Designers claimed specific sections of the
+                  product, tracing legacy components back to their source files
+                  to evaluate, refine, or deprecate redundant patterns.
+                </h4>
+              </div>
+
+              <div class="flex flex-col gap-6 pt-4">
+                <p class="text-left text-grey uppercase">Spacing</p>
+                <h4 class="text-left">
+                  I redesigned and standardized our highest-traffic surfaces,
+                  including carousels, course cards, and popups, fixing
+                  inconsistent content spacing, incorrect padding, and touch
+                  targets that fell short of the 44×44px minimum. Every updated
+                  component was delivered with full state coverage (default,
+                  hover, active, disabled, error) and documented in Notion with
+                  cross-reference tables mapping legacy styles to new design
+                  tokens.
+                </h4>
+              </div>
+
+              <div class="flex flex-col gap-6 pt-4">
+                <p class="text-left text-grey uppercase">Icons</p>
+                <h4 class="text-left">
+                  The old system pulled inconsistently from multiple icon
+                  libraries with no standard weights or fill states. I
+                  consolidated the entire application onto a single icon library
+                  with standardized weights and fills, resolving long-standing
+                  legibility issues across the product.
+                </h4>
+              </div>
+
+              <div class="flex flex-col gap-6 pt-4">
+                <p class="text-left text-grey uppercase">Colour</p>
+                <h4 class="text-left">
+                  As part of the same ticket-based process, I brought all
+                  modules and buttons into consistent sizing and consolidated
+                  them onto a single, WCAG 2.2 AA compliant orange, replacing
+                  the scattered shades and untracked hex values the audit had
+                  surfaced.
+                </h4>
+                <h4 class="text-left">
+                  I mapped out a broader palette concept with intentional tint
+                  stacks and a full accessibility matrix, and used competitive
+                  benchmarking as a reference point to draft multiple compliant
+                  color story directions for the brand more broadly: one that
+                  kept our existing yellow as a lower-disruption option,
+                  alongside bolder alternatives including blue, black, and
+                  magenta. That larger color-story decision is still pending,
+                  presented to leadership as the proposal for the system's next
+                  phase.
+                </h4>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+                 <!-- phase 1 -->
+      <section class="image-display-section border-grid border-b w-full">
+        <div class="image-container max-w-7xl mx-auto">
+          <div class="md:border-grid sm:px-4 lg:px-12">
+            <p class="text-grey py-3 px-4 sm:px-0">
+              [COLOUR CONTRAST TEST]
+            </p>
+          </div>
+          <img
+            src="goodself/contrast.png"
+            class="md:border-y border-grid md:border-b-0 w-full"
+            alt="too many oranges!"
+          >
+        </div>
+      </section>
+
+        <!-- Navigation Redesign as Pilot -->
+        <section class="border-grid border-b">
+          <div
+            class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-24 px-4 justify-between gap-8 lg:px-12"
+          >
+            <div class="lg:w-[30%] shrink-0">
+              <h4 id="navigation-redesign" class="scroll-mt-28">
+                Navigation Redesign as Pilot
+              </h4>
+            </div>
+            <div class="flex flex-col gap-4 md:gap-10 lg:w-[70%]">
+              <h4 class="text-left">
+                During onboarding, feedback from new hires surfaced another
+                clear usability problem: Goodself's navigation, especially on
+                desktop, was clunky and unintuitive. Assessing the existing
+                navigation against standard usability heuristics confirmed it
+                was violating well-established principles on both platforms:
+              </h4>
+              <h4 class="custom-list-item text-left">
+                Desktop, recognition over recall: Key actions like the profile
+                icon were buried, forcing people to click around to find basic
+                features instead of recognizing them at a glance.
+              </h4>
+              <h4 class="custom-list-item text-left">
+                Desktop, aesthetic and minimalist design: The right-hand menu
+                added clutter while seeing almost no engagement.
+              </h4>
+              <h4 class="custom-list-item text-left">
+                Mobile, aesthetic and minimalist design: Headers ran up to 140px
+                tall, consuming roughly 15–20% of the entire viewport on many
+                mobile screens and violated Nielsen's 8th heuristic; interfaces
+                contained irrelevant information and elements.
+              </h4>
+              <h4 class="custom-list-item text-left">
+                Post button: failed to meet basic colour accessibility
+                standards.
+              </h4>
+              <h4 class="text-left">
+                In testing sessions, this friction visibly slowed people down as
+                they searched for essential flows.
+              </h4>
+              <h4 class="text-left">
+                I used the redesign as the first end-to-end stress test for the
+                new component library and typography tokens, rebuilding the
+                navigation with the new system rather than legacy patterns.
+                Rather than invent a novel pattern, I deliberately borrowed
+                established mental models from platforms like Twitter/X,
+                Facebook, Instagram, and LinkedIn. Since Goodself is social
+                media for health professionals, leaning on patterns people
+                already knew from other platforms meant less relearning and more
+                immediate usability.
+              </h4>
+              <h4 class="text-left">
+                The redesign shipped to production, resolving the specific
+                complaints that triggered the project and giving the design
+                system a highly visible before-and-after that built internal
+                buy-in for the rest of the rollout.
+              </h4>
+            </div>
+          </div>
+        </section>
+
+        <!-- 
+        <section class="border-grid border-b">
+          <div
+            class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-24 px-4 justify-between gap-8 lg:px-12"
+          >
+            <div class="lg:w-[30%] shrink-0">
+              <h4 id="deliverables" class="scroll-mt-28">Final Deliverables</h4>
+            </div>
+            <div class="flex flex-col gap-4 lg:w-[70%]">
+              <p class="text-left text-grey uppercase">[IMAGES TO BE ADDED]</p>
+
+              <div class="flex flex-col sm:flex-row gap-4 w-full">
+                <div class="image-display-section w-full border border-grid">
+                  <div class="md:border-grid sm:px-4 lg:px-12">
+                    <p class="text-grey py-3 px-4 sm:px-0">
+                      Design system colour based kits
+                    </p>
+                  </div>
+                  <div
+                    class="h-64 md:h-80 border-t border-grid bg-[#F3F3F4]"
+                  ></div>
+                </div>
+                <div class="image-display-section w-full border border-grid">
+                  <div class="md:border-grid sm:px-4 lg:px-12">
+                    <p class="text-grey py-3 px-4 sm:px-0">Icon system</p>
+                  </div>
+                  <div
+                    class="h-64 md:h-80 border-t border-grid bg-[#F3F3F4]"
+                  ></div>
+                </div>
+              </div>
+
+              <div class="flex flex-col sm:flex-row gap-4 w-full">
+                <div class="image-display-section w-full border border-grid">
+                  <div class="md:border-grid sm:px-4 lg:px-12">
+                    <p class="text-grey py-3 px-4 sm:px-0">Carousel card</p>
+                  </div>
+                  <div
+                    class="h-64 md:h-80 border-t border-grid bg-[#F3F3F4]"
+                  ></div>
+                </div>
+                <div class="image-display-section w-full border border-grid">
+                  <div class="md:border-grid sm:px-4 lg:px-12">
+                    <p class="text-grey py-3 px-4 sm:px-0">Tablet</p>
+                  </div>
+                  <div
+                    class="h-64 md:h-80 border-t border-grid bg-[#F3F3F4]"
+                  ></div>
+                </div>
+              </div>
+
+              <div class="flex flex-col sm:flex-row gap-4 w-full">
+                <div class="image-display-section w-full border border-grid">
+                  <div class="md:border-grid sm:px-4 lg:px-12">
+                    <p class="text-grey py-3 px-4 sm:px-0">Desktop</p>
+                  </div>
+                  <div
+                    class="h-64 md:h-80 border-t border-grid bg-[#F3F3F4]"
+                  ></div>
+                </div>
+                <div class="image-display-section w-full border border-grid">
+                  <div class="md:border-grid sm:px-4 lg:px-12">
+                    <p class="text-grey py-3 px-4 sm:px-0">Mobile</p>
+                  </div>
+                  <div
+                    class="h-64 md:h-80 border-t border-grid bg-[#F3F3F4]"
+                  ></div>
+                </div>
+              </div>
+
+              <div class="flex flex-col sm:flex-row gap-4 w-full">
+                <div class="image-display-section w-full border border-grid">
+                  <div class="md:border-grid sm:px-4 lg:px-12">
+                    <p class="text-grey py-3 px-4 sm:px-0">Course cards</p>
+                  </div>
+                  <div
+                    class="h-64 md:h-80 border-t border-grid bg-[#F3F3F4]"
+                  ></div>
+                </div>
+                <div class="image-display-section w-full border border-grid">
+                  <div class="md:border-grid sm:px-4 lg:px-12">
+                    <p class="text-grey py-3 px-4 sm:px-0">Popups</p>
+                  </div>
+                  <div
+                    class="h-64 md:h-80 border-t border-grid bg-[#F3F3F4]"
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+ -->
+
+      <section
+        class="flex flex-col sm:flex-row gap-4 image-container max-w-7xl mx-auto"
+      >
+        <div class="image-display-section w-full border-grid border-b">
+          <div class="image-container max-w-7xl mx-auto">
+            <div class="md:border-grid border-r sm:px-4 lg:px-12">
+              <p class="text-grey py-3 px-4 sm:px-0">
+                [STUDENT FEATURES // PERSONALIZED PROFILES]
+              </p>
+            </div>
+            <video
+              autoplay
+              muted
+              loop
+              playsinline
+              src="radiate/1-student.mp4"
+              class="md:border-y border-grid md:border-b-0 w-full"
+              alt="All Features"
+            >
+          </div>
+        </div>
+        <!-- FIG.14 -->
+        <div class="image-display-section w-full border-grid border-b">
+          <div class="image-container max-w-7xl mx-auto">
+            <div class="md:border-grid border-l sm:px-4 lg:px-12">
+              <p class="text-grey py-3 px-4 sm:px-0">
+                [STUDENT FEATURES // SCANNABLE CASE STUDIES]
+              </p>
+            </div>
+                   <video
+              autoplay
+              muted
+              loop
+              playsinline
+              src="radiate/2-projects.mp4"
+              class="md:border-y border-grid md:border-b-0 w-full"
+              alt="All Features"
+            >
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="flex flex-col sm:flex-row gap-4 image-container max-w-7xl mx-auto"
+      >
+        <div class="image-display-section w-full border-grid border-b">
+          <div class="image-container max-w-7xl mx-auto">
+            <div class="md:border-grid border-r sm:px-4 lg:px-12">
+              <p class="text-grey py-3 px-4 sm:px-0">
+                [STUDENT FEATURES // EMBLEM INTERACTIONS]
+              </p>
+            </div>
+                   <video
+              autoplay
+              muted
+              loop
+              playsinline
+              src="radiate/3-grid.mp4"
+              class="md:border-y border-grid md:border-b-0 w-full"
+              alt="All Features"
+            >
+          </div>
+        </div>
+        <!-- FIG.14 -->
+        <div class="image-display-section w-full border-grid border-b">
+          <div class="image-container max-w-7xl mx-auto">
+            <div class="md:border-grid border-l sm:px-4 lg:px-12">
+              <p class="text-grey py-3 px-4 sm:px-0">
+                [STUDENT FEATURES // INTERACTIVE CREDITS]
+              </p>
+            </div>
+                     <video
+              autoplay
+              muted
+              loop
+              playsinline
+              src="radiate/4-credits.mp4"
+              class="md:border-y border-grid md:border-b-0 w-full"
+              alt="All Features"
+            >
+          </div>
+        </div>
+      </section>
+
+        
+
+        <!-- Impact -->
+        <section class="border-grid border-b">
+          <div
+            class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-24 px-4 justify-between gap-8 lg:px-12"
+          >
+            <div class="lg:w-[30%] shrink-0">
+              <h4 id="impact" class="scroll-mt-28">Impact</h4>
+            </div>
+            <div class="flex flex-col gap-4 md:gap-10 lg:w-[70%]">
+              <h4 class="text-left">
+                What started as my personal tracking sheet became a
+                cross-functional initiative once I shared the Figma file,
+                designers and developers began co-owning rollout constraints
+                without me prompting it.
+              </h4>
+              <h4 class="custom-list-item text-left">
+                Shipped to Production: Reduced typographic fragmentation by over
+                85% (consolidating 55+ loose styles into 8 canonical tokens),
+                unified the app onto a single WCAG-compliant orange, and shipped
+                the redesigned navigation live.
+              </h4>
+              <h4 class="custom-list-item text-left">
+                Streamlined Design Workflow: Clear component organization and
+                token taxonomy (MC/, DC/) eliminated daily friction. Designers
+                no longer waste time deciphering ambiguous files; they know
+                exactly which canonical button, popup, or form style to select
+                and iterate on.
+              </h4>
+              <h4 class="custom-list-item text-left">
+                Cut Handoff Friction: Achieving 1:1 token parity between Figma
+                and the codebase, alongside documented component states and
+                accessibility specs, drastically reduced back-and-forth
+                communication between design and engineering.
+              </h4>
+              <h4 class="custom-list-item text-left">
+                Scoped Next Phase: Spacing tokens and an expanded WCAG-compliant
+                brand color palette are fully documented and proposed as the
+                system's next phase.
+              </h4>
+            </div>
+          </div>
+        </section>
+
+        <!-- Key Takeaways -->
+        <section class="border-grid border-b">
+          <div
+            class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-24 px-4 justify-between gap-8 lg:px-12"
+          >
+            <div class="lg:w-[30%] shrink-0">
+              <h4 id="takeaways" class="scroll-mt-28">Key Takeaways</h4>
+            </div>
+            <div class="flex flex-col gap-4 md:gap-10 lg:w-[70%]">
+              <h4 class="custom-list-item text-left">
+                Accessibility as a foundation. Building WCAG standards into
+                components from day one made quality structural, rather than
+                something to fix later.
+              </h4>
+              <h4 class="custom-list-item text-left">
+                Audits create shared reality. A number like "55 unnamed styles"
+                turns a subjective debate into an indisputable baseline for
+                change.
+              </h4>
+              <h4 class="custom-list-item text-left">
+                Sequencing by urgency. Prioritizing the most visible problems,
+                typography and navigation, delivered value immediately, while
+                the higher-risk, harder-to-reverse change (color) was
+                deliberately sequenced for the next phase.
+              </h4>
+            </div>
+          </div>
+        </section>
+
+        <!-- What I'd Do Differently -->
+        <section class="border-grid border-b">
+          <div
+            class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-24 px-4 justify-between gap-8 lg:px-12"
+          >
+            <div class="lg:w-[30%] shrink-0">
+              <h4 id="different" class="scroll-mt-28">
+                What I'd Do Differently
+              </h4>
+            </div>
+            <div class="flex flex-col gap-4 md:gap-10 lg:w-[70%]">
+              <h4 class="text-left">
+                While I researched mature systems for structural inspiration, I
+                would now push documentation even further by studying frameworks
+                like Apple's HIG, Spark, and IBM's Carbon to include explicit
+                "Do's and Don'ts" and code integration examples directly beside
+                each component card.
+              </h4>
+              <h4 class="text-left">
+                Because I relied on internal new-hire feedback as a proxy for
+                feedback, I didn't have direct access to external users during
+                the navigation redesign. While the redesign successfully
+                resolved the complaints that triggered the project, I would push
+                in the future for lightweight moderated usability sessions with
+                actual health professionals to validate borrowed navigation
+                patterns against our specific audience.
+              </h4>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- Right spacing rail (empty, mirrors the sidebar) -->
+      <div
+        aria-hidden="true"
+        class="hidden lg:block sticky top-0 h-screen self-start w-12 shrink-0 border-l 2xl:border-r border-grid"
+      ></div>
+    </div>
+
+    <!-- Import footer -->
+    <script src="footer.js" type="module"></script>
+
+    <footer-component></footer-component>
+
+    <!-- Cursor effects -->
+    <script type="module" src="cursor.js"></script>
+
+    <!-- Lightbox -->
+    <script type="module" src="lightbox.js"></script>
+    <script type="module" src="lightbox-page.js"></script>
+    <lightbox-modal></lightbox-modal>
+
+    <!-- Sidebar nav scroll spy -->
+    <script>
+      (() => {
+        const nav = document.getElementById("goodself-nav");
+        if (!nav) return;
+
+        const links = Array.from(nav.querySelectorAll("a[data-scroll]"));
+        const targets = [];
+
+        links.forEach((link) => {
+          const id = link.dataset.scroll;
+          const el = document.getElementById(id);
+          if (el) targets.push(el);
+        });
+
+        if (!("IntersectionObserver" in window) || targets.length === 0) return;
+
+        const setActive = (id) => {
+          links.forEach((l) => {
+            const on = l.dataset.scroll === id;
+            l.classList.toggle("text-blob", on);
+            l.classList.toggle("border-blob", on);
+            l.classList.toggle("border-[#d0d0d0]", !on);
+          });
+        };
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) return;
+              setActive(entry.target.id);
+            });
+          },
+          { rootMargin: "-25% 0px -65% 0px", threshold: 0 },
+        );
+
+        targets.forEach((el) => observer.observe(el));
+      })();
+    </script>
+  </body>
+</html>
