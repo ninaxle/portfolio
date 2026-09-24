@@ -81,14 +81,26 @@
           >The Challenge</a
         >
         <a
+          href="#problem-statement"
+          data-scroll="problem-statement"
+          class="text-sm leading-6 py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors"
+          >Problem Statement</a
+        >
+        <a
+          href="#how-might-we"
+          data-scroll="how-might-we"
+          class="text-sm leading-6 py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors"
+          >How Might We</a
+        >
+
+        <span class="block text-sm leading-6 text-grey uppercase mt-7 mb-2"
+          >Discovery</span
+        >
+        <a
           href="#competitive-benchmarking"
           data-scroll="competitive-benchmarking"
           class="text-sm leading-6 py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors"
           >Competitive Benchmarking</a
-        >
-
-        <span class="block text-sm leading-6 text-grey uppercase mt-7 mb-2"
-          >Analysis</span
         >
         <a
           href="#audit"
@@ -107,26 +119,44 @@
           >The Solution</a
         >
         <a
+          href="#typography"
+          data-scroll="typography"
+          class="text-sm leading-6 py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors"
+          >Typography</a
+        >
+        <a
+          href="#components"
+          data-scroll="components"
+          class="text-sm leading-6 py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors"
+          >Components</a
+        >
+        <a
+          href="#spacing"
+          data-scroll="spacing"
+          class="text-sm leading-6 py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors"
+          >Spacing</a
+        >
+        <a
+          href="#icons"
+          data-scroll="icons"
+          class="text-sm leading-6 py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors"
+          >Icons</a
+        >
+        <a
+          href="#colour"
+          data-scroll="colour"
+          class="text-sm leading-6 py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors"
+          >Colour</a
+        >
+        <a
           href="#navigation-redesign"
           data-scroll="navigation-redesign"
           class="text-sm leading-6 py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors"
           >Navigation Redesign</a
         >
-        <a
-          href="#documentation"
-          data-scroll="documentation"
-          class="text-sm leading-6 py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors"
-          >Documentation</a
-        >
 
         <span class="block text-sm leading-6 text-grey uppercase mt-7 mb-2"
           >Wrap-Up</span
-        >
-        <a
-          href="#deliverables"
-          data-scroll="deliverables"
-          class="text-sm leading-6 py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors"
-          >Final Deliverables</a
         >
         <a
           href="#impact"
@@ -272,7 +302,7 @@
             <div class="flex flex-col gap-10">
               <div class="flex flex-col gap-4 pt-1">
                 <p
-                  id="problem-statement"
+                  id="how-might-we"
                   class="uppercase text-grey scroll-mt-28"
                 >
                   HOW MIGHT WE
@@ -450,104 +480,133 @@
           </div>
         </section>
 
-        <!-- The Solution -->
+        <!-- Typography -->
         <section class="border-grid border-b">
           <div
             class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-24 px-4 justify-between gap-8 lg:px-12"
           >
             <div class="lg:w-[30%] shrink-0">
-              <h4 id="solution" class="scroll-mt-28">The Solution</h4>
+              <h4 id="typography" class="scroll-mt-28">Typography</h4>
             </div>
             <div class="flex flex-col gap-4 md:gap-10 lg:w-[70%]">
-              <div class="flex flex-col gap-6 pt-4">
-                <p class="text-left text-grey uppercase">Typography</p>
-                <h4 class="text-left">
-                  I consolidated the 55+ styles down to 8 canonical typographic
-                  styles (with a 12px minimum for body copy).
-                </h4>
-                <h4 class="text-left">
-                  To restore trust and eliminate handoff ambiguity, I overhauled
-                  the naming conventions to match production dev shorthand 1:1,
-                  and isolated edge cases into dedicated MR/ (Mobile Rare) and
-                  DR/ (Desktop Rare) sub-buckets.
-                </h4>
+              <h4 class="text-left">
+                I consolidated the 55+ styles down to 8 canonical typographic
+                styles (with a 12px minimum for body copy).
+              </h4>
+              <h4 class="text-left">
+                To restore trust and eliminate handoff ambiguity, I overhauled
+                the naming conventions to match production dev shorthand 1:1,
+                and isolated edge cases into dedicated MR/ (Mobile Rare) and
+                DR/ (Desktop Rare) sub-buckets.
+              </h4>
+              <h4 class="text-left">
+                The new naming convention gave designers a home for utility
+                styles without polluting the core type scale, while making edge
+                cases instantly searchable (MR/*) for future team audits and
+                style consolidations.
+              </h4>
+              <h4 class="text-left">
+                With the new naming convention in place, designers could
+                instantly identify system-approved styles in Figma, while
+                developers could copy token names directly from code and search
+                them in Figma without translation. The new type scale shipped to
+                both Figma and production.
+              </h4>
+            </div>
+          </div>
+        </section>
 
-                <h4 class="text-left">
-                  The new naming convention gave designers a home for utility
-                  styles without polluting the core type scale, while making
-                  edge cases instantly searchable (MR/*) for future team audits
-                  and style consolidations.
-                </h4>
+        <!-- Components -->
+        <section class="border-grid border-b">
+          <div
+            class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-24 px-4 justify-between gap-8 lg:px-12"
+          >
+            <div class="lg:w-[30%] shrink-0">
+              <h4 id="components" class="scroll-mt-28">Components</h4>
+            </div>
+            <div class="flex flex-col gap-4 md:gap-10 lg:w-[70%]">
+              <h4 class="text-left">
+                To address accumulated design debt without halting active
+                feature work, I introduced a flag-and-ticket workflow. Instead
+                of attempting a massive overhaul, we systematically flagged UI
+                errors in Figma and live builds, converting them into individual
+                backlog tickets to fix incrementally alongside feature sprints.
+                Designers claimed specific sections of the product, tracing
+                legacy components back to their source files to evaluate,
+                refine, or deprecate redundant patterns.
+              </h4>
+            </div>
+          </div>
+        </section>
 
-                <h4 class="text-left">
-                  With the new naming convention in place, designers could
-                  instantly identify system-approved styles in Figma, while
-                  developers could copy token names directly from code and
-                  search them in Figma without translation. The new type scale
-                  shipped to both Figma and production.
-                </h4>
-              </div>
+        <!-- Spacing -->
+        <section class="border-grid border-b">
+          <div
+            class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-24 px-4 justify-between gap-8 lg:px-12"
+          >
+            <div class="lg:w-[30%] shrink-0">
+              <h4 id="spacing" class="scroll-mt-28">Spacing</h4>
+            </div>
+            <div class="flex flex-col gap-4 md:gap-10 lg:w-[70%]">
+              <h4 class="text-left">
+                I redesigned and standardized our highest-traffic surfaces,
+                including carousels, course cards, and popups, fixing
+                inconsistent content spacing, incorrect padding, and touch
+                targets that fell short of the 44×44px minimum. Every updated
+                component was delivered with full state coverage (default,
+                hover, active, disabled, error) and documented in Notion with
+                cross-reference tables mapping legacy styles to new design
+                tokens.
+              </h4>
+            </div>
+          </div>
+        </section>
 
-              <div class="flex flex-col gap-6 pt-4">
-                <p class="text-left text-grey uppercase">Components</p>
-                <h4 class="text-left">
-                  To address accumulated design debt without halting active
-                  feature work, I introduced a flag-and-ticket workflow. Instead
-                  of attempting a massive overhaul, we systematically flagged UI
-                  errors in Figma and live builds, converting them into
-                  individual backlog tickets to fix incrementally alongside
-                  feature sprints. Designers claimed specific sections of the
-                  product, tracing legacy components back to their source files
-                  to evaluate, refine, or deprecate redundant patterns.
-                </h4>
-              </div>
+        <!-- Icons -->
+        <section class="border-grid border-b">
+          <div
+            class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-24 px-4 justify-between gap-8 lg:px-12"
+          >
+            <div class="lg:w-[30%] shrink-0">
+              <h4 id="icons" class="scroll-mt-28">Icons</h4>
+            </div>
+            <div class="flex flex-col gap-4 md:gap-10 lg:w-[70%]">
+              <h4 class="text-left">
+                The old system pulled inconsistently from multiple icon
+                libraries with no standard weights or fill states. I
+                consolidated the entire application onto a single icon library
+                with standardized weights and fills, resolving long-standing
+                legibility issues across the product.
+              </h4>
+            </div>
+          </div>
+        </section>
 
-              <div class="flex flex-col gap-6 pt-4">
-                <p class="text-left text-grey uppercase">Spacing</p>
-                <h4 class="text-left">
-                  I redesigned and standardized our highest-traffic surfaces,
-                  including carousels, course cards, and popups, fixing
-                  inconsistent content spacing, incorrect padding, and touch
-                  targets that fell short of the 44×44px minimum. Every updated
-                  component was delivered with full state coverage (default,
-                  hover, active, disabled, error) and documented in Notion with
-                  cross-reference tables mapping legacy styles to new design
-                  tokens.
-                </h4>
-              </div>
-
-              <div class="flex flex-col gap-6 pt-4">
-                <p class="text-left text-grey uppercase">Icons</p>
-                <h4 class="text-left">
-                  The old system pulled inconsistently from multiple icon
-                  libraries with no standard weights or fill states. I
-                  consolidated the entire application onto a single icon library
-                  with standardized weights and fills, resolving long-standing
-                  legibility issues across the product.
-                </h4>
-              </div>
-
-              <div class="flex flex-col gap-6 pt-4">
-                <p class="text-left text-grey uppercase">Colour</p>
-                <h4 class="text-left">
-                  As part of the same ticket-based process, I brought all
-                  modules and buttons into consistent sizing and consolidated
-                  them onto a single, WCAG 2.2 AA compliant orange, replacing
-                  the scattered shades and untracked hex values the audit had
-                  surfaced.
-                </h4>
-                <h4 class="text-left">
-                  I mapped out a broader palette concept with intentional tint
-                  stacks and a full accessibility matrix, and used competitive
-                  benchmarking as a reference point to draft multiple compliant
-                  color story directions for the brand more broadly: one that
-                  kept our existing yellow as a lower-disruption option,
-                  alongside bolder alternatives including blue, black, and
-                  magenta. That larger color-story decision is still pending,
-                  presented to leadership as the proposal for the system's next
-                  phase.
-                </h4>
-              </div>
+        <!-- Colour -->
+        <section class="border-grid border-b">
+          <div
+            class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-24 px-4 justify-between gap-8 lg:px-12"
+          >
+            <div class="lg:w-[30%] shrink-0">
+              <h4 id="colour" class="scroll-mt-28">Colour</h4>
+            </div>
+            <div class="flex flex-col gap-4 md:gap-10 lg:w-[70%]">
+              <h4 class="text-left">
+                As part of the same ticket-based process, I brought all modules
+                and buttons into consistent sizing and consolidated them onto a
+                single, WCAG 2.2 AA compliant orange, replacing the scattered
+                shades and untracked hex values the audit had surfaced.
+              </h4>
+              <h4 class="text-left">
+                I mapped out a broader palette concept with intentional tint
+                stacks and a full accessibility matrix, and used competitive
+                benchmarking as a reference point to draft multiple compliant
+                color story directions for the brand more broadly: one that kept
+                our existing yellow as a lower-disruption option, alongside
+                bolder alternatives including blue, black, and magenta. That
+                larger color-story decision is still pending, presented to
+                leadership as the proposal for the system's next phase.
+              </h4>
             </div>
           </div>
         </section>
