@@ -362,7 +362,7 @@
                 <h4 class="text-left">
                   Typography got the most rigorous audit as it was the most
                   immediately jarring problem across desktop and mobile; some
-                  mobile interfaces had font sizes as small as 6.89px.
+                  mobile interfaces had font sizes as small as 6px.
                 </h4>
                 <h4 class="text-left">
                   I built two structured tracking sheets, one for mobile and one
@@ -370,6 +370,13 @@
                   against Current Name, Size, Weight, Line Height, Figma name,
                   Dev-side name, Comments, and Implementation status.
                 </h4>
+
+                <!-- <img
+                  loading="lazy"
+                  src="goodself/font-data.png"
+                  class="md:border border-grid w-full mt-10"
+                  alt="All Features"
+                /> -->
                 <h4 class="text-left">
                   The results surfaced over 55 distinct type styles in use, many
                   unnamed and never formally added to any system.
@@ -418,7 +425,7 @@
                   Components and Colour
                 </p>
                 <h4 class="text-left">
-                  Components and color were harder to audit the same way,
+                  Components and colour were harder to audit the same way,
                   because so little of what was in production was actually
                   pulled from the current design library.
                 </h4>
@@ -436,13 +443,19 @@
                   shared color style, and several were applied as raw, one-off
                   hex values that a simple style audit wouldn't catch.
                 </h4>
+                <img
+                  loading="lazy"
+                  src="goodself/oranges.png"
+                  class="md:border border-grid w-full mt-10"
+                  alt="All Features"
+                />
               </div>
             </div>
           </div>
         </section>
 
         <!-- phase 1 -->
-        <section class="image-display-section border-grid border-b w-full">
+        <!-- <section class="image-display-section border-grid border-b w-full">
           <div class="image-container max-w-7xl mx-auto">
             <div class="md:border-grid sm:px-4 lg:px-12">
               <p class="text-grey py-3 px-4 sm:px-0">
@@ -455,7 +468,7 @@
               alt="too many oranges!"
             />
           </div>
-        </section>
+        </section> -->
 
         <!-- solution Statement -->
         <section class="border-grid border-b">
@@ -477,6 +490,20 @@
           </div>
         </section>
 
+        <!-- phase 1 -->
+        <section class="image-display-section border-grid border-b w-full">
+          <div class="image-container max-w-7xl mx-auto">
+            <div class="md:border-grid sm:px-4 lg:px-12">
+              <p class="text-grey py-3 px-4 sm:px-0">[PRIORITIZATION MATRIX]</p>
+            </div>
+            <img
+              src="goodself/matrix.png"
+              class="md:border-y border-grid md:border-b-0 w-full"
+              alt="too many oranges!"
+            />
+          </div>
+        </section>
+
         <!-- Typography -->
         <section class="border-grid border-b">
           <div
@@ -490,12 +517,33 @@
                 I consolidated the 55+ styles down to 8 canonical typographic
                 styles (with a 12px minimum for body copy).
               </h4>
+
+              <img
+                loading="lazy"
+                src="goodself/new-scale.png"
+                class="md:border border-grid w-full"
+                alt="All Features"
+              />
               <h4 class="text-left">
                 To restore trust and eliminate handoff ambiguity, I overhauled
                 the naming conventions to match production dev shorthand 1:1,
                 and isolated edge cases into dedicated MR/ (Mobile Rare) and DR/
-                (Desktop Rare) sub-buckets.
+                (Desktop Rare) prefixes.
               </h4>
+
+              <img
+                loading="lazy"
+                src="goodself/text-before.png"
+                class="md:border border-grid w-full"
+                alt="All Features"
+              />
+
+              <img
+                loading="lazy"
+                src="goodself/text-after.png"
+                class="md:border border-grid w-full"
+                alt="All Features"
+              />
               <h4 class="text-left">
                 The new naming convention gave designers a home for utility
                 styles without polluting the core type scale, while making edge
@@ -673,11 +721,24 @@
                 still pending, presented to leadership as the proposal for the
                 system's next phase.
               </h4>
+
+              <img
+                loading="lazy"
+                src="goodself/contrast.png"
+                class="md:border border-grid w-full"
+                alt="All Features"
+              />
+              <img
+                loading="lazy"
+                src="goodself/iterations.png"
+                class="md:border border-grid w-full"
+                alt="All Features"
+              />
             </div>
           </div>
         </section>
 
-        <section class="image-display-section border-grid border-b w-full">
+        <!-- <section class="image-display-section border-grid border-b w-full">
           <div class="image-container max-w-7xl mx-auto">
             <div class="md:border-grid sm:px-4 lg:px-12">
               <p class="text-grey py-3 px-4 sm:px-0">
@@ -690,7 +751,7 @@
               alt="too many oranges!"
             />
           </div>
-        </section>
+        </section> -->
 
         <!-- <section
           class="flex flex-col sm:flex-row gap-4 image-container max-w-7xl mx-auto"
@@ -727,7 +788,7 @@
         </section> -->
 
         <!-- phase 1 -->
-        <section class="image-display-section border-grid border-b w-full">
+        <!-- <section class="image-display-section border-grid border-b w-full">
           <div class="image-container max-w-7xl mx-auto">
             <div class="md:border-grid sm:px-4 lg:px-12">
               <p class="text-grey py-3 px-4 sm:px-0">[COLOUR CONTRAST TEST]</p>
@@ -738,7 +799,7 @@
               alt="too many oranges!"
             />
           </div>
-        </section>
+        </section> -->
 
         <section class="image-display-section border-grid border-b w-full">
           <div class="image-container max-w-7xl mx-auto">
@@ -957,7 +1018,7 @@
               </h4>
               <h4 class="custom-list-item text-left">
                 Shipped to Production: Reduced typographic fragmentation by over
-                85% (consolidating 55+ loose styles into 8 canonical tokens),
+                85% (consolidating 55+ loose styles into 9 canonical tokens),
                 unified the app onto a single WCAG-compliant orange, and shipped
                 the redesigned navigation live.
               </h4>
