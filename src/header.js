@@ -446,11 +446,12 @@ class Header extends HTMLElement {
 
     const allProjects = [
       { name: "Radiate", link: "radiate.html" },
+      { name: "Goodself", link: "goodself.html" },
       { name: "Melio", link: "melio.html" },
+      { name: "Accelerator", link: "accelerator.html" },
 
       { name: "Here:after", link: "hereafter.html" },
       { name: "Accessichat", link: "accessichat.html" },
-      { name: "Accelerator", link: "accelerator.html" },
     ];
 
     const filteredProjects = allProjects.filter((p) => {
