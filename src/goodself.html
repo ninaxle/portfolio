@@ -308,7 +308,7 @@
                   The Solution
                 </p>
                 <h4>
-                  I worked on an audit-first, incrementally-shipped system, prioritized by visibility and risk, grounded in competitive research to validate good practice, and tested as a live proof of concept through a navigation redesign.
+                  I worked on an audit-first, incrementally-shipped system, prioritized by visibility and risk, grounded in competitive research and tested as a live proof of concept through a navigation redesign.
                 </h4>
               </div>
             </div>
@@ -330,7 +330,7 @@
                 <p class="text-left text-grey uppercase">Typography</p>
                 <h4 class="text-left">
                   Typography got the most rigorous audit as it was the most
-                  immediately jarring problem across desktop and mobile; some
+                   jarring problem across desktop and mobile; some
                   mobile interfaces had font sizes as small as 6px.
                 </h4>
                 <h4 class="text-left">
@@ -362,7 +362,7 @@
                   and disconnected from production.
                 </h4>
                 <h4 class="custom-list-item text-left">
-                  For Designers: Generic, un-prefixed names like Heading 4 gave
+                  Designer Pain Points: Generic, un-prefixed names like Heading 4 gave
                   no indication whether a style belonged to Goodself's official
                   system or was just leftover noise from an old file. Because
                   mobile styles had no prefix at all while desktop used Web/,
@@ -371,7 +371,7 @@
                   one-off text layers.
                 </h4>
                 <h4 class="custom-list-item text-left">
-                  For Developers: The Figma names were completely disconnected
+                  Developer Pain Points: The Figma names were completely disconnected
                   from the codebase. Because style names in design didn't use
                   the same "language" as the code, engineers had to manually
                   translate and guess which design style matched which code
@@ -410,7 +410,7 @@
                   Some of the colour problems weren't even visible through
                   Figma's own tools: not every instance of our orange used a
                   shared colour style, and several were applied as raw, one-off
-                  hex values that a simple style audit wouldn't catch.
+                  hex values.
                 </h4>
                 <img
                   loading="lazy"
@@ -555,8 +555,8 @@
             <div class="flex flex-col gap-4 md:gap-10 lg:w-[70%]">
               <h4 class="text-left">
                 Instead of waiting to launch an all-or-nothing design system, I
-                shipped by feasibility: typography,
-                spacing, and navigation are fully shipped; icons are designed,
+                iterated and shipped items by feasibility: typography,
+                spacing, and navigation were prioritized first and are fully shipped; icons are designed,
                 proposed, and live on the new navigation, rolling out to legacy
                 surfaces as they're touched; components are being resolved
                 incrementally through an ongoing ticket-based workflow; and
@@ -605,7 +605,7 @@
                 and isolated edge cases into dedicated MR/ (Mobile Rare) and DR/
                 (Desktop Rare) prefixes. The new naming convention gave designers a home for utility
                 styles without polluting the core type scale, while making edge
-                cases instantly searchable (MR/*) for future team audits and
+                cases instantly searchable for future team audits and
                 style consolidations.
               </h4>
 
@@ -671,7 +671,7 @@
             </div>
             <div class="flex flex-col gap-4 md:gap-10 lg:w-[70%]">
               <h4 class="text-left">
-                To fix inconsistent spacing across the product, I built a two-tier token system which included a platform-agnostic primitive scale (4px base unit, space-1 through space-8) and a semantic layer of purpose-based tokens (e.g., container-inset) that mapped each primitive differently across mobile and desktop based on context.
+                To fix inconsistent spacing across the product, I built a two-tier token system which included a platform-agnostic primitive scale of a 4px base unit (e.g., space-1 through space-8) and a semantic layer of purpose-based tokens (e.g., container-inset) that mapped each primitive differently across mobile and desktop based on context.
 
               </h4>
   <img
@@ -891,7 +891,7 @@ Through the same ticketed workflow, I mapped off-value orange hexes in productio
             </div>
             <div class="flex flex-col gap-4 md:gap-10 lg:w-[70%]">
               <h4 class="text-left">
-               To stress-test the new design system end-to-end, I rebuilt the responsive navigation using our updated type scale, icons, components, spacing tokens, and primary orange. Working within technical and layout constraints, I delivered and handed off contextual headings, a dynamic desktop side navigation, and an optimized mobile drawer menu. 
+               To stress-test the new design system end-to-end, I rebuilt the responsive navigation using our updated design system. Working within technical and layout constraints, I delivered and handed off contextual headings, a dynamic desktop side navigation, and an optimized mobile drawer menu. 
               </h4>
               <h4 class="text-left">
                 The redesign shipped to production, resolving the specific
@@ -986,7 +986,7 @@ When I flagged the scale of these problems through testing and audits, it became
               </h4>
      
                 <h4 class="text-left">
-I shipped the redesigned navigation live, unified the app onto a single accessible orange, and reduced typographic fragmentation by over 85% consolidating 50+ loose styles into 8 canonical tokens, all now live in production. The navigation redesign in particular made a visible difference: people found the product noticeably easier to navigate, and the new interface was well-received enough that it came up in conversations with investors.
+I shipped the redesigned navigation live, unified the app onto a single accessible orange, and reduced typographic fragmentation by over 85% consolidating 50+ loose text styles into 9 tokens, all now live in production. The navigation redesign in particular made a visible difference: people found the product noticeably easier to navigate, and the new interface was well-received enough that it came up in conversations with investors.
 
                 </h4>
                 <h4 class="text-left">
@@ -997,6 +997,23 @@ An expanded, WCAG-compliant brand color palette is fully documented and proposed
           </div>
         </div>
       </section>
+
+
+
+       <section class="image-display-section border-grid border-b w-full">
+          <div class="image-container max-w-7xl mx-auto">
+            <div class="md:border-grid sm:px-4 lg:px-12">
+              <p class="text-grey py-3 px-4 sm:px-0">
+                [SPRINT IMPROVEMENTS !!]
+              </p>
+            </div>
+            <img
+              src="goodself/impact.png"
+              class="md:border-y border-grid md:border-b-0 w-full"
+              alt="too many oranges!"
+            />
+          </div>
+        </section>
            <!-- My Responsibilities -->
       <section class="border-grid border-b">
         <div
