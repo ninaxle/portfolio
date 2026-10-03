@@ -276,6 +276,9 @@
           </div>
         </section>
 
+
+        
+
         <!-- Problem Statement -->
         <section class="border-grid border-b">
           <div
@@ -664,6 +667,7 @@
             </div>
           </div>
         </section>
+        
          <section class="image-display-section border-grid border-b w-full">
           <div class="image-container max-w-7xl mx-auto">
             <div class="md:border-grid sm:px-4 lg:px-12">
@@ -679,60 +683,6 @@
           </div>
         </section>
        
-
-        <!-- Spacing -->
-        <section class="border-grid border-b">
-          <div
-            class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-24 px-4 justify-between gap-8 lg:px-12"
-          >
-            <div class="lg:w-[30%] shrink-0">
-              <h4 id="spacing" class="scroll-mt-28">Spacing</h4>
-            </div>
-            <div class="flex flex-col gap-4 md:gap-10 lg:w-[70%]">
-              <h4 class="text-left">
-                To fix inconsistent spacing across the product, I built a two-tier token system which included a platform-agnostic primitive scale of a <span class="text-gree">4px</span> base unit (e.g., <span class="text-gree">space-1</span> through <span class="text-gree">space-8</span>) and a semantic layer of purpose-based tokens (e.g., <span class="text-gree">container-inset</span>) that mapped each primitive differently across mobile and desktop based on context.
-
-              </h4>
-  <img
-                loading="lazy"
-                src="goodself/spacing-primitive.png"
-                class="md:border border-grid w-full"
-                alt="All Features"
-              />
-                 <img
-                loading="lazy"
-                src="goodself/spacing-semantic.png"
-                class="md:border border-grid w-full"
-                alt="All Features"
-              />
-
-
-               <h4 class="text-left">
-I then used this system alongside the flag-and-ticket workflow from Components. As UI errors got flagged and logged, spacing issues on high-traffic surfaces like carousels, course cards, and popups got fixed against the new token system. Every updated component shipped with full state coverage and got documented in its ticket, so the team had both a migration path and a single source of truth going forward.
-              </h4>
-
-
-              
-            </div>
-          </div>
-        </section>
-
-       <!-- phase 1 -->
-        <section class="image-display-section border-grid border-b w-full">
-          <div class="image-container max-w-7xl mx-auto">
-            <div class="md:border-grid sm:px-4 lg:px-12">
-              <p class="text-grey py-3 px-4 sm:px-0">[SPACING TOKENS // PADDING]</p>
-            </div>
-            <img
-              src="goodself/spacing-example.png"
-              class="md:border-y border-grid md:border-b-0 w-full"
-              alt="too many oranges!"
-            />
-          </div>
-        </section>
-       
-
-
          <section
           class="flex flex-col sm:flex-row gap-4 image-container max-w-7xl mx-auto"
         >
@@ -800,6 +750,99 @@ I then used this system alongside the flag-and-ticket workflow from Components. 
             </div>
           </div>
         </section>
+
+
+        <!-- Spacing -->
+        <section class="border-grid border-b">
+          <div
+            class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-24 px-4 justify-between gap-8 lg:px-12"
+          >
+            <div class="lg:w-[30%] shrink-0">
+              <h4 id="spacing" class="scroll-mt-28">Spacing</h4>
+            </div>
+            <div class="flex flex-col gap-4 md:gap-10 lg:w-[70%]">
+              <h4 class="text-left">
+                To fix inconsistent spacing across the product, I built a two-tier token system which included a platform-agnostic primitive scale of a <span class="text-gree">4px</span> base unit (e.g., <span class="text-gree">space-1</span> through <span class="text-gree">space-8</span>) and a semantic layer of purpose-based tokens (e.g., <span class="text-gree">container-inset</span>) that mapped each primitive differently across mobile and desktop based on context.
+
+              </h4>
+  <!-- <img
+                loading="lazy"
+                src="goodself/spacing-primitive.png"
+                class="md:border border-grid w-full"
+                alt="All Features"
+              />
+                 <img
+                loading="lazy"
+                src="goodself/spacing-semantic.png"
+                class="md:border border-grid w-full"
+                alt="All Features"
+              /> -->
+
+
+               <h4 class="text-left">
+I then used this system alongside the flag-and-ticket workflow from Components. As UI errors got flagged and logged, spacing issues on high-traffic surfaces like carousels, course cards, and popups got fixed against the new token system. Every updated component shipped with full state coverage and got documented in its ticket, so the team had both a migration path and a single source of truth going forward.
+              </h4>
+
+
+              
+            </div>
+          </div>
+        </section>
+
+
+
+
+       <!-- phase 1 -->
+        <section class="image-display-section border-grid border-b w-full">
+          <div class="image-container max-w-7xl mx-auto">
+            <div class="md:border-grid sm:px-4 lg:px-12">
+              <p class="text-grey py-3 px-4 sm:px-0">[SPACING TOKENS // PADDING]</p>
+            </div>
+            <img
+              src="goodself/spacing-example.png"
+              class="md:border-y border-grid md:border-b-0 w-full"
+              alt="too many oranges!"
+            />
+          </div>
+        </section>
+
+
+
+         <section
+          class="flex flex-col sm:flex-row gap-4 image-container max-w-7xl mx-auto"
+        >
+          <div class="image-display-section w-full border-grid border-b">
+            <div class="image-container max-w-7xl mx-auto">
+              <div class="md:border-grid border-r sm:px-4 lg:px-12">
+                <p class="text-grey py-3 px-4 sm:px-0">
+                  [COMPONENT TICKET // COURSE CARD]
+                </p>
+              </div>
+              <img
+                src="goodself/spacing-primitive.png"
+                class="md:border-y border-grid md:border-b-0 w-full"
+                alt="All Features"
+              />
+            </div>
+          </div>
+          <!-- FIG.14 -->
+          <div class="image-display-section w-full border-grid border-b">
+            <div class="image-container max-w-7xl mx-auto">
+              <div class="md:border-grid border-l sm:px-4 lg:px-12">
+                <p class="text-grey py-3 px-4 sm:px-0">
+                  [COMPONENT TICKET // SUGGESTED EXPERTS]
+                </p>
+              </div>
+              <img
+                src="goodself/spacing-semantic.png"
+                class="md:border-y border-grid md:border-b-0 w-full"
+                alt="All Features"
+              />
+            </div>
+          </div>
+        </section>
+       
+
 
 
          <!-- phase 1 -->
@@ -1009,6 +1052,19 @@ Through the same ticketed workflow, I mapped off-value orange hexes in productio
 
 
 
+     <!-- phase 1 -->
+        <section class="image-display-section border-grid border-b w-full">
+          <div class="image-container max-w-7xl mx-auto">
+            <div class="md:border-grid sm:px-4 lg:px-12">
+              <p class="text-grey py-3 px-4 sm:px-0">[SUMMARY OF DELIVERABLES]</p>
+            </div>
+            <img
+              src="goodself/deliver.png"
+              class="md:border-y border-grid md:border-b-0 w-full"
+              alt="too many oranges!"
+            />
+          </div>
+        </section>
           <!-- My Responsibilities -->
       <section class="border-grid border-b">
         <div
@@ -1038,7 +1094,6 @@ An expanded, WCAG-compliant brand color palette is fully documented and proposed
       </section>
 
 
-
        <section class="image-display-section border-grid border-b w-full">
           <div class="image-container max-w-7xl mx-auto">
             <div class="md:border-grid sm:px-4 lg:px-12">
@@ -1053,6 +1108,8 @@ An expanded, WCAG-compliant brand color palette is fully documented and proposed
             />
           </div>
         </section>
+
+        
            <!-- My Responsibilities -->
       <section class="border-grid border-b">
         <div
