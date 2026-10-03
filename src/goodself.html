@@ -331,7 +331,8 @@
                 <h4 class="text-left">
                   Typography got the most rigorous audit as it was the most
                    jarring problem across desktop and mobile; some
-                  mobile interfaces had font sizes as small as 6px.
+                  mobile interfaces had font sizes as small as
+                  <span class="text-gree">6px</span>.
                 </h4>
                 <h4 class="text-left">
                   I built a structured tracking sheet cataloguing every typographic style in production
@@ -347,7 +348,7 @@
 
               
                 <h4 class="text-left">
-                  The results surfaced over 50 distinct type styles in use, many
+                  The results surfaced over <span class="text-gree">50</span> distinct type styles in use, many
                   unnamed and never formally added to any system.
                 </h4>
               </div>
@@ -362,7 +363,8 @@
                   and disconnected from production.
                 </h4>
                 <h4 class="custom-list-item text-left">
-                  Designer Pain Points: Generic, un-prefixed names like Heading 4 gave
+                  Designer Pain Points: Generic, un-prefixed names like
+                  <span class="text-gree">Heading 4</span> gave
                   no indication whether a style belonged to Goodself's official
                   system or was just leftover noise from an old file. Because
                   mobile styles had no prefix at all while desktop used Web/,
@@ -520,7 +522,7 @@
             </div>
             <div class="flex flex-col gap-4 md:gap-10 lg:w-[70%]">
               <h4 class="text-left">
-                I ran a competitive analysis across 9 apps, including healthtech
+                I ran a competitive analysis across <span class="text-gree">9</span> apps, including healthtech
                 and weight-management apps that shared our audience and
                 constraints. For each, I looked at how many distinct greys and
                 blacks they used, their mobile text-sizing conventions, how they
@@ -589,8 +591,10 @@
             </div>
             <div class="flex flex-col gap-4 md:gap-10 lg:w-[70%]">
               <h4 class="text-left">
-                I consolidated the 50+ styles down to 9 canonical typographic
-                styles (with a 12px minimum for captions).
+                I consolidated the <span class="text-gree">50+</span> styles
+                down to <span class="text-gree">9</span> canonical typographic
+                styles (with a <span class="text-gree">12px</span> minimum for
+                captions).
               </h4>
 
               <img
@@ -602,8 +606,9 @@
               <h4 class="text-left">
                 To restore trust and eliminate handoff ambiguity, I overhauled
                 the naming conventions to match production dev shorthand 1:1,
-                and isolated edge cases into dedicated MR/ (Mobile Rare) and DR/
-                (Desktop Rare) prefixes. The new naming convention gave designers a home for utility
+                and isolated edge cases into dedicated
+                <span class="text-gree">MR/</span> (Mobile Rare) and
+                <span class="text-gree">DR/</span> (Desktop Rare) prefixes. The new naming convention gave designers a home for utility
                 styles without polluting the core type scale, while making edge
                 cases instantly searchable for future team audits and
                 style consolidations.
@@ -685,7 +690,7 @@
             </div>
             <div class="flex flex-col gap-4 md:gap-10 lg:w-[70%]">
               <h4 class="text-left">
-                To fix inconsistent spacing across the product, I built a two-tier token system which included a platform-agnostic primitive scale of a 4px base unit (e.g., space-1 through space-8) and a semantic layer of purpose-based tokens (e.g., container-inset) that mapped each primitive differently across mobile and desktop based on context.
+                To fix inconsistent spacing across the product, I built a two-tier token system which included a platform-agnostic primitive scale of a <span class="text-gree">4px</span> base unit (e.g., <span class="text-gree">space-1</span> through <span class="text-gree">space-8</span>) and a semantic layer of purpose-based tokens (e.g., <span class="text-gree">container-inset</span>) that mapped each primitive differently across mobile and desktop based on context.
 
               </h4>
   <img
@@ -1020,7 +1025,7 @@ When I flagged the scale of these problems through testing and audits, it became
               </h4>
      
                 <h4 class="text-left">
-I shipped the redesigned navigation live, unified the app onto a single accessible orange, and reduced typographic fragmentation by over 85% consolidating 50+ loose text styles into 9 tokens, all now live in production. The navigation redesign in particular made a visible difference: people found the product noticeably easier to navigate, and the new interface was well-received enough that it came up in conversations with investors.
+I shipped the redesigned navigation live, unified the app onto a single accessible orange, and reduced typographic fragmentation by over <span class="text-gree">85%</span> consolidating <span class="text-gree">50+</span> loose text styles into <span class="text-gree">9</span> tokens, all now live in production. The navigation redesign in particular made a visible difference: people found the product noticeably easier to navigate, and the new interface was well-received enough that it came up in conversations with investors.
 
                 </h4>
                 <h4 class="text-left">
@@ -1059,7 +1064,7 @@ An expanded, WCAG-compliant brand color palette is fully documented and proposed
           <div class="flex flex-col gap-10 lg:w-[70%]">
             <div class="flex flex-col gap-3">
               <h4 class="text-left">
-                This was the first design system I'd shipped, and doing it while actively shipping feature work changed how I think about ownership. Auditing 50+ untracked text styles and being the one to clean it up an old system taught me the hard way that a design system is a set of decisions everyone after you inherits. The foundation had to hold up before I could build on top of it. Even a seemingly minuscule change, like button sizes, can end up breaking the app and slowing down the time it takes to design and develop new features.
+                This was the first design system I'd shipped, and doing it while actively shipping feature work changed how I think about ownership. Auditing <span class="text-gree">50+</span> untracked text styles and being the one to clean it up an old system taught me the hard way that a design system is a set of decisions everyone after you inherits. The foundation had to hold up before I could build on top of it. Even a seemingly minuscule change, like button sizes, can end up breaking the app and slowing down the time it takes to design and develop new features.
 
               </h4>
      
