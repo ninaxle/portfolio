@@ -342,6 +342,16 @@ headerTemplate.innerHTML = /* html */ `
         background-color: transparent;
         color: inherit;
       }
+
+      /* Condensed bar. the sliding pill is hidden so the project button
+         carries its own black background and white text. Declared after
+         the hover reset above so a tap can't knock the black out. */
+      .project-button,
+      .project-button:hover,
+      .project-button.nav-on {
+        background-color: #1B191B;
+        color: #fff !important;
+      }
     }
   </style>
 
