@@ -235,7 +235,7 @@
           <div class="image-container max-w-7xl mx-auto">
             <div class="md:border-grid sm:px-4 lg:px-12">
               <p class="text-grey py-3 px-4 sm:px-0">
-                [DESKTOP NAVIGATION REDESIGN]
+                [DESIGN SYSTEM DELIVERABLES]
               </p>
             </div>
             <img
@@ -311,7 +311,7 @@
                   Solution
                 </p>
                 <h4>
-                  I worked on an audit-first, incrementally-shipped system, prioritized by visibility and risk, grounded in competitive research and tested as a live proof of concept through a navigation redesign.
+                  I worked on an audit-first, incrementally-shipped system, prioritized by visibility and risk, and tested as a live proof of concept through a navigation redesign.
                 </h4>
               </div>
             </div>
@@ -339,8 +339,13 @@
                 </h4>
                 <h4 class="text-left">
                   I built a structured tracking sheet cataloguing every typographic style in production
-                 including the categories: Mobile Size, Weight, Line Height, Location, Frequency, Figma name, and Desktop Size.
+                 including details such as mobile/desktop sizes, weight, line height, location, frequency, and Figma name.
                 </h4>
+                 <h4 class="text-left">
+                  The results surfaced <span class="text-gree">50+</span> distinct type styles in use, many
+                  unnamed and never formally added to any system.
+                </h4>
+              </div>
 <video
       autoplay
               muted
@@ -352,11 +357,7 @@
 
 
               
-                <h4 class="text-left">
-                  The results surfaced over <span class="text-gree">50</span> distinct type styles in use, many
-                  unnamed and never formally added to any system.
-                </h4>
-              </div>
+               
 
               <div class="flex flex-col gap-6 pt-4">
                 <p class="text-left text-grey uppercase">
@@ -371,8 +372,8 @@
                   Designer Pain Points: Generic, un-prefixed names like
                   <span class="text-gree">Heading 4</span> gave
                   no indication whether a style belonged to Goodself's official
-                  system or was just leftover noise from an old file. Because
-                  mobile styles had no prefix at all while desktop used Web/,
+                  system or was leftover noise from an old file. Because
+                  mobile styles had no prefix at all while desktop used  <span class="text-gree">Web/</span>,
                   designers couldn't tell canonical styles from legacy ones,
                   leading them to ignore the library, detach styles, or create
                   one-off text layers.
@@ -401,17 +402,17 @@
                   Components and Colour
                 </p>
                 <h4 class="text-left">
-                  Components and colour were harder to audit the same way,
-                  because so little of what was in production was actually
+                  Cataloguing the official library fully
+                  upfront would have meant documenting a system the team wasn't
+                  even using; components and colour were harder to audit the same way,
+                  because so little of what was in production was 
                   pulled from the current design library.
                 </h4>
                 <h4 class="text-left">
                   Designers routinely defaulted to legacy or deprecated
                   components instead, or guessed at the correct one. Several
                   elements also existed only as one-off variants rather than
-                  reusable components. Cataloguing the official library fully
-                  upfront would have meant documenting a system the team wasn't
-                  even using.
+                  reusable components.
                 </h4>
                 <h4 class="text-left">
                   Some of the colour problems weren't even visible through
@@ -430,9 +431,7 @@
               <div class="flex flex-col gap-6 pt-4">
                 <p class="text-left text-grey uppercase">Navigation</p>
                 <h4 class="text-left">
-                  During onboarding, feedback from new hires surfaced another
-                  clear usability problem: Goodself's navigation, especially on
-                  desktop, was clunky and unintuitive. In testing sessions, this
+                  During onboarding, feedback from new hires surfaced that Goodself's navigation, especially on desktop, was clunky and unintuitive. In testing sessions, this
                   friction visibly slowed people down as they searched for
                   essential flows. Assessing the existing navigation against
                   standard usability heuristics confirmed it was violating
@@ -657,14 +656,7 @@
             </div>
             <div class="flex flex-col gap-4 md:gap-10 lg:w-[70%]">
               <h4 class="text-left">
-                To address accumulated design debt without halting active
-                feature work, I introduced a flag-and-ticket workflow. Instead
-                of attempting a massive overhaul, we systematically flagged UI
-                errors in Figma and live builds, converting them into individual
-                backlog tickets to fix incrementally alongside feature sprints.
-                Designers claimed specific sections of the product, tracing
-                legacy components back to their source files to evaluate,
-                refine, or deprecate redundant patterns.
+              To address accumulated design debt without halting active feature work, I introduced a flag-and-ticket workflow to incrementally fix UI errors alongside feature sprints. By tracing legacy elements back to their source files, I systematically evaluated, refined, and rebuilt the core components shown below.   
               </h4>
             </div>
           </div>
@@ -782,7 +774,7 @@
 
 
                <h4 class="text-left">
-I then used this system alongside the flag-and-ticket workflow from Components. As UI errors got flagged and logged, spacing issues on high-traffic surfaces like carousels, course cards, and popups got fixed against the new token system. Every updated component shipped with full state coverage and got documented in its ticket, so the team had both a migration path and a single source of truth going forward.
+Using this system alongside the component flag-and-ticket workflow, I systematically updated spacing on high-traffic surfaces including carousels, course cards, and popups. I ensured every refactored component shipped with complete state coverage and clear ticket documentation, providing the team with a clear migration path and a single source of truth.
               </h4>
 
 
@@ -873,7 +865,7 @@ I then used this system alongside the flag-and-ticket workflow from Components. 
               <h4 class="text-left">
                 The old system pulled inconsistently from multiple icon
                 libraries with no standard weights or fill states. I
-                consolidated the entire application onto a single icon library
+                standardized the entire application onto a single icon library
                 with standardized weights and fills, resolving long-standing
                 legibility issues across the product.
               </h4>
@@ -1078,7 +1070,11 @@ Through the same ticketed workflow, I mapped off-value orange hexes in productio
           <div class="flex flex-col gap-10 lg:w-[70%]">
             <div class="flex flex-col gap-3">
               <h4 class="text-left">
-When I flagged the scale of these problems through testing and audits, it became a cross-functional initiative; designers coordinated to clear the file of legacy components entirely, and every designer I've talked to since says it's dramatically easier to work in, with components properly grouped and real file hygiene for the first time. Developers benefited too: with 1:1 token parity between Figma and the codebase, code and design finally spoke the same language, cutting the guesswork and back-and-forth that used to define every handoff.
+When I flagged the scale of these problems through testing and audits, it became a cross-functional initiative; designers coordinated to clear the file of legacy components entirely. Every designer I've talked to since states it's dramatically easier to work in, with components properly grouped and file hygiene for the first time. 
+              </h4>
+
+                  <h4 class="text-left">
+Developers benefited too: with 1:1 token parity between Figma and the codebase, code and design finally spoke the same language, cutting the guesswork and back-and-forth that used to define every handoff.
 
               </h4>
      
@@ -1132,8 +1128,7 @@ An expanded, WCAG-compliant brand color palette is fully documented and proposed
 
                 </h4>
                 <h4 class="text-left">
-                                     Underneath all of it, this project was less about making the system look impressive, and more about designing responsibly and leaving something future designers and developers could build on with confidence.
-
+                                     Underneath it all, this project was less about making the system look impressive and more about designing responsibly and leaving a foundation that future designers and developers could build on with confidence.
                 </h4>
             </div>
           </div>
