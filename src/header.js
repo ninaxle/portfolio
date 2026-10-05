@@ -47,8 +47,7 @@ headerTemplate.innerHTML = /* html */ `
       padding: 8px;
       border-radius: 20px;
       border: 1px solid #d3d3d3;
-      /* No layout transition: the full-width ↔ rounded forms switch
-         instantly, keeping the pill's measurements always accurate. */
+      /* removed layout transition. */
       transition: none;
       pointer-events: auto;
       display: flex;
@@ -137,9 +136,11 @@ headerTemplate.innerHTML = /* html */ `
     }
 
     /* ─── PROJECT BUTTON ────────────────────────────────────── */
+    /* The background never changes: it stays grey and the black pill
+       supplies the active state, so nothing shifts behind the pill. */
 .project-button {
-  background-color: #1B191B;
-  color: #fff;
+  background-color: #EDEBEE;
+  color: #1B191B;
   padding: 8px 16px;
   border-radius: 12px;
   cursor: pointer;
@@ -149,12 +150,6 @@ headerTemplate.innerHTML = /* html */ `
   gap: 0.5rem;
   white-space: nowrap;
   user-select: none;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.project-button.unlit {
-  background-color: #EDEBEE;
-  color: #1B191B;
 }
 
 .project-button span {
@@ -162,9 +157,9 @@ headerTemplate.innerHTML = /* html */ `
   z-index: 3;
 }
 
-.project-button:hover {
-  background-color: #333;
-}
+/* White text only while the black pill sits underneath */
+.project-button.nav-on { color: #fff !important; }
+
 
     /* ─── CLOSE BUTTON ──────────────────────────────────────── */
     .close-button {
@@ -534,15 +529,12 @@ class Header extends HTMLElement {
       };
     };
 
+    // Only the text colour reacts, and only while the pill is actually
+    // under the slot. Backgrounds stay put, so nothing shifts behind
+    // the pill as it moves.
     const mark = (slot) => {
       slots.forEach((s) => {
-        if (s.matches("a") && s.closest(".nav-links")) {
-          s.classList.toggle("nav-on", s === slot);
-        } else {
-          // Non-nav slots (e.g. WORKS/[project]) go "unlit" when the
-          // pill has left them, and light black again when it returns
-          s.classList.toggle("unlit", s !== slot);
-        }
+        s.classList.toggle("nav-on", s === slot);
       });
     };
 
