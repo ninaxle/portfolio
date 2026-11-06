@@ -186,7 +186,7 @@ class FooterComponent extends HTMLElement {
       <footer>
         <div class="footer-inner">
           <div class="footer-brand">
-            <header>© 2026, Made in JS by me!</header>
+            <header>© 2026, Made in JS by Nina!</header>
           </div>
 
           <nav class="footer-nav">

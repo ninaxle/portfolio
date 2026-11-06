@@ -46,21 +46,17 @@
     ></header-component>
     <script src="scroll-to-top.js" type="module"></script>
 
-    <!-- Hero Image (full width, sidebars start below) -->
+  <!-- Hero Image (full width, sidebars start below) -->
     <div class="w-full">
       <div
-        class="relative h-[60vh] md:h-[72vh] lg:max-h-[640px] xl:max-h-[748px] overflow-hidden"
+        class="relative h-[60vh] md:h-[72vh] lg:max-h-[640px] xl:max-h-[748px]"
         data-lightbox-exclude
       >
-        <video
-          autoplay
-          muted
-          loop
-          playsinline
-          class="absolute top-0 left-0 w-full h-full object-cover md:object-top"
-        >
-          <source src="degree-project/thumbnail.mp4" type="video/mp4" />
-        </video>
+        <img loading="lazy"
+          src="degree-project/preview.png"
+          alt="Hero image"
+          class="absolute top-0 left-0 w-full h-full object-cover"
+        />
       </div>
     </div>
 
@@ -79,7 +75,7 @@
         <span class="block text-sm leading-6 text-grey uppercase mt-7 mb-2">Research</span>
         <a href="#background" data-scroll="background" class="text-sm leading-6 py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors">Background</a>
         <a href="#literature-review" data-scroll="literature-review" class="text-sm leading-6 py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors">Literature Review</a>
-        <a href="#gamification" data-scroll="gamification" class="text-sm leading-6 py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors">The Dark Side of Gamification</a>
+        <a href="#gamification" data-scroll="gamification" class="text-sm leading-6 py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors">My approach</a>
 
         <span class="block text-sm leading-6 text-grey uppercase mt-7 mb-2">Design</span>
         <a href="#output" data-scroll="output" class="text-sm leading-6 py-1 text-[#555] border-l-2 border-[#d0d0d0] pl-2.5 hover:text-blob hover:border-blob transition-colors">The Output</a>
@@ -106,7 +102,7 @@
               <h4>
                 Have you ever wondered why you need to prove you are human to non-living algorithms?
                 AI predates the CAPTCHAs many can't solve, as both grow more inaccessible for the
-                humans who are forced to use them.
+                humans experiencing them.
               </h4>
             </div>
           </div>
@@ -149,41 +145,87 @@
         </div>
       </section>
 
-      <!-- Problem Statement -->
-      <section class="border-grid border-b">
-        <div
-          class="max-w-7xl mx-auto flex flex-col py-8 md:py-12 md:pb-24 px-4 gap-4 lg:px-12"
-        >
-          <div class="flex flex-col gap-10">
-            <div class="flex flex-col gap-4 pt-1">
-              <h4 id="final-inquiry" class="scroll-mt-28">Final Inquiry</h4>
-              <h3>
-                How do AI‑mediated human identity verification systems intensify
-                anxiety and alienation through the transformation of everyday
-                acts of access into compulsory, data‑extractive labour?
-              </h3>
+
+ 
+
+
+      
+   <section class="border-grid border-b">
+          <div
+            class="max-w-7xl mx-auto flex flex-col py-8 md:py-12 md:pb-24 px-4 gap-4 lg:px-12"
+          >
+            <div class="flex flex-col gap-10">
+              <div class="flex flex-col gap-4 pt-1">
+                <p id="solution" class="uppercase text-grey scroll-mt-28">
+                  Game synopsis
+                </p>
+                <h4>
+                 It’s 2040. The air is putrid, living pets are extinct, and humans are lonelier than ever.
+
+But fear not. Tedbot brings BORK, the cute and lovable AI dog companion! Best of all? They are a low-maintenance, ever-helpful companion who never ages, never leaves, and lives eternally. They were designed around Isaac Asimov's "Three Laws of Robotics" and for all humans - Except for you.
+ </h4>
+
+
+<h4>  BORK is watching you and doesn’t think you belong here.
+
+You must escape. Fortunately, you are not entirely alone. Someone has been here before you and left something behind. Find their messages. Find the map, and never trust bright lights.
+         
+
+</h4>
+                    
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+
       
-<!-- FIG.1 IN-APP FEATURES -->
+        
       <section class="image-display-section w-full border-grid border-b">
         <div class="image-container max-w-7xl mx-auto">
           <div class="md:border-grid sm:px-4 lg:px-12">
             <p class="text-grey py-3 px-4 sm:px-0">
-              FIG.1 "ARE YOU HUMAN??"
+              [WALKTHROUGH VIDEO - KEEP SOUND ON!]
             </p>
           </div>
-          <img loading="lazy"
-            src="degree-project/poster.jpg"
-            class="md:border-y border-grid md:border-b-0 w-full"
-            alt="All Features"
-          />
+  <iframe class="md:border-y border-grid md:border-b-0 w-full h-96 md:h-[700px]"
+    src="https://www.youtube.com/embed/yc79mKqQ47E"
+    allowfullscreen>
+  </iframe>
         </div>
       </section>
 
-      
+      <!-- FIG.14 -->
+       <section class="flex flex-col sm:flex-row gap-4 image-container max-w-7xl mx-auto">
+        <div class="image-display-section w-full border-grid border-b">
+        <div class="image-container max-w-7xl mx-auto">
+          <div class="md:border-grid border-r sm:px-4 lg:px-12">
+            <p class="text-grey py-3 px-4 sm:px-0">
+              [TEXT CAPTCHA]
+            </p>
+          </div>
+<video class="md:border-y border-grid md:border-b-0 w-full" height="300" controls>
+  <source src="degree-project/text-captcha.mp4" type="video/mp4">
+</video>
+        </div>
+      </div>
+            <!-- FIG.14 -->
+      <div class="image-display-section w-full border-grid border-b">
+        <div class="image-container max-w-7xl mx-auto">
+          <div class="md:border-grid border-l sm:px-4 lg:px-12">
+            <p class="text-grey py-3 px-4 sm:px-0">
+              [IMAGE CAPTCHA - TYPE 1/5]
+            </p>
+          </div>
+<video class="md:border-y border-grid md:border-b-0 w-full" height="300" controls>
+  <source src="degree-project/image-captcha.mp4" type="video/mp4">
+</video>
+        </div>
+      </div>
+
+       </section>
+
+
+     
 
 
       <!-- Product Development -->
@@ -192,15 +234,13 @@
           class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-24 px-4 justify-between gap-8 lg:px-12"
         >
           <div class="lg:w-[30%] shrink-0">
-            <h4 id="capstone-project" class="scroll-mt-28">My Capstone Project</h4>
+            <h4 id="capstone-project" class="scroll-mt-28">Accelerator</h4>
           </div>
           <div class="flex flex-col gap-4 md:gap-10 lg:w-[70%]">
             <div class="flex flex-col gap-4 pt-4">
               <p class="text-left text-grey">PROJECT OVERVIEW</p>
               <h4 class="text-left">
-                <i>Accelerator</i> is an analog horror game I developed in Unity for my 2026 Capstone project. It is a Critical/Speculative Design
-                 intervention focused on the Digital Acceleration Paradox,
-                  pondering user agency and democracy in digital spaces. A demo version will soon be available to play on itch.io!
+                <i>Accelerator</i> is an analog horror game I developed in Unity for my 2026 Capstone project. It challenges the AI‑first philosophy by telling a story about the costs of overlooking AI safety and equitable digital access in developing AI products. Meanwhile, it critiques the rapid integration of AI technology when applied as a surface-level solution to ongoing environmental and social issues.
               </h4>
             </div>
 
@@ -230,51 +270,64 @@
       </section>
 
 
-<!-- FIG.1 IN-APP FEATURES -->
+
+        <section class="border-grid border-b">
+          <div
+            class="max-w-7xl mx-auto flex flex-col py-8 md:py-12 md:pb-24 px-4 gap-4 lg:px-12"
+          >
+            <div class="flex flex-col gap-10">
+              <div class="flex flex-col gap-4 pt-1">
+                <p id="final-inquiry" class="uppercase text-grey scroll-mt-28">
+                  Final Inquiry
+                </p>
+                <h4>
+                 How do AI‑mediated human identity verification systems intensify
+                anxiety and alienation through the transformation of everyday
+                acts of access into compulsory, data‑extractive labour?    </h4>
+              </div>
+            </div>
+          </div>
+        </section>
+       
+<section class="image-display-section w-full border-grid border-b">
+        <div class="image-container max-w-7xl mx-auto">
+          <div class="md:border-grid sm:px-4 lg:px-12">
+            <p class="text-grey py-3 px-4 sm:px-0">
+              [IN-GAME CUTSCENES // DRAWN DIGITALLY BY ME]
+            </p>
+          </div>
+            <video
+              autoplay
+              muted
+              loop
+              playsinline
+              src="degree-project/thumbnail.mp4"
+              class="md:border-y border-grid md:border-b-0 w-full"
+              alt="All Features"
+            ></video>
+          
+        </div>
+      </section>
+
+
+
+
+
+      <!-- FIG.13b -->
       <section class="image-display-section w-full border-grid border-b">
         <div class="image-container max-w-7xl mx-auto">
           <div class="md:border-grid sm:px-4 lg:px-12">
             <p class="text-grey py-3 px-4 sm:px-0">
-              [FIG.2 WALKTHROUGH VIDEO]
+              [FIG.21 LVL 1 CUTSCENE DRAFTS - IN-GAME]
             </p>
           </div>
-  <iframe class="md:border-y border-grid md:border-b-0 w-full h-96 md:h-[700px]"
-    src="https://www.youtube.com/embed/yc79mKqQ47E"
-    allowfullscreen>
-  </iframe>
+          <img loading="lazy"
+            src="degree-project/set1.png"
+            class="md:border-y border-grid md:border-b-0 w-full"
+            alt="All Features"
+          />
         </div>
       </section>
-
-      <!-- FIG.14 -->
-       <section class="flex flex-col sm:flex-row gap-4 image-container max-w-7xl mx-auto">
-        <div class="image-display-section w-full border-grid border-b">
-        <div class="image-container max-w-7xl mx-auto">
-          <div class="md:border-grid border-r sm:px-4 lg:px-12">
-            <p class="text-grey py-3 px-4 sm:px-0">
-              [FIG.3 TEXT CAPTCHA]
-            </p>
-          </div>
-<video class="md:border-y border-grid md:border-b-0 w-full" height="300" controls>
-  <source src="degree-project/text-captcha.mp4" type="video/mp4">
-</video>
-        </div>
-      </div>
-            <!-- FIG.14 -->
-      <div class="image-display-section w-full border-grid border-b">
-        <div class="image-container max-w-7xl mx-auto">
-          <div class="md:border-grid border-l sm:px-4 lg:px-12">
-            <p class="text-grey py-3 px-4 sm:px-0">
-              [FIG.4 IMAGE CAPTCHA - TYPE 1/5]
-            </p>
-          </div>
-<video class="md:border-y border-grid md:border-b-0 w-full" height="300" controls>
-  <source src="degree-project/image-captcha.mp4" type="video/mp4">
-</video>
-        </div>
-      </div>
-
-       </section>
-
       
         <!-- Product Development -->
       <section class="border-grid border-b">
@@ -290,13 +343,8 @@
             <div class="flex flex-col gap-6 pt-4">
               <p class="text-left text-grey">EXAMINING THE MYTH: BIGGER, BETTER = STRONGER </p>
               <h4 class="text-left">
-                As a UX/UI designer, it's hard to distance myself from the technologies continuously emerging in the AI space. I'd be lying if I said I wasn't impressed by what AI could accomplish, yet I find myself increasingly unsettled by how aggressively new and improved, "better" technology has been forced into our lives.
-                 For instance, do people
-                <i>need</i> AI to summarize their friend's DMs on Instagram?
-                <i
-                  >Do they need AI to make backgrounds for our lockscreens, or
-                  "art" for their coffee cups?</i
-                > Just because AI can be thrown into every possible use case, should we be advocating for this?
+                As a UX/UI designer, it's hard to distance myself from the technologies continuously emerging in the AI space. I am not anti-AI, but I find myself increasingly unsettled by the AI-first philosophy and how aggressively new and improved, "better" technology has made its way into our lives. When I see anything AI, I have several questions. For example, do we always need automatic AI summaries? How much privacy, or agency, does talking to an LLM actually grant me, and who benefits from advanced AI? 
+
               </h4>
             </div>
             <div class="flex flex-col gap-6 pt-4">
@@ -304,7 +352,7 @@
                 TECHNOLOGICAL DETERMINISM
               </p>
               <h4 class="text-left">
-                A communications course I took posed a simple but striking idea: technology is not equal. That statement has only grown louder through my own experience, watching my family members feel consistently excluded by systems marketed as accessible. These personal experiences sit within a wider AI economy celebrated for its promise of efficiency, yet built on the constant extraction of our labour, data, and creativity, often without informed consent. Faster machines, convenience, and more data collection are sold as quick fixes for education, democracy, and law enforcement, despite growing evidence that they deepen inequality rather than solve it.
+A communications course I took made it clear that technology is not experienced equally; how far you can go with technology heavily depends on access and support. I had a fair taste of this from watching my family members struggle to adapt to AI, let alone using “simple” technology to log into important accounts. Regardless, faster machines, convenience, and more data collection are sold as quick fixes for industries like education, democracy, and law enforcement, despite limited evidence of social impact.
               </h4>
             </div>
           </div>
@@ -340,7 +388,6 @@
             class="md:border-y border-grid md:border-b-0 w-full"
             alt="All Features"
           />
-
         </div>
       </div>
             <!-- FIG.14 -->
@@ -348,7 +395,7 @@
         <div class="image-container max-w-7xl mx-auto">
           <div class="md:border-grid border-l sm:px-4 lg:px-12">
             <p class="text-grey py-3 px-4 sm:px-0">
-              [FIG.7 SO TRUSTWORTHY, ITS TOTALLY NOT SPYING ON YOU]
+              [SO TRUSTWORTHY, ITS NOT SPYING ON YOU]
             </p>
           </div>
  <img loading="lazy"
@@ -367,7 +414,7 @@
         <div class="image-container max-w-7xl mx-auto">
           <div class="md:border-grid border-r sm:px-4 lg:px-12">
             <p class="text-grey py-3 px-4 sm:px-0">
-              [FIG.8 WE LOVE CUTE DOGS THAT DO EVERYTHING FOR US!!]
+              [WE LOVE CUTE DOGS THAT DO EVERYTHING FOR US!!]
             </p>
           </div>
  <img loading="lazy"
@@ -383,7 +430,7 @@
         <div class="image-container max-w-7xl mx-auto">
           <div class="md:border-grid border-l sm:px-4 lg:px-12">
             <p class="text-grey py-3 px-4 sm:px-0">
-              [FIG.9 OH WOW THEY ARE A HERO]
+              [OH WOW THEY ARE A HERO]
             </p>
           </div>
  <img loading="lazy"
@@ -416,45 +463,21 @@
 
 
                 [See: in-depth <a href="https://drive.google.com/file/d/14UCRuhYzXYeOVPXYid8IE29CfIH0COFA/view?usp=sharing" class="text-blue-700">Literature Review</a> and <a href="https://drive.google.com/file/d/1OuSeypNHT_InTwG1-3gQlt3Gz0JzRLko/view?usp=sharing" class="text-blue-700">Primary Proposal</a>] <br />
-                The early ethos of my research focused on the meaning boundary
-                between human to AI thinking and identification. Conducting
-                artifact-led research, I set my sights on CAPTCHA; a tool of
-                irony; an algorithm that very much focused on identifying
-                humans, while using user human input to advance AI.
+                To this day, technology is celebrated for its promise of efficiency, but built on the constant extraction of our labour, data, and creativity, often without informed consent. An example is CAPTCHA; an early technology known for defining humanness through ability, yet fueling AI training.
+
               </h4>
             </div>
             <div class="flex flex-col gap-6 pt-4">
               <!-- <p class="text-left text-grey">TECHNOLOGY & CAPACITIES</p> -->
               <div class="flex flex-col gap-4">
                 <h4 class="text-left">
-                  Recurring patterns emerging from my literature review touch on
-                  the following points:
+As a result, newer deployments often rely on more complex puzzles, or require users to unknowingly surrender sensitive data to access basic services. CAPTCHA has fueled an arms race in which access is granted based on a narrow notion of ability, designed primarily for English-speaking, able-bodied, and digitally fluent users. CAPTCHA, like many AI-facilitated systems, compels users to prove their humanity, while systematically dehumanizing those unable to keep up with an ever-escalating arms race.
                 </h4>
-                <div class="text-left">
-                  <h4 class="custom-list-item">
-                    CAPTCHA design collapses human diversity into a singular,
-                    idealized user profile. CAPTCHAs embody this by being
-                    developed for a narrow demographic: English-speaking,
-                    able-bodied, digitally fluent users who are
-                    disproportionately white, Western, and young.
-                  </h4>
-                  <h4 class="custom-list-item">
-                    CAPTCHA has been deployed for over 20 years with no truly ideal solution.
-                    Each iteration eventually gets broken,
-                     only to be replaced by a harder one; the cycle continues, creating an “arms-race” between human-computer ability
-                  </h4>
-                                    <h4 class="custom-list-item">
-                     The arms-race goes something like this - [1] A human is forced to prove they are human to a CAPTCHA to browse a site [2] The CAPTCHA trains AI by harvesting everyone’s data [3] AI is trained to become more capable than humans at bypassing CAPTCHA [4]  Newer, inaccesssible CAPTCHAs are deployed to the market; the same humans are expected to put adapt to and bypass each one.
-                  </h4>
-                  <h4 class="custom-list-item">
-                    The arms race has gotten so out of hand that OpenAI's models can now solve a CAPTCHA more reliably than most humans.
-                  </h4>
-                </div>
-                <h4 class="text-left"> A central question driving my research is whether this trade-off offers any real benefit to those outside the W.E.I.R.D framework: <i>Western, Educated, Industrialized, Rich, and Democratic.</i>
-Are people truly better off being protected by algorithms that surveil and classify them, or does that protection come at too high a cost?"
-As my research suggests, CAPTCHA, like many AI-facilitated systems, compels users to prove their humanity, while penalizing those unable to keep pace with an ever-escalating arms race. 
-<h4 class="text-left">This line of inquiry eventually expanded into facial recognition and biometric systems, which extend the same logic into the body. Rather than solving a puzzle, individuals are asked to surrender deeply personal biological markers in exchange for mobility and access. Whether through CAPTCHA or biometrics, failing these checks can mean being locked out of online services, denied entry at borders, or barred from institutions entirely.
-</h4>
+                  <h4 class="text-left">
+Eventually, I researched facial recognition and biometric systems, which extend the same logic to the body for access. Whether through CAPTCHA or biometrics, failing these authorization methods can mean being locked out of online services or denied entry to government institutions.
+                </h4>
+                
+              
                 </h4>
               </div>
             </div>
@@ -463,8 +486,7 @@ As my research suggests, CAPTCHA, like many AI-facilitated systems, compels user
       </section>
 
 
-      <!-- FIG.14 -->
-      <section class="image-display-section w-full border-grid border-b">
+      <!-- <section class="image-display-section w-full border-grid border-b">
         <div class="image-container max-w-7xl mx-auto">
           <div class="md:border-grid sm:px-4 lg:px-12">
             <p class="text-grey py-3 px-4 sm:px-0">
@@ -477,69 +499,71 @@ As my research suggests, CAPTCHA, like many AI-facilitated systems, compels user
             alt="All Features"
           />
         </div>
-      </section>
+      </section> -->
 
-      <section class="border-grid border-b">
+ <section class="border-grid border-b">
         <div
           class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-24 px-4 justify-between gap-8 lg:px-12"
         >
           <div class="lg:w-[30%] shrink-0">
-            <h4 id="gamification" class="scroll-mt-28">The Dark Side of Gamification</h4>
+            <h4 id="gamification" class="scroll-mt-28">My approach</h4>
           </div>
           <div class="flex flex-col gap-4 md:gap-10 lg:w-[70%]">
             <div class="flex flex-col gap-4 pt-4">
               <h4 class="text-left">
-                Rather than proposing "improved solutions," I had always aimed to create a design intervention that exposes what technological solutionism conceals: whose humanity is valued and how readily humans adapt to being dehumanized by “neutral” algorithms. 
+This project stands out from my other product design work because it doesn’t propose a solution. It deliberately moves away from technological solutionism, recognizing that no degree of systematic thinking or user-flow design can resolve the deeper issues of digital exclusion and access. 
               </h4>
-            </div>
-            <div class="flex flex-col gap-6 pt-4">
-              <!-- <p class="text-left text-grey">TECHNOLOGY & CAPACITIES</p> -->
-              <div class="flex flex-col gap-4">
-                <h4 class="text-left">
-                  Gamified captchas present interesting dynamics concerning the "winners" and "losers" of an ability-oriented system:
-                </h4>
-                <div class="text-left">
-                  <h4 class="custom-list-item">
-                     Designers use gamification to make processes enjoyable, yet it can introduce dark patterns when applied to user authentication.
-                  </h4>
-                  <h4 class="custom-list-item">
-“Procedural Rhetoric” evokes ideas of "toxic meritocracy" in users,
- outlining the disconnect between game logic and real-life logic
-                 </h4>
-                  <h4 class="custom-list-item">
-                  e.g. Games teach players that they are bound to earn rewards and status by “winning,” especially in a competitive setting against other players who “failed.” In other words, if game logic were to be applied outside of games, i.e. cybersecurity/authentication, it legitimizes privilege and dehumanizes by rewarding “winners” and “losers” based on ability.
-                  </h4>
-                </div>
-<h4 class="text-left">Early research naturally led me toward game design as the right medium for this topic. My capstone project took shape as a digital game exposing verification systems (i.e., CAPTCHA, biometric identification) as more than security measures, but as instruments of data extraction. By making the anxieties behind seeing and interacting with technologies such as CAPTCHA more apparent, the game critiques the rapid acceleration of AI and the dynamics that quietly sort people into winners and losers at everyday digital checkpoints.
-
-</h4>
-                
-              </div>
-            </div>
+      
+          </div>
+                      <div class="flex flex-col gap-4 pt-4">
+              <h4 class="text-left">
+Instead, I created a critical design intervention that uses storytelling to address whose humanity is considered in the IoT space, and how readily humans adapt to exclusion from “neutral” algorithms, speaking to the anxieties of those who struggle to adapt to modern tech.
+              </h4>
+      
+          </div>
+        </div>
+      </section>
+<section class="border-grid border-b">
+        <div
+          class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-24 px-4 justify-between gap-8 lg:px-12"
+        >
+          <div class="lg:w-[30%] shrink-0">
+            <h4 id="gamification" class="scroll-mt-28">Why a video game?</h4>
+          </div>
+          <div class="flex flex-col gap-4 md:gap-10 lg:w-[70%]">
+            <div class="flex flex-col gap-4 pt-4">
+              <h4 class="text-left">
+Product designers often use gamification to make experiences more enjoyable, but when used in the wrong context, it can easily slip into dark patterns. In cybersecurity and authentication, gamification can legitimize privilege by using ability as the metric for deciding “winners” and “losers,” rewarding the winners with access.
+              </h4>
+      
+          </div>
+                      <div class="flex flex-col gap-4 pt-4">
+              <h4 class="text-left">
+Building on this, I used this dark pattern to critique digital exclusion and the rapid rise of AI‑mediated verification systems. I came to game design as a medium to foreground “ability” as a central site of conflict.
+              </h4>
+      
           </div>
         </div>
       </section>
 
 
-      <!-- FIG.14 -->
-      <section class="image-display-section w-full border-grid border-b">
+
+
+
+      <!-- <section class="image-display-section w-full border-grid border-b">
         <div class="image-container max-w-7xl mx-auto">
           <div class="md:border-grid sm:px-4 lg:px-12">
             <p class="text-grey py-3 px-4 sm:px-0">
-              [FIG.11 DID YOU KNOW?? HUMAN DATA FROM CAPTCHAS TEACH SMART CARS HOW TO DRIVE!!]
+              ACCELERATOR PROMO POSTER
             </p>
           </div>
           <img loading="lazy"
-            src="degree-project/work.jpeg"
+            src="degree-project/poster.jpg"
             class="md:border-y border-grid md:border-b-0 w-full"
             alt="All Features"
           />
         </div>
-      </section>
-
-
-
-
+      </section> -->
 
       <!-- output -->
       <section class="border-grid border-b">
@@ -547,74 +571,30 @@ As my research suggests, CAPTCHA, like many AI-facilitated systems, compels user
           class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-24 px-4 justify-between gap-8 lg:px-12"
         >
           <div class="lg:w-[30%] shrink-0">
-            <h4 id="output" class="scroll-mt-28">The Output</h4>
+            <h4 id="output" class="scroll-mt-28">Game Rules</h4>
           </div>
           <div class="flex flex-col gap-4 md:gap-10 lg:w-[70%]">
             <div class="flex flex-col gap-4 pt-4">
-                <p>CAPTURING THE DIGITAL ACCELERATION PARADOX</p>
-              <h4 class="text-left">
-                <i>
-                   The Digital Acceleration Paradox describes a situation where the rapid advancement and widespread adoption of digital technologies, like AI and automation, do not necessarily translate into better outcomes for everyone. 
-                </i>
-              </h4>
+        
                        <h4 class="text-left">
-My game utilizes many metaphors, including placing the player in a car. Cars and driving can be just as frightening as they are freeing. Being on the road serves as a metaphor for navigating the digital landscape. This game then poses a critical question: Do humans truly have the freedom to move from point A to point B within the digital space, or are there hidden constraints? What barriers prevent technology from delivering on its utopian promises? The user is intended to ponder, “Who is the Accelerator?” Moreover, every AI-related “tool” on the road acts as friction for the player, introducing them to the issues of access and discrimination present in my initial research. In this game, you, the player, also get to drive a barely functional car, instead of a shiny smart car :) 
-                
+Accelerator is a car-chase game. The player’s mission is to escape to a place where BORK cannot pursue them. Notably, the player drives a car far from being their dream smart car. They must also avoid AI-related obstacles on the road and outspeed BORK, who actively chases their vehicle.                
               </h4>
               <h4 class="text-left">
-                In this game, every AI related “tool” act as friction for the player, introducing them to the  issues of access and discrimination from my initial research. You also get to drive an awful car :)
-              </h4>
+BORK symbolizes the human anxiety of being displaced by capable AI machines. Meanwhile, the driving mechanism represents the challenges and diverse experiences of navigating a digital landscape, where technology can actively work against an individual’s ability to access services and achieve their goals.              </h4>
             </div>
           </div>
         </div>
       </section>
       
 
-      <!-- Ideation
-      <section class="border-grid border-b">
-        <div
-          class="max-w-7xl mx-auto flex flex-col lg:flex-row py-8 md:py-12 md:pb-24 px-4 justify-between gap-8 lg:px-12"
-        >
-          <div class="lg:w-[30%] shrink-0">
-            <h4 class="md:pt-[0.75rem]">The Game Premise</h4>
-          </div>
-          <div class="flex flex-col gap-4 md:gap-10 lg:w-[70%]">
-            <div class="flex flex-col gap-4 pt-4">
-              <h3 class="text-left">
-                "It’s 2040 and the air has become so polluted that it killed living pets, leaving humans lonelier than ever. The cute AI companion and dog, BORK, developed by Tedbot, is a low-maintenance, ever-helpful companion who never ages, never leaves, and lives eternally. Does the concept of forever sound daunting? Not to worry as BORK is designed for humans in mind; they were designed around Isaac Asimov's "Three Laws of Robotics!"
-
-But why are there these damned CAPTCHAs around the road? BORK is watching you and BORK doesn’t think you belong here. You must escape. Fortunately, you are not entirely alone. Someone has been here before you, and they left something behind. Find their messages. Find the map. Never trust bright lights."
-              </h3>
-            </div>
-          </div>
-        </div>
-      </section> -->
+     
 
 
 
 
 
 
-       <!-- Problem Statement -->
-      <section class="border-grid border-b">
-        <div
-          class="max-w-7xl mx-auto flex flex-col py-8 md:py-12 md:pb-24 px-4 gap-4 lg:px-12"
-        >
-          <div class="flex flex-col gap-10">
-            <div class="flex flex-col gap-4 pt-1">
-              <h4 id="game-premise" class="scroll-mt-28">The Game Premise/"Lore"</h4>
-              <h3>
-                 "It’s 2040 and the air has become so polluted that it killed living pets, leaving humans lonelier than ever. The cute AI companion and dog, BORK, developed by Tedbot, is a low-maintenance, ever-helpful companion who never ages, never leaves, and lives eternally. Does the concept of forever sound daunting? Not to worry as BORK is designed for humans in mind; they were designed around Isaac Asimov's "Three Laws of Robotics!"
-
-But why are there these damned CAPTCHAs around the road? BORK is watching you and BORK doesn’t think you belong here. You must escape. Fortunately, you are not entirely alone. Someone has been here before you, and they left something behind. Find their messages. Find the map. Never trust bright lights."
-              
-              </h3>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- FIG.12 -->
+<!--       
       <section class="image-display-section w-full border-grid border-b">
         <div class="image-container max-w-7xl mx-auto">
           <div class="md:border-grid sm:px-4 lg:px-12">
@@ -628,14 +608,13 @@ But why are there these damned CAPTCHAs around the road? BORK is watching you an
             alt="All Features"
           />
         </div>
-      </section>
+      </section> -->
 
-            <!-- FIG.15 -->
       <section class="image-display-section w-full border-grid border-b">
         <div class="image-container max-w-7xl mx-auto">
           <div class="md:border-grid sm:px-4 lg:px-12">
             <p class="text-grey py-3 px-4 sm:px-0">
-              [FIG.13 OLD CAPTCHA/ENEMY DESIGNS]
+              [OLD CAPTCHA/ENEMY DESIGNS]
             </p>
           </div>
           <img loading="lazy"
@@ -651,7 +630,7 @@ But why are there these damned CAPTCHAs around the road? BORK is watching you an
         <div class="image-container max-w-7xl mx-auto">
           <div class="md:border-grid sm:px-4 lg:px-12">
             <p class="text-grey py-3 px-4 sm:px-0">
-              [FIG.14 OLD UI/GAMEOVER]
+              [OLD UI/GAMEOVER]
             </p>
           </div>
           <img loading="lazy"
@@ -668,7 +647,7 @@ But why are there these damned CAPTCHAs around the road? BORK is watching you an
         <div class="image-container max-w-7xl mx-auto">
           <div class="md:border-grid sm:px-4 lg:px-12">
             <p class="text-grey py-3 px-4 sm:px-0">
-              [FIG.15 LEVEL DESIGN WITH COLOUR SYSTEM]
+              [LEVEL DESIGN WITH COLOUR SYSTEM]
             </p>
           </div>
           <img loading="lazy"
@@ -680,8 +659,7 @@ But why are there these damned CAPTCHAs around the road? BORK is watching you an
       </section>
 
 
-      <!-- Wireframing & Prototyping -->
-      <section class="border-grid border-b">
+      <!-- <section class="border-grid border-b">
         <div
           class="max-w-7xl mx-auto flex flex-col lg:flex-row py-12 pb-16 px-4 justify-between gap-8 lg:px-12"
         >
@@ -696,7 +674,7 @@ A core principle of game design is easing the player into the environment gradua
             </div>
           </div>
         </div>
-      </section>
+      </section> -->
 
 
 
@@ -821,21 +799,6 @@ I eventually scrapped this design as I realized it would have been too difficult
 
 
 
-      <!-- FIG.13b -->
-      <section class="image-display-section w-full border-grid border-b">
-        <div class="image-container max-w-7xl mx-auto">
-          <div class="md:border-grid sm:px-4 lg:px-12">
-            <p class="text-grey py-3 px-4 sm:px-0">
-              [FIG.21 LVL 1 CUTSCENE DRAFTS - IN-GAME]
-            </p>
-          </div>
-          <img loading="lazy"
-            src="degree-project/set1.png"
-            class="md:border-y border-grid md:border-b-0 w-full"
-            alt="All Features"
-          />
-        </div>
-      </section>
 
 
       <!-- FIG.14 -->

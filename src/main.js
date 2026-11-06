@@ -634,21 +634,27 @@ const uxuiCardsData = [
     description: "Rhythm-based app helping dementia patients reconnect with time through music",
 
   },
-  {
-    title: "Goodself Design System",
-    tags: "DESIGN SYSTEM | UI LIBRARIES | ACCESSIBILITY | MOBILE, DESKTOP & TABLET",
-    link: "goodself.html",
-    image: "ds.png",
-    description: "A healthtech design system designed around accessibility",
-  },
-
+   
 
   {
     title: "Accelerator",
     tags: "CAPSTONE PROJECT | UNITY | VS CODE | BLENDER | PROCREATE",
     link: "accelerator.html",
-    video: "degree-project/jumpsacre.mp4",
+    video: "degree-project/jumpscare.mp4",
     description: "An analog horror game based on the Digital Acceleration Paradox",
+  },
+ {
+    title: "Cl:air Ecosystem",
+    tags: "AIR QUALITY | SENSORS | UX RESEARCH",
+    image: "clair/clair.jpg",
+    description: "Managing indoor air quality",
+  },
+      {
+    title: "Goodself Design System",
+    tags: "DESIGN SYSTEM | UI LIBRARIES | ACCESSIBILITY | MOBILE, DESKTOP & TABLET",
+    link: "goodself.html",
+    image: "ds.png",
+    description: "A healthtech design system designed around accessibility",
   },
 
 
