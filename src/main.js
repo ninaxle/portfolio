@@ -627,6 +627,14 @@ const uxuiCardsData = [
   },
 
   {
+    title: "Accelerator",
+    tags: "CAPSTONE PROJECT | UNITY | GAME DESIGN | AI SAFETY",
+    link: "accelerator.html",
+    video: "degree-project/jumpscare.mp4",
+    description: "An analog horror game based on the Digital Acceleration Paradox",
+  },
+  
+  {
     title: "Melio",
     tags: "WEARABLE TECH | HEALTHCARE | AI SAFETY | UX RESEARCH",
     link: "melio.html",
@@ -636,13 +644,6 @@ const uxuiCardsData = [
   },
    
 
-  {
-    title: "Accelerator",
-    tags: "CAPSTONE PROJECT | UNITY | VS CODE | BLENDER | PROCREATE",
-    link: "accelerator.html",
-    video: "degree-project/jumpscare.mp4",
-    description: "An analog horror game based on the Digital Acceleration Paradox",
-  },
  {
     title: "Cl:air Ecosystem",
     tags: "AIR QUALITY | SENSORS | UX RESEARCH",
