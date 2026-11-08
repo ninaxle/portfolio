@@ -35,7 +35,8 @@ lightboxTemplate.innerHTML = /* html */ `
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 8.525rem;
+      /* was 8.525rem; raised to offset the new scrub row. Tweak to taste. */
+      margin-bottom: 11rem;
       cursor: pointer;
       transition: background 0.2s;
       font-family: "Fragment Mono", monospace;
@@ -48,6 +49,43 @@ lightboxTemplate.innerHTML = /* html */ `
     .media-wrap { width: 100%; aspect-ratio: 16 / 9; background: #1a1a1a; border-radius: 1rem; overflow: hidden; }
     .media-wrap img,
     .media-wrap video { width: 100%; height: 100%; object-fit: contain; display: block; }
+
+    /* ---- scrub bar (videos only) ---- */
+    .scrub {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+      visibility: hidden; /* keeps height stable so nav buttons don't shift */
+    }
+    .scrub.active { visibility: visible; }
+
+    .play-btn {
+      background: none;
+      border: none;
+      color: #fcfcfc;
+      font-family: "Fragment Mono", monospace;
+      font-size: 0.875rem;
+      cursor: pointer;
+      padding: 0;
+      width: 1.5rem;
+    }
+
+    .scrub-bar {
+      flex: 1;
+      height: 4px;
+      accent-color: #fcfcfc;
+      cursor: pointer;
+    }
+
+    .time {
+      color: #999;
+      font-family: "Fragment Mono", monospace;
+      font-size: 0.75rem;
+      min-width: 6.5rem;
+      text-align: right;
+    }
 
     .caption { color: #999; font-family: "Fragment Mono", monospace; font-size: 0.875rem; margin-top: 1rem; text-align: center; line-height: 1.5; }
 
@@ -105,6 +143,11 @@ lightboxTemplate.innerHTML = /* html */ `
       <button class="nav-btn prev-btn" aria-label="Previous">‹</button>
       <div class="content">
         <div class="media-wrap"></div>
+        <div class="scrub">
+          <button class="play-btn" aria-label="Play/Pause">❚❚</button>
+          <input class="scrub-bar" type="range" min="0" max="1000" value="0" step="1" aria-label="Seek" />
+          <span class="time">0:00 / 0:00</span>
+        </div>
         <p class="caption"></p>
         <a class="visit-link" target="_blank" rel="noopener noreferrer">View Project →</a>
         <span class="counter"></span>
@@ -133,14 +176,53 @@ class LightboxModal extends HTMLElement {
     this.prevBtns = this.shadowRoot.querySelectorAll(".prev-btn");
     this.nextBtns = this.shadowRoot.querySelectorAll(".next-btn");
 
+    // scrub bar refs
+    this.scrub = this.shadowRoot.querySelector(".scrub");
+    this.scrubBar = this.shadowRoot.querySelector(".scrub-bar");
+    this.playBtn = this.shadowRoot.querySelector(".play-btn");
+    this.timeEl = this.shadowRoot.querySelector(".time");
+
     this._items = [];
     this._index = 0;
+    this._video = null;
+    this._scrubbing = false;
+    this._wasPlaying = false;
 
     this.prevBtns.forEach((btn) => btn.addEventListener("click", () => this._go(-1)));
     this.nextBtns.forEach((btn) => btn.addEventListener("click", () => this._go(1)));
     this.overlay.addEventListener("click", (e) => {
       if (e.target === this.overlay) this.close();
     });
+
+    // play / pause
+    this.playBtn.addEventListener("click", () => {
+      if (!this._video) return;
+      this._video.paused ? this._video.play() : this._video.pause();
+    });
+
+    // scrubbing
+    this.scrubBar.addEventListener("pointerdown", () => {
+      if (!this._video) return;
+      this._scrubbing = true;
+      this._wasPlaying = !this._video.paused;
+      this._video.pause();
+    });
+
+    this.scrubBar.addEventListener("input", () => {
+      const v = this._video;
+      if (!v || !v.duration) return;
+      v.currentTime = (this.scrubBar.value / 1000) * v.duration;
+      this._updateTime();
+    });
+
+    const endScrub = () => {
+      if (!this._scrubbing) return;
+      this._scrubbing = false;
+      if (this._video && this._wasPlaying) this._video.play();
+      this._wasPlaying = false;
+    };
+    this.scrubBar.addEventListener("pointerup", endScrub);
+    this.scrubBar.addEventListener("pointercancel", endScrub);
 
     this._onKeyDown = this._onKeyDown.bind(this);
   }
@@ -162,8 +244,10 @@ class LightboxModal extends HTMLElement {
   }
 
   _go(dir) {
+    const next = this._index + dir;
+    if (next < 0 || next >= this._items.length) return;
     this._pauseVideo();
-    this._index += dir;
+    this._index = next;
     this._render();
   }
 
@@ -172,6 +256,9 @@ class LightboxModal extends HTMLElement {
     if (!item) return;
 
     this.mediaContainer.innerHTML = "";
+    this._video = null;
+    this._scrubbing = false;
+    this._wasPlaying = false;
 
     if (item.type === "video") {
       const video = document.createElement("video");
@@ -180,6 +267,19 @@ class LightboxModal extends HTMLElement {
       video.muted = true;
       video.loop = true;
       video.playsInline = true;
+
+      video.addEventListener("timeupdate", () => {
+        if (!video.duration) return;
+        if (!this._scrubbing) {
+          this.scrubBar.value = (video.currentTime / video.duration) * 1000;
+        }
+        this._updateTime();
+      });
+      video.addEventListener("loadedmetadata", () => this._updateTime());
+      video.addEventListener("play", () => (this.playBtn.textContent = "❚❚"));
+      video.addEventListener("pause", () => (this.playBtn.textContent = "▶"));
+
+      this._video = video;
       this.mediaContainer.appendChild(video);
     } else {
       const img = document.createElement("img");
@@ -187,6 +287,12 @@ class LightboxModal extends HTMLElement {
       img.alt = item.caption || "";
       this.mediaContainer.appendChild(img);
     }
+
+    // scrub bar: only visible for videos
+    this.scrub.classList.toggle("active", item.type === "video");
+    this.scrubBar.value = 0;
+    this.playBtn.textContent = "❚❚";
+    this.timeEl.textContent = "0:00 / 0:00";
 
     this.captionEl.textContent = item.caption || "";
 
@@ -203,16 +309,32 @@ class LightboxModal extends HTMLElement {
     this.nextBtns.forEach((btn) => btn.classList.toggle("disabled", this._index === this._items.length - 1));
   }
 
+  _fmt(s) {
+    if (!isFinite(s)) return "0:00";
+    const m = Math.floor(s / 60);
+    const sec = Math.floor(s % 60).toString().padStart(2, "0");
+    return `${m}:${sec}`;
+  }
+
+  _updateTime() {
+    const v = this._video;
+    if (!v) return;
+    this.timeEl.textContent = `${this._fmt(v.currentTime)} / ${this._fmt(v.duration)}`;
+  }
+
   _pauseVideo() {
     const video = this.mediaContainer.querySelector("video");
     if (video) {
       video.pause();
       video.src = "";
     }
+    this._video = null;
   }
 
   _onKeyDown(e) {
     if (e.key === "Escape") this.close();
+    // when the slider is focused, arrow keys should scrub, not change slides
+    if (this.shadowRoot.activeElement === this.scrubBar) return;
     if (e.key === "ArrowLeft") this._go(-1);
     if (e.key === "ArrowRight") this._go(1);
   }
