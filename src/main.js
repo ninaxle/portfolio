@@ -619,7 +619,7 @@ const uxuiCardsData = [
 
   {
     title: "Radiate Showcase Website 2026",
-    tags: "PRODUCT MANAGEMENT | UX STRATEGY",
+    tags: "PRODUCT MANAGEMENT | UX STRATEGY | MULTI-PLATFORM",
     link: "radiate.html",
     image: "radiate/thumbnail-2.webp",
     description: "Leading product strategy to get 44 design grads discovered at scale",
@@ -635,36 +635,22 @@ const uxuiCardsData = [
   },
   
   {
-    title: "Melio",
-    tags: "WEARABLE TECH | HEALTHCARE | AI SAFETY | UX RESEARCH",
+    title: "Melio | Honourable Mention in UX Design",
+    tags: "HONOURABLE MENTION | RGD CANADA '26 | WEARABLE TECH | AI SAFETY",
     link: "melio.html",
     image: "melio/melio.png",
     description: "Rhythm-based app helping dementia patients reconnect with time through music",
 
   },
    
-
- {
-    title: "Cl:air Ecosystem",
-    tags: "AIR QUALITY | SENSORS | UX RESEARCH",
-    image: "clair/clair.jpg",
-    description: "Managing indoor air quality",
-  },
       {
     title: "Goodself Design System",
-    tags: "DESIGN SYSTEM | UI LIBRARIES | ACCESSIBILITY | MOBILE, DESKTOP & TABLET",
+    tags: "DESIGN SYSTEM | UI LIBRARIES | ACCESSIBILITY | MULTI-PLATFORM",
     link: "goodself.html",
     image: "ds.png",
     description: "A healthtech design system designed around accessibility",
   },
 
-
-  {
-    title: "Genesys Cloud",
-    tags: "INTERNSHIP",
-    image: "gen.png",
-    description: "Shaping product direction for enterprise contact center software",
-  },
 
 
   {
@@ -681,6 +667,20 @@ const uxuiCardsData = [
     link: "hereafter.html",
     tags: "WINNER | RGD CANADA '23 | UX RESEARCH | MOBILE",
     description: "A mental health journalling application designed for self-reflection",
+  },
+
+  {
+    title: "Genesys Cloud",
+    tags: "INTERNSHIP",
+    image: "gen.png",
+    description: "Shaping product direction for enterprise contact center software",
+  },
+  
+  {
+    title: "Cl:air Ecosystem",
+    tags: "PRODUCT DESIGN | SENSORS | ROBOTICS",
+    image: "clair/clair.jpg",
+    description: "Transforming indoor air care into an all‑in‑one, intelligent ecosystem",
   },
 
 ];
